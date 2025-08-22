@@ -42,6 +42,27 @@ B+ Tree Indexes:
 - Better sequential access
 - Reduced tree height
 - Linked leaf nodes
+
+Skiplist Structures:
+- Probabilistic O(log n) height
+- Multiple forward pointers
+- Memory efficient
+- Redis sorted sets
+```
+
+#### **Data Structure Transformations**
+```
+Write Path: Buffer Pool → WAL → B+ Tree → Disk
+- Hash Table: O(1) page lookup
+- LRU List: O(1) eviction
+- Sequential WAL: O(1) append
+- B+ Tree: O(log n) updates
+
+Read Path: Query → Index → Buffer Pool → Data
+- Parse Tree: O(n) parsing
+- B+ Tree: O(log n) search
+- Buffer Pool: O(1) access
+- Tuple Assembly: O(k) for k fields
 ```
 
 #### **Use Cases**
@@ -75,6 +96,27 @@ LSM Trees:
 - Background compaction
 - Bloom filters for existence checks
 - Sequential disk writes
+
+Skiplist MemTable:
+- O(log n) insertion in memory
+- Sorted by key for efficient lookups
+- Hash table for duplicate detection
+- Bloom filter for existence checks
+```
+
+#### **Data Structure Transformations**
+```
+Write Path: MemTable → SSTable → LSM Tree
+- Skiplist: O(log n) in-memory insertion
+- Hash Table: O(1) duplicate detection
+- Sequential Write: O(n) SSTable creation
+- Merge Sort: O(n log n) compaction
+
+Read Path: MemTable → Bloom Filter → SSTable
+- Skiplist: O(log n) memory search
+- Bloom Filter: O(k) hash operations
+- Binary Search: O(log n) SSTable lookup
+- Merge Logic: Latest value selection
 ```
 
 #### **Use Cases**
@@ -177,6 +219,21 @@ Hourly: Aggregates (1 month)
 Daily: Summaries (1 year)
 ```
 
+#### **Data Structure Transformations**
+```
+Write Path: Timestamp → Bucket → Column → Compressed
+- Time Bucketing: O(1) bucket assignment
+- Value Encoding: Delta encoding O(n)
+- Compression: Run-length encoding
+- Index Updates: Time-based maintenance
+
+Read Path: Query → Buckets → Columns → Time Series
+- Time Range: O(log n) bucket selection
+- Column Access: Direct column reading
+- Decompression: O(n) value processing
+- Aggregation: Statistical operations
+```
+
 #### **Use Cases**
 - IoT sensor data
 - Application metrics
@@ -206,6 +263,21 @@ Index:
 "brown": [Doc1:3, Doc2:3]
 "fox": [Doc1:4]
 "dog": [Doc2:4]
+```
+
+#### **Data Structure Transformations**
+```
+Indexing Path: Text → Tokens → Inverted Index
+- Tokenization: O(n) character processing
+- Term Dictionary: Hash table O(1) lookups
+- Posting Lists: Skip list O(log n) access
+- Compression: Variable-length encoding
+
+Search Path: Query → Terms → Posting Lists → Results
+- Query Parsing: O(n) query length
+- Term Lookup: O(1) dictionary access
+- List Intersection: O(n) merge complexity
+- Scoring: TF-IDF, BM25 algorithms
 ```
 
 #### **Search Types**
@@ -431,6 +503,181 @@ Flexible Schema? → Document Store
 - **Rollback Plans**: Always maintain ability to rollback
 
 ---
+
+## ❓ **FREQUENTLY ASKED QUESTIONS (FAQs)**
+
+### **Common Misconceptions**
+
+#### **Q1: "RDBMS can't scale"**
+**A: FALSE** - RDBMS can scale significantly:
+- **Vertical**: CPU, memory, storage upgrades (2-10x)
+- **Horizontal**: Read replicas (10-50x), sharding (100-1000x)
+- **Real Examples**: Facebook MySQL (1B+ users), YouTube (1B+ requests/day)
+
+#### **Q2: "NoSQL is always faster than RDBMS"**
+**A: FALSE** - Performance depends on use case:
+- **Simple Lookups**: NoSQL (0.1-1ms) vs RDBMS (1-10ms)
+- **Complex Queries**: RDBMS (1-10ms) vs NoSQL (10-100ms)
+- **Analytics**: RDBMS (10ms-1s) vs NoSQL (100ms-10s)
+
+#### **Q3: "Document stores are schema-less"**
+**A: PARTIALLY TRUE** - Schema flexibility has trade-offs:
+- **Flexible**: Add fields without migration
+- **Constraints**: Application-level validation required
+- **Indexing**: Schema changes affect query performance
+
+#### **Q4: "Time series DBs are just databases with timestamps"**
+**A: FALSE** - Highly specialized for time data:
+- **Storage**: Time-based partitioning, columnar compression
+- **Queries**: Time-range optimization, aggregation functions
+- **Lifecycle**: Automatic downsampling, retention policies
+
+## 🚀 **SCALING MECHANISMS**
+
+### **RDBMS Scaling**
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Vertical Scaling** | 2-10x | Hardware upgrade | Single instance performance |
+| **Read Replicas** | 10-50x | Master-slave replication | Read-heavy workloads |
+| **Sharding** | 100-1000x | Hash/range partitioning | Write-heavy workloads |
+| **Partitioning** | 10-100x | Table partitioning | Large tables |
+
+### **Key-Value Store Scaling**
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Horizontal Scaling** | 100-1000x | Consistent hashing | Even distribution |
+| **Replication** | 10-100x | Master-slave | High availability |
+| **Partitioning** | 100-1000x | Hash partitioning | Data distribution |
+| **Auto-scaling** | 10-100x | Dynamic scaling | Variable workloads |
+
+### **Document Store Scaling**
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Horizontal Scaling** | 100-1000x | Sharding | Data distribution |
+| **Replication** | 10-100x | Replica sets | High availability |
+| **Indexing** | 10-100x | B-tree indexes | Query performance |
+| **Caching** | 10-100x | In-memory cache | Frequently accessed data |
+
+### **Wide Column Store Scaling**
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Horizontal Scaling** | 100-1000x | Consistent hashing | Data distribution |
+| **Replication** | 10-100x | Multi-DC replication | Geographic distribution |
+| **Compression** | 2-10x | Columnar compression | Storage optimization |
+| **Batch Operations** | 10-100x | Bulk operations | High throughput |
+
+### **Time Series DB Scaling**
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Horizontal Scaling** | 100-1000x | Time-based sharding | Data distribution |
+| **Compression** | 5-20x | Columnar compression | Storage optimization |
+| **Downsampling** | 10-100x | Time-based aggregation | Long-term storage |
+| **Retention Policies** | 10-100x | TTL-based deletion | Storage management |
+
+## 🔄 **CONSENSUS ALGORITHMS**
+
+| Algorithm | Use Case | Complexity | Examples |
+|-----------|----------|------------|----------|
+| **Paxos** | Distributed consensus | High | Google Chubby, ZooKeeper |
+| **Raft** | Distributed consensus | Medium | etcd, Consul, MongoDB |
+| **Gossip** | Eventual consistency | Low | Cassandra, DynamoDB |
+| **Vector Clocks** | Causal consistency | Medium | DynamoDB, Riak |
+| **CRDTs** | Conflict resolution | Low | Riak, Redis CRDTs |
+
+## 🛡️ **SYSTEM CHARACTERISTICS**
+
+### **Availability by Storage Type**
+| Storage Type | Native | Max with Scaling | Failure Recovery |
+|--------------|--------|------------------|------------------|
+| **RDBMS** | 99.9% | 99.99% | Automatic failover |
+| **Key-Value** | 99.95% | 99.999% | Sub-second failover |
+| **Document** | 99.9% | 99.99% | Automatic failover |
+| **Wide Column** | 99.99% | 99.999% | Geographic failover |
+| **Time Series** | 99.9% | 99.99% | Automatic failover |
+| **Object Store** | 99.99% | 99.999% | Regional failover |
+
+### **Consistency Models**
+| Storage Type | Default | Configurable | Trade-offs |
+|--------------|---------|--------------|------------|
+| **RDBMS** | Linearizable | Read committed, repeatable read | Performance vs consistency |
+| **Key-Value** | Eventual | Strong, causal, session | Consistency vs availability |
+| **Document** | Eventual | Read concern levels | Consistency vs performance |
+| **Wide Column** | Eventual | Quorum reads/writes | Consistency vs latency |
+| **Time Series** | Eventual | Time-based consistency | Consistency vs performance |
+
+## 💾 **BACKUP & ARCHIVAL**
+
+### **Backup Methods**
+| Storage Type | Method | Recovery Time | Frequency |
+|--------------|--------|---------------|-----------|
+| **RDBMS** | Full + incremental | Hours | Daily |
+| **Key-Value** | Snapshot + WAL | Minutes | Daily |
+| **Document** | Oplog replay | Minutes | Daily |
+| **Wide Column** | SSTable backup | Hours | Daily |
+| **Time Series** | Time-based backup | Minutes | Daily |
+| **Object Store** | Cross-region copy | Hours | Daily |
+
+### **Storage Tiering**
+| Tier | Access Pattern | Latency | Cost | Migration Trigger |
+|------|----------------|---------|------|-------------------|
+| **Hot** | Frequent | < 10ms | High | Active data |
+| **Warm** | Occasional | 10-100ms | Medium | Recent data |
+| **Cold** | Rare | 100ms-1s | Low | Historical data |
+| **Archive** | Compliance | 1s-1min | Very Low | Long-term retention |
+
+## 📊 **CAPACITY & LIMITS**
+
+### **Storage Capacity**
+| Storage Type | Single Instance | Clustered | Total Capacity |
+|--------------|----------------|-----------|----------------|
+| **RDBMS** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Key-Value** | 100GB-1TB | 10TB-100TB | 100TB+ |
+| **Document** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Wide Column** | 10-100TB | 1PB-10PB | 10PB+ |
+| **Time Series** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Object Store** | 1-10TB | 1PB-100PB | 100PB+ |
+
+### **Performance Limits**
+| Storage Type | Read Throughput | Write Throughput | Concurrent Connections |
+|--------------|----------------|------------------|----------------------|
+| **RDBMS** | 10K-100K ops/sec | 1K-10K ops/sec | 10K-100K |
+| **Key-Value** | 100K-1M ops/sec | 100K-1M ops/sec | 100K-1M |
+| **Document** | 10K-100K ops/sec | 10K-100K ops/sec | 10K-100K |
+| **Wide Column** | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| **Time Series** | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| **Object Store** | 100-1K ops/sec | 100-1K ops/sec | 1K-10K |
+
+## ⚠️ **COMMON PITFALLS**
+
+### **RDBMS Pitfalls**
+- **N+1 Query Problem**: Multiple queries instead of joins
+- **Missing Indexes**: No indexes on frequently queried columns
+- **Connection Pool Exhaustion**: Too many database connections
+- **Long-Running Transactions**: Transactions holding locks too long
+
+### **Key-Value Store Pitfalls**
+- **Memory Exhaustion**: Running out of memory
+- **Hot Keys**: Uneven key distribution
+- **Network Partition**: Split-brain scenarios
+- **Cache Stampede**: Multiple requests for same expired key
+
+### **Document Store Pitfalls**
+- **Large Documents**: Documents exceeding 16MB
+- **Missing Indexes**: No indexes on queried fields
+- **Schema Drift**: Inconsistent document structures
+- **Embedded Array Growth**: Unbounded array growth
+
+### **Wide Column Store Pitfalls**
+- **Poor Partition Key Design**: Uneven data distribution
+- **Wide Rows**: Too many columns per row
+- **Read Repair Overhead**: Frequent consistency repairs
+- **Compaction Pressure**: Insufficient compaction resources
+
+### **Time Series DB Pitfalls**
+- **Cardinality Explosion**: Too many unique time series
+- **Retention Policy Issues**: Incorrect data lifecycle
+- **Query Time Range**: Very large time ranges
+- **Downsampling Configuration**: Incorrect aggregation intervals
 
 ## 🎯 **KEY TAKEAWAYS**
 
