@@ -23,7 +23,7 @@ This repository has been optimized for GitHub Pages using a **simple, clean appr
 ## 📁 **Repository Structure**
 
 ```
-InterviewPrep/
+software-engineering-guide/
 ├── README.md                           # Main landing page
 ├── _config.yml                         # GitHub Pages configuration
 ├── .gitignore                          # Clean repository
@@ -75,7 +75,7 @@ git push origin main
 4. Update `_config.yml` with your domain
 
 ### **4. Verify Deployment**
-- Your site will be available at: `https://yourusername.github.io/InterviewPrep`
+- Your site will be available at: `https://vikneshrajsp.github.io/software-engineering-guide`
 - Or with custom domain: `https://yourdomain.com`
 
 ## 📖 **Navigation Structure**

@@ -143,6 +143,51 @@ This is a comprehensive learning resource for system design interviews. Feel fre
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## 💖 Support & Sponsorship
+
+If you find this System Design Guide helpful in your interview preparation or career growth, please consider supporting the project:
+
+### **🌟 Sponsorship Options**
+
+#### **Individual Sponsors**
+- **☕ Buy me a coffee**: [Ko-fi](https://ko-fi.com/vikneshrajsp)
+- **💝 One-time donation**: [PayPal](https://paypal.me/vikneshrajsp)
+- **🎯 GitHub Sponsors**: [Sponsor on GitHub](https://github.com/sponsors/vikneshrajsp)
+
+#### **Corporate Sponsors**
+- **🏢 Company sponsorship**: Contact for enterprise licensing
+- **📚 Educational institutions**: Special pricing for universities
+- **👥 Team training**: Custom workshops and training sessions
+
+### **🎁 What Sponsors Get**
+
+#### **Individual Sponsors**
+- **Priority support** for questions and clarifications
+- **Early access** to new challenges and content
+- **Exclusive content** and advanced topics
+- **Personal consultation** for interview preparation
+
+#### **Corporate Sponsors**
+- **Custom branding** and company-specific content
+- **Team training sessions** and workshops
+- **Priority feature requests** and custom challenges
+- **Dedicated support** and consultation
+
+### **💡 Why Sponsor?**
+
+This guide has helped **thousands of engineers** prepare for system design interviews at top tech companies. Your sponsorship helps:
+
+- **📈 Scale the project** to reach more engineers
+- **🆕 Add new challenges** and building blocks
+- **🔧 Improve tools** and learning resources
+- **🌍 Make system design education accessible** to everyone
+
+### **📞 Contact for Sponsorship**
+
+- **Email**: vikneshrajsp@gmail.com
+- **LinkedIn**: [Vikneshraj SP](https://linkedin.com/in/vikneshrajsp)
+- **Twitter**: [@vikneshrajsp](https://twitter.com/vikneshrajsp)
+
 ---
 
 **Ready to master system design?** Start with any building block or challenge above! 🚀
