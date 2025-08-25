@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for web crawler design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for web crawler design system design challenge" />
-<link rel="canonical" href="http://localhost:4000/engineering-ascend/system-design-challenges/web-crawler-design/" />
-<meta property="og:url" content="http://localhost:4000/engineering-ascend/system-design-challenges/web-crawler-design/" />
+<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/web-crawler-design/" />
+<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/web-crawler-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Web Crawler Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for web crawler design system design challenge","headline":"Web Crawler Design - System Design Challenge","url":"http://localhost:4000/engineering-ascend/system-design-challenges/web-crawler-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for web crawler design system design challenge","headline":"Web Crawler Design - System Design Challenge","url":"http://0.0.0.0:4006/engineering-ascend/system-design-challenges/web-crawler-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -817,29 +817,44 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
-│                  Web Crawler System                    │
-├─────────────────────────────────────────────────────────┤URL       │    │   Content   │    │   API       │  │
-│   Discovery   │    │  Processing │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Scheduler   │    │   Crawler         │    │  Parser │ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Politeness   │                  │
-│         │              │  Manager┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Colossus    │    │   Bigtable          │    │  Redis  │ │
-│  │ (Content)   │    │   (Metadata)        │    │ (Queue) │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Object      │                  │
-│         │              │   Storage┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Analytics       │    │ (Events)</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                           Web Crawler System                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │    URL      │    │   Content   │    │     API     │    │     Load    │  │
+│  │ Discovery   │    │ Processing  │    │   Gateway   │    │  Balancer   │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│  ┌─────────────┐    ┌─────┴───────┐    ┌─────┴───────┐    ┌─────────────┐  │
+│  │ Scheduler   │    │   Crawler   │    │   Parser    │    │ Politeness  │  │
+│  │ Service     │    │  Service    │    │  Service    │    │  Manager    │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│                    ┌──────┴──────────────────┴──────┐                      │
+│                    │         Data Layer             │                      │
+│                    └─────────────┬──────────────────┘                      │
+│                                  │                                         │
+│  ┌─────────────┐    ┌────────────┴────────────┐    ┌─────────────┐        │
+│  │  Colossus   │    │        Bigtable         │    │    Redis    │        │
+│  │ (Content)   │    │      (Metadata)         │    │   (Queue)   │        │
+│  └─────────────┘    └────────────┬────────────┘    └─────────────┘        │
+│                                  │                                         │
+│                    ┌─────────────┴────────────┐    ┌─────────────┐        │
+│                    │      Object Storage      │    │    Kafka    │        │
+│                    │     (Infrastructure)     │    │  (Events)   │        │
+│                    └──────────────────────────┘    └─────────────┘        │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │              Multi-Region Infrastructure                            │   │
+│  │              Monitoring &amp; Analytics                                 │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

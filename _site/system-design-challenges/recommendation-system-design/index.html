@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for recommendation system design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for recommendation system design system design challenge" />
-<link rel="canonical" href="http://localhost:4000/engineering-ascend/system-design-challenges/recommendation-system-design/" />
-<meta property="og:url" content="http://localhost:4000/engineering-ascend/system-design-challenges/recommendation-system-design/" />
+<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/recommendation-system-design/" />
+<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/recommendation-system-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Recommendation System Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for recommendation system design system design challenge","headline":"Recommendation System Design - System Design Challenge","url":"http://localhost:4000/engineering-ascend/system-design-challenges/recommendation-system-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for recommendation system design system design challenge","headline":"Recommendation System Design - System Design Challenge","url":"http://0.0.0.0:4006/engineering-ascend/system-design-challenges/recommendation-system-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -818,29 +818,44 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
-│                Recommendation System                    │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   API       │  │
-│   Apps        │    │  Client     │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Recommendation│   │   ML Training     │    │  Feature│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Model        │                  │
-│         │              │  Serving┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ ClickHouse  │    │   Redis             │    │  Feature│ │
-│  │ (Analytics) │    │   (Cache)           │    │ Store   │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Object      │                  │
-│         │              │   Storage┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; ML Quality      │    │ (Events)</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                        Recommendation System                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │   Mobile    │    │     Web     │    │     API     │    │     Load    │  │
+│  │    Apps     │    │   Client    │    │   Gateway   │    │  Balancer   │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│  ┌─────────────┐    ┌─────┴───────┐    ┌─────┴───────┐    ┌─────────────┐  │
+│  │Recommendation│    │   ML Training│    │   Feature   │    │   Model     │  │
+│  │   Service    │    │   Service    │    │  Service    │    │  Serving    │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│                    ┌──────┴──────────────────┴──────┐                      │
+│                    │         Data Layer             │                      │
+│                    └─────────────┬──────────────────┘                      │
+│                                  │                                         │
+│  ┌─────────────┐    ┌────────────┴────────────┐    ┌─────────────┐        │
+│  │ ClickHouse  │    │        Redis           │    │   Feature   │        │
+│  │ (Analytics) │    │       (Cache)          │    │   Store     │        │
+│  └─────────────┘    └────────────┬────────────┘    └─────────────┘        │
+│                                  │                                         │
+│                    ┌─────────────┴────────────┐    ┌─────────────┐        │
+│                    │      Object Storage      │    │    Kafka    │        │
+│                    │     (Infrastructure)     │    │  (Events)   │        │
+│                    └──────────────────────────┘    └─────────────┘        │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │              Multi-Region Infrastructure                            │   │
+│  │              Monitoring &amp; ML Quality                                │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

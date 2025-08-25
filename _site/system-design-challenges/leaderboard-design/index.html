@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for leaderboard design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for leaderboard design system design challenge" />
-<link rel="canonical" href="http://localhost:4000/engineering-ascend/system-design-challenges/leaderboard-design/" />
-<meta property="og:url" content="http://localhost:4000/engineering-ascend/system-design-challenges/leaderboard-design/" />
+<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/leaderboard-design/" />
+<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/system-design-challenges/leaderboard-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Leaderboard Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for leaderboard design system design challenge","headline":"Leaderboard Design - System Design Challenge","url":"http://localhost:4000/engineering-ascend/system-design-challenges/leaderboard-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for leaderboard design system design challenge","headline":"Leaderboard Design - System Design Challenge","url":"http://0.0.0.0:4006/engineering-ascend/system-design-challenges/leaderboard-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -818,30 +818,44 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
-│                Leaderboard System                      │
-├─────────────────────────────────────────────────────────┤Gaming    │    │   Gaming    │    │   Gaming    │  │
-│   Clients     │    │  Clients    │    │  Clients┼┴─────────┐                 │
-│                    │   Score           │                 │
-│                    │   Collection      │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Score       │    │   Ranking         │    │  Leaderboard│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Anti-cheat   │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Redis       │    │   PostgreSQL        │    │  Time   │ │
-│  │ (Scores)    │    │   (Users)           │    │ Series  │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Cache       │                  │
-│         │              │   Layer┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Analytics       │    │ (Events)</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                         Leaderboard System                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │   Gaming    │    │   Gaming    │    │   Gaming    │    │   Score     │  │
+│  │   Clients   │    │   Clients   │    │   Clients   │    │ Collection  │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│  ┌─────────────┐    ┌─────┴───────┐    ┌─────┴───────┐    ┌─────────────┐  │
+│  │    Score    │    │   Ranking   │    │Leaderboard │    │ Anti-cheat  │  │
+│  │   Service   │    │   Service   │    │  Service   │    │  Service    │  │
+│  └─────┬───────┘    └─────┬───────┘    └─────┬───────┘    └─────┬───────┘  │
+│        │                  │                  │                  │          │
+│        └──────────────────┼──────────────────┼──────────────────┘          │
+│                           │                  │                             │
+│                    ┌──────┴──────────────────┴──────┐                      │
+│                    │         Data Layer             │                      │
+│                    └─────────────┬──────────────────┘                      │
+│                                  │                                         │
+│  ┌─────────────┐    ┌────────────┴────────────┐    ┌─────────────┐        │
+│  │    Redis    │    │      PostgreSQL        │    │    Time     │        │
+│  │  (Scores)   │    │       (Users)          │    │   Series    │        │
+│  └─────────────┘    └────────────┬────────────┘    └─────────────┘        │
+│                                  │                                         │
+│                    ┌─────────────┴────────────┐    ┌─────────────┐        │
+│                    │      Cache Layer         │    │    Kafka    │        │
+│                    │     (Infrastructure)     │    │  (Events)   │        │
+│                    └──────────────────────────┘    └─────────────┘        │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │              Multi-Region Infrastructure                            │   │
+│  │              Monitoring &amp; Analytics                                 │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

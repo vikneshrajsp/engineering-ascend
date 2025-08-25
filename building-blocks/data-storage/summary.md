@@ -12,16 +12,105 @@ grand_parent: Building Blocks
 ## 📋 **STORAGE SYSTEM OVERVIEW**
 
 ### **Storage Types Classification with Performance Metrics**
-| Storage Type | Primary Use | Consistency Model | Scaling Pattern | Read Throughput | Write Throughput | Latency | Examples |
-|--------------|-------------|-------------------|-----------------|-----------------|------------------|---------|----------|
-| **RDBMS** | ACID transactions | Linearizable | Vertical + Read Replicas | 10K-50K ops/sec | 5K-20K ops/sec | 1-5ms | MySQL, PostgreSQL |
-| **Key-Value** | Simple lookups | Eventual/Linearizable | Horizontal Sharding | 100K-1M ops/sec | 50K-500K ops/sec | 0.1-1ms | Redis, DynamoDB |
-| **Wide Column** | Analytics | Eventual | Hash-based Partitioning | 10K-100K ops/sec | 50K-200K ops/sec | 5-20ms | Cassandra, HBase |
-| **Document** | Flexible schemas | Eventual | Range-based Sharding | 10K-50K ops/sec | 5K-20K ops/sec | 1-10ms | MongoDB, CouchDB |
-| **Time Series** | Time-ordered data | Eventual | Time-based Partitioning | 10K-100K ops/sec | 100K-1M ops/sec | 1-10ms | InfluxDB, TimescaleDB |
-| **Text Search** | Full-text search | Eventual | Document-based Sharding | 1K-10K ops/sec | 1K-5K ops/sec | 10-100ms | Elasticsearch, Solr |
-| **Object Store** | Large files | Eventual | Hash-based Distribution | 100-1K ops/sec | 100-1K ops/sec | 100ms-1s | S3, GCS, Azure Blob |
-| **Geospatial** | Location data | Eventual | Geographic Partitioning | 1K-10K ops/sec | 1K-5K ops/sec | 1-10ms | PostGIS, MongoDB |
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Storage Type</th>
+<th>Primary Use</th>
+<th>Consistency Model</th>
+<th>Scaling Pattern</th>
+<th>Read Throughput</th>
+<th>Write Throughput</th>
+<th>Latency</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RDBMS</strong></td>
+<td>ACID transactions</td>
+<td>Linearizable</td>
+<td>Vertical + Read Replicas</td>
+<td>10K-50K ops/sec</td>
+<td>5K-20K ops/sec</td>
+<td>1-5ms</td>
+<td>MySQL, PostgreSQL</td>
+</tr>
+<tr>
+<td><strong>Key-Value</strong></td>
+<td>Simple lookups</td>
+<td>Eventual/Linearizable</td>
+<td>Horizontal Sharding</td>
+<td>100K-1M ops/sec</td>
+<td>50K-500K ops/sec</td>
+<td>0.1-1ms</td>
+<td>Redis, DynamoDB</td>
+</tr>
+<tr>
+<td><strong>Wide Column</strong></td>
+<td>Analytics</td>
+<td>Eventual</td>
+<td>Hash-based Partitioning</td>
+<td>10K-100K ops/sec</td>
+<td>50K-200K ops/sec</td>
+<td>5-20ms</td>
+<td>Cassandra, HBase</td>
+</tr>
+<tr>
+<td><strong>Document</strong></td>
+<td>Flexible schemas</td>
+<td>Eventual</td>
+<td>Range-based Sharding</td>
+<td>10K-50K ops/sec</td>
+<td>5K-20K ops/sec</td>
+<td>1-10ms</td>
+<td>MongoDB, CouchDB</td>
+</tr>
+<tr>
+<td><strong>Time Series</strong></td>
+<td>Time-ordered data</td>
+<td>Eventual</td>
+<td>Time-based Partitioning</td>
+<td>10K-100K ops/sec</td>
+<td>100K-1M ops/sec</td>
+<td>1-10ms</td>
+<td>InfluxDB, TimescaleDB</td>
+</tr>
+<tr>
+<td><strong>Text Search</strong></td>
+<td>Full-text search</td>
+<td>Eventual</td>
+<td>Document-based Sharding</td>
+<td>1K-10K ops/sec</td>
+<td>1K-5K ops/sec</td>
+<td>10-100ms</td>
+<td>Elasticsearch, Solr</td>
+</tr>
+<tr>
+<td><strong>Object Store</strong></td>
+<td>Large files</td>
+<td>Eventual</td>
+<td>Hash-based Distribution</td>
+<td>100-1K ops/sec</td>
+<td>100-1K ops/sec</td>
+<td>100ms-1s</td>
+<td>S3, GCS, Azure Blob</td>
+</tr>
+<tr>
+<td><strong>Geospatial</strong></td>
+<td>Location data</td>
+<td>Eventual</td>
+<td>Geographic Partitioning</td>
+<td>1K-10K ops/sec</td>
+<td>1K-5K ops/sec</td>
+<td>1-10ms</td>
+<td>PostGIS, MongoDB</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ---
 
@@ -388,17 +477,124 @@ Operations: BEGIN_TXN, INSERT, UPDATE, DELETE, COMMIT, ROLLBACK
 
 ### **Storage Selection Decision Framework**
 
-| Criteria | Weight | RDBMS | Key-Value | Wide Column | Document | Time Series | Text Search | Object Store |
-|----------|---------|-------|-----------|-------------|----------|-------------|-------------|--------------|
-| **ACID Compliance** | 20% | 10 | 3 | 4 | 5 | 4 | 3 | 2 |
-| **Query Flexibility** | 15% | 10 | 2 | 7 | 8 | 5 | 6 | 1 |
-| **Horizontal Scaling** | 15% | 3 | 9 | 8 | 7 | 8 | 7 | 9 |
-| **Write Performance** | 12% | 5 | 9 | 8 | 7 | 9 | 6 | 8 |
-| **Read Performance** | 12% | 8 | 9 | 7 | 7 | 8 | 8 | 4 |
-| **Schema Flexibility** | 10% | 2 | 10 | 6 | 10 | 7 | 5 | 10 |
-| **Operational Cost** | 8% | 6 | 8 | 7 | 6 | 7 | 6 | 9 |
-| **Team Expertise** | 8% | 9 | 7 | 5 | 6 | 5 | 4 | 8 |
-| **Total Score** | **100%** | **7.2** | **7.1** | **6.5** | **6.8** | **6.8** | **5.6** | **6.8** |
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>RDBMS</th>
+<th>Key-Value</th>
+<th>Wide Column</th>
+<th>Document</th>
+<th>Time Series</th>
+<th>Text Search</th>
+<th>Object Store</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ACID Compliance</strong></td>
+<td>20%</td>
+<td>10</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Query Flexibility</strong></td>
+<td>15%</td>
+<td>10</td>
+<td>2</td>
+<td>7</td>
+<td>8</td>
+<td>5</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Horizontal Scaling</strong></td>
+<td>15%</td>
+<td>3</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>8</td>
+<td>7</td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Write Performance</strong></td>
+<td>12%</td>
+<td>5</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>9</td>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr>
+<td><strong>Read Performance</strong></td>
+<td>12%</td>
+<td>8</td>
+<td>9</td>
+<td>7</td>
+<td>7</td>
+<td>8</td>
+<td>8</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Schema Flexibility</strong></td>
+<td>10%</td>
+<td>2</td>
+<td>10</td>
+<td>6</td>
+<td>10</td>
+<td>7</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>Operational Cost</strong></td>
+<td>8%</td>
+<td>6</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>7</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Team Expertise</strong></td>
+<td>8%</td>
+<td>9</td>
+<td>7</td>
+<td>5</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr>
+<td><strong>Total Score</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>7.2</strong></td>
+<td><strong>7.1</strong></td>
+<td><strong>6.5</strong></td>
+<td><strong>6.8</strong></td>
+<td><strong>6.8</strong></td>
+<td><strong>5.6</strong></td>
+<td><strong>6.8</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ---
 

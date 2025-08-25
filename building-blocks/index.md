@@ -14,7 +14,7 @@ System design building blocks are the fundamental components that architects use
 
 ## 📚 Building Blocks
 
-### 1. [Data Storage Systems](./data-storage/README/)
+### 1. [Data Storage Systems](./data-storage/)
 **Purpose**: Store and retrieve data efficiently at scale
 
 **Key Concepts**:
@@ -26,7 +26,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: PostgreSQL, MySQL, MongoDB, Cassandra, Redis, DynamoDB
 
-### 2. [Compute & Processing Systems](./compute-processing/README/)
+### 2. [Compute & Processing Systems](./compute-processing/)
 **Purpose**: Process data and execute business logic
 
 **Key Concepts**:
@@ -38,7 +38,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: Kubernetes, Docker, AWS Lambda, Apache Spark, Apache Flink
 
-### 3. [Message Queuing & Streaming](./messaging-streaming/README/)
+### 3. [Message Queuing & Streaming](./messaging-streaming/)
 **Purpose**: Enable asynchronous communication between services
 
 **Key Concepts**:
@@ -50,7 +50,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: Apache Kafka, RabbitMQ, AWS SQS, Google Cloud Pub/Sub
 
-### 4. [Networking & Communication](./networking-communication/README/)
+### 4. [Networking & Communication](./networking-communication/)
 **Purpose**: Enable reliable communication between distributed components
 
 **Key Concepts**:
@@ -62,7 +62,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: NGINX, Envoy, AWS ALB, CloudFlare, Istio
 
-### 5. [Caching & Performance](./caching-performance/README/)
+### 5. [Caching & Performance](./caching-performance/)
 **Purpose**: Improve system performance and reduce latency
 
 **Key Concepts**:
@@ -74,7 +74,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: Redis, Memcached, Varnish, AWS CloudFront, CDN
 
-### 6. [Security & Authentication](./security-authentication/README/)
+### 6. [Security & Authentication](./security-authentication/)
 **Purpose**: Protect systems and authenticate users
 
 **Key Concepts**:
@@ -86,7 +86,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: OAuth 2.0, JWT, SSL/TLS, API Gateway, WAF
 
-### 7. [Monitoring & Observability](./monitoring-observability/README/)
+### 7. [Monitoring & Observability](./monitoring-observability/)
 **Purpose**: Monitor system health and debug issues
 
 **Key Concepts**:
@@ -98,7 +98,7 @@ System design building blocks are the fundamental components that architects use
 
 **Technologies**: Prometheus, Grafana, ELK Stack, Jaeger, DataDog
 
-### 8. [Scalability & Distribution](./scalability-distribution/README/)
+### 8. [Scalability & Distribution](./scalability-distribution/)
 **Purpose**: Scale systems horizontally and handle distributed challenges
 
 **Key Concepts**:

@@ -335,7 +335,8 @@ header p {
   .navigation,
   .btn,
   .back-to-top,
-  .site-footer {
+  .site-footer,
+  .sponsorship-footer {
     display: none;
   }
   body {
@@ -343,6 +344,90 @@ header p {
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
+  }
+}
+.sponsorship-footer {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-top: 2px solid var(--accent-color);
+  text-align: center;
+  font-size: 0.875rem;
+  color: #586069;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+.sponsorship-footer .sponsorship-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+.sponsorship-footer .sponsorship-description {
+  margin-bottom: 1rem;
+  color: #6a737d;
+}
+.sponsorship-footer .sponsorship-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.sponsorship-footer .sponsorship-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.sponsorship-footer .sponsorship-buttons a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+.sponsorship-footer .sponsorship-buttons a.ko-fi-btn {
+  background-color: #ff5e5b;
+  color: white;
+}
+.sponsorship-footer .sponsorship-buttons a.ko-fi-btn:hover {
+  background-color: #e54b48;
+}
+.sponsorship-footer .sponsorship-buttons a.github-btn {
+  background-color: #24292e;
+  color: white;
+}
+.sponsorship-footer .sponsorship-buttons a.github-btn:hover {
+  background-color: #1b1f23;
+}
+.sponsorship-footer .theme-credit {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  color: #6a737d;
+}
+.sponsorship-footer .theme-credit a {
+  color: var(--accent-color);
+}
+.sponsorship-footer .theme-credit a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .sponsorship-footer {
+    padding: 1rem;
+  }
+  .sponsorship-footer .sponsorship-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sponsorship-footer .sponsorship-buttons a {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
   }
 }
 

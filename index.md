@@ -70,3 +70,86 @@ Each system design challenge follows a structured approach:
 ---
 
 **Ready to ascend your engineering career?** Start with the [Building Blocks](./building-blocks/) or dive into [System Design Challenges](./system-design-challenges/).
+
+---
+
+<div class="sponsorship-footer" style="
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-top: 2px solid #0366d6;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #586069;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+">
+  <div style="font-size: 1.1rem; font-weight: 600; color: #24292e; margin-bottom: 0.75rem;">
+    🌟 Support Engineering Ascend
+  </div>
+  <div style="margin-bottom: 1rem; color: #6a737d;">
+    If this resource helps you, consider supporting the project:
+  </div>
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+    <a href="https://ko-fi.com/engineering-ascend" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         padding: 0.75rem 1.5rem;
+         background-color: #ff5e5b;
+         color: white;
+         text-decoration: none;
+         border-radius: 6px;
+         font-weight: 500;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       "
+       onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.15)';"
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.1)';">
+      ☕ Buy me a coffee
+    </a>
+    <a href="https://github.com/vikneshrajsp/engineering-ascend" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       style="
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         padding: 0.75rem 1.5rem;
+         background-color: #24292e;
+         color: white;
+         text-decoration: none;
+         border-radius: 6px;
+         font-weight: 500;
+         transition: all 0.2s ease;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       "
+       onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.15)';"
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.1)';">
+      ⭐ Star on GitHub
+    </a>
+  </div>
+  <div style="font-size: 0.75rem; opacity: 0.8; color: #6a737d;">
+    This site uses <a href="https://github.com/just-the-docs/just-the-docs" style="color: #0366d6;">Just the Docs</a>, a documentation theme for Jekyll.
+  </div>
+</div>
+
+<style>
+@media (max-width: 768px) {
+  .sponsorship-footer {
+    padding: 1rem !important;
+  }
+  .sponsorship-footer > div:nth-child(3) {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .sponsorship-footer > div:nth-child(3) a {
+    width: 100% !important;
+    max-width: 200px !important;
+    justify-content: center !important;
+  }
+}
+</style>
