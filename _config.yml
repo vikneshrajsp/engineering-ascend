@@ -4,8 +4,8 @@
 # Site settings
 title: System Design Guide
 description: Comprehensive learning resource for system design interviews
-url: "https://vikneshrajsp.github.io/InterviewPrep"
-baseurl: "/InterviewPrep"
+url: "https://vikneshrajsp.github.io/software-engineering-guide"
+baseurl: "/software-engineering-guide"
 
 # Build settings
 markdown: kramdown
