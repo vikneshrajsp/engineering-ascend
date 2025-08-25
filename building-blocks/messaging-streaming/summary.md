@@ -11,12 +11,60 @@ parent: Messaging Streaming
 ## 📋 **MESSAGING SYSTEM OVERVIEW**
 
 ### **Messaging Types Classification with Performance Metrics**
-| Messaging Type | Communication Pattern | Delivery Guarantee | Throughput | Latency | Ordering | Examples |
-|----------------|----------------------|-------------------|------------|---------|----------|----------|
-| **Message Queues** | Point-to-Point | At-least-once | 10K-1M msg/sec | 1-100ms | Partition | RabbitMQ, SQS |
-| **Pub-Sub** | One-to-Many | At-least-once | 10K-500K msg/sec | 1-50ms | None | Kafka, SNS |
-| **Event Streaming** | Persistent Logs | Exactly-once | 100K-10M events/sec | 1-10ms | Global/Partition | Kafka, Pulsar |
-| **Real-time Processing** | Stream Processing | At-least-once | 10K-1M events/sec | 1-1000ms | Time-based | Flink, Storm |
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Messaging Type</th>
+<th>Communication Pattern</th>
+<th>Delivery Guarantee</th>
+<th>Throughput</th>
+<th>Latency</th>
+<th>Ordering</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Message Queues</strong></td>
+<td>Point-to-Point</td>
+<td>At-least-once</td>
+<td>10K-1M msg/sec</td>
+<td>1-100ms</td>
+<td>Partition</td>
+<td>RabbitMQ, SQS</td>
+</tr>
+<tr>
+<td><strong>Pub-Sub</strong></td>
+<td>One-to-Many</td>
+<td>At-least-once</td>
+<td>10K-500K msg/sec</td>
+<td>1-50ms</td>
+<td>None</td>
+<td>Kafka, SNS</td>
+</tr>
+<tr>
+<td><strong>Event Streaming</strong></td>
+<td>Persistent Logs</td>
+<td>Exactly-once</td>
+<td>100K-10M events/sec</td>
+<td>1-10ms</td>
+<td>Global/Partition</td>
+<td>Kafka, Pulsar</td>
+</tr>
+<tr>
+<td><strong>Real-time Processing</strong></td>
+<td>Stream Processing</td>
+<td>At-least-once</td>
+<td>10K-1M events/sec</td>
+<td>1-1000ms</td>
+<td>Time-based</td>
+<td>Flink, Storm</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ---
 

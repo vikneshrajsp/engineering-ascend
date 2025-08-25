@@ -3858,7 +3858,7 @@
   },"551": {
     "doc": "Summary",
     "title": "📋 MESSAGING SYSTEM OVERVIEW",
-    "content": "Messaging Types Classification with Performance Metrics . | Messaging Type | Communication Pattern | Delivery Guarantee | Throughput | Latency | Ordering | Examples |—————-|———————-|——————-|————|———|———-|———-| Message Queues | Point-to-Point | At-least-once | 10K-1M msg/sec | 1-100ms | Partition | RabbitMQ, SQS | Pub-Sub | One-to-Many | At-least-once | 10K-500K msg/sec | 1-50ms | None | Kafka, SNS | Event Streaming | Persistent Logs | Exactly-once | 100K-10M events/sec | 1-10ms | Global/Partition | Kafka, Pulsar | Real-time Processing | Stream Processing | At-least-once | 10K-1M events/sec | 1-1000ms | Time-based | Flink, Storm | . ",
+    "content": "Messaging Types Classification with Performance Metrics . | Messaging Type | Communication Pattern | Delivery Guarantee | Throughput | Latency | Ordering | Examples | . | Message Queues | Point-to-Point | At-least-once | 10K-1M msg/sec | 1-100ms | Partition | RabbitMQ, SQS | . | Pub-Sub | One-to-Many | At-least-once | 10K-500K msg/sec | 1-50ms | None | Kafka, SNS | . | Event Streaming | Persistent Logs | Exactly-once | 100K-10M events/sec | 1-10ms | Global/Partition | Kafka, Pulsar | . | Real-time Processing | Stream Processing | At-least-once | 10K-1M events/sec | 1-1000ms | Time-based | Flink, Storm | . ",
     "url": "/engineering-ascend/building-blocks/messaging-streaming/summary/#-messaging-system-overview",
     
     "relUrl": "/building-blocks/messaging-streaming/summary/#-messaging-system-overview"
