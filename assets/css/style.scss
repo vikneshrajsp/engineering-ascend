@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+@import "{{ site.remote_theme }}";
 
 // Custom Engineering Ascend styling
 :root {
@@ -261,150 +261,39 @@ ul, ol {
   }
 }
 
-// Site header enhancements
-.site-header {
+// Enhanced header styling
+header {
   background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
   color: white;
   padding: 2rem 0;
   margin-bottom: 2rem;
-  
-  .site-title {
-    margin: 0;
-    font-size: 2.5rem;
-    
-    a {
-      color: white;
-      text-decoration: none;
-      
-      &:hover {
-        color: var(--accent-color);
-      }
-    }
-  }
-  
-  .site-description {
-    margin: 0.5rem 0 1.5rem 0;
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
 }
 
-// Navigation styling
-.site-nav {
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    
-    li {
-      margin: 0;
-    }
-    
-    a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      
-      &:hover,
-      &.active {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: var(--accent-color);
-      }
-    }
-  }
+// Enhanced typography
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
-// Site content
-.site-content {
-  min-height: 60vh;
-  padding: 2rem 0;
+// Improved headings
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-// Footer styling
-.site-footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 3rem 0 1rem 0;
-  margin-top: 4rem;
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .footer-section {
-    h3, h4 {
-      color: var(--accent-color);
-      margin-bottom: 1rem;
-    }
-    
-    ul {
-      list-style: none;
-      padding: 0;
-      
-      li {
-        margin-bottom: 0.5rem;
-      }
-      
-      a {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        
-        &:hover {
-          color: var(--accent-color);
-        }
-      }
-    }
-  }
-  
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1rem;
-    text-align: center;
-    opacity: 0.8;
-    
-    a {
-      color: var(--accent-color);
-    }
-  }
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
 }
 
-// Back to top button
-.back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: none;
-  transition: all 0.2s ease;
-  z-index: 1000;
-  
-  &:hover {
-    background-color: darken(#3498db, 15%);
-    transform: translateY(-2px);
-  }
-}
-
-// Container
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.3rem;
 }
 
 // Print styles

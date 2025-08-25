@@ -5,7 +5,7 @@ url: https://vikneshrajsp.github.io
 baseurl: /software-engineering-guide
 
 # Theme settings
-theme: architect
+remote_theme: pages-themes/architect
 
 # Build settings
 markdown: kramdown
@@ -13,6 +13,7 @@ highlighter: rouge
 
 # Plugins
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 
@@ -20,23 +21,8 @@ plugins:
 collections:
   building-blocks:
     output: true
-    permalink: /:collection/:path/
   challenges:
     output: true
-    permalink: /:collection/:path/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "building-blocks"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "challenges"
-    values:
-      layout: "default"
 
 # Exclude from processing
 exclude:

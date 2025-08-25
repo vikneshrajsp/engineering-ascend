@@ -1,8 +1,18 @@
-# Engineering Ascend -  Resource
+# Engineering Ascend
 
-## 🚀 **Welcome to Engineering Ascend**
+A comprehensive system design learning resource for software engineers, architects, and system designers.
 
-Engineering Ascend is your comprehensive resource for mastering system design and technical interview preparation. Whether you're preparing for senior-level interviews or building scalable systems, this guide provides the knowledge and frameworks you need to succeed.
+## 🚀 **Live Site**
+
+Visit the live site: **[Engineering Ascend](https://vikneshrajsp.github.io/software-engineering-guide/)**
+
+## 📚 **What's Included**
+
+- **Building Blocks**: 8 core system design fundamentals
+- **System Design Challenges**: 20+ real-world scenarios with solutions
+- **Quantitative Analysis**: Back-of-envelope estimation techniques
+- **Learning Framework**: Structured approach to system design
+- **Quick References**: Cheatsheets and decision frameworks
 
 ### **What You'll Find Here**
 
