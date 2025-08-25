@@ -7,34 +7,11 @@ baseurl: /software-engineering-guide
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
 
 # Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
-
-# Collections
-collections:
-  building-blocks:
-    output: true
-    permalink: /building-blocks/:path/
-  challenges:
-    output: true
-    permalink: /system-design-challenges/:path/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "building-blocks"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "challenges"
-    values:
-      layout: "default"
 
 # Exclude from processing
 exclude:
