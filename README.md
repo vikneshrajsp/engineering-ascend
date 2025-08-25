@@ -150,7 +150,7 @@ If you find Engineering Ascend helpful in your interview preparation or career g
 #### **Individual Sponsors**
 - **☕ Buy me a coffee**: [Ko-fi](https://ko-fi.com/engineering-ascend)
 - **💝 One-time donation**: [PayPal](https://paypal.me/engineering-ascend)
-- **🎯 GitHub Sponsors**: [Sponsor on GitHub](https://github.com/sponsors/engineering-ascend)
+- **🎯 GitHub Sponsors**: [Sponsor on GitHub](https://github.com/sponsors/vikneshrajsp)
 
 #### **Corporate Sponsors**
 - **🏢 Company sponsorship**: Contact for enterprise licensing
@@ -183,7 +183,7 @@ Engineering Ascend has helped **thousands of engineers** prepare for system desi
 ### **📞 Contact for Sponsorship**
 
 - **Website**: [engineering-ascend.com](https://engineering-ascend.com)
-- **GitHub**: [github.com/engineering-ascend](https://github.com/engineering-ascend)
+- **GitHub**: [github.com/vikneshrajsp/software-engineering-guide](https://github.com/vikneshrajsp/software-engineering-guide)
 
 ---
 
