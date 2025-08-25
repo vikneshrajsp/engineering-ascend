@@ -5,7 +5,7 @@ This directory contains comprehensive documentation for Data Storage Systems, or
 
 ## 📚 **Documentation Levels**
 
-### **1. [Detailed Handbook](./handbook.md)**
+### **1. [Detailed Handbook](./handbook.html)**
 **Comprehensive Technical Deep-Dive**
 - **Purpose**: Deep technical understanding, implementation details, algorithm explanations
 - **Use Cases**: 
@@ -25,7 +25,7 @@ This directory contains comprehensive documentation for Data Storage Systems, or
 
 ---
 
-### **2. [Concise Summary](./summary.md)**
+### **2. [Concise Summary](./summary.html)**
 **Bullet-Point Revision Guide**
 - **Purpose**: Quick revision, interview preparation, rapid decision-making
 - **Use Cases**:
@@ -44,7 +44,7 @@ This directory contains comprehensive documentation for Data Storage Systems, or
 
 ---
 
-### **3. [Cheat Sheet](./cheatsheet.md)**
+### **3. [Cheat Sheet](./cheatsheet.html)**
 **One-Page Quick Reference**
 - **Purpose**: Instant reference during interviews, quick validation, decision checklist
 - **Use Cases**:

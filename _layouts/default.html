@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title">
+          <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
+        </h1>
+        <p class="site-description">{{ site.description }}</p>
+        
+        <!-- Navigation -->
+        <nav class="site-nav">
+          <ul>
+            <li><a href="{{ "/" | relative_url }}">Home</a></li>
+            <li><a href="{{ "/building-blocks/" | relative_url }}">Building Blocks</a></li>
+            <li><a href="{{ "/system-design-challenges/" | relative_url }}">Challenges</a></li>
+            <li><a href="{{ "/quantitative-metrics.html" | relative_url }}">Metrics</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-content">
+      <div class="container">
+        {{ content }}
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Engineering Ascend</h3>
+            <p>Master system design and advance your engineering career.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="{{ "/building-blocks/" | relative_url }}">Building Blocks</a></li>
+              <li><a href="{{ "/system-design-challenges/" | relative_url }}">Challenges</a></li>
+              <li><a href="{{ "/cheatsheet.html" | relative_url }}">Cheatsheet</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="https://github.com/vikneshrajsp/software-engineering-guide/issues">GitHub Issues</a></li>
+              <li><a href="https://github.com/vikneshrajsp/software-engineering-guide/discussions">Discussions</a></li>
+              <li><a href="https://github.com/sponsors/vikneshrajsp">Sponsor</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; {{ site.time | date: '%Y' }} Engineering Ascend. Built with <a href="https://pages.github.com">GitHub Pages</a> and the <a href="https://pages-themes.github.io/architect/">Architect theme</a>.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <script>
+      // Back to top functionality
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      });
+      
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Add active class to current navigation item
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.site-nav a');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+        }
+      });
+    </script>
+  </body>
+</html>

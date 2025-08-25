@@ -1,6 +1,4 @@
-# Engineering Ascend - Comprehensive Learning Resource
-
-> Master system design fundamentals and prepare for technical interviews with comprehensive coverage of distributed systems, scalability, and architectural patterns.
+# Engineering Ascend -  Resource
 
 ## 🚀 **Welcome to Engineering Ascend**
 
@@ -122,21 +120,6 @@ Each system design challenge follows a structured framework:
 - **[System Design Context](./context.md)** - Understanding the bigger picture
 - **[Deployment Guide](./DEPLOYMENT.md)** - How to deploy and contribute
 
-## 🤝 **Contributing**
-
-We welcome contributions to make Engineering Ascend even better:
-
-- **Add new challenges** - Submit new system design problems
-- **Improve solutions** - Enhance existing challenge solutions
-- **Update documentation** - Improve building block documentation
-- **Fix issues** - Report and fix bugs or inaccuracies
-
-### **How to Contribute**
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
 ## 📄 **License**
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -151,7 +134,6 @@ If you find Engineering Ascend helpful in your interview preparation or career g
 - **☕ Buy me a coffee**: [Ko-fi](https://ko-fi.com/engineering-ascend)
 
 #### **Corporate Sponsors**
-- **🏢 Company sponsorship**: Contact for enterprise licensing
 - **📚 Educational institutions**: Special pricing for universities
 - **👥 Team training**: Custom workshops and training sessions
 
@@ -159,19 +141,15 @@ If you find Engineering Ascend helpful in your interview preparation or career g
 
 #### **Individual Sponsors**
 - **Priority support** for questions and clarifications
-- **Early access** to new challenges and content
-- **Exclusive content** and advanced topics
 - **Personal consultation** for interview preparation
 
 #### **Corporate Sponsors**
-- **Custom branding** and company-specific content
 - **Team training sessions** and workshops
-- **Priority feature requests** and custom challenges
 - **Dedicated support** and consultation
 
 ### **💡 Why Sponsor?**
 
-Engineering Ascend has helped **thousands of engineers** prepare for system design interviews at top tech companies. Your sponsorship helps:
+Engineering Ascend aims to help **many engineers** prepare for system design interviews at top tech companies. Your sponsorship helps:
 
 - **📈 Scale the project** to reach more engineers
 - **🆕 Add new challenges** and building blocks
