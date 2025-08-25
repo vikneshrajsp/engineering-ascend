@@ -1,141 +1,278 @@
-# System Design Challenges - Principal Engineer Level
+# System Design Challenges
 
-*Comprehensive solutions to 40+ system design challenges commonly asked in Senior Staff, Principal, and Staff Engineer interviews at Google, Amazon, Apple, Netflix, and Meta (GAANM) companies.*
+> 40+ detailed system design challenges with comprehensive solutions following the RESHADED framework.
 
-## 🎯 **How to Use This Repository**
+## 🎯 Overview
 
-This repository contains detailed solutions to system design challenges that follow the **RESHADED framework** used by Google and other top tech companies:
+This collection contains detailed solutions to real-world system design challenges commonly asked in senior software engineer interviews at top tech companies. Each challenge follows a structured approach and includes trade-off analysis, scalability considerations, and implementation details.
 
-- **R**equirements & Constraints
-- **E**stimation & Scale
-- **S**ystem Interface Design
-- **H**igh-Level Architecture
-- **A**pplication Layer Design
-- **D**ata Layer Design
-- **E**rror Handling & Edge Cases
-- **D**eployment & Monitoring
+## 🔧 Framework
 
-## 📚 **Challenge Categories**
+All challenges follow the **RESHADED** framework:
 
-### **1. Google Core Products (Frequently Asked)**
-- [Design Google Search](google-search-design.md) - Web search with ranking algorithms
-- [Design Google Maps](google-maps-design.md) - Location services and navigation
-- [Design Gmail](gmail-design.md) - Email service with spam filtering and search
-- [Design Google Drive](google-drive-design.md) - Cloud storage with real-time collaboration
-- [Design Google Photos](google-photos-design.md) - Photo storage with AI-powered organization
-- [Design Google Meet](google-meet-design.md) - Video conferencing with AI features
-- [Design Google Docs](google-docs-design.md) - Real-time collaborative document editing
-- [Design YouTube](youtube-design.md) - Video platform with recommendations and live streaming
-- [Design Google Translate](google-translate-design.md) - Machine translation with real-time processing
-- [Design Google Calendar](google-calendar-design.md) - Calendar service with scheduling and notifications
+- **R**equirements & Constraints - Clarify functional and non-functional requirements
+- **E**stimation & Scale - Back-of-envelope calculations and capacity planning
+- **S**ystem Interface Design - Define APIs and data contracts
+- **H**igh-Level Architecture - Overall system design and component interaction
+- **A**pplication Layer Design - Business logic and service architecture
+- **D**ata Layer Design - Database design and data access patterns
+- **E**rror Handling & Edge Cases - Failure scenarios and recovery mechanisms
+- **D**eployment & Monitoring - Infrastructure and observability
 
-### **2. Google Infrastructure & Cloud (Core Interview Topics)**
-- [Design Google Cloud Storage](gcs-design.md) - Multi-region object storage
-- [Design BigQuery](bigquery-design.md) - Data warehouse and analytics platform
-- [Design Google Cloud Pub/Sub](pubsub-design.md) - Message queuing and streaming service
-- [Design Google Cloud Load Balancer](gcp-load-balancer-design.md) - Global load balancing service
-- [Design Google Cloud CDN](gcp-cdn-design.md) - Content delivery network
-- [Design Google Cloud Functions](cloud-functions-design.md) - Serverless computing platform
-- [Design Google Cloud Spanner](spanner-design.md) - Globally distributed database
-- [Design Google Cloud Bigtable](bigtable-design.md) - NoSQL database for large-scale applications
+## 📚 Challenge Categories
 
-### **3. Social Media & Content Platforms (Core GAANM)**
-- [Design Instagram](instagram-design.md) - Photo sharing with feed, stories, and recommendations
-- [Design Facebook Feed](facebook-feed-design.md) - Social media feed with ranking algorithms
-- [Design WhatsApp](whatsapp-design.md) - End-to-end encrypted messaging
-- [Design Chat System](chat-system-design.md) - Real-time messaging with presence management
+### 🔗 **Infrastructure & Core Services**
 
-### **4. E-commerce & Marketplaces (Core GAANM)**
-- [Design Amazon](amazon-design.md) - Multi-vendor marketplace with recommendations
-- [Design Uber](uber-design.md) - Real-time ride-hailing with dynamic pricing
-- [Design Airbnb](airbnb-design.md) - Vacation rental marketplace with search
-- [Design DoorDash](doordash-design.md) - Food delivery with real-time tracking
-- [Design Payment System](payment-system-design.md) - Secure payment processing with fraud detection
+#### URL Shortener
+- **[URL Shortener Design](./url-shortener-design.md)**
+  - **Difficulty**: Easy
+  - **Key Concepts**: Hash generation, database design, caching
+  - **Technologies**: Redis, PostgreSQL, CDN
 
-### **5. Streaming & Media (Core GAANM)**
-- [Design Netflix](netflix-design.md) - Video streaming with personalized recommendations
-- [Design Spotify](spotify-design.md) - Music streaming with playlist generation
-- [Design Apple Music](apple-music-design.md) - Music streaming with Siri integration
+#### Web Crawler
+- **[Web Crawler Design](./web-crawler-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Distributed crawling, politeness, deduplication
+  - **Technologies**: Queue systems, distributed storage, rate limiting
 
-### **6. Search & Discovery (Core GAANM)**
-- [Design Recommendation System](recommendation-system-design.md) - ML-powered suggestions
-- [Design Web Crawler](web-crawler-design.md) - Distributed web crawling with politeness policies
-- [Design Search Engine](search-engine-design.md) - Web search with indexing and ranking
+#### Load Balancer
+- **[Load Balancer Design](./load-balancer-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Load distribution algorithms, health checks, session affinity
+  - **Technologies**: NGINX, HAProxy, cloud load balancers
 
-### **7. Cloud & Infrastructure (Core GAANM)**
-- [Design AWS S3](aws-s3-design.md) - Object storage service with global distribution
-- [Design Load Balancer](load-balancer-design.md) - Traffic distribution and high availability
-- [Design CDN](cdn-design.md) - Content delivery network for global performance
-- [Design Rate Limiter](rate-limiter-design.md) - Distributed rate limiting with intelligent throttling
-- [Design URL Shortener](url-shortener-design.md) - High-scale URL shortening with analytics
+#### Rate Limiter
+- **[Rate Limiter Design](./rate-limiter-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Token bucket, sliding window, distributed rate limiting
+  - **Technologies**: Redis, in-memory counters, distributed coordination
 
-### **8. Data & Analytics (Core GAANM)**
-- [Design Data Warehouse](data-warehouse-design.md) - Centralized data storage and analytics
-- [Design Real-time Analytics](realtime-analytics-design.md) - Streaming data processing
-- [Design A/B Testing Platform](ab-testing-design.md) - Experimentation and optimization
-- [Design Monitoring & Alerting](monitoring-alerting-design.md) - Comprehensive observability with intelligent alerting
+### 💬 **Communication & Social**
 
-### **9. Communication & Collaboration (Core GAANM)**
-- [Design Email System](email-system-design.md) - Scalable email service
-- [Design Video Conferencing](video-conferencing-design.md) - Real-time video communication
+#### Chat System
+- **[Chat System Design](./chat-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time messaging, message ordering, presence
+  - **Technologies**: WebSockets, message queues, real-time databases
 
-### **10. Gaming & Entertainment (Core GAANM)**
-- [Design Online Gaming](online-gaming-design.md) - Multiplayer game infrastructure
-- [Design Leaderboard System](leaderboard-design.md) - Real-time ranking with anti-cheat and social features
+#### Instagram
+- **[Instagram Design](./instagram-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Feed generation, media storage, social graph
+  - **Technologies**: CDN, graph databases, recommendation systems
 
-### **11. Healthcare & Life Sciences (Core GAANM)**
-- [Design Telemedicine](telemedicine-design.md) - Remote healthcare platform
+#### Facebook Feed
+- **[Facebook Feed Design](./facebook-feed-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: News feed algorithm, social ranking, real-time updates
+  - **Technologies**: Graph databases, recommendation engines, caching
 
-### **12. AI/ML Systems (Core GAANM)**
-- [Design ChatGPT](chatgpt-design.md) - LLM inference with GPU clusters and safety filtering
-- [Design Machine Learning Platform](ml-platform-design.md) - ML model training and inference platform
-- [Design Recommendation Engine](recommendation-engine-design.md) - ML-powered recommendation system
+#### Gmail
+- **[Gmail Design](./gmail-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Email protocols, search, spam filtering
+  - **Technologies**: IMAP/SMTP, search engines, ML for spam detection
 
-## 🏗️ **Building Blocks Covered**
+### 🎵 **Media & Entertainment**
 
-Each challenge solution incorporates multiple building blocks from our comprehensive guide:
+#### Netflix
+- **[Netflix Design](./netflix-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Video streaming, content delivery, recommendation
+  - **Technologies**: CDN, adaptive bitrate streaming, recommendation systems
 
-- **Data Storage Systems** - RDBMS, NoSQL, caching, file systems
-- **Compute & Processing** - Microservices, batch processing, real-time streaming
-- **Message Queuing & Streaming** - Event-driven architecture, pub/sub systems
-- **Networking & Communication** - Load balancing, CDN, service discovery
-- **Caching & Performance** - Multi-level caching, performance optimization
-- **Security & Authentication** - Identity management, encryption, access control
-- **Monitoring & Observability** - Logging, metrics, distributed tracing
-- **Scalability & Distribution** - Horizontal scaling, partitioning, replication
+#### Spotify
+- **[Spotify Design](./spotify-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Audio streaming, playlist management, recommendation
+  - **Technologies**: Audio compression, streaming protocols, ML recommendations
 
-## 🎯 **Interview Preparation Strategy**
+#### Apple Music
+- **[Apple Music Design](./apple-music-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Music streaming, library sync, cross-platform
+  - **Technologies**: iCloud integration, audio streaming, device sync
 
-### **For Senior Staff Engineers:**
-- Focus on **trade-off analysis** and **decision justification**
-- Demonstrate **system thinking** and **cross-cutting concerns**
-- Show **operational excellence** and **cost optimization**
+### 🚗 **Transportation & Services**
 
-### **For Principal Engineers:**
-- Emphasize **strategic thinking** and **long-term architecture**
-- Discuss **organizational impact** and **technology strategy**
+#### Uber
+- **[Uber Design](./uber-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time location, ride matching, payment processing
+  - **Technologies**: GPS, real-time databases, payment gateways
 
-## 🚀 **Google-Specific Interview Tips**
+#### Google Maps
+- **[Google Maps Design](./google-maps-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Geospatial data, routing algorithms, real-time traffic
+  - **Technologies**: Spatial databases, graph algorithms, real-time data
 
-### **Common Google Interview Patterns:**
-1. **Scale-First Approach**: Google interviews often start with massive scale requirements
-2. **Infrastructure Deep-Dives**: Expect detailed questions about Google's infrastructure (Bigtable, Spanner, etc.)
-3. **Data Processing**: Heavy focus on data processing and analytics systems
-4. **ML/AI Integration**: Many questions involve ML components and AI features
-5. **Global Distribution**: Emphasis on serving users worldwide with low latency
+### 🛒 **E-commerce & Storage**
 
-### **Google Interview Question Types:**
-- **Product Design**: Design Google's core products (Search, Maps, Gmail, etc.)
-- **Infrastructure Design**: Design Google's infrastructure services (Cloud, BigQuery, etc.)
-- **Data Systems**: Design data processing and analytics systems
-- **ML Systems**: Design ML training and inference platforms
-- **Distributed Systems**: Design globally distributed systems
+#### Amazon S3
+- **[AWS S3 Design](./aws-s3-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Object storage, consistency, durability
+  - **Technologies**: Distributed storage, replication, CDN
 
-### **Key Google Technologies to Know:**
-- **Bigtable**: Distributed NoSQL database
-- **Spanner**: Globally distributed database
-- **BigQuery**: Data warehouse and analytics
-- **Pub/Sub**: Message queuing and streaming
-- **Cloud Storage**: Object storage service
-- **Load Balancer**: Global load balancing
-- **CDN**: Content delivery network
+#### Google Cloud Storage
+- **[GCS Design](./gcs-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Multi-region storage, versioning, lifecycle management
+  - **Technologies**: Distributed file systems, version control, automated policies
+
+### 🔍 **Search & Analytics**
+
+#### Google Search
+- **[Google Search Design](./google-search-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Web crawling, indexing, ranking algorithms
+  - **Technologies**: Search engines, distributed indexing, ML ranking
+
+#### BigQuery
+- **[BigQuery Design](./bigquery-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Data warehousing, SQL processing, columnar storage
+  - **Technologies**: Columnar databases, distributed query processing, data lakes
+
+#### Data Warehouse
+- **[Data Warehouse Design](./data-warehouse-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: ETL processes, dimensional modeling, OLAP
+  - **Technologies**: Star/snowflake schemas, data pipelines, analytics engines
+
+### 🤖 **AI & Machine Learning**
+
+#### ChatGPT
+- **[ChatGPT Design](./chatgpt-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Large language models, inference optimization, conversation management
+  - **Technologies**: GPU clusters, model serving, conversation databases
+
+#### Recommendation System
+- **[Recommendation System Design](./recommendation-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Collaborative filtering, content-based filtering, hybrid approaches
+  - **Technologies**: ML pipelines, feature stores, A/B testing
+
+### 💳 **Finance & Payments**
+
+#### Payment System
+- **[Payment System Design](./payment-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Payment processing, fraud detection, compliance
+  - **Technologies**: Payment gateways, fraud detection ML, compliance systems
+
+### 🏥 **Healthcare & Services**
+
+#### Telemedicine
+- **[Telemedicine Design](./telemedicine-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Video conferencing, HIPAA compliance, appointment scheduling
+  - **Technologies**: WebRTC, secure video, compliance frameworks
+
+### 🎮 **Gaming & Entertainment**
+
+#### Online Gaming
+- **[Online Gaming Design](./online-gaming-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time gaming, matchmaking, anti-cheat
+  - **Technologies**: Game servers, real-time networking, cheat detection
+
+#### Leaderboard
+- **[Leaderboard Design](./leaderboard-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Real-time ranking, high-frequency updates, global vs local
+  - **Technologies**: Sorted sets, real-time updates, caching
+
+### 🏗️ **Infrastructure & Tools**
+
+#### CDN
+- **[CDN Design](./cdn-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Content distribution, edge caching, origin servers
+  - **Technologies**: Edge servers, cache invalidation, geographic distribution
+
+#### Distributed Cache
+- **[Distributed Cache Design](./distributed-cache-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Cache consistency, partitioning, failover
+  - **Technologies**: Redis Cluster, Memcached, cache invalidation
+
+#### Monitoring & Alerting
+- **[Monitoring & Alerting Design](./monitoring-alerting-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Metrics collection, alerting rules, incident management
+  - **Technologies**: Time-series databases, alerting systems, incident response
+
+#### Email System
+- **[Email System Design](./email-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Email protocols, spam filtering, delivery optimization
+  - **Technologies**: SMTP/IMAP, spam detection, email routing
+
+#### Video Conferencing
+- **[Video Conferencing Design](./video-conferencing-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time video, audio processing, room management
+  - **Technologies**: WebRTC, media servers, real-time communication
+
+## 📊 Difficulty Levels
+
+### 🟢 **Easy** (0-2 years experience)
+- Basic system design concepts
+- Single service architecture
+- Simple data models
+- Basic scalability considerations
+
+### 🟡 **Medium** (2-5 years experience)
+- Distributed system concepts
+- Multiple service interactions
+- Complex data models
+- Advanced scalability patterns
+
+### 🔴 **Hard** (5+ years experience)
+- Large-scale distributed systems
+- Complex system interactions
+- Advanced data architectures
+- Enterprise-level considerations
+
+## 🎯 Interview Preparation
+
+### **Before the Interview**
+1. **Review Building Blocks** - Understand the 8 core components
+2. **Practice Estimation** - Master back-of-envelope calculations
+3. **Study Patterns** - Learn common architectural patterns
+4. **Review Trade-offs** - Understand CAP theorem, consistency vs availability
+
+### **During the Interview**
+1. **Clarify Requirements** - Ask clarifying questions
+2. **Estimate Scale** - Do quick calculations
+3. **Start Simple** - Begin with basic architecture
+4. **Iterate** - Add complexity step by step
+5. **Discuss Trade-offs** - Explain your decisions
+
+### **Common Pitfalls to Avoid**
+- **Over-engineering** - Start simple, add complexity as needed
+- **Ignoring Scale** - Always consider scale in your design
+- **Forgetting Trade-offs** - Every decision has trade-offs
+- **Not Testing** - Consider failure scenarios and edge cases
+
+## 🔗 Related Resources
+
+- **[Building Blocks](../building-blocks/README.md)** - Understand the core components
+- **[Quantitative Metrics](../quantitative-metrics.md)** - Learn performance metrics
+- **[Back of Envelope Estimation](../back-of-envelope-estimation.md)** - Master quick calculations
+
+## 📈 Success Metrics
+
+Track your progress with these metrics:
+
+- **Challenges Completed**: Aim for 20+ challenges
+- **Building Blocks Mastered**: Understand all 8 components
+- **Estimation Accuracy**: Practice until you're within 10% of actual numbers
+- **Interview Confidence**: Feel prepared for any system design question
+
+---
+
+**Ready to master system design?** Start with any challenge above and build your expertise! 🚀
