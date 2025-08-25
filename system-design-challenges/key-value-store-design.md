@@ -1,3 +1,11 @@
+---
+title: Key Value Store Design - System Design Challenge
+description: Comprehensive solution for key value store design system design challenge
+layout: default
+parent: Key Value Store Design
+grand_parent: System Design Challenges
+---
+
 # Design a Distributed Key-Value Store - System Design Challenge
 
 *Comprehensive solution for designing a distributed key-value store, covering consistency models, partitioning, replication, and global scale.*

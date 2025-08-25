@@ -1,3 +1,11 @@
+---
+title: Data Storage Systems - Cheat Sheet
+description: One-page quick reference for interviews
+layout: default
+parent: Data Storage
+grand_parent: Building Blocks
+---
+
 # Data Storage Systems - Cheat Sheet
 ## One-Page Quick Reference for Interviews
 

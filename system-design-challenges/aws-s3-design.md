@@ -1,3 +1,11 @@
+---
+title: Aws S3 Design - System Design Challenge
+description: Comprehensive solution for aws s3 design system design challenge
+layout: default
+parent: Aws S3 Design
+grand_parent: System Design Challenges
+---
+
 # Design AWS S3 - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

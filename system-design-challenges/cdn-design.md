@@ -1,3 +1,11 @@
+---
+title: Cdn Design - System Design Challenge
+description: Comprehensive solution for cdn design system design challenge
+layout: default
+parent: Cdn Design
+grand_parent: System Design Challenges
+---
+
 # Design Content Delivery Network (CDN) - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

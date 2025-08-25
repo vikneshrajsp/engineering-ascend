@@ -1,3 +1,10 @@
+---
+title: Cheatsheet
+layout: default
+grand_parent: Building Blocks
+parent: Compute Processing
+---
+
 # Compute & Processing Systems - Cheat Sheet
 ## One-Page Quick Reference for System Design
 

@@ -1,3 +1,10 @@
+---
+title: Cheatsheet
+layout: default
+grand_parent: Building Blocks
+parent: Security Authentication
+---
+
 # Security & Authentication Systems - Cheat Sheet
 ## One-Page Quick Reference for Interviews
 

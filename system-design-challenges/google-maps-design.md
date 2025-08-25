@@ -1,3 +1,11 @@
+---
+title: Google Maps Design - System Design Challenge
+description: Comprehensive solution for google maps design system design challenge
+layout: default
+parent: Google Maps Design
+grand_parent: System Design Challenges
+---
+
 # Design Google Maps - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

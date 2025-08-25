@@ -1,0 +1,1057 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Handbook | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Handbook" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/handbook/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/handbook/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Handbook" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/handbook/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Caching Performance</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Handbook</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="caching--performance-systems">
+  
+  
+    <a href="#caching--performance-systems" class="anchor-heading" aria-labelledby="caching--performance-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Caching &amp; Performance Systems
+  
+  
+</h1>
+    
+<h2 id="comprehensive-technical-handbook">
+  
+  
+    <a href="#comprehensive-technical-handbook" class="anchor-heading" aria-labelledby="comprehensive-technical-handbook"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Technical Handbook
+  
+  
+</h2>
+    
+<h2 id="-table-of-contents">
+  
+  
+    <a href="#-table-of-contents" class="anchor-heading" aria-labelledby="-table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>Table of Contents</strong>
+  
+  
+</h2>
+    
+
+<ol>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#caching-fundamentals">Caching Fundamentals</a></li>
+  <li><a href="#cache-layers">Cache Layers</a></li>
+  <li><a href="#caching-strategies">Caching Strategies</a></li>
+  <li><a href="#performance-optimization">Performance Optimization</a></li>
+  <li><a href="#implementation-patterns">Implementation Patterns</a></li>
+  <li><a href="#best-practices">Best Practices</a></li>
+  <li><a href="#key-takeaways">Key Takeaways</a></li>
+</ol><hr />
+<h2 id="-overview">
+  
+  
+    <a href="#-overview" class="anchor-heading" aria-labelledby="-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>Overview</strong>
+  
+  
+</h2>
+    
+<h3 id="what-is-caching">
+  
+  
+    <a href="#what-is-caching" class="anchor-heading" aria-labelledby="what-is-caching"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>What is Caching?</strong>
+  
+  
+</h3>
+    
+<p>Caching stores frequently accessed data in fast-access storage to improve system performance by reducing latency and improving throughput.</p>
+<h3 id="performance-impact">
+  
+  
+    <a href="#performance-impact" class="anchor-heading" aria-labelledby="performance-impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Impact</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Latency Reduction</strong>: 50-90% improvement</li>
+  <li><strong>Throughput Increase</strong>: 2-10x improvement</li>
+  <li><strong>Resource Utilization</strong>: 30-70% reduction</li>
+  <li><strong>User Experience</strong>: Significant improvement</li>
+</ul><hr />
+<h2 id="-caching-fundamentals">
+  
+  
+    <a href="#-caching-fundamentals" class="anchor-heading" aria-labelledby="-caching-fundamentals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔑 <strong>Caching Fundamentals</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-hit-vs-cache-miss">
+  
+  
+    <a href="#cache-hit-vs-cache-miss" class="anchor-heading" aria-labelledby="cache-hit-vs-cache-miss"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Hit vs Cache Miss</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cache Hit: Data found in cache
+├─ Performance: 0.1-10ms latency
+├─ Benefits: Fast response, reduced backend load
+└─ Cost: Minimal resource usage
+
+Cache Miss: Data not found in cache
+├─ Performance: Backend latency + cache update time
+├─ Impact: Slower response, backend query required
+└─ Cost: Higher resource usage
+</code></pre></div></div>
+<h3 id="cache-hit-ratio">
+  
+  
+    <a href="#cache-hit-ratio" class="anchor-heading" aria-labelledby="cache-hit-ratio"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Hit Ratio</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hit Ratio = Cache Hits / (Cache Hits + Cache Misses)
+
+Performance Levels:
+├─ 90%+ Hit Ratio: Excellent performance
+├─ 70-90% Hit Ratio: Good performance
+├─ 50-70% Hit Ratio: Acceptable performance
+└─ &lt;50% Hit Ratio: Poor performance, needs optimization
+</code></pre></div></div><hr />
+<h2 id="️-cache-layers">
+  
+  
+    <a href="#️-cache-layers" class="anchor-heading" aria-labelledby="️-cache-layers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🗄️ <strong>Cache Layers</strong>
+  
+  
+</h2>
+    
+<h3 id="cpu-cache-l1-l2-l3">
+  
+  
+    <a href="#cpu-cache-l1-l2-l3" class="anchor-heading" aria-labelledby="cpu-cache-l1-l2-l3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CPU Cache (L1, L2, L3)</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cache Hierarchy:
+L1 Cache (32-64KB per core)
+├─ Latency: 1-3 CPU cycles (~1ns)
+├─ Types: L1i (instructions), L1d (data)
+└─ Optimization: Cache line alignment, prefetching
+
+L2 Cache (256KB-1MB per core)
+├─ Latency: 10-20 CPU cycles (~10ns)
+├─ Unified: Instructions + data
+└─ Optimization: Memory access patterns
+
+L3 Cache (8-32MB shared)
+├─ Latency: 40-80 CPU cycles (~40ns)
+├─ Shared: Across all cores
+└─ Optimization: NUMA awareness
+</code></pre></div></div>
+<h3 id="memory-cache">
+  
+  
+    <a href="#memory-cache" class="anchor-heading" aria-labelledby="memory-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Memory Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In-Memory Data Structures:
+Hash Tables
+├─ Performance: O(1) average case
+├─ Memory Overhead: 20-50%
+└─ Use Cases: Key-value caching, session storage
+
+Skip Lists
+├─ Performance: O(log n) average case
+├─ Memory Overhead: 10-30%
+└─ Use Cases: Sorted data, Redis sorted sets
+
+B-Trees
+├─ Performance: O(log n) worst case
+├─ Memory Overhead: 30-50%
+└─ Use Cases: Range queries, database caching
+</code></pre></div></div>
+<h3 id="application-cache">
+  
+  
+    <a href="#application-cache" class="anchor-heading" aria-labelledby="application-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Application Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cache Types:
+Object Cache
+├─ Purpose: Cache frequently accessed objects
+├─ Implementation: In-memory data structures
+└─ Use Cases: User sessions, computed results
+
+Query Cache
+├─ Purpose: Cache database query results
+├─ Implementation: Hash-based storage
+└─ Use Cases: Complex queries, API responses
+
+Session Cache
+├─ Purpose: Store user session data
+├─ Implementation: Distributed cache
+└─ Use Cases: Web applications, user state
+</code></pre></div></div>
+<h3 id="distributed-cache">
+  
+  
+    <a href="#distributed-cache" class="anchor-heading" aria-labelledby="distributed-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture Patterns:
+Master-Slave Replication
+├─ Master: Handles writes and reads
+├─ Slaves: Handle reads only
+├─ Benefits: High availability, read scaling
+└─ Trade-offs: Eventual consistency
+
+Multi-Master Replication
+├─ Multiple masters handle writes
+├─ Benefits: Higher availability, write scaling
+└─ Trade-offs: Conflict resolution, complexity
+
+Consistent Hashing
+├─ Even distribution across nodes
+├─ Minimal data movement on changes
+├─ Benefits: Scalability, fault tolerance
+└─ Implementation: Virtual nodes, hash ring
+</code></pre></div></div>
+<h3 id="storage-cache">
+  
+  
+    <a href="#storage-cache" class="anchor-heading" aria-labelledby="storage-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cache Types:
+Read Cache
+├─ Purpose: Cache frequently read data
+├─ Implementation: Buffer cache, page cache
+└─ Benefits: Reduced disk I/O
+
+Write Cache
+├─ Purpose: Buffer writes before disk
+├─ Implementation: Write buffer, write-back cache
+└─ Benefits: Improved write performance
+
+Hybrid Cache
+├─ Purpose: Optimize both reads and writes
+├─ Implementation: SSD cache, tiered storage
+└─ Benefits: Balanced performance
+</code></pre></div></div>
+<h3 id="cdn-cache">
+  
+  
+    <a href="#cdn-cache" class="anchor-heading" aria-labelledby="cdn-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CDN Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Edge Caching:
+Geographic Distribution
+├─ Cache servers worldwide
+├─ Benefits: Reduced latency, load distribution
+└─ Implementation: Edge locations, origin servers
+
+Cache Invalidation
+├─ TTL-based expiration
+├─ Manual invalidation
+├─ Version-based invalidation
+└─ Real-time updates
+</code></pre></div></div><hr />
+<h2 id="-caching-strategies">
+  
+  
+    <a href="#-caching-strategies" class="anchor-heading" aria-labelledby="-caching-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Caching Strategies</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-placement-patterns">
+  
+  
+    <a href="#cache-placement-patterns" class="anchor-heading" aria-labelledby="cache-placement-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Placement Patterns</strong>
+  
+  
+</h3>
+    
+<h4 id="cache-aside-pattern">
+  
+  
+    <a href="#cache-aside-pattern" class="anchor-heading" aria-labelledby="cache-aside-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache-Aside Pattern</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Implementation:
+1. Check cache for data
+2. If cache hit, return data
+3. If cache miss, query data source
+4. Store result in cache
+5. Return data
+
+Benefits:
+├─ Simple implementation
+├─ Cache independence
+├─ Flexible cache management
+└─ Easy to debug
+
+Drawbacks:
+├─ Cache miss penalty
+├─ Cache consistency challenges
+├─ Application complexity
+└─ Potential race conditions
+</code></pre></div></div>
+<h4 id="write-through-pattern">
+  
+  
+    <a href="#write-through-pattern" class="anchor-heading" aria-labelledby="write-through-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Write-Through Pattern</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Implementation:
+1. Write data to cache
+2. Write data to data source
+3. Return success after both complete
+
+Benefits:
+├─ Strong consistency
+├─ Simple failure handling
+├─ Predictable behavior
+└─ Easy to reason about
+
+Drawbacks:
+├─ Higher write latency
+├─ Cache pollution
+├─ Resource overhead
+└─ Potential performance impact
+</code></pre></div></div>
+<h4 id="write-behind-pattern">
+  
+  
+    <a href="#write-behind-pattern" class="anchor-heading" aria-labelledby="write-behind-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Write-Behind Pattern</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Implementation:
+1. Write data to cache immediately
+2. Queue write to data source
+3. Return success immediately
+4. Process queue asynchronously
+
+Benefits:
+├─ Low write latency
+├─ High throughput
+├─ Batch processing
+└─ Better user experience
+
+Drawbacks:
+├─ Potential data loss
+├─ Complex failure handling
+├─ Eventual consistency
+└─ Queue management complexity
+</code></pre></div></div>
+<h3 id="cache-invalidation-strategies">
+  
+  
+    <a href="#cache-invalidation-strategies" class="anchor-heading" aria-labelledby="cache-invalidation-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Invalidation Strategies</strong>
+  
+  
+</h3>
+    
+<h4 id="time-based-invalidation">
+  
+  
+    <a href="#time-based-invalidation" class="anchor-heading" aria-labelledby="time-based-invalidation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Time-Based Invalidation</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TTL (Time-To-Live):
+Simple TTL
+├─ Set expiration time on cache entries
+├─ Automatic cleanup of expired entries
+├─ Simple implementation
+└─ Predictable behavior
+
+Sliding TTL
+├─ Extend TTL on access
+├─ Keep frequently accessed data longer
+├─ Better cache utilization
+└─ More complex implementation
+</code></pre></div></div>
+<h4 id="event-based-invalidation">
+  
+  
+    <a href="#event-based-invalidation" class="anchor-heading" aria-labelledby="event-based-invalidation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Event-Based Invalidation</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Event-Driven Invalidation:
+Cache Invalidation Events
+├─ Data modification events
+├─ Schema change events
+├─ Configuration change events
+└─ System state change events
+
+Implementation Patterns
+├─ Publish-subscribe pattern
+├─ Event sourcing
+├─ Message queues
+└─ Webhooks
+</code></pre></div></div>
+<h4 id="version-based-invalidation">
+  
+  
+    <a href="#version-based-invalidation" class="anchor-heading" aria-labelledby="version-based-invalidation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Version-Based Invalidation</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Version-Based Implementation:
+Cache Key Versioning
+├─ Include version in cache key
+├─ Invalidate by changing version
+├─ Atomic version updates
+└─ No partial invalidation
+
+Example:
+├─ Cache Key: "user:123:v1"
+├─ Version Update: "user:123:v2"
+├─ Old entries automatically invalidated
+└─ New entries use new version
+</code></pre></div></div><hr />
+<h2 id="-performance-optimization">
+  
+  
+    <a href="#-performance-optimization" class="anchor-heading" aria-labelledby="-performance-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚡ <strong>Performance Optimization</strong>
+  
+  
+</h2>
+    
+<h3 id="latency-optimization">
+  
+  
+    <a href="#latency-optimization" class="anchor-heading" aria-labelledby="latency-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Latency Optimization</strong>
+  
+  
+</h3>
+    
+<h4 id="cache-hit-optimization">
+  
+  
+    <a href="#cache-hit-optimization" class="anchor-heading" aria-labelledby="cache-hit-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Hit Optimization</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Strategies:
+Cache Key Design
+├─ Use appropriate cache keys
+├─ Avoid cache key collisions
+├─ Include relevant context
+└─ Consider cache key size
+
+Cache Warming
+├─ Pre-load frequently accessed data
+├─ Background cache population
+├─ Predictive cache loading
+└─ Cache warming strategies
+</code></pre></div></div>
+<h4 id="cache-miss-optimization">
+  
+  
+    <a href="#cache-miss-optimization" class="anchor-heading" aria-labelledby="cache-miss-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Miss Optimization</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Strategies:
+Stale-While-Revalidate
+├─ Return stale data immediately
+├─ Update cache in background
+├─ Reduce cache miss penalty
+└─ Better user experience
+
+Cache Prefetching
+├─ Predict future requests
+├─ Pre-load likely data
+├─ Reduce cache misses
+└─ Improve performance
+</code></pre></div></div>
+<h3 id="throughput-optimization">
+  
+  
+    <a href="#throughput-optimization" class="anchor-heading" aria-labelledby="throughput-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Throughput Optimization</strong>
+  
+  
+</h3>
+    
+<h4 id="concurrent-access">
+  
+  
+    <a href="#concurrent-access" class="anchor-heading" aria-labelledby="concurrent-access"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Concurrent Access</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Optimization Techniques:
+Lock-Free Caching
+├─ Use concurrent data structures
+├─ Avoid locks where possible
+├─ Use atomic operations
+└─ Improve throughput
+
+Connection Pooling
+├─ Reuse cache connections
+├─ Reduce connection overhead
+├─ Manage connection lifecycle
+└─ Improve efficiency
+</code></pre></div></div>
+<h4 id="batch-operations">
+  
+  
+    <a href="#batch-operations" class="anchor-heading" aria-labelledby="batch-operations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Batch Operations</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Batch Processing:
+Bulk Operations
+├─ Batch multiple operations
+├─ Reduce network overhead
+├─ Improve throughput
+└─ Optimize resource usage
+
+Pipeline Operations
+├─ Pipeline multiple requests
+├─ Reduce round-trip time
+├─ Improve efficiency
+└─ Better resource utilization
+</code></pre></div></div>
+<h3 id="memory-optimization">
+  
+  
+    <a href="#memory-optimization" class="anchor-heading" aria-labelledby="memory-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Memory Optimization</strong>
+  
+  
+</h3>
+    
+<h4 id="memory-management">
+  
+  
+    <a href="#memory-management" class="anchor-heading" aria-labelledby="memory-management"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Memory Management</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Optimization Techniques:
+Memory Pooling
+├─ Reuse memory objects
+├─ Reduce allocation overhead
+├─ Improve performance
+└─ Reduce garbage collection
+
+Compression
+├─ Compress cache data
+├─ Reduce memory usage
+├─ Trade CPU for memory
+└─ Improve cache capacity
+</code></pre></div></div>
+<h4 id="eviction-strategies">
+  
+  
+    <a href="#eviction-strategies" class="anchor-heading" aria-labelledby="eviction-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Eviction Strategies</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Eviction Policies:
+LRU (Least Recently Used)
+├─ Evict least recently accessed
+├─ Good for temporal locality
+├─ Simple implementation
+└─ Predictable behavior
+
+LFU (Least Frequently Used)
+├─ Evict least frequently accessed
+├─ Good for access patterns
+├─ More complex implementation
+└─ Better for some workloads
+
+TTL (Time-To-Live)
+├─ Evict based on time
+├─ Simple implementation
+├─ Predictable behavior
+└─ Good for time-sensitive data
+</code></pre></div></div><hr />
+<h2 id="-implementation-patterns">
+  
+  
+    <a href="#-implementation-patterns" class="anchor-heading" aria-labelledby="-implementation-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>Implementation Patterns</strong>
+  
+  
+</h2>
+    
+<h3 id="redis-implementation">
+  
+  
+    <a href="#redis-implementation" class="anchor-heading" aria-labelledby="redis-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Redis Implementation</strong>
+  
+  
+</h3>
+    
+<h4 id="basic-redis-cache">
+  
+  
+    <a href="#basic-redis-cache" class="anchor-heading" aria-labelledby="basic-redis-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Basic Redis Cache</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">redis</span>
+<span class="kn">import</span> <span class="n">json</span>
+
+<span class="k">class</span> <span class="nc">RedisCache</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="nc">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="bp">None</span>
+    
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="nf">setex</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ttl</span><span class="p">,</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="in-memory-lru-cache">
+  
+  
+    <a href="#in-memory-lru-cache" class="anchor-heading" aria-labelledby="in-memory-lru-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>In-Memory LRU Cache</strong>
+  
+  
+</h3>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span> <span class="n">threading</span>
+<span class="kn">import</span> <span class="n">time</span>
+
+<span class="k">class</span> <span class="nc">LRUCache</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ttl</span> <span class="o">=</span> <span class="n">ttl</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">cache</span> <span class="o">=</span> <span class="nc">OrderedDict</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">timestamps</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="nc">RLock</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">timestamps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">self</span><span class="p">.</span><span class="n">ttl</span><span class="p">:</span>
+                    <span class="n">self</span><span class="p">.</span><span class="nf">_remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">None</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">.</span><span class="nf">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">None</span>
+    
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">self</span><span class="p">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">.</span><span class="nf">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">self</span><span class="p">.</span><span class="n">capacity</span><span class="p">:</span>
+                    <span class="n">oldest</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="nf">iter</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">))</span>
+                    <span class="n">self</span><span class="p">.</span><span class="nf">_remove</span><span class="p">(</span><span class="n">oldest</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">timestamps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+</code></pre></div></div>
+<h3 id="distributed-cache-with-consistent-hashing">
+  
+  
+    <a href="#distributed-cache-with-consistent-hashing" class="anchor-heading" aria-labelledby="distributed-cache-with-consistent-hashing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Cache with Consistent Hashing</strong>
+  
+  
+</h3>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">hashlib</span>
+<span class="kn">import</span> <span class="n">bisect</span>
+
+<span class="k">class</span> <span class="nc">ConsistentHashCache</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replicas</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">replicas</span> <span class="o">=</span> <span class="n">replicas</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ring</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">add_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">add_node</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">replicas</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_hash</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">get_node</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">hash_key</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">.</span><span class="nf">bisect_right</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span><span class="p">,</span> <span class="n">hash_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">sorted_keys</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+    
+    <span class="k">def</span> <span class="nf">_hash</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nf">int</span><span class="p">(</span><span class="n">hashlib</span><span class="p">.</span><span class="nf">md5</span><span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="nf">encode</span><span class="p">()).</span><span class="nf">hexdigest</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div><hr />
+<h2 id="️-best-practices">
+  
+  
+    <a href="#️-best-practices" class="anchor-heading" aria-labelledby="️-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>Best Practices</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-key-design">
+  
+  
+    <a href="#cache-key-design" class="anchor-heading" aria-labelledby="cache-key-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Key Design</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Best Practices:
+├─ Use descriptive, unique keys
+├─ Include relevant context
+├─ Avoid cache key collisions
+├─ Consider key size and performance
+└─ Use consistent naming conventions
+
+Examples:
+├─ Good: "user:123:profile"
+├─ Good: "product:456:details:v2"
+├─ Bad: "data"
+├─ Bad: "user_profile_123"
+└─ Bad: "very_long_cache_key_that_is_hard_to_read"
+</code></pre></div></div>
+<h3 id="ttl-strategy">
+  
+  
+    <a href="#ttl-strategy" class="anchor-heading" aria-labelledby="ttl-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>TTL Strategy</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TTL Guidelines:
+├─ Static data: Long TTL (hours to days)
+├─ Dynamic data: Short TTL (minutes to hours)
+├─ User-specific data: Session-based TTL
+├─ Computationally expensive: Medium TTL
+└─ Frequently updated: Short TTL with invalidation
+</code></pre></div></div>
+<h3 id="cache-size-management">
+  
+  
+    <a href="#cache-size-management" class="anchor-heading" aria-labelledby="cache-size-management"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Size Management</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Size Management:
+├─ Monitor memory usage
+├─ Set appropriate size limits
+├─ Use effective eviction policies
+├─ Implement cache warming
+└─ Regular cache cleanup
+</code></pre></div></div>
+<h3 id="common-pitfalls">
+  
+  
+    <a href="#common-pitfalls" class="anchor-heading" aria-labelledby="common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Pitfalls</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pitfalls to Avoid:
+Cache Stampede
+├─ Problem: Multiple requests for same missing data
+├─ Solution: Cache warming, background refresh
+
+Cache Pollution
+├─ Problem: Cache filled with rarely accessed data
+├─ Solution: Appropriate TTL, eviction policies
+
+Cache Inconsistency
+├─ Problem: Cache data becomes stale
+├─ Solution: Proper invalidation strategies
+</code></pre></div></div><hr />
+<h2 id="-key-takeaways">
+  
+  
+    <a href="#-key-takeaways" class="anchor-heading" aria-labelledby="-key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Key Takeaways</strong>
+  
+  
+</h2>
+    
+<h3 id="caching-fundamentals">
+  
+  
+    <a href="#caching-fundamentals" class="anchor-heading" aria-labelledby="caching-fundamentals"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Caching Fundamentals</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Cache Hit Ratio</strong>: Aim for 80%+ hit ratio for optimal performance</li>
+  <li><strong>Cache Placement</strong>: Choose appropriate cache layer based on access patterns</li>
+  <li><strong>Cache Strategy</strong>: Select caching strategy based on data characteristics</li>
+  <li><strong>Cache Invalidation</strong>: Implement proper invalidation to maintain consistency</li>
+</ol>
+<h3 id="performance-optimization">
+  
+  
+    <a href="#performance-optimization" class="anchor-heading" aria-labelledby="performance-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Optimization</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Latency</strong>: Caching can reduce latency by 50-90%</li>
+  <li><strong>Throughput</strong>: Caching can improve throughput by 2-10x</li>
+  <li><strong>Resource Utilization</strong>: Caching can reduce resource usage by 30-70%</li>
+  <li><strong>User Experience</strong>: Caching significantly improves application responsiveness</li>
+</ol>
+<h3 id="implementation-best-practices">
+  
+  
+    <a href="#implementation-best-practices" class="anchor-heading" aria-labelledby="implementation-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Implementation Best Practices</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Cache Key Design</strong>: Use descriptive, unique keys with consistent naming</li>
+  <li><strong>TTL Strategy</strong>: Set appropriate TTL based on data characteristics</li>
+  <li><strong>Cache Size Management</strong>: Monitor and manage cache size effectively</li>
+  <li><strong>Cache Monitoring</strong>: Implement comprehensive monitoring and alerting</li>
+</ol>
+<h3 id="common-patterns">
+  
+  
+    <a href="#common-patterns" class="anchor-heading" aria-labelledby="common-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Patterns</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Cache-Aside</strong>: Simple, flexible, but requires careful consistency management</li>
+  <li><strong>Write-Through</strong>: Strong consistency, but higher latency</li>
+  <li><strong>Write-Behind</strong>: High performance, but eventual consistency</li>
+  <li><strong>Refresh-Ahead</strong>: No cache miss penalty, but resource overhead</li>
+</ol><hr />
+
+<p><em>This handbook provides comprehensive coverage of caching and performance optimization strategies. Use it as a reference for designing and implementing effective caching solutions.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

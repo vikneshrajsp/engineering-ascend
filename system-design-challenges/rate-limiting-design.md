@@ -1,3 +1,11 @@
+---
+title: Rate Limiting Design - System Design Challenge
+description: Comprehensive solution for rate limiting design system design challenge
+layout: default
+parent: Rate Limiting Design
+grand_parent: System Design Challenges
+---
+
 # Design Rate Limiting System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

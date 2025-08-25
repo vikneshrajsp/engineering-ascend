@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Video Conferencing Design - System Design Challenge | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Video Conferencing Design - System Design Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive solution for video conferencing design system design challenge" />
+<meta property="og:description" content="Comprehensive solution for video conferencing design system design challenge" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/video-conferencing-design/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/video-conferencing-design/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Video Conferencing Design - System Design Challenge" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for video conferencing design system design challenge","headline":"Video Conferencing Design - System Design Challenge","url":"https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/video-conferencing-design/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">System Design Challenges</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Video Conferencing Design</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Video Conferencing Design - System Design Challenge</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="design-video-conferencing---system-design-challenge">
+  
+  
+    <a href="#design-video-conferencing---system-design-challenge" class="anchor-heading" aria-labelledby="design-video-conferencing---system-design-challenge"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Design Video Conferencing - System Design Challenge
+  
+  
+</h1>
+    
+
+<p><em>Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.</em></p>
+<h2 id="-interview-walkthrough">
+  
+  
+    <a href="#-interview-walkthrough" class="anchor-heading" aria-labelledby="-interview-walkthrough"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Interview Walkthrough</strong>
+  
+  
+</h2>
+    
+<h3 id="step-1-requirement-clarification--scoping">
+  
+  
+    <a href="#step-1-requirement-clarification--scoping" class="anchor-heading" aria-labelledby="step-1-requirement-clarification--scoping"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 1: Requirement Clarification &amp; Scoping</strong>
+  
+  
+</h3>
+    
+
+<p><strong>Interviewer</strong>: “Design a video conferencing system for me.”</p>
+
+<p><strong>My Response</strong>: “Great! Before I start designing, I need to understand the scope and requirements better. Let me ask some clarifying questions:</p>
+
+<ol>
+  <li><strong>Scale</strong>: Are we talking about Zoom scale (300M+ users) or starting from scratch?</li>
+  <li><strong>Features</strong>: Which core features should I focus on? Video/audio streaming, screen sharing, recording, or all of them?</li>
+  <li><strong>Platforms</strong>: Web, mobile apps, desktop apps, or all platforms?</li>
+  <li><strong>Constraints</strong>: Any specific performance, cost, or technical constraints I should consider?”</li>
+</ol>
+
+<p><strong>Interviewer</strong>: “Let’s start with Zoom scale and focus on the core features: video/audio streaming, screen sharing, recording, and real-time communication.”</p>
+
+<p><strong>My Response</strong>: “Perfect! So I’m designing a video conferencing system at scale with:</p>
+<ul>
+  <li>300M+ monthly active users</li>
+  <li>Core features: video/audio streaming, screen sharing, recording, real-time communication</li>
+  <li>Multiple platforms (web, mobile, desktop)</li>
+  <li>Global scale with sub-second latency</li>
+</ul>
+
+<p>Let me start by identifying the core problems we need to solve.”</p>
+<h3 id="step-2-identifying-core-problems">
+  
+  
+    <a href="#step-2-identifying-core-problems" class="anchor-heading" aria-labelledby="step-2-identifying-core-problems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 2: Identifying Core Problems</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Thought Process</strong>: “From the requirements, I can identify several core problems:</p>
+
+<ol>
+  <li><strong>Real-time Video Streaming</strong>: How do we stream video/audio to millions of users with minimal latency?</li>
+  <li><strong>Screen Sharing</strong>: How do we handle screen sharing with high quality and low latency?</li>
+  <li><strong>Recording</strong>: How do we record and store massive amounts of video content?</li>
+  <li><strong>Scalability</strong>: How do we scale to handle thousands of concurrent meetings?</li>
+  <li><strong>Network Optimization</strong>: How do we handle different network conditions and bandwidth?</li>
+  <li><strong>Cross-platform Support</strong>: How do we ensure consistent experience across all platforms?</li>
+</ol>
+
+<p>The crux is balancing real-time performance with video quality while handling massive scale and diverse network conditions.”</p>
+<h3 id="step-3-back-of-the-envelope-estimation">
+  
+  
+    <a href="#step-3-back-of-the-envelope-estimation" class="anchor-heading" aria-labelledby="step-3-back-of-the-envelope-estimation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 3: Back-of-the-Envelope Estimation</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me do some quick calculations to understand the scale:</p>
+
+<p><strong>User Scale:</strong></p>
+<ul>
+  <li>300M monthly active users</li>
+  <li>Assuming 20% daily active users = 60M DAU</li>
+  <li>Peak concurrent users: 60M × 0.1 = 6M concurrent</li>
+  <li>Peak factor: 5x for peak hours (work hours)</li>
+</ul>
+
+<p><strong>Meeting Scale:</strong></p>
+<ul>
+  <li>Average user joins 2 meetings/day = 120M meetings/day</li>
+  <li>Average meeting duration: 30 minutes</li>
+  <li>Peak meetings per second: 120M ÷ 86400 × 5 = 6.9K meetings/second</li>
+  <li>Concurrent meetings: 6.9K × 30 × 60 = 12.4M concurrent meetings</li>
+</ul>
+
+<p><strong>Video Scale:</strong></p>
+<ul>
+  <li>Average video quality: 720p (1.5Mbps)</li>
+  <li>Audio quality: 64kbps</li>
+  <li>Total bandwidth per user: 1.5Mbps + 64kbps = 1.56Mbps</li>
+  <li>Peak bandwidth: 6M × 1.56Mbps = 9.36Tbps</li>
+</ul>
+
+<p><strong>Storage Scale:</strong></p>
+<ul>
+  <li>Recording rate: 10% of meetings recorded</li>
+  <li>Average recording size: 30 minutes × 1.5Mbps = 337.5MB</li>
+  <li>Daily storage: 12M × 337.5MB = 4.05PB/day</li>
+  <li>Annual storage: 4.05PB × 400 = 1.62EB/year</li>
+</ul>
+
+<p>These numbers tell me we need a massively distributed real-time system with intelligent video processing and network optimization.”</p>
+<h3 id="step-4-high-level-approach">
+  
+  
+    <a href="#step-4-high-level-approach" class="anchor-heading" aria-labelledby="step-4-high-level-approach"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 4: High-Level Approach</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Based on the scale, here’s my high-level approach:</p>
+
+<p><strong>Architecture Pattern</strong>: Real-time video streaming with distributed processing
+<strong>Video Strategy</strong>: Adaptive bitrate streaming with intelligent quality adjustment
+<strong>Network Strategy</strong>: Global distribution with intelligent routing and optimization
+<strong>Scaling Strategy</strong>: Horizontal scaling with intelligent meeting distribution</p>
+
+<p><strong>Key Design Principles:</strong></p>
+<ol>
+  <li><strong>Real-time First</strong>: Prioritize minimal latency for live communication</li>
+  <li><strong>Quality Adaptation</strong>: Adapt video quality based on network conditions</li>
+  <li><strong>Global Distribution</strong>: Serve users from locations closest to them</li>
+  <li><strong>Intelligent Optimization</strong>: Optimize for different network conditions</li>
+</ol>
+
+<p>Let me break this down into building blocks and explain my choices.”</p>
+<h3 id="step-5-building-block-trade-offs--justification">
+  
+  
+    <a href="#step-5-building-block-trade-offs--justification" class="anchor-heading" aria-labelledby="step-5-building-block-trade-offs--justification"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 5: Building Block Trade-offs &amp; Justification</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me walk through each building block and explain my choices:</p>
+<h4 id="1-data-storage-systems">
+  
+  
+    <a href="#1-data-storage-systems" class="anchor-heading" aria-labelledby="1-data-storage-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Data Storage Systems</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Hybrid approach (Redis + PostgreSQL + Object Storage + CDN)</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Redis</strong>: For real-time meeting state, user sessions, and live data</li>
+  <li><strong>PostgreSQL</strong>: For user data, meeting metadata, and recordings</li>
+  <li><strong>Object Storage</strong>: For video recordings and large media files</li>
+  <li><strong>CDN</strong>: For global content distribution and caching</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Single Database</strong>: Would work but can’t handle the scale and different data types</li>
+  <li><strong>Traditional RDBMS</strong>: Good for structured data but can’t scale to millions of meetings</li>
+  <li><strong>NoSQL Only</strong>: Could handle scale but lacks consistency guarantees for critical data</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: Managing multiple storage systems vs. single system</li>
+  <li><strong>Performance</strong>: Optimized for each use case vs. one-size-fits-all</li>
+  <li><strong>Cost</strong>: Higher operational cost vs. better performance and scalability</li>
+</ul>
+<h4 id="2-compute--processing">
+  
+  
+    <a href="#2-compute--processing" class="anchor-heading" aria-labelledby="2-compute--processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Compute &amp; Processing</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Microservices with specialized video processing services</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Video Service</strong>: Handle video encoding, decoding, and streaming</li>
+  <li><strong>Audio Service</strong>: Handle audio processing and noise cancellation</li>
+  <li><strong>Screen Sharing Service</strong>: Handle screen capture and sharing</li>
+  <li><strong>Recording Service</strong>: Handle meeting recording and storage</li>
+  <li><strong>Meeting Service</strong>: Manage meeting state and participant management</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Monolithic</strong>: Simpler to develop but impossible to scale to millions of meetings</li>
+  <li><strong>Serverless</strong>: Good for variable workloads but higher latency for real-time video</li>
+  <li><strong>Traditional Servers</strong>: Would work but can’t handle the distributed nature</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: Distributed system complexity vs. operational simplicity</li>
+  <li><strong>Latency</strong>: Network calls between services vs. in-memory calls</li>
+  <li><strong>Scalability</strong>: Independent scaling vs. coupled scaling</li>
+</ul>
+<h4 id="3-message-queuing--streaming">
+  
+  
+    <a href="#3-message-queuing--streaming" class="anchor-heading" aria-labelledby="3-message-queuing--streaming"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Message Queuing &amp; Streaming</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Apache Kafka + WebRTC + Real-time processing</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Kafka</strong>: For reliable event streaming (meeting events, recording events)</li>
+  <li><strong>WebRTC</strong>: For real-time peer-to-peer video communication</li>
+  <li><strong>Real-time Processing</strong>: Process video and audio in real-time</li>
+  <li><strong>Event Sourcing</strong>: Track all meeting events for audit and replay</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>RabbitMQ</strong>: Good for complex routing but higher latency</li>
+  <li><strong>SQS</strong>: Managed service but higher latency than Kafka</li>
+  <li><strong>Direct Communication</strong>: Simpler but can’t handle high-throughput video events</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Latency</strong>: WebRTC provides lowest latency but adds complexity</li>
+  <li><strong>Reliability</strong>: Event streaming reliability vs. simple message delivery</li>
+  <li><strong>Scalability</strong>: Distributed streaming vs. centralized messaging</li>
+</ul>
+<h4 id="4-networking--communication">
+  
+  
+    <a href="#4-networking--communication" class="anchor-heading" aria-labelledby="4-networking--communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Networking &amp; Communication</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Global distribution with WebRTC optimization</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Global Distribution</strong>: Serve users from locations closest to them</li>
+  <li><strong>WebRTC Integration</strong>: Optimize WebRTC for global distribution</li>
+  <li><strong>Load Balancing</strong>: Distribute video load across multiple services</li>
+  <li><strong>Geographic Optimization</strong>: Optimize for regional network conditions</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Single Region</strong>: Simpler but higher latency for global users</li>
+  <li><strong>Edge Computing</strong>: Good for static content but limited for real-time video</li>
+  <li><strong>Peer-to-Peer Only</strong>: Could work but complex and unreliable for large meetings</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: WebRTC optimization complexity vs. operational simplicity</li>
+  <li><strong>Performance</strong>: Real-time performance vs. higher resource usage</li>
+  <li><strong>Scalability</strong>: Connection management complexity vs. better user experience</li>
+</ul>
+<h4 id="5-caching--performance">
+  
+  
+    <a href="#5-caching--performance" class="anchor-heading" aria-labelledby="5-caching--performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Caching &amp; Performance</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Multi-level caching with intelligent optimization</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Meeting Cache</strong>: Cache meeting state and participant information</li>
+  <li><strong>Video Cache</strong>: Cache frequently accessed video content</li>
+  <li><strong>User Cache</strong>: Cache user preferences and meeting history</li>
+  <li><strong>CDN Cache</strong>: Cache static content and recordings globally</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Single Cache</strong>: Simpler but less effective for different data types</li>
+  <li><strong>No Caching</strong>: Would work but terrible performance and high costs</li>
+  <li><strong>Application-only Caching</strong>: Good for dynamic data but not for video</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: Managing multiple cache layers vs. single layer</li>
+  <li><strong>Memory Usage</strong>: Higher memory cost vs. better performance</li>
+  <li><strong>Consistency</strong>: Cache invalidation complexity vs. performance benefits</li>
+</ul>
+<h4 id="6-security--authentication">
+  
+  
+    <a href="#6-security--authentication" class="anchor-heading" aria-labelledby="6-security--authentication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>6. Security &amp; Authentication</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: OAuth 2.0 + E2E encryption + Meeting security</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>OAuth 2.0</strong>: Industry standard for user authentication</li>
+  <li><strong>E2E Encryption</strong>: Ensure video and audio privacy</li>
+  <li><strong>Meeting Security</strong>: Password protection, waiting rooms, and access control</li>
+  <li><strong>Recording Security</strong>: Secure storage and access to recordings</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Basic Authentication</strong>: Simpler but less secure for video communication</li>
+  <li><strong>Third-party Security</strong>: Easier to implement but less control</li>
+  <li><strong>No Encryption</strong>: Simpler but completely insecure for video</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Security</strong>: E2E encryption vs. simpler implementation</li>
+  <li><strong>Complexity</strong>: Security complexity vs. basic protection</li>
+  <li><strong>Performance</strong>: Encryption overhead vs. security benefits</li>
+</ul>
+<h4 id="7-monitoring--observability">
+  
+  
+    <a href="#7-monitoring--observability" class="anchor-heading" aria-labelledby="7-monitoring--observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>7. Monitoring &amp; Observability</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Real-time monitoring with video-specific metrics</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Video Metrics</strong>: Monitor video quality, latency, and bandwidth</li>
+  <li><strong>Audio Metrics</strong>: Track audio quality and noise levels</li>
+  <li><strong>Meeting Metrics</strong>: Monitor meeting performance and user satisfaction</li>
+  <li><strong>Network Metrics</strong>: Track network conditions and optimization</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Basic Logging</strong>: Simpler but reactive approach</li>
+  <li><strong>Third-party Tools</strong>: Easier to implement but less control over video metrics</li>
+  <li><strong>Application-only Monitoring</strong>: Good for app performance but not for video quality</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: Building monitoring vs. using existing tools</li>
+  <li><strong>Cost</strong>: Development cost vs. operational benefits</li>
+  <li><strong>Customization</strong>: Full control vs. out-of-the-box features</li>
+</ul>
+<h4 id="8-scalability--distribution">
+  
+  
+    <a href="#8-scalability--distribution" class="anchor-heading" aria-labelledby="8-scalability--distribution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>8. Scalability &amp; Distribution</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Choice</strong>: Horizontal scaling with intelligent meeting distribution</p>
+
+<p><strong>Why This Choice:</strong></p>
+<ul>
+  <li><strong>Meeting Partitioning</strong>: Partition meetings by region and size</li>
+  <li><strong>Video Distribution</strong>: Distribute video processing across multiple services</li>
+  <li><strong>Geographic Distribution</strong>: Serve users from optimal regions</li>
+  <li><strong>Auto-scaling</strong>: Scale services based on meeting demand</li>
+</ul>
+
+<p><strong>Alternatives Considered:</strong></p>
+<ul>
+  <li><strong>Vertical Scaling</strong>: Simpler but limited by hardware</li>
+  <li><strong>Consistent Hashing</strong>: Good for even distribution but complex to implement</li>
+  <li><strong>Static Distribution</strong>: Simpler but can’t adapt to changing demand</li>
+</ul>
+
+<p><strong>Trade-offs:</strong></p>
+<ul>
+  <li><strong>Complexity</strong>: Intelligent distribution complexity vs. static distribution</li>
+  <li><strong>Cost</strong>: Higher infrastructure cost vs. better performance</li>
+  <li><strong>Control</strong>: Automated optimization vs. manual control”</li>
+</ul>
+<h3 id="step-6-scaling-to-estimated-volume">
+  
+  
+    <a href="#step-6-scaling-to-estimated-volume" class="anchor-heading" aria-labelledby="step-6-scaling-to-estimated-volume"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 6: Scaling to Estimated Volume</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Now let me address how we scale to handle the estimated volume:</p>
+<h4 id="throughput-requirements">
+  
+  
+    <a href="#throughput-requirements" class="anchor-heading" aria-labelledby="throughput-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Throughput Requirements:</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Peak Meetings</strong>: 6.9K meetings/second</li>
+  <li><strong>Video Streams</strong>: 6M concurrent video streams</li>
+  <li><strong>Audio Streams</strong>: 6M concurrent audio streams</li>
+  <li><strong>Screen Sharing</strong>: 100K concurrent screen shares</li>
+</ul>
+
+<p><strong>Scaling Strategy:</strong></p>
+<ol>
+  <li><strong>Meeting Distribution</strong>: Distribute meetings across multiple regions</li>
+  <li><strong>Video Processing</strong>: Distribute video processing across multiple services</li>
+  <li><strong>Network Optimization</strong>: Optimize network routing for global distribution</li>
+  <li><strong>Auto-scaling</strong>: Scale services based on meeting demand</li>
+</ol>
+<h4 id="latency-requirements">
+  
+  
+    <a href="#latency-requirements" class="anchor-heading" aria-labelledby="latency-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Latency Requirements:</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Video Latency</strong>: &lt;200ms for 95% of streams</li>
+  <li><strong>Audio Latency</strong>: &lt;100ms for 95% of streams</li>
+  <li><strong>Screen Sharing</strong>: &lt;500ms for 95% of shares</li>
+  <li><strong>Meeting Join</strong>: &lt;2 seconds for 95% of joins</li>
+</ul>
+
+<p><strong>Latency Optimization:</strong></p>
+<ol>
+  <li><strong>WebRTC Optimization</strong>: Optimize WebRTC for minimal latency</li>
+  <li><strong>Geographic Distribution</strong>: Serve users from optimal regions</li>
+  <li><strong>Network Optimization</strong>: Optimize network routing and bandwidth</li>
+  <li><strong>Connection Management</strong>: Optimize connection establishment and management</li>
+</ol>
+<h4 id="availability-requirements">
+  
+  
+    <a href="#availability-requirements" class="anchor-heading" aria-labelledby="availability-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Availability Requirements:</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Target</strong>: 99.99% uptime (52 minutes downtime/year)</li>
+  <li><strong>Strategy</strong>: Multi-region deployment with automatic failover</li>
+  <li><strong>Monitoring</strong>: Real-time health checks and alerting</li>
+  <li><strong>Disaster Recovery</strong>: Regional failover and meeting migration</li>
+</ul>
+<h4 id="bandwidth-requirements">
+  
+  
+    <a href="#bandwidth-requirements" class="anchor-heading" aria-labelledby="bandwidth-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Bandwidth Requirements:</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Peak Bandwidth</strong>: 9.36Tbps total bandwidth</li>
+  <li><strong>Per-user Bandwidth</strong>: 1.56Mbps average</li>
+  <li><strong>Network Optimization</strong>: Intelligent bandwidth management</li>
+  <li><strong>Quality Adaptation</strong>: Adapt quality based on available bandwidth”</li>
+</ul>
+<h3 id="step-7-detailed-building-block-deep-dive">
+  
+  
+    <a href="#step-7-detailed-building-block-deep-dive" class="anchor-heading" aria-labelledby="step-7-detailed-building-block-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 7: Detailed Building Block Deep-Dive</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me dive deeper into each building block to show the implementation details:</p>
+<h4 id="1-real-time-video-streaming-deep-dive">
+  
+  
+    <a href="#1-real-time-video-streaming-deep-dive" class="anchor-heading" aria-labelledby="1-real-time-video-streaming-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Real-time Video Streaming Deep-Dive</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Problem We’re Solving</strong>: Stream video to millions of users with minimal latency while maintaining quality and handling network variations.</p>
+
+<p><strong>Video Architecture:</strong></p>
+<ul>
+  <li><strong>WebRTC Integration</strong>: Use WebRTC for peer-to-peer video communication</li>
+  <li><strong>Adaptive Bitrate</strong>: Adjust video quality based on network conditions</li>
+  <li><strong>Video Encoding</strong>: Multiple quality levels (720p, 480p, 360p)</li>
+  <li><strong>Network Optimization</strong>: Optimize for different network conditions</li>
+</ul>
+
+<p><strong>Video Optimization:</strong></p>
+<ul>
+  <li><strong>Codec Selection</strong>: Use H.264/H.265 for optimal compression</li>
+  <li><strong>Quality Adaptation</strong>: Automatically adjust quality based on bandwidth</li>
+  <li><strong>Frame Rate Control</strong>: Optimize frame rates for different network conditions</li>
+  <li><strong>Resolution Scaling</strong>: Scale resolution based on available bandwidth</li>
+</ul>
+<h4 id="2-audio-processing-deep-dive">
+  
+  
+    <a href="#2-audio-processing-deep-dive" class="anchor-heading" aria-labelledby="2-audio-processing-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Audio Processing Deep-Dive</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Problem We’re Solving</strong>: Process audio in real-time with noise cancellation and echo suppression while maintaining quality.</p>
+
+<p><strong>Audio Architecture:</strong></p>
+<ul>
+  <li><strong>Noise Cancellation</strong>: Remove background noise and interference</li>
+  <li><strong>Echo Suppression</strong>: Suppress echo and feedback</li>
+  <li><strong>Audio Compression</strong>: Compress audio for efficient transmission</li>
+  <li><strong>Quality Optimization</strong>: Optimize audio quality for different devices</li>
+</ul>
+
+<p><strong>Audio Processing:</strong></p>
+<ul>
+  <li><strong>Real-time Filtering</strong>: Apply filters in real-time for noise reduction</li>
+  <li><strong>Audio Enhancement</strong>: Enhance audio quality and clarity</li>
+  <li><strong>Bandwidth Optimization</strong>: Optimize audio bandwidth usage</li>
+  <li><strong>Device Adaptation</strong>: Adapt audio processing for different devices</li>
+</ul>
+<h4 id="3-screen-sharing-deep-dive">
+  
+  
+    <a href="#3-screen-sharing-deep-dive" class="anchor-heading" aria-labelledby="3-screen-sharing-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Screen Sharing Deep-Dive</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Problem We’re Solving</strong>: Handle high-quality screen sharing with low latency and efficient bandwidth usage.</p>
+
+<p><strong>Screen Sharing Architecture:</strong></p>
+<ul>
+  <li><strong>Screen Capture</strong>: Capture screen content efficiently</li>
+  <li><strong>Content Optimization</strong>: Optimize different types of content</li>
+  <li><strong>Bandwidth Management</strong>: Manage bandwidth for screen sharing</li>
+  <li><strong>Quality Adaptation</strong>: Adapt quality based on content type</li>
+</ul>
+
+<p><strong>Screen Sharing Optimization:</strong></p>
+<ul>
+  <li><strong>Content Detection</strong>: Detect content type for optimal compression</li>
+  <li><strong>Region-based Updates</strong>: Update only changed screen regions</li>
+  <li><strong>Compression Algorithms</strong>: Use appropriate compression for different content</li>
+  <li><strong>Quality vs. Bandwidth</strong>: Balance quality with bandwidth usage</li>
+</ul>
+<h4 id="4-meeting-management-deep-dive">
+  
+  
+    <a href="#4-meeting-management-deep-dive" class="anchor-heading" aria-labelledby="4-meeting-management-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Meeting Management Deep-Dive</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Problem We’re Solving</strong>: Manage thousands of concurrent meetings with efficient resource allocation and participant management.</p>
+
+<p><strong>Meeting Architecture:</strong></p>
+<ul>
+  <li><strong>Meeting State Management</strong>: Track meeting state and participants</li>
+  <li><strong>Resource Allocation</strong>: Allocate resources efficiently across meetings</li>
+  <li><strong>Participant Management</strong>: Manage participant connections and permissions</li>
+  <li><strong>Meeting Lifecycle</strong>: Handle meeting creation, joining, and ending</li>
+</ul>
+
+<p><strong>Meeting Optimization:</strong></p>
+<ul>
+  <li><strong>Resource Pooling</strong>: Pool resources across multiple meetings</li>
+  <li><strong>Load Balancing</strong>: Distribute meetings across multiple services</li>
+  <li><strong>Auto-scaling</strong>: Scale resources based on meeting demand</li>
+  <li><strong>Geographic Distribution</strong>: Distribute meetings by region</li>
+</ul>
+<h4 id="5-recording-and-storage-deep-dive">
+  
+  
+    <a href="#5-recording-and-storage-deep-dive" class="anchor-heading" aria-labelledby="5-recording-and-storage-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Recording and Storage Deep-Dive</strong>
+  
+  
+</h4>
+    
+
+<p><strong>Problem We’re Solving</strong>: Record and store massive amounts of video content efficiently while maintaining accessibility and security.</p>
+
+<p><strong>Recording Architecture:</strong></p>
+<ul>
+  <li><strong>Real-time Recording</strong>: Record meetings in real-time</li>
+  <li><strong>Storage Optimization</strong>: Optimize storage for video content</li>
+  <li><strong>Access Control</strong>: Control access to recorded content</li>
+  <li><strong>Quality Management</strong>: Manage recording quality and compression</li>
+</ul>
+
+<p><strong>Recording Optimization:</strong></p>
+<ul>
+  <li><strong>Compression Algorithms</strong>: Use efficient video compression</li>
+  <li><strong>Storage Tiering</strong>: Implement intelligent storage tiering</li>
+  <li><strong>Access Patterns</strong>: Optimize for common access patterns</li>
+  <li><strong>Security Implementation</strong>: Implement secure storage and access”</li>
+</ul>
+<h3 id="step-8-system-architecture--data-flow">
+  
+  
+    <a href="#step-8-system-architecture--data-flow" class="anchor-heading" aria-labelledby="step-8-system-architecture--data-flow"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 8: System Architecture &amp; Data Flow</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
+│              Video Conferencing System                 │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │   Web       │    │   Mobile    │    │   Desktop   │  │
+│   Client      │    │  Apps       │    │  Apps       │  │
+│  └─────────────┘    └─────────────┘    └─────────────┘  │
+│         │                   │                   │        │
+│         └───────────────────┼───────────────────┘        │
+│                             │                            │
+│                    ┌─────────┴─────────┐                 │
+│                    │   Load Balancer   │                 │
+│                    └─────────┬─────────┘                 │
+│                              │                            │
+│  ┌─────────────┐    ┌─────────┴─────────┐    ┌─────────┐ │
+│  │ Video       │    │   Audio           │    │  Meeting│ │
+│  │ Service     │    │  Service          │    │ Service │ │
+│  └─────────────┘    └─────────┬─────────┘    └─────────┘ │
+│         │                      │                          │
+│         │              ┌───────┴───────┐                  │
+│         │              │  Screen       │                  │
+│         │              │  Sharing      │                  │
+│         │              └───────────────┘                  │
+│         │                      │                          │
+│         └──────────────────────┼──────────────────────────┘
+│                                │                            │
+│                    ┌───────────┴───────────┐                │
+│                    │    Data Layer         │                │
+│                    └───────────┬───────────┘                │
+│                                │                            │
+│  ┌─────────────┐    ┌──────────┴──────────┐    ┌─────────┐ │
+│  │ Redis       │    │   PostgreSQL        │    │  Object │ │
+│  │ (Real-time) │    │   (Users)           │    │ Storage │ │
+│  └─────────────┘    └──────────┬──────────┘    └─────────┘ │
+│         │                       │                          │
+│         │              ┌───────┴───────┐                  │
+│         │              │   CDN         │                  │
+│         │              │   (Content)   │                  │
+│         │              └───────────────┘                  │
+│         │                      │                          │
+│         └──────────────────────┼──────────────────────────┘
+│                                │                            │
+│                    ┌───────────┴───────────┐                │
+│                    │   Infrastructure      │                │
+│                    └───────────┬───────────┘                │
+│                                │                            │
+│  ┌─────────────┐    ┌──────────┴──────────┐    ┌─────────┐ │
+│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
+│  │ Region      │    │   &amp; Analytics       │    │ (Events)│ │
+│  └─────────────┘    └─────────────────────┘    └─────────┘ │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+
+<p><strong>Data Flow:</strong></p>
+<ol>
+  <li><strong>Video Flow</strong>: Client → Video Service → WebRTC → Other Participants</li>
+  <li><strong>Audio Flow</strong>: Client → Audio Service → Processing → Other Participants</li>
+  <li><strong>Screen Sharing</strong>: Client → Screen Service → Optimization → Other Participants</li>
+  <li><strong>Meeting Flow</strong>: Client → Meeting Service → State Management → All Participants”</li>
+</ol>
+<h3 id="step-9-follow-up-questions--edge-cases">
+  
+  
+    <a href="#step-9-follow-up-questions--edge-cases" class="anchor-heading" aria-labelledby="step-9-follow-up-questions--edge-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 9: Follow-up Questions &amp; Edge Cases</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me address some potential follow-up questions and edge cases:</p>
+<h4 id="edge-cases">
+  
+  
+    <a href="#edge-cases" class="anchor-heading" aria-labelledby="edge-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Edge Cases:</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>Network Failures</strong>: What happens when users lose network connectivity?
+    <ul>
+      <li><strong>Solution</strong>: Automatic reconnection, quality degradation, offline mode</li>
+      <li><strong>Monitoring</strong>: Real-time network monitoring and automatic adaptation</li>
+    </ul>
+  </li>
+  <li><strong>Large Meetings</strong>: How do we handle meetings with thousands of participants?
+    <ul>
+      <li><strong>Solution</strong>: Hierarchical distribution, selective streaming, bandwidth optimization</li>
+      <li><strong>Trade-off</strong>: Meeting size vs. video quality</li>
+    </ul>
+  </li>
+  <li><strong>Device Variations</strong>: How do we handle different device capabilities?
+    <ul>
+      <li><strong>Solution</strong>: Device detection, capability negotiation, adaptive quality</li>
+      <li><strong>Trade-off</strong>: Quality consistency vs. device compatibility</li>
+    </ul>
+  </li>
+  <li><strong>Recording Failures</strong>: What happens when recording fails during a meeting?
+    <ul>
+      <li><strong>Solution</strong>: Backup recording, automatic retry, user notification</li>
+      <li><strong>Monitoring</strong>: Recording health monitoring and automatic recovery</li>
+    </ul>
+  </li>
+</ol>
+<h4 id="scaling-challenges">
+  
+  
+    <a href="#scaling-challenges" class="anchor-heading" aria-labelledby="scaling-challenges"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Challenges:</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>Meeting Scaling</strong>: How do we handle unlimited meeting growth?
+    <ul>
+      <li><strong>Solution</strong>: Intelligent partitioning, resource pooling, auto-scaling</li>
+      <li><strong>Trade-off</strong>: Scaling complexity vs. unlimited capacity</li>
+    </ul>
+  </li>
+  <li><strong>Video Scaling</strong>: How do we scale video processing to millions of streams?
+    <ul>
+      <li><strong>Solution</strong>: Distributed processing, intelligent routing, quality adaptation</li>
+      <li><strong>Trade-off</strong>: Processing complexity vs. video quality</li>
+    </ul>
+  </li>
+  <li><strong>Network Scaling</strong>: How do we handle global network variations?
+    <ul>
+      <li><strong>Solution</strong>: Geographic distribution, network optimization, quality adaptation</li>
+      <li><strong>Trade-off</strong>: Network complexity vs. global reach”</li>
+    </ul>
+  </li>
+</ol>
+<h3 id="step-10-summary--key-takeaways">
+  
+  
+    <a href="#step-10-summary--key-takeaways" class="anchor-heading" aria-labelledby="step-10-summary--key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 10: Summary &amp; Key Takeaways</strong>
+  
+  
+</h3>
+    
+
+<p><strong>My Response</strong>: “Let me summarize the key design decisions and their rationale:</p>
+<h4 id="key-design-decisions">
+  
+  
+    <a href="#key-design-decisions" class="anchor-heading" aria-labelledby="key-design-decisions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Design Decisions:</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>WebRTC-First Architecture</strong>: Optimize for real-time video communication</li>
+  <li><strong>Hybrid Storage</strong>: Different storage systems for different data types</li>
+  <li><strong>Event-driven Processing</strong>: Use events for real-time updates and processing</li>
+  <li><strong>Global Distribution</strong>: Serve users from optimal regions worldwide</li>
+  <li><strong>Intelligent Quality Adaptation</strong>: Adapt video quality based on network conditions</li>
+</ol>
+<h4 id="trade-offs-made">
+  
+  
+    <a href="#trade-offs-made" class="anchor-heading" aria-labelledby="trade-offs-made"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Trade-offs Made:</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>Complexity vs. Performance</strong>: Chose complexity for optimal real-time performance</li>
+  <li><strong>Cost vs. Quality</strong>: Higher infrastructure cost for better video quality</li>
+  <li><strong>Latency vs. Features</strong>: Balance real-time performance with advanced features</li>
+  <li><strong>Bandwidth vs. Quality</strong>: Balance bandwidth usage with video quality</li>
+</ol>
+<h4 id="scaling-strategy">
+  
+  
+    <a href="#scaling-strategy" class="anchor-heading" aria-labelledby="scaling-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Strategy:</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>Horizontal Scaling</strong>: Scale out rather than up across all services</li>
+  <li><strong>Intelligent Distribution</strong>: Distribute meetings by region and size</li>
+  <li><strong>Event-driven Architecture</strong>: Use events for real-time updates and system decoupling</li>
+  <li><strong>Global Distribution</strong>: Serve users from locations closest to them</li>
+</ol>
+
+<p>This design demonstrates how to build a globally distributed video conferencing system that can handle unlimited scale while maintaining sub-second latency and 99.99% availability.”</p><hr />
+
+<p><em>This interview walkthrough shows the complete thought process from requirement clarification to detailed solution design, demonstrating how to approach real-time video system design challenges systematically and justify every design decision.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

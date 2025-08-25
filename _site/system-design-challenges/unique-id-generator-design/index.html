@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unique Id Generator Design - System Design Challenge | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Unique Id Generator Design - System Design Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive solution for unique id generator design system design challenge" />
+<meta property="og:description" content="Comprehensive solution for unique id generator design system design challenge" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/unique-id-generator-design/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/unique-id-generator-design/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unique Id Generator Design - System Design Challenge" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for unique id generator design system design challenge","headline":"Unique Id Generator Design - System Design Challenge","url":"https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/unique-id-generator-design/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">System Design Challenges</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Unique Id Generator Design</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Unique Id Generator Design - System Design Challenge</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="design-a-unique-id-generator---system-design-challenge">
+  
+  
+    <a href="#design-a-unique-id-generator---system-design-challenge" class="anchor-heading" aria-labelledby="design-a-unique-id-generator---system-design-challenge"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Design a Unique ID Generator - System Design Challenge
+  
+  
+</h1>
+    
+
+<p><em>Comprehensive solution for designing a distributed unique ID generator, covering various ID generation strategies, collision handling, and global scale.</em></p>
+<h2 id="-challenge-overview">
+  
+  
+    <a href="#-challenge-overview" class="anchor-heading" aria-labelledby="-challenge-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Challenge Overview</strong>
+  
+  
+</h2>
+    
+
+<p>Design a distributed unique ID generator that can generate millions of unique identifiers per second across multiple data centers without collisions.</p>
+<h3 id="key-requirements">
+  
+  
+    <a href="#key-requirements" class="anchor-heading" aria-labelledby="key-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Requirements</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Scale</strong>: 10M+ IDs/second across multiple regions</li>
+  <li><strong>Uniqueness</strong>: Zero collision probability</li>
+  <li><strong>Ordering</strong>: Monotonically increasing IDs</li>
+  <li><strong>Performance</strong>: &lt;1ms latency for ID generation</li>
+  <li><strong>Availability</strong>: 99.99% uptime</li>
+</ul>
+<h2 id="️-reshaded-framework-solution">
+  
+  
+    <a href="#️-reshaded-framework-solution" class="anchor-heading" aria-labelledby="️-reshaded-framework-solution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>RESHADED Framework Solution</strong>
+  
+  
+</h2>
+    
+<h3 id="step-1-requirements--constraints">
+  
+  
+    <a href="#step-1-requirements--constraints" class="anchor-heading" aria-labelledby="step-1-requirements--constraints"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 1: Requirements &amp; Constraints</strong>
+  
+  
+</h3>
+    
+<h4 id="functional-requirements">
+  
+  
+    <a href="#functional-requirements" class="anchor-heading" aria-labelledby="functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Functional Requirements</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>ID Generation</strong>: Generate unique, sortable IDs</li>
+  <li><strong>Bulk Generation</strong>: Generate multiple IDs in one request</li>
+  <li><strong>Custom Prefixes</strong>: Support for application-specific prefixes</li>
+  <li><strong>ID Validation</strong>: Validate ID format and uniqueness</li>
+  <li><strong>Metadata</strong>: Include timestamp, node info, sequence number</li>
+</ul>
+<h4 id="non-functional-requirements">
+  
+  
+    <a href="#non-functional-requirements" class="anchor-heading" aria-labelledby="non-functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Non-Functional Requirements</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Scalability</strong>: Handle millions of requests per second</li>
+  <li><strong>Availability</strong>: High availability across data centers</li>
+  <li><strong>Performance</strong>: Low latency ID generation</li>
+  <li><strong>Uniqueness</strong>: Guaranteed uniqueness across all nodes</li>
+  <li><strong>Ordering</strong>: Monotonically increasing IDs</li>
+</ul>
+<h4 id="constraints">
+  
+  
+    <a href="#constraints" class="anchor-heading" aria-labelledby="constraints"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Constraints</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Clock Synchronization</strong>: Handle clock skew between nodes</li>
+  <li><strong>Network Latency</strong>: Minimize coordination overhead</li>
+  <li><strong>Storage</strong>: Efficient storage of ID metadata</li>
+  <li><strong>Cost</strong>: Minimize infrastructure costs</li>
+</ul>
+<h3 id="step-2-estimation--scale">
+  
+  
+    <a href="#step-2-estimation--scale" class="anchor-heading" aria-labelledby="step-2-estimation--scale"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 2: Estimation &amp; Scale</strong>
+  
+  
+</h3>
+    
+<h4 id="capacity-planning">
+  
+  
+    <a href="#capacity-planning" class="anchor-heading" aria-labelledby="capacity-planning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Capacity Planning</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Daily ID Generation: 10M/second × 86400 seconds = 864B IDs/day
+Monthly ID Generation: 864B × 30 = 25.9T IDs/month
+Yearly ID Generation: 25.9T × 12 = 311T IDs/year
+
+ID Size: 64 bits = 8 bytes
+Daily Storage: 864B × 8 bytes = 6.9TB/day
+Monthly Storage: 6.9TB × 30 = 207TB/month
+
+Peak Load: 3x normal = 30M IDs/second
+</code></pre></div></div>
+<h4 id="peak-load-estimation">
+  
+  
+    <a href="#peak-load-estimation" class="anchor-heading" aria-labelledby="peak-load-estimation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Peak Load Estimation</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Peak Factor: 3x normal load
+Peak Generation: 30M/second
+Peak Storage: 20.7TB/day
+
+Distribution: 70% sequential, 30% random access
+Regions: 5 data centers globally
+</code></pre></div></div>
+<h3 id="step-3-system-interface-design">
+  
+  
+    <a href="#step-3-system-interface-design" class="anchor-heading" aria-labelledby="step-3-system-interface-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 3: System Interface Design</strong>
+  
+  
+</h3>
+    
+<h4 id="api-design">
+  
+  
+    <a href="#api-design" class="anchor-heading" aria-labelledby="api-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Design</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Core Operations
+</span><span class="nf">generate_id</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">unique_id</span>
+<span class="nf">generate_bulk</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">unique_id</span><span class="p">]</span>
+<span class="nf">generate_with_prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">prefixed_id</span>
+
+<span class="c1"># Validation
+</span><span class="nf">validate_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">boolean</span>
+<span class="nf">extract_metadata</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">metadata</span>
+
+<span class="c1"># Advanced Operations
+</span><span class="nf">generate_sequential</span><span class="p">(</span><span class="n">start_id</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">sequential_ids</span><span class="p">]</span>
+<span class="nf">generate_custom_format</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">formatted_id</span>
+</code></pre></div></div>
+<h4 id="id-format">
+  
+  
+    <a href="#id-format" class="anchor-heading" aria-labelledby="id-format"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>ID Format</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 64-bit ID Structure
+</span><span class="k">class</span> <span class="nc">IDStructure</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">timestamp_bits</span> <span class="o">=</span> <span class="mi">41</span>    <span class="c1"># 41 bits for timestamp
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">node_id_bits</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1"># 10 bits for node ID
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">sequence_bits</span> <span class="o">=</span> <span class="mi">12</span>     <span class="c1"># 12 bits for sequence number
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">sign_bit</span> <span class="o">=</span> <span class="mi">1</span>           <span class="c1"># 1 bit for sign (always 0)
+</span>    
+    <span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">sequence</span><span class="p">):</span>
+        <span class="n">id_value</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">id_value</span> <span class="o">|=</span> <span class="p">(</span><span class="n">timestamp</span> <span class="o">&lt;&lt;</span> <span class="mi">22</span><span class="p">)</span>  <span class="c1"># Shift timestamp to bits 22-62
+</span>        <span class="n">id_value</span> <span class="o">|=</span> <span class="p">(</span><span class="n">node_id</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span>    <span class="c1"># Shift node_id to bits 12-21
+</span>        <span class="n">id_value</span> <span class="o">|=</span> <span class="n">sequence</span>           <span class="c1"># Sequence in bits 0-11
+</span>        <span class="k">return</span> <span class="n">id_value</span>
+</code></pre></div></div>
+<h3 id="step-4-high-level-architecture">
+  
+  
+    <a href="#step-4-high-level-architecture" class="anchor-heading" aria-labelledby="step-4-high-level-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 4: High-Level Architecture</strong>
+  
+  
+</h3>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
+│                Client Applications                      │
+├─────────────────────────────────────────────────────────┤
+│                    Load Balancer                        │
+├─────────────────────────────────────────────────────────┤
+│              API Gateway / Proxy Layer                  │
+├─────────────────────────────────────────────────────────┤
+│              ID Generation Service                      │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
+│  │   Node 1    │  │   Node 2    │  │   Node N    │     │
+│  │ (DC: US-E)  │  │ (DC: US-W)  │  │ (DC: EU)    │     │
+│  └─────────────┘  └─────────────┘  └─────────────┘     │
+├─────────────────────────────────────────────────────────┤
+│              Clock Synchronization                      │
+├─────────────────────────────────────────────────────────┤
+│              Coordination Layer                         │
+├─────────────────────────────────────────────────────────┤
+│              Storage Layer (Metadata)                   │
+└─────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+<h3 id="step-5-application-layer-design">
+  
+  
+    <a href="#step-5-application-layer-design" class="anchor-heading" aria-labelledby="step-5-application-layer-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 5: Application Layer Design</strong>
+  
+  
+</h3>
+    
+<h4 id="snowflake-id-generator">
+  
+  
+    <a href="#snowflake-id-generator" class="anchor-heading" aria-labelledby="snowflake-id-generator"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Snowflake ID Generator</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SnowflakeGenerator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">1609459200000</span><span class="p">):</span>  <span class="c1"># 2021-01-01 epoch
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">epoch</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">last_timestamp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">node_id_bits</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sequence_bits</span> <span class="o">=</span> <span class="mi">12</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">max_sequence</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="p">.</span><span class="n">sequence_bits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    
+    <span class="k">def</span> <span class="nf">generate_id</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">current_timestamp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_get_current_timestamp</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">current_timestamp</span> <span class="o">&lt;</span> <span class="n">self</span><span class="p">.</span><span class="n">last_timestamp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sh">"</span><span class="s">Clock moved backwards</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">current_timestamp</span> <span class="o">==</span> <span class="n">self</span><span class="p">.</span><span class="n">last_timestamp</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">sequence</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">self</span><span class="p">.</span><span class="n">max_sequence</span>
+            <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">sequence</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">current_timestamp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_wait_for_next_millisecond</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">sequence</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">self</span><span class="p">.</span><span class="n">last_timestamp</span> <span class="o">=</span> <span class="n">current_timestamp</span>
+        
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">_combine_bits</span><span class="p">(</span><span class="n">current_timestamp</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">node_id</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">sequence</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_get_current_timestamp</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nf">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">epoch</span>
+    
+    <span class="k">def</span> <span class="nf">_wait_for_next_millisecond</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_get_current_timestamp</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">timestamp</span> <span class="o">&lt;=</span> <span class="n">self</span><span class="p">.</span><span class="n">last_timestamp</span><span class="p">:</span>
+            <span class="n">timestamp</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_get_current_timestamp</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">timestamp</span>
+    
+    <span class="k">def</span> <span class="nf">_combine_bits</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">sequence</span><span class="p">):</span>
+        <span class="nf">return </span><span class="p">(</span><span class="n">timestamp</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">node_id_bits</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">sequence_bits</span><span class="p">))</span> <span class="o">|</span> \
+               <span class="p">(</span><span class="n">node_id</span> <span class="o">&lt;&lt;</span> <span class="n">self</span><span class="p">.</span><span class="n">sequence_bits</span><span class="p">)</span> <span class="o">|</span> \
+               <span class="n">sequence</span>
+</code></pre></div></div>
+<h4 id="uuid-v4-generator">
+  
+  
+    <a href="#uuid-v4-generator" class="anchor-heading" aria-labelledby="uuid-v4-generator"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>UUID v4 Generator</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">UUIDGenerator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">random_generator</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nc">Random</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">generate_uuid</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Generate 16 random bytes
+</span>        <span class="n">random_bytes</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">random_generator</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)]</span>
+        
+        <span class="c1"># Set version (4) and variant bits
+</span>        <span class="n">random_bytes</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">random_bytes</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x0f</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x40</span>  <span class="c1"># Version 4
+</span>        <span class="n">random_bytes</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">random_bytes</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0x3f</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x80</span>  <span class="c1"># Variant 1
+</span>        
+        <span class="c1"># Convert to UUID string
+</span>        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">_bytes_to_uuid</span><span class="p">(</span><span class="n">random_bytes</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_bytes_to_uuid</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">bytes_array</span><span class="p">):</span>
+        <span class="n">hex_string</span> <span class="o">=</span> <span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="mi">02</span><span class="n">x</span><span class="si">}</span><span class="sh">'</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bytes_array</span><span class="p">])</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">hex_string</span><span class="p">[</span><span class="si">:</span><span class="mi">8</span><span class="p">]</span><span class="si">}</span><span class="s">-</span><span class="si">{</span><span class="n">hex_string</span><span class="p">[</span><span class="mi">8</span><span class="si">:</span><span class="mi">12</span><span class="p">]</span><span class="si">}</span><span class="s">-</span><span class="si">{</span><span class="n">hex_string</span><span class="p">[</span><span class="mi">12</span><span class="si">:</span><span class="mi">16</span><span class="p">]</span><span class="si">}</span><span class="s">-</span><span class="si">{</span><span class="n">hex_string</span><span class="p">[</span><span class="mi">16</span><span class="si">:</span><span class="mi">20</span><span class="p">]</span><span class="si">}</span><span class="s">-</span><span class="si">{</span><span class="n">hex_string</span><span class="p">[</span><span class="mi">20</span><span class="si">:</span><span class="mi">32</span><span class="p">]</span><span class="si">}</span><span class="sh">"</span>
+</code></pre></div></div>
+<h4 id="ulid-generator">
+  
+  
+    <a href="#ulid-generator" class="anchor-heading" aria-labelledby="ulid-generator"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>ULID Generator</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ULIDGenerator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">random_generator</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nc">Random</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">generate_ulid</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Generate timestamp (48 bits)
+</span>        <span class="n">timestamp</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">timestamp_bytes</span> <span class="o">=</span> <span class="n">timestamp</span><span class="p">.</span><span class="nf">to_bytes</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="sh">'</span><span class="s">big</span><span class="sh">'</span><span class="p">)</span>
+        
+        <span class="c1"># Generate randomness (80 bits)
+</span>        <span class="n">random_bytes</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">random_generator</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+        
+        <span class="c1"># Combine and encode as base32
+</span>        <span class="n">combined_bytes</span> <span class="o">=</span> <span class="n">timestamp_bytes</span> <span class="o">+</span> <span class="nf">bytes</span><span class="p">(</span><span class="n">random_bytes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">_encode_base32</span><span class="p">(</span><span class="n">combined_bytes</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_encode_base32</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Base32 encoding (Crockford's base32)
+</span>        <span class="n">alphabet</span> <span class="o">=</span> <span class="sh">'</span><span class="s">0123456789ABCDEFGHJKMNPQRSTVWXYZ</span><span class="sh">'</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="sh">''</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">5</span><span class="p">):</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">5</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">.</span><span class="nf">from_bytes</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="sh">'</span><span class="s">big</span><span class="sh">'</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="n">alphabet</span><span class="p">[(</span><span class="n">value</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">35</span> <span class="o">-</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">5</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0x1f</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+<h3 id="step-6-data-layer-design">
+  
+  
+    <a href="#step-6-data-layer-design" class="anchor-heading" aria-labelledby="step-6-data-layer-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 6: Data Layer Design</strong>
+  
+  
+</h3>
+    
+<h4 id="id-metadata-storage">
+  
+  
+    <a href="#id-metadata-storage" class="anchor-heading" aria-labelledby="id-metadata-storage"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>ID Metadata Storage</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IDMetadataStore</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metadata_db</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># In-memory for performance
+</span>    
+    <span class="k">def</span> <span class="nf">store_metadata</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">id_value</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metadata_db</span><span class="p">[</span><span class="n">id_value</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">'</span><span class="s">timestamp</span><span class="sh">'</span><span class="p">:</span> <span class="n">metadata</span><span class="p">[</span><span class="sh">'</span><span class="s">timestamp</span><span class="sh">'</span><span class="p">],</span>
+            <span class="sh">'</span><span class="s">node_id</span><span class="sh">'</span><span class="p">:</span> <span class="n">metadata</span><span class="p">[</span><span class="sh">'</span><span class="s">node_id</span><span class="sh">'</span><span class="p">],</span>
+            <span class="sh">'</span><span class="s">sequence</span><span class="sh">'</span><span class="p">:</span> <span class="n">metadata</span><span class="p">[</span><span class="sh">'</span><span class="s">sequence</span><span class="sh">'</span><span class="p">],</span>
+            <span class="sh">'</span><span class="s">created_at</span><span class="sh">'</span><span class="p">:</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+        <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">get_metadata</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">id_value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">metadata_db</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">id_value</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">validate_uniqueness</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">id_value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">id_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">metadata_db</span>
+</code></pre></div></div>
+<h4 id="clock-synchronization">
+  
+  
+    <a href="#clock-synchronization" class="anchor-heading" aria-labelledby="clock-synchronization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Clock Synchronization</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClockSynchronizer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ntp_servers</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">pool.ntp.org</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">time.google.com</span><span class="sh">'</span><span class="p">]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">clock_offset</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">def</span> <span class="nf">sync_clock</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Get time from multiple NTP servers
+</span>        <span class="n">times</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">ntp_servers</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ntp_time</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_get_ntp_time</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="n">times</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">ntp_time</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">Exception</span><span class="p">:</span>
+                <span class="k">continue</span>
+        
+        <span class="k">if</span> <span class="n">times</span><span class="p">:</span>
+            <span class="c1"># Calculate median time to avoid outliers
+</span>            <span class="n">median_time</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">times</span><span class="p">)[</span><span class="nf">len</span><span class="p">(</span><span class="n">times</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="n">local_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">clock_offset</span> <span class="o">=</span> <span class="n">median_time</span> <span class="o">-</span> <span class="n">local_time</span>
+    
+    <span class="k">def</span> <span class="nf">get_synchronized_time</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">clock_offset</span>
+</code></pre></div></div>
+<h3 id="step-7-error-handling--edge-cases">
+  
+  
+    <a href="#step-7-error-handling--edge-cases" class="anchor-heading" aria-labelledby="step-7-error-handling--edge-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 7: Error Handling &amp; Edge Cases</strong>
+  
+  
+</h3>
+    
+<h4 id="clock-drift-handling">
+  
+  
+    <a href="#clock-drift-handling" class="anchor-heading" aria-labelledby="clock-drift-handling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Clock Drift Handling</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClockDriftHandler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">max_clock_drift</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 10ms max drift
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">last_sync_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sync_interval</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># Sync every 5 minutes
+</span>    
+    <span class="k">def</span> <span class="nf">handle_clock_drift</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">current_timestamp</span><span class="p">,</span> <span class="n">last_timestamp</span><span class="p">):</span>
+        <span class="c1"># Check if clock moved backwards
+</span>        <span class="k">if</span> <span class="n">current_timestamp</span> <span class="o">&lt;</span> <span class="n">last_timestamp</span><span class="p">:</span>
+            <span class="n">drift</span> <span class="o">=</span> <span class="n">last_timestamp</span> <span class="o">-</span> <span class="n">current_timestamp</span>
+            
+            <span class="k">if</span> <span class="n">drift</span> <span class="o">&gt;</span> <span class="n">self</span><span class="p">.</span><span class="n">max_clock_drift</span><span class="p">:</span>
+                <span class="c1"># Clock moved backwards significantly
+</span>                <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Clock moved backwards by </span><span class="si">{</span><span class="n">drift</span><span class="si">}</span><span class="s">ms</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Small drift, wait for next millisecond
+</span>                <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">_wait_for_next_millisecond</span><span class="p">(</span><span class="n">last_timestamp</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">current_timestamp</span>
+    
+    <span class="k">def</span> <span class="nf">_wait_for_next_millisecond</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">last_timestamp</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span>
+            <span class="k">if</span> <span class="n">current_time</span> <span class="o">&gt;</span> <span class="n">last_timestamp</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nf">int</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+            <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># Wait 1ms
+</span></code></pre></div></div>
+<h4 id="node-failure-handling">
+  
+  
+    <a href="#node-failure-handling" class="anchor-heading" aria-labelledby="node-failure-handling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Node Failure Handling</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NodeFailureHandler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">node_status</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">failover_nodes</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">def</span> <span class="nf">handle_node_failure</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">failed_node_id</span><span class="p">):</span>
+        <span class="c1"># Mark node as failed
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">node_status</span><span class="p">[</span><span class="n">failed_node_id</span><span class="p">]</span> <span class="o">=</span> <span class="sh">'</span><span class="s">failed</span><span class="sh">'</span>
+        
+        <span class="c1"># Redirect traffic to backup node
+</span>        <span class="n">backup_node</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">failover_nodes</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">failed_node_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">backup_node</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">backup_node</span>
+        
+        <span class="c1"># Generate new node ID for replacement
+</span>        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">_generate_new_node_id</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">_generate_new_node_id</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Generate unique node ID from available pool
+</span>        <span class="n">available_ids</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span> <span class="o">-</span> <span class="nf">set</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">node_status</span><span class="p">.</span><span class="nf">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">available_ids</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nf">min</span><span class="p">(</span><span class="n">available_ids</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sh">"</span><span class="s">No available node IDs</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="step-8-deployment--monitoring">
+  
+  
+    <a href="#step-8-deployment--monitoring" class="anchor-heading" aria-labelledby="step-8-deployment--monitoring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 8: Deployment &amp; Monitoring</strong>
+  
+  
+</h3>
+    
+<h4 id="deployment-architecture">
+  
+  
+    <a href="#deployment-architecture" class="anchor-heading" aria-labelledby="deployment-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Deployment Architecture</strong>
+  
+  
+</h4>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Kubernetes Deployment</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">id-generator</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">5</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">id-generator</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">id-generator</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">id-generator</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">id-generator:latest</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+        <span class="na">env</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">NODE_ID</span>
+          <span class="na">valueFrom</span><span class="pi">:</span>
+            <span class="na">fieldRef</span><span class="pi">:</span>
+              <span class="na">fieldPath</span><span class="pi">:</span> <span class="s">metadata.name</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">EPOCH_TIMESTAMP</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1609459200000"</span>
+        <span class="na">resources</span><span class="pi">:</span>
+          <span class="na">requests</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">512Mi"</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s2">"</span><span class="s">250m"</span>
+          <span class="na">limits</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1Gi"</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s2">"</span><span class="s">500m"</span>
+</code></pre></div></div>
+<h4 id="monitoring--observability">
+  
+  
+    <a href="#monitoring--observability" class="anchor-heading" aria-labelledby="monitoring--observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring &amp; Observability</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">IDGeneratorMonitoring</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">'</span><span class="s">ids_generated_per_second</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Counter</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">generation_latency</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Histogram</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">collision_rate</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Counter</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">clock_drift</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Gauge</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">node_health</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Gauge</span><span class="p">()</span>
+        <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">record_id_generation</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">latency</span><span class="p">,</span> <span class="n">success</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">ids_generated_per_second</span><span class="sh">'</span><span class="p">].</span><span class="nf">inc</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">generation_latency</span><span class="sh">'</span><span class="p">].</span><span class="nf">observe</span><span class="p">(</span><span class="n">latency</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">collision_rate</span><span class="sh">'</span><span class="p">].</span><span class="nf">inc</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">record_clock_drift</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">drift_ms</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">clock_drift</span><span class="sh">'</span><span class="p">].</span><span class="nf">set</span><span class="p">(</span><span class="n">drift_ms</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nf">abs</span><span class="p">(</span><span class="n">drift_ms</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">_send_alert</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">High clock drift detected: </span><span class="si">{</span><span class="n">drift_ms</span><span class="si">}</span><span class="s">ms</span><span class="sh">"</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">check_node_health</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="c1"># Health check logic
+</span>        <span class="n">is_healthy</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_perform_health_check</span><span class="p">(</span><span class="n">node_id</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">node_health</span><span class="sh">'</span><span class="p">].</span><span class="nf">set</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">is_healthy</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">is_healthy</span>
+</code></pre></div></div>
+<h2 id="-summary">
+  
+  
+    <a href="#-summary" class="anchor-heading" aria-labelledby="-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>Summary</strong>
+  
+  
+</h2>
+    
+<h3 id="building-blocks-used">
+  
+  
+    <a href="#building-blocks-used" class="anchor-heading" aria-labelledby="building-blocks-used"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Building Blocks Used</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Data Storage</strong>: Metadata storage for ID tracking</li>
+  <li><strong>Compute &amp; Processing</strong>: ID generation algorithms and validation</li>
+  <li><strong>Networking &amp; Communication</strong>: Clock synchronization, node coordination</li>
+  <li><strong>Scalability &amp; Distribution</strong>: Multi-node deployment, load balancing</li>
+  <li><strong>Monitoring &amp; Observability</strong>: Metrics collection, health checks</li>
+</ol>
+<h3 id="key-trade-offs">
+  
+  
+    <a href="#key-trade-offs" class="anchor-heading" aria-labelledby="key-trade-offs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Trade-offs</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Uniqueness vs Performance</strong>: Stronger uniqueness guarantees require more coordination</li>
+  <li><strong>Ordering vs Distribution</strong>: Monotonic ordering requires clock synchronization</li>
+  <li><strong>ID Size vs Storage</strong>: Larger IDs provide more uniqueness but use more storage</li>
+  <li><strong>Centralized vs Distributed</strong>: Centralized generation is simpler but creates single point of failure</li>
+</ul>
+<h3 id="scalability-considerations">
+  
+  
+    <a href="#scalability-considerations" class="anchor-heading" aria-labelledby="scalability-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Considerations</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Horizontal Scaling</strong>: Add nodes to increase generation capacity</li>
+  <li><strong>Geographic Distribution</strong>: Place nodes closer to users for lower latency</li>
+  <li><strong>Clock Synchronization</strong>: Use NTP servers for accurate time</li>
+  <li><strong>Load Balancing</strong>: Distribute requests across multiple nodes</li>
+</ul>
+
+<p>This design provides a robust, scalable unique ID generator that can handle millions of requests per second while maintaining guaranteed uniqueness and ordering across distributed systems.</p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

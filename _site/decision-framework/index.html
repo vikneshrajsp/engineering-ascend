@@ -1,0 +1,835 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+.site-nav > ul.nav-list:first-child > li:not(:nth-child(14)) > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > ul > li > a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:not(:first-child) a,
+.site-nav li.external a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:first-child > li:nth-child(14) > a {
+  font-weight: 600;
+  text-decoration: none;
+}.site-nav > ul.nav-list:first-child > li:nth-child(14) > button svg {
+  transform: rotate(-90deg);
+}.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(14) > ul.nav-list {
+  display: block;
+}
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>System Design Decision Framework | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="System Design Decision Framework" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Structured approach to making system design decisions and architectural choices" />
+<meta property="og:description" content="Structured approach to making system design decisions and architectural choices" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/decision-framework/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/decision-framework/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="System Design Decision Framework" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Structured approach to making system design decisions and architectural choices","headline":"System Design Decision Framework","url":"https://vikneshrajsp.github.io/engineering-ascend/decision-framework/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="system-design-decision-framework">
+  
+  
+    <a href="#system-design-decision-framework" class="anchor-heading" aria-labelledby="system-design-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> System Design Decision Framework
+  
+  
+</h1>
+    
+<h2 id="systematic-approach-to-making-design-decisions">
+  
+  
+    <a href="#systematic-approach-to-making-design-decisions" class="anchor-heading" aria-labelledby="systematic-approach-to-making-design-decisions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Systematic Approach to Making Design Decisions
+  
+  
+</h2>
+    
+<h2 id="-overview">
+  
+  
+    <a href="#-overview" class="anchor-heading" aria-labelledby="-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 Overview
+  
+  
+</h2>
+    
+<p>This framework provides a structured approach to making system design decisions. It helps you think systematically about trade-offs, constraints, and requirements to arrive at well-reasoned design choices.</p>
+<h2 id="-step-1-requirements-clarification">
+  
+  
+    <a href="#-step-1-requirements-clarification" class="anchor-heading" aria-labelledby="-step-1-requirements-clarification"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>STEP 1: REQUIREMENTS CLARIFICATION</strong>
+  
+  
+</h2>
+    
+<h3 id="functional-requirements">
+  
+  
+    <a href="#functional-requirements" class="anchor-heading" aria-labelledby="functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Functional Requirements</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>What does the system do?</strong> Core functionality and features</li>
+  <li><strong>Who are the users?</strong> User types, access patterns, permissions</li>
+  <li><strong>What are the use cases?</strong> Primary workflows and scenarios</li>
+  <li><strong>What are the inputs/outputs?</strong> Data formats, API contracts</li>
+</ul>
+<h3 id="non-functional-requirements">
+  
+  
+    <a href="#non-functional-requirements" class="anchor-heading" aria-labelledby="non-functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Non-Functional Requirements</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Scale</strong>: Users, data volume, request rate</li>
+  <li><strong>Performance</strong>: Latency, throughput, response time</li>
+  <li><strong>Availability</strong>: Uptime requirements, SLA targets</li>
+  <li><strong>Reliability</strong>: Error rates, fault tolerance</li>
+  <li><strong>Security</strong>: Authentication, authorization, data protection</li>
+  <li><strong>Cost</strong>: Budget constraints, resource optimization</li>
+</ul>
+<h3 id="constraints-and-assumptions">
+  
+  
+    <a href="#constraints-and-assumptions" class="anchor-heading" aria-labelledby="constraints-and-assumptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Constraints and Assumptions</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Technical Constraints</strong>: Technology stack, infrastructure</li>
+  <li><strong>Business Constraints</strong>: Timeline, budget, compliance</li>
+  <li><strong>Operational Constraints</strong>: Team size, expertise, maintenance</li>
+  <li><strong>External Dependencies</strong>: Third-party services, APIs</li>
+</ul><hr />
+<h2 id="️-step-2-high-level-design">
+  
+  
+    <a href="#️-step-2-high-level-design" class="anchor-heading" aria-labelledby="️-step-2-high-level-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>STEP 2: HIGH-LEVEL DESIGN</strong>
+  
+  
+</h2>
+    
+<h3 id="system-components">
+  
+  
+    <a href="#system-components" class="anchor-heading" aria-labelledby="system-components"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>System Components</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Identify major components</strong> and their responsibilities</li>
+  <li><strong>Define interfaces</strong> between components</li>
+  <li><strong>Consider data flow</strong> and communication patterns</li>
+  <li><strong>Plan for scalability</strong> and fault tolerance</li>
+</ul>
+<h3 id="technology-selection">
+  
+  
+    <a href="#technology-selection" class="anchor-heading" aria-labelledby="technology-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Technology Selection</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Choose appropriate technologies</strong> for each component</li>
+  <li><strong>Consider team expertise</strong> and operational complexity</li>
+  <li><strong>Evaluate cost implications</strong> of technology choices</li>
+  <li><strong>Plan for technology evolution</strong> and maintenance</li>
+</ul>
+<h3 id="architecture-patterns">
+  
+  
+    <a href="#architecture-patterns" class="anchor-heading" aria-labelledby="architecture-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Architecture Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Select appropriate patterns</strong> for the problem domain</li>
+  <li><strong>Consider trade-offs</strong> between different approaches</li>
+  <li><strong>Plan for future changes</strong> and extensibility</li>
+  <li><strong>Document design rationale</strong> and assumptions</li>
+</ul><hr />
+<h2 id="-step-3-deep-dive-analysis">
+  
+  
+    <a href="#-step-3-deep-dive-analysis" class="anchor-heading" aria-labelledby="-step-3-deep-dive-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>STEP 3: DEEP DIVE ANALYSIS</strong>
+  
+  
+</h2>
+    
+<h3 id="component-level-design">
+  
+  
+    <a href="#component-level-design" class="anchor-heading" aria-labelledby="component-level-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Component-Level Design</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Detailed design</strong> of each major component</li>
+  <li><strong>Data models</strong> and schema design</li>
+  <li><strong>Algorithm selection</strong> and optimization</li>
+  <li><strong>Error handling</strong> and edge cases</li>
+</ul>
+<h3 id="scalability-considerations">
+  
+  
+    <a href="#scalability-considerations" class="anchor-heading" aria-labelledby="scalability-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Considerations</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Horizontal vs. vertical scaling</strong> strategies</li>
+  <li><strong>Data partitioning</strong> and distribution</li>
+  <li><strong>Load balancing</strong> and traffic management</li>
+  <li><strong>Caching strategies</strong> and optimization</li>
+</ul>
+<h3 id="failure-scenarios">
+  
+  
+    <a href="#failure-scenarios" class="anchor-heading" aria-labelledby="failure-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Failure Scenarios</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Single points of failure</strong> identification</li>
+  <li><strong>Fault tolerance</strong> and recovery mechanisms</li>
+  <li><strong>Monitoring and alerting</strong> strategies</li>
+  <li><strong>Disaster recovery</strong> and backup plans</li>
+</ul><hr />
+<h2 id="️-step-4-trade-off-analysis">
+  
+  
+    <a href="#️-step-4-trade-off-analysis" class="anchor-heading" aria-labelledby="️-step-4-trade-off-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>STEP 4: TRADE-OFF ANALYSIS</strong>
+  
+  
+</h2>
+    
+<h3 id="consistency-vs-availability">
+  
+  
+    <a href="#consistency-vs-availability" class="anchor-heading" aria-labelledby="consistency-vs-availability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Consistency vs. Availability</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Strong Consistency:
+- Pros: Data integrity, predictable behavior
+- Cons: Higher latency, lower availability
+- Use When: Financial transactions, user accounts
+
+Eventual Consistency:
+- Pros: Higher availability, better performance
+- Cons: Temporary inconsistencies, complex reasoning
+- Use When: Social media, content delivery
+</code></pre></div></div>
+<h3 id="performance-vs-complexity">
+  
+  
+    <a href="#performance-vs-complexity" class="anchor-heading" aria-labelledby="performance-vs-complexity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance vs. Complexity</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>High Performance:
+- Pros: Fast response times, high throughput
+- Cons: Complex implementation, maintenance overhead
+- Use When: Performance-critical applications
+
+Simplicity:
+- Pros: Easy to understand, maintain, debug
+- Cons: Limited performance, scalability constraints
+- Use When: MVPs, simple applications, small teams
+</code></pre></div></div>
+<h3 id="cost-vs-performance">
+  
+  
+    <a href="#cost-vs-performance" class="anchor-heading" aria-labelledby="cost-vs-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cost vs. Performance</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>High Performance:
+- Pros: Better user experience, competitive advantage
+- Cons: Higher infrastructure costs, resource usage
+- Use When: Performance-critical, budget available
+
+Cost Optimization:
+- Pros: Lower operational costs, resource efficiency
+- Cons: Performance limitations, user experience impact
+- Use When: Budget constrained, non-critical performance
+</code></pre></div></div><hr />
+<h2 id="-step-5-decision-matrix">
+  
+  
+    <a href="#-step-5-decision-matrix" class="anchor-heading" aria-labelledby="-step-5-decision-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>STEP 5: DECISION MATRIX</strong>
+  
+  
+</h2>
+    
+<h3 id="decision-framework-template">
+  
+  
+    <a href="#decision-framework-template" class="anchor-heading" aria-labelledby="decision-framework-template"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Framework Template</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Decision Point</th>
+      <th>Option A</th>
+      <th>Option B</th>
+      <th>Option C</th>
+      <th>Criteria</th>
+      <th>Weight</th>
+      <th>Score A</th>
+      <th>Score B</th>
+      <th>Score C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Storage Type</td>
+      <td>RDBMS</td>
+      <td>NoSQL</td>
+      <td>Hybrid</td>
+      <td>ACID, Scale, Cost</td>
+      <td>30%</td>
+      <td>8</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Caching Strategy</td>
+      <td>In-Memory</td>
+      <td>Distributed</td>
+      <td>CDN</td>
+      <td>Performance, Cost, Complexity</td>
+      <td>25%</td>
+      <td>9</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Load Balancing</td>
+      <td>Round Robin</td>
+      <td>Least Connections</td>
+      <td>IP Hash</td>
+      <td>Distribution, Performance</td>
+      <td>20%</td>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Consistency Model</td>
+      <td>Strong</td>
+      <td>Eventual</td>
+      <td>Tunable</td>
+      <td>Data Integrity, Performance</td>
+      <td>25%</td>
+      <td>7</td>
+      <td>9</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Total Score</strong></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td><strong>100%</strong></td>
+      <td><strong>7.5</strong></td>
+      <td><strong>7.4</strong></td>
+      <td><strong>7.5</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="scoring-guidelines">
+  
+  
+    <a href="#scoring-guidelines" class="anchor-heading" aria-labelledby="scoring-guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scoring Guidelines</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>9-10</strong>: Excellent fit, minimal trade-offs</li>
+  <li><strong>7-8</strong>: Good fit, acceptable trade-offs</li>
+  <li><strong>5-6</strong>: Moderate fit, significant trade-offs</li>
+  <li><strong>3-4</strong>: Poor fit, major trade-offs</li>
+  <li><strong>1-2</strong>: Very poor fit, unacceptable trade-offs</li>
+</ul><hr />
+<h2 id="-step-6-implementation-planning">
+  
+  
+    <a href="#-step-6-implementation-planning" class="anchor-heading" aria-labelledby="-step-6-implementation-planning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>STEP 6: IMPLEMENTATION PLANNING</strong>
+  
+  
+</h2>
+    
+<h3 id="phased-approach">
+  
+  
+    <a href="#phased-approach" class="anchor-heading" aria-labelledby="phased-approach"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Phased Approach</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Phase 1</strong>: Core functionality, minimal viable product</li>
+  <li><strong>Phase 2</strong>: Performance optimization, scaling</li>
+  <li><strong>Phase 3</strong>: Advanced features, monitoring, reliability</li>
+  <li><strong>Phase 4</strong>: Optimization, cost reduction, maintenance</li>
+</ul>
+<h3 id="risk-mitigation">
+  
+  
+    <a href="#risk-mitigation" class="anchor-heading" aria-labelledby="risk-mitigation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Risk Mitigation</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Technical Risks</strong>: Proof of concepts, prototyping</li>
+  <li><strong>Operational Risks</strong>: Training, documentation, monitoring</li>
+  <li><strong>Business Risks</strong>: Market validation, user feedback</li>
+  <li><strong>Resource Risks</strong>: Team scaling, technology adoption</li>
+</ul>
+<h3 id="success-metrics">
+  
+  
+    <a href="#success-metrics" class="anchor-heading" aria-labelledby="success-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Success Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Performance Metrics</strong>: Latency, throughput, availability</li>
+  <li><strong>Business Metrics</strong>: User engagement, conversion rates</li>
+  <li><strong>Operational Metrics</strong>: Cost per request, resource utilization</li>
+  <li><strong>Quality Metrics</strong>: Error rates, user satisfaction</li>
+</ul><hr />
+<h2 id="-step-7-iteration-and-optimization">
+  
+  
+    <a href="#-step-7-iteration-and-optimization" class="anchor-heading" aria-labelledby="-step-7-iteration-and-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔄 <strong>STEP 7: ITERATION AND OPTIMIZATION</strong>
+  
+  
+</h2>
+    
+<h3 id="continuous-evaluation">
+  
+  
+    <a href="#continuous-evaluation" class="anchor-heading" aria-labelledby="continuous-evaluation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Continuous Evaluation</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Monitor system performance</strong> and user feedback</li>
+  <li><strong>Identify bottlenecks</strong> and optimization opportunities</li>
+  <li><strong>Adjust design decisions</strong> based on real-world data</li>
+  <li><strong>Plan for future scaling</strong> and feature additions</li>
+</ul>
+<h3 id="feedback-loops">
+  
+  
+    <a href="#feedback-loops" class="anchor-heading" aria-labelledby="feedback-loops"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Feedback Loops</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>User Feedback</strong>: Feature requests, pain points</li>
+  <li><strong>Performance Data</strong>: Metrics, logs, traces</li>
+  <li><strong>Business Metrics</strong>: Revenue, growth, engagement</li>
+  <li><strong>Operational Data</strong>: Costs, maintenance, incidents</li>
+</ul><hr />
+<h2 id="-decision-framework-checklist">
+  
+  
+    <a href="#-decision-framework-checklist" class="anchor-heading" aria-labelledby="-decision-framework-checklist"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>DECISION FRAMEWORK CHECKLIST</strong>
+  
+  
+</h2>
+    
+<h3 id="before-making-decisions">
+  
+  
+    <a href="#before-making-decisions" class="anchor-heading" aria-labelledby="before-making-decisions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Before Making Decisions</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Requirements are clear and documented</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Constraints and assumptions are identified</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Multiple options have been considered</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Trade-offs are understood and evaluated</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Stakeholders are aligned on priorities</li>
+</ul>
+<h3 id="during-decision-making">
+  
+  
+    <a href="#during-decision-making" class="anchor-heading" aria-labelledby="during-decision-making"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>During Decision Making</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Use structured analysis (decision matrix)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Consider long-term implications</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Document rationale and assumptions</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Plan for failure scenarios</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Consider operational complexity</li>
+</ul>
+<h3 id="after-making-decisions">
+  
+  
+    <a href="#after-making-decisions" class="anchor-heading" aria-labelledby="after-making-decisions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>After Making Decisions</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Document the decision and rationale</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Communicate to stakeholders</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Plan implementation steps</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Set up monitoring and success metrics</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Plan for review and iteration</li>
+</ul><hr />
+<h2 id="-common-decision-scenarios">
+  
+  
+    <a href="#-common-decision-scenarios" class="anchor-heading" aria-labelledby="-common-decision-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>COMMON DECISION SCENARIOS</strong>
+  
+  
+</h2>
+    
+<h3 id="storage-selection">
+  
+  
+    <a href="#storage-selection" class="anchor-heading" aria-labelledby="storage-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Decision: Choose between RDBMS and NoSQL
+Factors: ACID requirements, scalability needs, query complexity
+Trade-offs: Consistency vs. performance, complexity vs. flexibility
+Decision Framework: Use decision matrix with weighted criteria
+</code></pre></div></div>
+<h3 id="scaling-strategy">
+  
+  
+    <a href="#scaling-strategy" class="anchor-heading" aria-labelledby="scaling-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Strategy</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Decision: Horizontal vs. vertical scaling
+Factors: Growth patterns, cost constraints, operational complexity
+Trade-offs: Performance vs. complexity, cost vs. scalability
+Decision Framework: Consider long-term growth and team capabilities
+</code></pre></div></div>
+<h3 id="caching-strategy">
+  
+  
+    <a href="#caching-strategy" class="anchor-heading" aria-labelledby="caching-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Caching Strategy</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Decision: In-memory vs. distributed vs. CDN
+Factors: Data access patterns, geographic distribution, cost
+Trade-offs: Performance vs. cost, complexity vs. effectiveness
+Decision Framework: Analyze access patterns and user distribution
+</code></pre></div></div><hr />
+<h2 id="-red-flags-and-pitfalls">
+  
+  
+    <a href="#-red-flags-and-pitfalls" class="anchor-heading" aria-labelledby="-red-flags-and-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>RED FLAGS AND PITFALLS</strong>
+  
+  
+</h2>
+    
+<h3 id="common-mistakes">
+  
+  
+    <a href="#common-mistakes" class="anchor-heading" aria-labelledby="common-mistakes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Mistakes</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Jumping to solutions</strong> without understanding requirements</li>
+  <li><strong>Ignoring operational complexity</strong> and team expertise</li>
+  <li><strong>Over-engineering</strong> simple problems</li>
+  <li><strong>Under-estimating</strong> scaling and failure scenarios</li>
+  <li><strong>Not considering</strong> long-term maintenance and evolution</li>
+</ul>
+<h3 id="warning-signs">
+  
+  
+    <a href="#warning-signs" class="anchor-heading" aria-labelledby="warning-signs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Warning Signs</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Single point of failure</strong> in critical paths</li>
+  <li><strong>No monitoring or observability</strong> strategy</li>
+  <li><strong>Complex solutions</strong> for simple problems</li>
+  <li><strong>Ignoring cost implications</strong> of design choices</li>
+  <li><strong>No plan for failure</strong> or partial degradation</li>
+</ul><hr />
+<h2 id="-measuring-success">
+  
+  
+    <a href="#-measuring-success" class="anchor-heading" aria-labelledby="-measuring-success"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>MEASURING SUCCESS</strong>
+  
+  
+</h2>
+    
+<h3 id="technical-success-metrics">
+  
+  
+    <a href="#technical-success-metrics" class="anchor-heading" aria-labelledby="technical-success-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Technical Success Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Performance</strong>: Meets latency and throughput requirements</li>
+  <li><strong>Reliability</strong>: Achieves availability and error rate targets</li>
+  <li><strong>Scalability</strong>: Handles expected load and growth</li>
+  <li><strong>Maintainability</strong>: Easy to operate and modify</li>
+</ul>
+<h3 id="business-success-metrics">
+  
+  
+    <a href="#business-success-metrics" class="anchor-heading" aria-labelledby="business-success-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Business Success Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>User Experience</strong>: Meets user expectations and requirements</li>
+  <li><strong>Cost Efficiency</strong>: Operates within budget constraints</li>
+  <li><strong>Time to Market</strong>: Delivers value within timeline</li>
+  <li><strong>Competitive Advantage</strong>: Provides differentiation and value</li>
+</ul><hr />
+<h2 id="-key-takeaways">
+  
+  
+    <a href="#-key-takeaways" class="anchor-heading" aria-labelledby="-key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>KEY TAKEAWAYS</strong>
+  
+  
+</h2>
+    
+
+<ol>
+  <li><strong>Always start with requirements clarification</strong></li>
+  <li><strong>Use structured analysis for complex decisions</strong></li>
+  <li><strong>Consider multiple options and their trade-offs</strong></li>
+  <li><strong>Document decisions and rationale</strong></li>
+  <li><strong>Plan for failure and edge cases</strong></li>
+  <li><strong>Monitor success and iterate based on feedback</strong></li>
+  <li><strong>Balance technical excellence with practical constraints</strong></li>
+</ol><hr />
+
+<p><em>This decision framework provides a systematic approach to making system design decisions. Use it to structure your thinking, evaluate options, and make informed choices that balance technical requirements with practical constraints.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

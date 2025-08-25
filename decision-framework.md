@@ -1,3 +1,9 @@
+---
+title: System Design Decision Framework
+description: Structured approach to making system design decisions and architectural choices
+layout: default
+---
+
 # System Design Decision Framework
 ## Systematic Approach to Making Design Decisions
 

@@ -1,3 +1,10 @@
+---
+title: Handbook
+layout: default
+grand_parent: Building Blocks
+parent: Monitoring Observability
+---
+
 # Monitoring & Observability Systems
 ## Comprehensive Technical Handbook
 

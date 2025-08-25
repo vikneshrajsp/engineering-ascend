@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Messaging Streaming
+---
+
 # Message Queuing & Streaming Systems - Concise Summary
 ## Bullet-Point Revision Guide for System Design
 

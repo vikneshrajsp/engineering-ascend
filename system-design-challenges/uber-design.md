@@ -1,3 +1,11 @@
+---
+title: Uber Design - System Design Challenge
+description: Comprehensive solution for uber design system design challenge
+layout: default
+parent: Uber Design
+grand_parent: System Design Challenges
+---
+
 # Design Uber - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

@@ -1,3 +1,9 @@
+---
+title: Back-of-the-Envelope Cost Estimation
+description: Comprehensive framework for system design and capacity planning using 10^x calculations
+layout: default
+---
+
 # Back-of-the-Envelope Cost Estimation
 ## Comprehensive Framework for System Design and Capacity Planning
 

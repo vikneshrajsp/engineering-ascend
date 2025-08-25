@@ -1,3 +1,11 @@
+---
+title: Chatgpt Design - System Design Challenge
+description: Comprehensive solution for chatgpt design system design challenge
+layout: default
+parent: Chatgpt Design
+grand_parent: System Design Challenges
+---
+
 # Design ChatGPT - System Design Challenge
 
 *Comprehensive solution for designing ChatGPT, covering LLM inference, conversation management, and global scale.*

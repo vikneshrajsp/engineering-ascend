@@ -1,0 +1,1081 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+.site-nav > ul.nav-list:first-child > li:not(:nth-child(16)) > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > ul > li > a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:not(:first-child) a,
+.site-nav li.external a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:first-child > li:nth-child(16) > a {
+  font-weight: 600;
+  text-decoration: none;
+}.site-nav > ul.nav-list:first-child > li:nth-child(16) > button svg {
+  transform: rotate(-90deg);
+}.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(16) > ul.nav-list {
+  display: block;
+}
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trade-off Analysis in System Design | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Trade-off Analysis in System Design" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive guide to evaluating design choices and balancing competing requirements" />
+<meta property="og:description" content="Comprehensive guide to evaluating design choices and balancing competing requirements" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/trade-off-analysis/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/trade-off-analysis/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Trade-off Analysis in System Design" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive guide to evaluating design choices and balancing competing requirements","headline":"Trade-off Analysis in System Design","url":"https://vikneshrajsp.github.io/engineering-ascend/trade-off-analysis/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="trade-off-analysis-in-system-design">
+  
+  
+    <a href="#trade-off-analysis-in-system-design" class="anchor-heading" aria-labelledby="trade-off-analysis-in-system-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Trade-off Analysis in System Design
+  
+  
+</h1>
+    
+<h2 id="comprehensive-guide-to-evaluating-design-choices">
+  
+  
+    <a href="#comprehensive-guide-to-evaluating-design-choices" class="anchor-heading" aria-labelledby="comprehensive-guide-to-evaluating-design-choices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Guide to Evaluating Design Choices
+  
+  
+</h2>
+    
+<h2 id="-overview">
+  
+  
+    <a href="#-overview" class="anchor-heading" aria-labelledby="-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 Overview
+  
+  
+</h2>
+    
+<p>Trade-off analysis is the heart of system design. Every design decision involves balancing competing requirements and constraints. Understanding how to systematically evaluate trade-offs is crucial for making informed decisions and communicating your reasoning effectively.</p>
+<h2 id="️-fundamental-trade-offs">
+  
+  
+    <a href="#️-fundamental-trade-offs" class="anchor-heading" aria-labelledby="️-fundamental-trade-offs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>FUNDAMENTAL TRADE-OFFS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-consistency-vs-availability-vs-partition-tolerance-cap-theorem">
+  
+  
+    <a href="#1-consistency-vs-availability-vs-partition-tolerance-cap-theorem" class="anchor-heading" aria-labelledby="1-consistency-vs-availability-vs-partition-tolerance-cap-theorem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Consistency vs. Availability vs. Partition Tolerance (CAP Theorem)</strong>
+  
+  
+</h3>
+    
+<h4 id="strong-consistency-cp">
+  
+  
+    <a href="#strong-consistency-cp" class="anchor-heading" aria-labelledby="strong-consistency-cp"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Strong Consistency (CP)</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- All nodes see same data simultaneously
+- System unavailable during network partitions
+- Linearizable operations
+
+Use Cases:
+- Financial transactions
+- User account management
+- Inventory systems
+- E-commerce orders
+
+Trade-offs:
++ Data integrity guaranteed
++ Predictable behavior
+- Lower availability during partitions
+- Higher latency for coordination
+</code></pre></div></div>
+<h4 id="high-availability-ap">
+  
+  
+    <a href="#high-availability-ap" class="anchor-heading" aria-labelledby="high-availability-ap"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>High Availability (AP)</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- System remains available during partitions
+- Eventual consistency
+- Accepts temporary inconsistencies
+
+Use Cases:
+- Social media feeds
+- Content delivery systems
+- Real-time analytics
+- IoT data collection
+
+Trade-offs:
++ High availability
++ Better performance
++ Geographic distribution
+- Temporary data inconsistencies
+- Complex application logic
+</code></pre></div></div>
+<h4 id="partition-tolerance-ca">
+  
+  
+    <a href="#partition-tolerance-ca" class="anchor-heading" aria-labelledby="partition-tolerance-ca"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Partition Tolerance (CA)</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Handles network partitions gracefully
+- Requires single-node deployment
+- No distributed coordination
+
+Use Cases:
+- Single-server applications
+- Embedded systems
+- Local data processing
+- Development environments
+
+Trade-offs:
++ Simple architecture
++ No network coordination
+- Limited scalability
+- Single point of failure
+</code></pre></div></div><hr />
+<h3 id="2-performance-vs-complexity">
+  
+  
+    <a href="#2-performance-vs-complexity" class="anchor-heading" aria-labelledby="2-performance-vs-complexity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Performance vs. Complexity</strong>
+  
+  
+</h3>
+    
+<h4 id="high-performance">
+  
+  
+    <a href="#high-performance" class="anchor-heading" aria-labelledby="high-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>High Performance</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Optimized algorithms and data structures
+- Custom implementations
+- Hardware-specific optimizations
+
+Use Cases:
+- High-frequency trading
+- Real-time gaming
+- Video streaming
+- Scientific computing
+
+Trade-offs:
++ Fast response times
++ High throughput
++ Competitive advantage
+- Complex implementation
+- Difficult to maintain
+- Higher development cost
+- Vendor lock-in risks
+</code></pre></div></div>
+<h4 id="simplicity">
+  
+  
+    <a href="#simplicity" class="anchor-heading" aria-labelledby="simplicity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Simplicity</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Standard patterns and libraries
+- Off-the-shelf solutions
+- Clear, readable code
+
+Use Cases:
+- MVPs and prototypes
+- Small team projects
+- Rapid development
+- Maintenance-focused systems
+
+Trade-offs:
++ Easy to understand
++ Quick to implement
++ Lower maintenance cost
++ Easier to debug
+- Limited performance
+- May not scale well
+- Generic solutions
+</code></pre></div></div><hr />
+<h3 id="3-cost-vs-performance">
+  
+  
+    <a href="#3-cost-vs-performance" class="anchor-heading" aria-labelledby="3-cost-vs-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. <strong>Cost vs. Performance</strong>
+  
+  
+</h3>
+    
+<h4 id="high-performance-1">
+  
+  
+    <a href="#high-performance-1" class="anchor-heading" aria-labelledby="high-performance-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>High Performance</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Premium infrastructure
+- Optimized resources
+- Advanced technologies
+
+Use Cases:
+- Performance-critical applications
+- High-value business processes
+- Competitive differentiators
+- User experience critical
+
+Trade-offs:
++ Better user experience
++ Competitive advantage
++ Higher throughput
+- Higher infrastructure costs
+- More expensive development
+- Higher operational costs
+</code></pre></div></div>
+<h4 id="cost-optimization">
+  
+  
+    <a href="#cost-optimization" class="anchor-heading" aria-labelledby="cost-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cost Optimization</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Standard infrastructure
+- Efficient resource usage
+- Cost-effective technologies
+
+Use Cases:
+- Budget-constrained projects
+- Non-critical applications
+- High-volume, low-margin services
+- Internal tools
+
+Trade-offs:
++ Lower operational costs
++ Better resource efficiency
++ Predictable expenses
+- Performance limitations
+- Potential user experience impact
+- May not handle peak loads
+</code></pre></div></div><hr />
+<h3 id="4-scalability-vs-simplicity">
+  
+  
+    <a href="#4-scalability-vs-simplicity" class="anchor-heading" aria-labelledby="4-scalability-vs-simplicity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. <strong>Scalability vs. Simplicity</strong>
+  
+  
+</h3>
+    
+<h4 id="horizontal-scaling">
+  
+  
+    <a href="#horizontal-scaling" class="anchor-heading" aria-labelledby="horizontal-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Horizontal Scaling</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Multiple machines working together
+- Distributed architecture
+- Load balancing and partitioning
+
+Use Cases:
+- High-traffic web applications
+- Large-scale data processing
+- Global services
+- Growing user bases
+
+Trade-offs:
++ Unlimited scaling potential
++ Fault tolerance
++ Geographic distribution
+- Complex architecture
+- Network coordination overhead
+- Higher operational complexity
+</code></pre></div></div>
+<h4 id="vertical-scaling">
+  
+  
+    <a href="#vertical-scaling" class="anchor-heading" aria-labelledby="vertical-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Vertical Scaling</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Characteristics:
+- Single machine with more resources
+- Simple architecture
+- Centralized processing
+
+Use Cases:
+- Small to medium applications
+- Simple architectures
+- Limited growth expectations
+- Development and testing
+
+Trade-offs:
++ Simple architecture
++ Easy to manage
++ Lower operational complexity
+- Limited scaling potential
+- Single point of failure
+- Hardware constraints
+</code></pre></div></div><hr />
+<h2 id="-trade-off-decision-frameworks">
+  
+  
+    <a href="#-trade-off-decision-frameworks" class="anchor-heading" aria-labelledby="-trade-off-decision-frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>TRADE-OFF DECISION FRAMEWORKS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-decision-matrix-approach">
+  
+  
+    <a href="#1-decision-matrix-approach" class="anchor-heading" aria-labelledby="1-decision-matrix-approach"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Decision Matrix Approach</strong>
+  
+  
+</h3>
+    
+<h4 id="template-structure">
+  
+  
+    <a href="#template-structure" class="anchor-heading" aria-labelledby="template-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Template Structure</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Criteria | Weight | Option A | Option B | Option C |
+|----------|---------|----------|----------|----------|
+| Performance | 30% | Score | Score | Score |
+| Cost | 25% | Score | Score | Score |
+| Complexity | 20% | Score | Score | Score |
+| Scalability | 15% | Score | Score | Score |
+| Reliability | 10% | Score | Score | Score |
+| **Total** | **100%** | **Total** | **Total** | **Total** |
+</code></pre></div></div>
+<h4 id="scoring-guidelines">
+  
+  
+    <a href="#scoring-guidelines" class="anchor-heading" aria-labelledby="scoring-guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scoring Guidelines</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>9-10</strong>: Excellent fit, minimal trade-offs</li>
+  <li><strong>7-8</strong>: Good fit, acceptable trade-offs</li>
+  <li><strong>5-6</strong>: Moderate fit, significant trade-offs</li>
+  <li><strong>3-4</strong>: Poor fit, major trade-offs</li>
+  <li><strong>1-2</strong>: Very poor fit, unacceptable trade-offs</li>
+</ul>
+<h4 id="example-storage-selection">
+  
+  
+    <a href="#example-storage-selection" class="anchor-heading" aria-labelledby="example-storage-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Example: Storage Selection</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Criteria | Weight | RDBMS | NoSQL | Hybrid |
+|----------|---------|-------|-------|--------|
+| ACID Compliance | 25% | 10 | 3 | 7 |
+| Scalability | 25% | 4 | 9 | 7 |
+| Query Flexibility | 20% | 9 | 6 | 8 |
+| Operational Cost | 15% | 6 | 8 | 5 |
+| Team Expertise | 15% | 8 | 5 | 6 |
+| **Total** | **100%** | **7.6** | **6.2** | **6.7** |
+</code></pre></div></div><hr />
+<h3 id="2-trade-off-triangle-analysis">
+  
+  
+    <a href="#2-trade-off-triangle-analysis" class="anchor-heading" aria-labelledby="2-trade-off-triangle-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Trade-off Triangle Analysis</strong>
+  
+  
+</h3>
+    
+<h4 id="performance-cost-complexity-triangle">
+  
+  
+    <a href="#performance-cost-complexity-triangle" class="anchor-heading" aria-labelledby="performance-cost-complexity-triangle"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance-Cost-Complexity Triangle</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    Performance
+                         |
+                         |
+                         |
+                    /         \
+                   /           \
+                  /             \
+                 /               \
+                /                 \
+               /                   \
+              /                     \
+             /                       \
+            /                         \
+           /                           \
+          /                             \
+         /                               \
+        /                                 \
+       /                                   \
+      /                                     \
+     /                                       \
+    /                                         \
+   /                                           \
+  /                                             \
+ /                                               \
+Complexity ---------------------------- Cost
+</code></pre></div></div>
+<h4 id="positioning-your-solution">
+  
+  
+    <a href="#positioning-your-solution" class="anchor-heading" aria-labelledby="positioning-your-solution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Positioning Your Solution</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Performance Focus</strong>: Top of triangle</li>
+  <li><strong>Cost Focus</strong>: Bottom right</li>
+  <li><strong>Simplicity Focus</strong>: Bottom left</li>
+  <li><strong>Balanced Approach</strong>: Center of triangle</li>
+</ul><hr />
+<h3 id="3-risk-reward-analysis">
+  
+  
+    <a href="#3-risk-reward-analysis" class="anchor-heading" aria-labelledby="3-risk-reward-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. <strong>Risk-Reward Analysis</strong>
+  
+  
+</h3>
+    
+<h4 id="risk-assessment-matrix">
+  
+  
+    <a href="#risk-assessment-matrix" class="anchor-heading" aria-labelledby="risk-assessment-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Risk Assessment Matrix</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Risk Level | Impact | Probability | Mitigation Strategy |
+|------------|--------|-------------|-------------------|
+| High | High | High | Avoid or major redesign |
+| High | High | Low | Mitigate with controls |
+| High | Low | High | Accept with monitoring |
+| High | Low | Low | Accept with minimal controls |
+| Medium | High | High | Mitigate with significant effort |
+| Medium | High | Low | Mitigate with controls |
+| Medium | Low | High | Accept with monitoring |
+| Medium | Low | Low | Accept with minimal controls |
+| Low | High | High | Mitigate with controls |
+| Low | High | Low | Accept with monitoring |
+| Low | Low | High | Accept |
+| Low | Low | Low | Accept |
+</code></pre></div></div><hr />
+<h2 id="-common-trade-off-scenarios">
+  
+  
+    <a href="#-common-trade-off-scenarios" class="anchor-heading" aria-labelledby="-common-trade-off-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔄 <strong>COMMON TRADE-OFF SCENARIOS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-database-selection">
+  
+  
+    <a href="#1-database-selection" class="anchor-heading" aria-labelledby="1-database-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Database Selection</strong>
+  
+  
+</h3>
+    
+<h4 id="rdbms-vs-nosql">
+  
+  
+    <a href="#rdbms-vs-nosql" class="anchor-heading" aria-labelledby="rdbms-vs-nosql"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>RDBMS vs. NoSQL</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RDBMS:
++ ACID compliance
++ Complex queries
++ Data integrity
++ Mature ecosystem
+- Limited horizontal scaling
+- Schema rigidity
+- Performance at scale
+
+NoSQL:
++ Horizontal scaling
++ Schema flexibility
++ High performance
++ Cost-effective
+- No ACID guarantees
+- Limited query capabilities
+- Eventual consistency
+</code></pre></div></div>
+<h4 id="decision-factors">
+  
+  
+    <a href="#decision-factors" class="anchor-heading" aria-labelledby="decision-factors"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Factors</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Data consistency requirements</strong></li>
+  <li><strong>Query complexity needs</strong></li>
+  <li><strong>Scaling expectations</strong></li>
+  <li><strong>Team expertise</strong></li>
+  <li><strong>Operational complexity tolerance</strong></li>
+</ul><hr />
+<h3 id="2-caching-strategy">
+  
+  
+    <a href="#2-caching-strategy" class="anchor-heading" aria-labelledby="2-caching-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Caching Strategy</strong>
+  
+  
+</h3>
+    
+<h4 id="in-memory-vs-distributed-vs-cdn">
+  
+  
+    <a href="#in-memory-vs-distributed-vs-cdn" class="anchor-heading" aria-labelledby="in-memory-vs-distributed-vs-cdn"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>In-Memory vs. Distributed vs. CDN</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In-Memory Cache:
++ Fastest access
++ Simple implementation
++ Low latency
+- Limited size
+- No sharing
+- Data loss on restart
+
+Distributed Cache:
++ Shared access
++ Horizontal scaling
++ Persistence
+- Network latency
+- Complexity
+- Coordination overhead
+
+CDN:
++ Global distribution
++ Edge caching
++ DDoS protection
+- Cache invalidation
+- Cost
+- Limited control
+</code></pre></div></div>
+<h4 id="decision-factors-1">
+  
+  
+    <a href="#decision-factors-1" class="anchor-heading" aria-labelledby="decision-factors-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Factors</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Access patterns</strong></li>
+  <li><strong>Geographic distribution</strong></li>
+  <li><strong>Data freshness requirements</strong></li>
+  <li><strong>Cost constraints</strong></li>
+  <li><strong>Operational complexity</strong></li>
+</ul><hr />
+<h3 id="3-load-balancing-strategy">
+  
+  
+    <a href="#3-load-balancing-strategy" class="anchor-heading" aria-labelledby="3-load-balancing-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. <strong>Load Balancing Strategy</strong>
+  
+  
+</h3>
+    
+<h4 id="algorithm-selection">
+  
+  
+    <a href="#algorithm-selection" class="anchor-heading" aria-labelledby="algorithm-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Algorithm Selection</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Round Robin:
++ Simple implementation
++ Even distribution
++ Predictable behavior
+- No load consideration
+- Uneven resource usage
+
+Least Connections:
++ Load-aware routing
++ Efficient resource usage
++ Good for long-lived connections
+- Connection tracking overhead
+- May not consider actual load
+
+IP Hash:
++ Session persistence
++ Cache locality
++ Predictable routing
+- Uneven distribution
+- No load consideration
+</code></pre></div></div>
+<h4 id="decision-factors-2">
+  
+  
+    <a href="#decision-factors-2" class="anchor-heading" aria-labelledby="decision-factors-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Factors</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Connection patterns</strong></li>
+  <li><strong>Session requirements</strong></li>
+  <li><strong>Load characteristics</strong></li>
+  <li><strong>Implementation complexity</strong></li>
+  <li><strong>Monitoring capabilities</strong></li>
+</ul><hr />
+<h2 id="️-balancing-multiple-trade-offs">
+  
+  
+    <a href="#️-balancing-multiple-trade-offs" class="anchor-heading" aria-labelledby="️-balancing-multiple-trade-offs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>BALANCING MULTIPLE TRADE-OFFS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-multi-criteria-decision-making">
+  
+  
+    <a href="#1-multi-criteria-decision-making" class="anchor-heading" aria-labelledby="1-multi-criteria-decision-making"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Multi-Criteria Decision Making</strong>
+  
+  
+</h3>
+    
+<h4 id="weighted-scoring-method">
+  
+  
+    <a href="#weighted-scoring-method" class="anchor-heading" aria-labelledby="weighted-scoring-method"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Weighted Scoring Method</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li><strong>Identify criteria</strong> relevant to the decision</li>
+  <li><strong>Assign weights</strong> based on importance</li>
+  <li><strong>Score each option</strong> against each criterion</li>
+  <li><strong>Calculate weighted scores</strong></li>
+  <li><strong>Rank options</strong> by total score</li>
+  <li><strong>Consider qualitative factors</strong></li>
+</ol>
+<h4 id="example-api-design-decision">
+  
+  
+    <a href="#example-api-design-decision" class="anchor-heading" aria-labelledby="example-api-design-decision"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Example: API Design Decision</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Criteria | Weight | REST | GraphQL | gRPC |
+|----------|---------|------|---------|------|
+| Performance | 30% | 6 | 7 | 9 |
+| Developer Experience | 25% | 9 | 8 | 5 |
+| Flexibility | 20% | 5 | 10 | 6 |
+| Tooling | 15% | 9 | 7 | 6 |
+| Learning Curve | 10% | 10 | 6 | 4 |
+| **Total** | **100%** | **7.4** | **7.5** | **6.8** |
+</code></pre></div></div><hr />
+<h3 id="2-trade-off-optimization">
+  
+  
+    <a href="#2-trade-off-optimization" class="anchor-heading" aria-labelledby="2-trade-off-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Trade-off Optimization</strong>
+  
+  
+</h3>
+    
+<h4 id="pareto-frontier-analysis">
+  
+  
+    <a href="#pareto-frontier-analysis" class="anchor-heading" aria-labelledby="pareto-frontier-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Pareto Frontier Analysis</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Identify Pareto-optimal solutions</strong> (no other solution is better in all criteria)</li>
+  <li><strong>Eliminate dominated solutions</strong> (worse in all criteria)</li>
+  <li><strong>Focus analysis</strong> on non-dominated solutions</li>
+  <li><strong>Consider sensitivity</strong> to weight changes</li>
+</ul>
+<h4 id="sensitivity-analysis">
+  
+  
+    <a href="#sensitivity-analysis" class="anchor-heading" aria-labelledby="sensitivity-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Sensitivity Analysis</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Vary weights</strong> to see impact on decision</li>
+  <li><strong>Identify critical criteria</strong> that drive the decision</li>
+  <li><strong>Understand robustness</strong> of the decision</li>
+  <li><strong>Plan for uncertainty</strong> in requirements</li>
+</ul><hr />
+<h2 id="-trade-off-communication">
+  
+  
+    <a href="#-trade-off-communication" class="anchor-heading" aria-labelledby="-trade-off-communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>TRADE-OFF COMMUNICATION</strong>
+  
+  
+</h2>
+    
+<h3 id="1-stakeholder-communication">
+  
+  
+    <a href="#1-stakeholder-communication" class="anchor-heading" aria-labelledby="1-stakeholder-communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Stakeholder Communication</strong>
+  
+  
+</h3>
+    
+<h4 id="executive-summary">
+  
+  
+    <a href="#executive-summary" class="anchor-heading" aria-labelledby="executive-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Executive Summary</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Clear decision</strong> and rationale</li>
+  <li><strong>Key trade-offs</strong> considered</li>
+  <li><strong>Business impact</strong> of the decision</li>
+  <li><strong>Risk mitigation</strong> strategies</li>
+</ul>
+<h4 id="technical-deep-dive">
+  
+  
+    <a href="#technical-deep-dive" class="anchor-heading" aria-labelledby="technical-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Technical Deep Dive</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Detailed analysis</strong> of alternatives</li>
+  <li><strong>Quantified trade-offs</strong> where possible</li>
+  <li><strong>Implementation considerations</strong></li>
+  <li><strong>Operational implications</strong></li>
+</ul><hr />
+<h3 id="2-documentation-best-practices">
+  
+  
+    <a href="#2-documentation-best-practices" class="anchor-heading" aria-labelledby="2-documentation-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Documentation Best Practices</strong>
+  
+  
+</h3>
+    
+<h4 id="decision-record">
+  
+  
+    <a href="#decision-record" class="anchor-heading" aria-labelledby="decision-record"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Record</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Date and context</strong> of the decision</li>
+  <li><strong>Alternatives considered</strong> and rejected</li>
+  <li><strong>Trade-offs evaluated</strong> and weights</li>
+  <li><strong>Rationale</strong> for the chosen option</li>
+  <li><strong>Assumptions</strong> and constraints</li>
+  <li><strong>Review schedule</strong> and criteria</li>
+</ul><hr />
+<h2 id="-red-flags-in-trade-off-analysis">
+  
+  
+    <a href="#-red-flags-in-trade-off-analysis" class="anchor-heading" aria-labelledby="-red-flags-in-trade-off-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>RED FLAGS IN TRADE-OFF ANALYSIS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-common-pitfalls">
+  
+  
+    <a href="#1-common-pitfalls" class="anchor-heading" aria-labelledby="1-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Common Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Ignoring operational complexity</strong></li>
+  <li><strong>Underestimating maintenance costs</strong></li>
+  <li><strong>Over-optimizing for edge cases</strong></li>
+  <li><strong>Not considering team expertise</strong></li>
+  <li><strong>Ignoring long-term implications</strong></li>
+</ul>
+<h3 id="2-warning-signs">
+  
+  
+    <a href="#2-warning-signs" class="anchor-heading" aria-labelledby="2-warning-signs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Warning Signs</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Single solution fits all</strong> scenarios</li>
+  <li><strong>No consideration of alternatives</strong></li>
+  <li><strong>Ignoring cost implications</strong></li>
+  <li><strong>Over-engineering simple problems</strong></li>
+  <li><strong>No plan for failure scenarios</strong></li>
+</ul><hr />
+<h2 id="-measuring-trade-off-effectiveness">
+  
+  
+    <a href="#-measuring-trade-off-effectiveness" class="anchor-heading" aria-labelledby="-measuring-trade-off-effectiveness"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>MEASURING TRADE-OFF EFFECTIVENESS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-success-metrics">
+  
+  
+    <a href="#1-success-metrics" class="anchor-heading" aria-labelledby="1-success-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. <strong>Success Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Performance improvements</strong> vs. expectations</li>
+  <li><strong>Cost savings</strong> vs. projections</li>
+  <li><strong>Complexity reduction</strong> vs. goals</li>
+  <li><strong>User satisfaction</strong> improvements</li>
+  <li><strong>Operational efficiency</strong> gains</li>
+</ul>
+<h3 id="2-continuous-improvement">
+  
+  
+    <a href="#2-continuous-improvement" class="anchor-heading" aria-labelledby="2-continuous-improvement"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. <strong>Continuous Improvement</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Monitor actual outcomes</strong> vs. predictions</li>
+  <li><strong>Adjust trade-off weights</strong> based on experience</li>
+  <li><strong>Refine decision criteria</strong> over time</li>
+  <li><strong>Learn from past decisions</strong> and outcomes</li>
+</ul><hr />
+<h2 id="-key-takeaways">
+  
+  
+    <a href="#-key-takeaways" class="anchor-heading" aria-labelledby="-key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>KEY TAKEAWAYS</strong>
+  
+  
+</h2>
+    
+
+<ol>
+  <li><strong>Every design decision involves trade-offs</strong></li>
+  <li><strong>Use structured frameworks</strong> for complex decisions</li>
+  <li><strong>Consider multiple criteria</strong> and their weights</li>
+  <li><strong>Quantify trade-offs</strong> where possible</li>
+  <li><strong>Communicate rationale</strong> clearly to stakeholders</li>
+  <li><strong>Plan for monitoring</strong> and continuous improvement</li>
+  <li><strong>Learn from past decisions</strong> and outcomes**</li>
+</ol><hr />
+
+<p><em>This guide provides a comprehensive framework for analyzing trade-offs in system design. Use these methods to make informed decisions and communicate your reasoning effectively to stakeholders and interviewers.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

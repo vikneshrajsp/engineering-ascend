@@ -1,3 +1,11 @@
+---
+title: Chat System Design - System Design Challenge
+description: Comprehensive solution for chat system design system design challenge
+layout: default
+parent: Chat System Design
+grand_parent: System Design Challenges
+---
+
 # Design Chat System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

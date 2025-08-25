@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Networking Communication
+---
+
 # Networking & Communication Systems
 ## Concise Summary
 

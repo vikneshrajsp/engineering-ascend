@@ -1,3 +1,11 @@
+---
+title: Online Gaming Design - System Design Challenge
+description: Comprehensive solution for online gaming design system design challenge
+layout: default
+parent: Online Gaming Design
+grand_parent: System Design Challenges
+---
+
 # Design Online Gaming - System Design Challenge
 
 *Comprehensive solution for designing an online gaming platform, covering real-time multiplayer, matchmaking, and global scale.*

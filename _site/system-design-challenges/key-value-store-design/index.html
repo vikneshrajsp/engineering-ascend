@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Key Value Store Design - System Design Challenge | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Key Value Store Design - System Design Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Comprehensive solution for key value store design system design challenge" />
+<meta property="og:description" content="Comprehensive solution for key value store design system design challenge" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/key-value-store-design/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/key-value-store-design/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Key Value Store Design - System Design Challenge" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for key value store design system design challenge","headline":"Key Value Store Design - System Design Challenge","url":"https://vikneshrajsp.github.io/engineering-ascend/system-design-challenges/key-value-store-design/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">System Design Challenges</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Key Value Store Design</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Key Value Store Design - System Design Challenge</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="design-a-distributed-key-value-store---system-design-challenge">
+  
+  
+    <a href="#design-a-distributed-key-value-store---system-design-challenge" class="anchor-heading" aria-labelledby="design-a-distributed-key-value-store---system-design-challenge"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Design a Distributed Key-Value Store - System Design Challenge
+  
+  
+</h1>
+    
+
+<p><em>Comprehensive solution for designing a distributed key-value store, covering consistency models, partitioning, replication, and global scale.</em></p>
+<h2 id="-challenge-overview">
+  
+  
+    <a href="#-challenge-overview" class="anchor-heading" aria-labelledby="-challenge-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Challenge Overview</strong>
+  
+  
+</h2>
+    
+
+<p>Design a distributed key-value store that can handle millions of operations per second with high availability and consistency guarantees.</p>
+<h3 id="key-requirements">
+  
+  
+    <a href="#key-requirements" class="anchor-heading" aria-labelledby="key-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Requirements</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Scale</strong>: 100M+ keys, 1M+ operations/second</li>
+  <li><strong>Availability</strong>: 99.99% uptime</li>
+  <li><strong>Consistency</strong>: Configurable consistency levels</li>
+  <li><strong>Latency</strong>: &lt;10ms for reads, &lt;50ms for writes</li>
+  <li><strong>Durability</strong>: Data persistence across failures</li>
+</ul>
+<h2 id="️-reshaded-framework-solution">
+  
+  
+    <a href="#️-reshaded-framework-solution" class="anchor-heading" aria-labelledby="️-reshaded-framework-solution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>RESHADED Framework Solution</strong>
+  
+  
+</h2>
+    
+<h3 id="step-1-requirements--constraints">
+  
+  
+    <a href="#step-1-requirements--constraints" class="anchor-heading" aria-labelledby="step-1-requirements--constraints"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 1: Requirements &amp; Constraints</strong>
+  
+  
+</h3>
+    
+<h4 id="functional-requirements">
+  
+  
+    <a href="#functional-requirements" class="anchor-heading" aria-labelledby="functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Functional Requirements</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>CRUD Operations</strong>: Create, Read, Update, Delete key-value pairs</li>
+  <li><strong>TTL Support</strong>: Automatic expiration of keys</li>
+  <li><strong>Batch Operations</strong>: Multi-key operations</li>
+  <li><strong>Scan Operations</strong>: Range queries and pattern matching</li>
+  <li><strong>Atomic Operations</strong>: Compare-and-swap, increment/decrement</li>
+</ul>
+<h4 id="non-functional-requirements">
+  
+  
+    <a href="#non-functional-requirements" class="anchor-heading" aria-labelledby="non-functional-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Non-Functional Requirements</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Scalability</strong>: Horizontal scaling across multiple nodes</li>
+  <li><strong>Availability</strong>: Fault tolerance and automatic failover</li>
+  <li><strong>Consistency</strong>: Configurable consistency (Eventual, Strong, Causal)</li>
+  <li><strong>Performance</strong>: Low latency and high throughput</li>
+  <li><strong>Durability</strong>: Data persistence and recovery</li>
+</ul>
+<h4 id="constraints">
+  
+  
+    <a href="#constraints" class="anchor-heading" aria-labelledby="constraints"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Constraints</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Network Partitioning</strong>: Handle network failures gracefully</li>
+  <li><strong>Clock Skew</strong>: Distributed timestamp ordering</li>
+  <li><strong>Storage Limits</strong>: Efficient memory and disk usage</li>
+  <li><strong>Cost</strong>: Minimize infrastructure costs</li>
+</ul>
+<h3 id="step-2-estimation--scale">
+  
+  
+    <a href="#step-2-estimation--scale" class="anchor-heading" aria-labelledby="step-2-estimation--scale"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 2: Estimation &amp; Scale</strong>
+  
+  
+</h3>
+    
+<h4 id="capacity-planning">
+  
+  
+    <a href="#capacity-planning" class="anchor-heading" aria-labelledby="capacity-planning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Capacity Planning</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Total Keys: 100M
+Average Key Size: 100 bytes
+Average Value Size: 1KB
+Total Data: 100M × 1.1KB = 110GB
+
+Read Operations: 800K/second (80%)
+Write Operations: 200K/second (20%)
+Total Operations: 1M/second
+
+Storage Growth: 10% per month
+5-Year Storage: 110GB × (1.1)^60 = ~2.5TB
+</code></pre></div></div>
+<h4 id="peak-load-estimation">
+  
+  
+    <a href="#peak-load-estimation" class="anchor-heading" aria-labelledby="peak-load-estimation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Peak Load Estimation</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Peak Factor: 3x normal load
+Peak Operations: 3M/second
+Peak Storage: 330GB
+
+Read Distribution: 90% hot data, 10% cold data
+Write Distribution: 70% updates, 30% new keys
+</code></pre></div></div>
+<h3 id="step-3-system-interface-design">
+  
+  
+    <a href="#step-3-system-interface-design" class="anchor-heading" aria-labelledby="step-3-system-interface-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 3: System Interface Design</strong>
+  
+  
+</h3>
+    
+<h4 id="api-design">
+  
+  
+    <a href="#api-design" class="anchor-heading" aria-labelledby="api-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Design</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Core Operations
+</span><span class="nc">GET</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">value</span>
+<span class="nc">PUT</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">success</span>
+<span class="nc">DELETE</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">success</span>
+<span class="nc">EXISTS</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">boolean</span>
+
+<span class="c1"># Batch Operations
+</span><span class="nc">MGET</span><span class="p">(</span><span class="n">keys</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">values</span><span class="p">[]</span>
+<span class="nc">MSET</span><span class="p">(</span><span class="n">key_value_pairs</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">success</span>
+<span class="nc">MDELETE</span><span class="p">(</span><span class="n">keys</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">success</span>
+
+<span class="c1"># Advanced Operations
+</span><span class="nc">INCR</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">new_value</span>
+<span class="nc">CAS</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">expected_value</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">success</span>
+<span class="nc">SCAN</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">keys</span><span class="p">[]</span>
+<span class="nc">TTL</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">remaining_seconds</span>
+</code></pre></div></div>
+<h4 id="data-models">
+  
+  
+    <a href="#data-models" class="anchor-heading" aria-labelledby="data-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Models</strong>
+  
+  
+</h4>
+    
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user:123:profile"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-01T00:00:00Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ttl"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-01T12:00:00Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h3 id="step-4-high-level-architecture">
+  
+  
+    <a href="#step-4-high-level-architecture" class="anchor-heading" aria-labelledby="step-4-high-level-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 4: High-Level Architecture</strong>
+  
+  
+</h3>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
+│                Client Applications                      │
+├─────────────────────────────────────────────────────────┤
+│                    Load Balancer                        │
+├─────────────────────────────────────────────────────────┤
+│              API Gateway / Proxy Layer                  │
+├─────────────────────────────────────────────────────────┤
+│              Partitioning Layer (Consistent Hashing)    │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
+│  │   Node 1    │  │   Node 2    │  │   Node N    │     │
+│  │ (Primary)   │  │ (Primary)   │  │ (Primary)   │     │
+│  └─────────────┘  └─────────────┘  └─────────────┘     │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
+│  │ Replica 1   │  │ Replica 2   │  │ Replica N   │     │
+│  │ (Secondary) │  │ (Secondary) │  │ (Secondary) │     │
+│  └─────────────┘  └─────────────┘  └─────────────┘     │
+├─────────────────────────────────────────────────────────┤
+│              Storage Layer (LSM Tree)                  │
+├─────────────────────────────────────────────────────────┤
+│              Distributed Coordination                   │
+└─────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+<h3 id="step-5-application-layer-design">
+  
+  
+    <a href="#step-5-application-layer-design" class="anchor-heading" aria-labelledby="step-5-application-layer-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 5: Application Layer Design</strong>
+  
+  
+</h3>
+    
+<h4 id="partitioning-strategy">
+  
+  
+    <a href="#partitioning-strategy" class="anchor-heading" aria-labelledby="partitioning-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Partitioning Strategy</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ConsistentHashing</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">virtual_nodes</span><span class="o">=</span><span class="mi">150</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ring</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">nodes</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">virtual_nodes</span> <span class="o">=</span> <span class="n">virtual_nodes</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">_build_ring</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">_build_ring</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">virtual_nodes</span><span class="p">):</span>
+                <span class="n">virtual_key</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="sh">"</span>
+                <span class="n">hash_value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_hash</span><span class="p">(</span><span class="n">virtual_key</span><span class="p">)</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">[</span><span class="n">hash_value</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+    
+    <span class="k">def</span> <span class="nf">get_node</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">hash_value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">_hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">sorted_hashes</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">.</span><span class="nf">keys</span><span class="p">())</span>
+        
+        <span class="k">for</span> <span class="n">hash_val</span> <span class="ow">in</span> <span class="n">sorted_hashes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">hash_val</span> <span class="o">&gt;=</span> <span class="n">hash_value</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">[</span><span class="n">hash_val</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">ring</span><span class="p">[</span><span class="n">sorted_hashes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>  <span class="c1"># Wrap around
+</span></code></pre></div></div>
+<h4 id="replication-strategy">
+  
+  
+    <a href="#replication-strategy" class="anchor-heading" aria-labelledby="replication-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Replication Strategy</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ReplicationManager</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">replication_factor</span> <span class="o">=</span> <span class="n">replication_factor</span>
+    
+    <span class="k">def</span> <span class="nf">get_replicas</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">primary_node</span><span class="p">,</span> <span class="n">all_nodes</span><span class="p">):</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">node_list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">all_nodes</span><span class="p">)</span>
+        <span class="n">primary_index</span> <span class="o">=</span> <span class="n">node_list</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">primary_node</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">replication_factor</span><span class="p">):</span>
+            <span class="n">replica_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">primary_index</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="nf">len</span><span class="p">(</span><span class="n">node_list</span><span class="p">)</span>
+            <span class="n">replicas</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">node_list</span><span class="p">[</span><span class="n">replica_index</span><span class="p">])</span>
+        
+        <span class="k">return</span> <span class="n">replicas</span>
+    
+    <span class="k">def</span> <span class="nf">quorum_size</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">return </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">replication_factor</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+<h4 id="consistency-management">
+  
+  
+    <a href="#consistency-management" class="anchor-heading" aria-labelledby="consistency-management"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Consistency Management</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ConsistencyManager</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">consistency_level</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">consistency_level</span> <span class="o">=</span> <span class="n">consistency_level</span>
+    
+    <span class="k">def</span> <span class="nf">read_quorum</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">replicas</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">consistency_level</span> <span class="o">==</span> <span class="sh">"</span><span class="s">STRONG</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nf">len</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span>  <span class="c1"># Read from all replicas
+</span>        <span class="k">elif</span> <span class="n">self</span><span class="p">.</span><span class="n">consistency_level</span> <span class="o">==</span> <span class="sh">"</span><span class="s">EVENTUAL</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>  <span class="c1"># Read from any replica
+</span>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Causal
+</span>            <span class="nf">return </span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="k">def</span> <span class="nf">write_quorum</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">replicas</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">consistency_level</span> <span class="o">==</span> <span class="sh">"</span><span class="s">STRONG</span><span class="sh">"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nf">len</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span>  <span class="c1"># Write to all replicas
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="nf">return </span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Majority
+</span></code></pre></div></div>
+<h3 id="step-6-data-layer-design">
+  
+  
+    <a href="#step-6-data-layer-design" class="anchor-heading" aria-labelledby="step-6-data-layer-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 6: Data Layer Design</strong>
+  
+  
+</h3>
+    
+<h4 id="storage-engine-lsm-tree">
+  
+  
+    <a href="#storage-engine-lsm-tree" class="anchor-heading" aria-labelledby="storage-engine-lsm-tree"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Engine (LSM Tree)</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LSMTree</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">memtable</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># In-memory table
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">sstables</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Sorted string tables
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">memtable_size_limit</span> <span class="o">=</span> <span class="mi">64</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>  <span class="c1"># 64MB
+</span>    
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        
+        <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">self</span><span class="p">.</span><span class="n">memtable_size_limit</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">_flush_memtable</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="c1"># Check memtable first
+</span>        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        
+        <span class="c1"># Check SSTables (newest first)
+</span>        <span class="k">for</span> <span class="n">sstable</span> <span class="ow">in</span> <span class="nf">reversed</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">sstables</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">sstable</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="k">return</span> <span class="bp">None</span>
+    
+    <span class="k">def</span> <span class="nf">_flush_memtable</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Create new SSTable from memtable
+</span>        <span class="n">sstable</span> <span class="o">=</span> <span class="nc">SSTable</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">sstables</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">sstable</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">memtable</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="c1"># Trigger compaction if needed
+</span>        <span class="n">self</span><span class="p">.</span><span class="nf">_compact_sstables</span><span class="p">()</span>
+</code></pre></div></div>
+<h4 id="data-access-patterns">
+  
+  
+    <a href="#data-access-patterns" class="anchor-heading" aria-labelledby="data-access-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Access Patterns</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DataAccessPatterns</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># LRU cache for hot data
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">bloom_filter</span> <span class="o">=</span> <span class="nc">BloomFilter</span><span class="p">()</span>  <span class="c1"># For SSTable lookups
+</span>    
+    <span class="k">def</span> <span class="nf">read_pattern</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="c1"># 1. Check cache first
+</span>        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        
+        <span class="c1"># 2. Check bloom filter
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">bloom_filter</span><span class="p">.</span><span class="nf">might_contain</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">None</span>  <span class="c1"># Key definitely doesn't exist
+</span>        
+        <span class="c1"># 3. Check memtable
+</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="c1"># 4. Check SSTables
+</span>        <span class="k">for</span> <span class="n">sstable</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">sstables</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">sstable</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="k">return</span> <span class="bp">None</span>
+    
+    <span class="k">def</span> <span class="nf">write_pattern</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># 1. Update cache
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        
+        <span class="c1"># 2. Update bloom filter
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">bloom_filter</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        
+        <span class="c1"># 3. Write to memtable
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">memtable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        
+        <span class="c1"># 4. Replicate to other nodes
+</span>        <span class="n">self</span><span class="p">.</span><span class="nf">_replicate_write</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="step-7-error-handling--edge-cases">
+  
+  
+    <a href="#step-7-error-handling--edge-cases" class="anchor-heading" aria-labelledby="step-7-error-handling--edge-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 7: Error Handling &amp; Edge Cases</strong>
+  
+  
+</h3>
+    
+<h4 id="failure-scenarios">
+  
+  
+    <a href="#failure-scenarios" class="anchor-heading" aria-labelledby="failure-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Failure Scenarios</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">FailureHandler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">handle_node_failure</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">failed_node</span><span class="p">):</span>
+        <span class="c1"># 1. Detect failure via health checks
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="nf">_is_node_healthy</span><span class="p">(</span><span class="n">failed_node</span><span class="p">):</span>
+            <span class="c1"># 2. Redirect traffic to replicas
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_redirect_traffic</span><span class="p">(</span><span class="n">failed_node</span><span class="p">)</span>
+            
+            <span class="c1"># 3. Trigger rebalancing
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_rebalance_partitions</span><span class="p">()</span>
+            
+            <span class="c1"># 4. Replicate missing data
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_replicate_missing_data</span><span class="p">(</span><span class="n">failed_node</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">handle_network_partition</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># 1. Detect partition via consensus
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="nf">_can_reach_quorum</span><span class="p">():</span>
+            <span class="c1"># 2. Continue serving with available nodes
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_serve_with_available_nodes</span><span class="p">()</span>
+            
+            <span class="c1"># 3. Queue writes for later sync
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_queue_pending_writes</span><span class="p">()</span>
+            
+            <span class="c1"># 4. Resolve conflicts when partition heals
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_resolve_conflicts</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">handle_data_corruption</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">corrupted_key</span><span class="p">):</span>
+        <span class="c1"># 1. Detect corruption via checksums
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="nf">_verify_checksum</span><span class="p">(</span><span class="n">corrupted_key</span><span class="p">):</span>
+            <span class="c1"># 2. Restore from replica
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_restore_from_replica</span><span class="p">(</span><span class="n">corrupted_key</span><span class="p">)</span>
+            
+            <span class="c1"># 3. Validate data integrity
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_validate_data_integrity</span><span class="p">()</span>
+</code></pre></div></div>
+<h4 id="conflict-resolution">
+  
+  
+    <a href="#conflict-resolution" class="anchor-heading" aria-labelledby="conflict-resolution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Conflict Resolution</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ConflictResolver</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">resolve_write_conflicts</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="c1"># Last-write-wins strategy
+</span>        <span class="n">latest_value</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span><span class="p">.</span><span class="n">timestamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">latest_value</span>
+    
+    <span class="k">def</span> <span class="nf">resolve_cas_conflicts</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">expected_value</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+        <span class="c1"># Optimistic concurrency control
+</span>        <span class="n">current_value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">current_value</span> <span class="o">==</span> <span class="n">expected_value</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>  <span class="c1"># Conflict detected
+</span></code></pre></div></div>
+<h3 id="step-8-deployment--monitoring">
+  
+  
+    <a href="#step-8-deployment--monitoring" class="anchor-heading" aria-labelledby="step-8-deployment--monitoring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Step 8: Deployment &amp; Monitoring</strong>
+  
+  
+</h3>
+    
+<h4 id="deployment-architecture">
+  
+  
+    <a href="#deployment-architecture" class="anchor-heading" aria-labelledby="deployment-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Deployment Architecture</strong>
+  
+  
+</h4>
+    
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Kubernetes Deployment</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">key-value-store</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">10</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">key-value-store</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">key-value-store</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">kv-store</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">kv-store:latest</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">6379</span>
+        <span class="na">resources</span><span class="pi">:</span>
+          <span class="na">requests</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2Gi"</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s2">"</span><span class="s">500m"</span>
+          <span class="na">limits</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">4Gi"</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1000m"</span>
+        <span class="na">env</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">REPLICATION_FACTOR</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3"</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">CONSISTENCY_LEVEL</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">EVENTUAL"</span>
+</code></pre></div></div>
+<h4 id="monitoring--observability">
+  
+  
+    <a href="#monitoring--observability" class="anchor-heading" aria-labelledby="monitoring--observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring &amp; Observability</strong>
+  
+  
+</h4>
+    
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MonitoringSystem</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sh">'</span><span class="s">operations_per_second</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Counter</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">latency_p99</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Histogram</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">error_rate</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Counter</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">memory_usage</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Gauge</span><span class="p">(),</span>
+            <span class="sh">'</span><span class="s">disk_usage</span><span class="sh">'</span><span class="p">:</span> <span class="nc">Gauge</span><span class="p">()</span>
+        <span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">record_operation</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">operation_type</span><span class="p">,</span> <span class="n">latency</span><span class="p">,</span> <span class="n">success</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">operations_per_second</span><span class="sh">'</span><span class="p">].</span><span class="nf">inc</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">latency_p99</span><span class="sh">'</span><span class="p">].</span><span class="nf">observe</span><span class="p">(</span><span class="n">latency</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">error_rate</span><span class="sh">'</span><span class="p">].</span><span class="nf">inc</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">alert_on_thresholds</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">error_rate</span><span class="sh">'</span><span class="p">].</span><span class="nf">get</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">:</span>  <span class="c1"># 1% error rate
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_send_alert</span><span class="p">(</span><span class="sh">"</span><span class="s">High error rate detected</span><span class="sh">"</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">metrics</span><span class="p">[</span><span class="sh">'</span><span class="s">latency_p99</span><span class="sh">'</span><span class="p">].</span><span class="nf">get</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># 100ms P99
+</span>            <span class="n">self</span><span class="p">.</span><span class="nf">_send_alert</span><span class="p">(</span><span class="sh">"</span><span class="s">High latency detected</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="-summary">
+  
+  
+    <a href="#-summary" class="anchor-heading" aria-labelledby="-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>Summary</strong>
+  
+  
+</h2>
+    
+<h3 id="building-blocks-used">
+  
+  
+    <a href="#building-blocks-used" class="anchor-heading" aria-labelledby="building-blocks-used"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Building Blocks Used</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Data Storage</strong>: LSM Tree for efficient writes, SSTables for persistence</li>
+  <li><strong>Caching &amp; Performance</strong>: In-memory cache, bloom filters, read replicas</li>
+  <li><strong>Networking &amp; Communication</strong>: Consistent hashing, replication protocols</li>
+  <li><strong>Scalability &amp; Distribution</strong>: Horizontal partitioning, automatic failover</li>
+  <li><strong>Monitoring &amp; Observability</strong>: Metrics collection, alerting, health checks</li>
+</ol>
+<h3 id="key-trade-offs">
+  
+  
+    <a href="#key-trade-offs" class="anchor-heading" aria-labelledby="key-trade-offs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Trade-offs</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Consistency vs Availability</strong>: Strong consistency reduces availability during partitions</li>
+  <li><strong>Write Performance vs Read Performance</strong>: LSM trees optimize writes but require compaction</li>
+  <li><strong>Memory vs Disk</strong>: More memory improves performance but increases cost</li>
+  <li><strong>Replication Factor vs Storage</strong>: Higher replication improves availability but increases storage</li>
+</ul>
+<h3 id="scalability-considerations">
+  
+  
+    <a href="#scalability-considerations" class="anchor-heading" aria-labelledby="scalability-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Considerations</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Horizontal Scaling</strong>: Add nodes to increase capacity</li>
+  <li><strong>Vertical Scaling</strong>: Increase node resources for better performance</li>
+  <li><strong>Geographic Distribution</strong>: Place nodes closer to users for lower latency</li>
+  <li><strong>Auto-scaling</strong>: Automatically adjust capacity based on load</li>
+</ul>
+
+<p>This design provides a robust, scalable key-value store that can handle millions of operations per second while maintaining high availability and configurable consistency levels.</p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

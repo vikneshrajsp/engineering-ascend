@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Monitoring Observability
+---
+
 # Monitoring & Observability Systems
 ## Concise Summary
 

@@ -1,3 +1,10 @@
+---
+title: Cheatsheet
+layout: default
+grand_parent: Building Blocks
+parent: Networking Communication
+---
+
 # Networking & Communication Systems - Cheat Sheet
 ## One-Page Quick Reference for Interviews
 

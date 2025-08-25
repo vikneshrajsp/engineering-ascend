@@ -1,3 +1,10 @@
+---
+title: Cheatsheet
+layout: default
+grand_parent: Building Blocks
+parent: Messaging Streaming
+---
+
 # Message Queuing & Streaming Systems - Cheat Sheet
 ## One-Page Quick Reference for System Design
 

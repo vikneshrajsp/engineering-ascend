@@ -1,3 +1,9 @@
+---
+title: System Design - Quick Reference
+description: Essential system design concepts, patterns, and decision frameworks for technical interviews
+layout: default
+---
+
 # System Design - Quick Reference
 
 > Essential system design concepts, patterns, and decision frameworks for technical interviews and architecture design.

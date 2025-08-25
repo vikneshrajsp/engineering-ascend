@@ -1,3 +1,11 @@
+---
+title: Leaderboard Design - System Design Challenge
+description: Comprehensive solution for leaderboard design system design challenge
+layout: default
+parent: Leaderboard Design
+grand_parent: System Design Challenges
+---
+
 # Design Leaderboard System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

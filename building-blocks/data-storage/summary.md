@@ -1,3 +1,11 @@
+---
+title: Data Storage Systems - Concise Summary
+description: Quick revision guide for system design
+layout: default
+parent: Data Storage
+grand_parent: Building Blocks
+---
+
 # Data Storage Systems - Concise Summary
 ## Quick Revision Guide for System Design
 

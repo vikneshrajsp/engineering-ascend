@@ -1,3 +1,11 @@
+---
+title: Notification System Design - System Design Challenge
+description: Comprehensive solution for notification system design system design challenge
+layout: default
+parent: Notification System Design
+grand_parent: System Design Challenges
+---
+
 # Design a Notification System - System Design Challenge
 
 *Comprehensive solution for designing a scalable push notification service, covering delivery mechanisms, user preferences, and global scale.*
@@ -360,7 +368,7 @@ class TemplateEngine:
         rendered = template.content
         
         for key, value in data.items():
-            placeholder = f"{{{{{key}}}}}"
+            placeholder = "{{" + key + "}}"
             rendered = rendered.replace(placeholder, str(value))
         
         return rendered

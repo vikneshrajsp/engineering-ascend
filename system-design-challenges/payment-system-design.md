@@ -1,3 +1,11 @@
+---
+title: Payment System Design - System Design Challenge
+description: Comprehensive solution for payment system design system design challenge
+layout: default
+parent: Payment System Design
+grand_parent: System Design Challenges
+---
+
 # Design Payment System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

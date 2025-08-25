@@ -1,0 +1,1156 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cheatsheet | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cheatsheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/cheatsheet/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/cheatsheet/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cheatsheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Cheatsheet","url":"https://vikneshrajsp.github.io/engineering-ascend/building-blocks/caching-performance/cheatsheet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Caching Performance</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Cheatsheet</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="caching--performance-systems---cheat-sheet">
+  
+  
+    <a href="#caching--performance-systems---cheat-sheet" class="anchor-heading" aria-labelledby="caching--performance-systems---cheat-sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Caching &amp; Performance Systems - Cheat Sheet
+  
+  
+</h1>
+    
+<h2 id="one-page-quick-reference-for-interviews">
+  
+  
+    <a href="#one-page-quick-reference-for-interviews" class="anchor-heading" aria-labelledby="one-page-quick-reference-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> One-Page Quick Reference for Interviews
+  
+  
+</h2>
+    
+<h2 id="-quick-decision-framework">
+  
+  
+    <a href="#-quick-decision-framework" class="anchor-heading" aria-labelledby="-quick-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>QUICK DECISION FRAMEWORK</strong>
+  
+  
+</h2>
+    
+<h3 id="when-to-use-caching">
+  
+  
+    <a href="#when-to-use-caching" class="anchor-heading" aria-labelledby="when-to-use-caching"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>When to Use Caching</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Performance Issues? → Consider Caching
+├─ High Latency? → Add Caching Layer
+├─ Low Throughput? → Optimize Cache Strategy
+├─ High Memory Usage? → Implement Cache Eviction
+└─ Network Bottlenecks? → Use CDN Caching
+</code></pre></div></div>
+<h3 id="cache-type-selection">
+  
+  
+    <a href="#cache-type-selection" class="anchor-heading" aria-labelledby="cache-type-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Type Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Data Access Pattern?
+├─ Frequently Read, Rarely Written → Application Cache
+├─ Global Distribution Needed → CDN Cache
+├─ High Availability Required → Distributed Cache
+├─ Hardware Optimization → CPU/Memory Cache
+└─ Storage Performance → Storage Cache
+</code></pre></div></div>
+<h3 id="cache-strategy-selection">
+  
+  
+    <a href="#cache-strategy-selection" class="anchor-heading" aria-labelledby="cache-strategy-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Strategy Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Data Characteristics?
+├─ Static Data → Long TTL, Aggressive Caching
+├─ Dynamic Data → Short TTL, Smart Invalidation
+├─ User-Specific → Session-Based Caching
+├─ Computationally Expensive → Result Caching
+└─ Frequently Updated → Write-Through Caching
+</code></pre></div></div><hr />
+<h2 id="-cache-layers-quick-reference">
+  
+  
+    <a href="#-cache-layers-quick-reference" class="anchor-heading" aria-labelledby="-cache-layers-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>CACHE LAYERS QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-hierarchy">
+  
+  
+    <a href="#cache-hierarchy" class="anchor-heading" aria-labelledby="cache-hierarchy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Hierarchy</strong>
+  
+  
+</h3>
+    
+<p>| Layer | Size | Latency | Use Case |
+|——-|——|———|———-|
+| <strong>L1 Cache</strong> | 32-64KB | 1-3 cycles | CPU instructions/data |
+| <strong>L2 Cache</strong> | 256KB-1MB | 10-20 cycles | Unified cache |
+| <strong>L3 Cache</strong> | 8-32MB | 40-80 cycles | Shared across cores |
+| <strong>Memory Cache</strong> | 1-100GB | 100-1000ns | Application data |
+| <strong>Distributed Cache</strong> | 1TB+ | 1-10ms | Multi-node systems |
+| <strong>CDN Cache</strong> | Unlimited | 10-100ms | Global content |</p>
+<h3 id="cache-performance-comparison">
+  
+  
+    <a href="#cache-performance-comparison" class="anchor-heading" aria-labelledby="cache-performance-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Performance Comparison</strong>
+  
+  
+</h3>
+    
+<p>| Cache Type | Read Latency | Write Latency | Throughput | Memory Usage |
+|————|————–|—————|————|————–|
+| <strong>CPU Cache</strong> | 1-40ns | 1-40ns | 100M+ ops/sec | 32KB-32MB |
+| <strong>Memory Cache</strong> | 100-1000ns | 100-1000ns | 1M+ ops/sec | 1-100GB |
+| <strong>Redis</strong> | 1-10ms | 1-10ms | 100K+ ops/sec | 1-1TB |
+| <strong>Distributed Cache</strong> | 1-50ms | 1-50ms | 10K+ ops/sec | 1TB+ |
+| <strong>CDN Cache</strong> | 10-100ms | N/A | 1K+ ops/sec | Unlimited |</p><hr />
+<h2 id="-caching-strategies">
+  
+  
+    <a href="#-caching-strategies" class="anchor-heading" aria-labelledby="-caching-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>CACHING STRATEGIES</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-placement-patterns">
+  
+  
+    <a href="#cache-placement-patterns" class="anchor-heading" aria-labelledby="cache-placement-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Placement Patterns</strong>
+  
+  
+</h3>
+    
+<p>| Pattern | Consistency | Performance | Complexity | Use Case |
+|———|————-|————-|————|———-|
+| <strong>Cache-Aside</strong> | Eventual | High | Low | Simple applications |
+| <strong>Write-Through</strong> | Strong | Medium | Low | Critical data |
+| <strong>Write-Behind</strong> | Eventual | Very High | High | High-throughput systems |
+| <strong>Refresh-Ahead</strong> | Eventual | High | Medium | Predictive caching |</p>
+<h3 id="cache-invalidation-strategies">
+  
+  
+    <a href="#cache-invalidation-strategies" class="anchor-heading" aria-labelledby="cache-invalidation-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Invalidation Strategies</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Implementation | Performance | Use Case |
+|———-|—————-|————-|———-|
+| <strong>TTL</strong> | Automatic expiration | High | Time-sensitive data |
+| <strong>Event-Based</strong> | Publish-subscribe | Medium | Real-time updates |
+| <strong>Version-Based</strong> | Cache key versioning | High | Schema changes |
+| <strong>Manual</strong> | Explicit invalidation | Low | Critical updates |</p><hr />
+<h2 id="-performance-optimization">
+  
+  
+    <a href="#-performance-optimization" class="anchor-heading" aria-labelledby="-performance-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚡ <strong>PERFORMANCE OPTIMIZATION</strong>
+  
+  
+</h2>
+    
+<h3 id="latency-optimization-techniques">
+  
+  
+    <a href="#latency-optimization-techniques" class="anchor-heading" aria-labelledby="latency-optimization-techniques"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Latency Optimization Techniques</strong>
+  
+  
+</h3>
+    
+<p>| Technique | Performance Gain | Implementation | Use Case |
+|———–|——————|—————-|———-|
+| <strong>Cache Warming</strong> | 20-50% | Pre-load data | Cold starts |
+| <strong>Stale-While-Revalidate</strong> | 50-80% | Return stale + update | High availability |
+| <strong>Cache Prefetching</strong> | 10-30% | Predict requests | Sequential access |
+| <strong>Connection Pooling</strong> | 30-60% | Reuse connections | Database caching |</p>
+<h3 id="throughput-optimization">
+  
+  
+    <a href="#throughput-optimization" class="anchor-heading" aria-labelledby="throughput-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Throughput Optimization</strong>
+  
+  
+</h3>
+    
+<p>| Technique | Throughput Gain | Implementation | Use Case |
+|———–|—————–|—————-|———-|
+| <strong>Batch Operations</strong> | 2-5x | Group operations | Bulk processing |
+| <strong>Pipeline Operations</strong> | 3-10x | Parallel processing | High concurrency |
+| <strong>Lock-Free Caching</strong> | 2-4x | Concurrent structures | Multi-threaded |
+| <strong>Compression</strong> | 20-50% | Reduce data size | Network caching |</p>
+<h3 id="memory-optimization">
+  
+  
+    <a href="#memory-optimization" class="anchor-heading" aria-labelledby="memory-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Memory Optimization</strong>
+  
+  
+</h3>
+    
+<p>| Technique | Memory Savings | Implementation | Use Case |
+|———–|—————-|—————-|———-|
+| <strong>Memory Pooling</strong> | 30-60% | Reuse objects | Object creation |
+| <strong>Compression</strong> | 40-80% | Compress data | Large objects |
+| <strong>Eviction Policies</strong> | Variable | LRU, LFU, TTL | Memory constraints |
+| <strong>Cache Partitioning</strong> | Better utilization | Distribute load | Large datasets |</p><hr />
+<h2 id="-implementation-quick-reference">
+  
+  
+    <a href="#-implementation-quick-reference" class="anchor-heading" aria-labelledby="-implementation-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>IMPLEMENTATION QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-implementation-comparison">
+  
+  
+    <a href="#cache-implementation-comparison" class="anchor-heading" aria-labelledby="cache-implementation-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Implementation Comparison</strong>
+  
+  
+</h3>
+    
+<p>| Implementation | Performance | Scalability | Complexity | Best For |
+|—————-|————-|————-|————|———-|
+| <strong>Redis</strong> | Very High | High | Low | General purpose |
+| <strong>Memcached</strong> | High | High | Low | Simple key-value |
+| <strong>In-Memory</strong> | Very High | Low | Medium | Single application |
+| <strong>Distributed</strong> | High | Very High | High | Multi-node systems |</p>
+<h3 id="cache-eviction-policies">
+  
+  
+    <a href="#cache-eviction-policies" class="anchor-heading" aria-labelledby="cache-eviction-policies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Eviction Policies</strong>
+  
+  
+</h3>
+    
+<p>| Policy | Algorithm | Performance | Best For |
+|——–|———–|————-|———-|
+| <strong>LRU</strong> | Least Recently Used | O(1) | Temporal locality |
+| <strong>LFU</strong> | Least Frequently Used | O(log n) | Access patterns |
+| <strong>TTL</strong> | Time-To-Live | O(1) | Time-sensitive data |
+| <strong>FIFO</strong> | First-In-First-Out | O(1) | Simple scenarios |</p><hr />
+<h2 id="-performance-metrics">
+  
+  
+    <a href="#-performance-metrics" class="anchor-heading" aria-labelledby="-performance-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>PERFORMANCE METRICS</strong>
+  
+  
+</h2>
+    
+<h3 id="key-performance-indicators">
+  
+  
+    <a href="#key-performance-indicators" class="anchor-heading" aria-labelledby="key-performance-indicators"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Performance Indicators</strong>
+  
+  
+</h3>
+    
+<p>| Metric | Target | Monitoring | Action |
+|——–|——–|————|——–|
+| <strong>Cache Hit Ratio</strong> | &gt;80% | Real-time | Optimize if &lt;70% |
+| <strong>Average Latency</strong> | &lt;10ms | P95, P99 | Investigate if &gt;50ms |
+| <strong>Throughput</strong> | &gt;10K ops/sec | Per second | Scale if &lt;5K ops/sec |
+| <strong>Memory Usage</strong> | &lt;80% capacity | Continuous | Evict if &gt;90% |
+| <strong>Error Rate</strong> | &lt;1% | Per minute | Alert if &gt;5% |</p>
+<h3 id="cache-hit-ratio-impact">
+  
+  
+    <a href="#cache-hit-ratio-impact" class="anchor-heading" aria-labelledby="cache-hit-ratio-impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Hit Ratio Impact</strong>
+  
+  
+</h3>
+    
+<p>| Hit Ratio | Performance | User Experience | Action |
+|———–|————-|—————–|——–|
+| <strong>90%+</strong> | Excellent | Great | Monitor |
+| <strong>80-90%</strong> | Good | Good | Optimize |
+| <strong>70-80%</strong> | Acceptable | Fair | Improve |
+| <strong>&lt;70%</strong> | Poor | Bad | Major optimization |</p><hr />
+<h2 id="️-common-pitfalls">
+  
+  
+    <a href="#️-common-pitfalls" class="anchor-heading" aria-labelledby="️-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>COMMON PITFALLS</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-stampede">
+  
+  
+    <a href="#cache-stampede" class="anchor-heading" aria-labelledby="cache-stampede"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Stampede</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Problem</strong>: Multiple requests for same missing data</li>
+  <li><strong>Impact</strong>: Backend overload, poor performance</li>
+  <li><strong>Solution</strong>: Cache warming, background refresh, request deduplication</li>
+  <li><strong>Prevention</strong>: Implement cache warming strategies</li>
+</ul>
+<h3 id="cache-pollution">
+  
+  
+    <a href="#cache-pollution" class="anchor-heading" aria-labelledby="cache-pollution"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Pollution</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Problem</strong>: Cache filled with rarely accessed data</li>
+  <li><strong>Impact</strong>: Low hit ratio, memory waste</li>
+  <li><strong>Solution</strong>: Appropriate TTL, effective eviction policies</li>
+  <li><strong>Prevention</strong>: Monitor cache hit ratios and eviction rates</li>
+</ul>
+<h3 id="cache-inconsistency">
+  
+  
+    <a href="#cache-inconsistency" class="anchor-heading" aria-labelledby="cache-inconsistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Inconsistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Problem</strong>: Cache data becomes stale</li>
+  <li><strong>Impact</strong>: Incorrect data, user confusion</li>
+  <li><strong>Solution</strong>: Proper invalidation strategies, consistency patterns</li>
+  <li><strong>Prevention</strong>: Implement event-driven invalidation</li>
+</ul><hr />
+<h2 id="-interview-quick-tips">
+  
+  
+    <a href="#-interview-quick-tips" class="anchor-heading" aria-labelledby="-interview-quick-tips"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>INTERVIEW QUICK TIPS</strong>
+  
+  
+</h2>
+    
+<h3 id="when-asked-about-caching">
+  
+  
+    <a href="#when-asked-about-caching" class="anchor-heading" aria-labelledby="when-asked-about-caching"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>When Asked About Caching:</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Start with Requirements</strong>: “What are the performance requirements?”</li>
+  <li><strong>Analyze Access Patterns</strong>: “Is this read-heavy, write-heavy, or mixed?”</li>
+  <li><strong>Consider Data Characteristics</strong>: “Is the data static, dynamic, or user-specific?”</li>
+  <li><strong>Evaluate Trade-offs</strong>: “What’s the consistency vs performance trade-off?”</li>
+  <li><strong>Discuss Implementation</strong>: “What caching strategy would you use?”</li>
+</ol>
+<h3 id="quick-decision-framework-for-interviews">
+  
+  
+    <a href="#quick-decision-framework-for-interviews" class="anchor-heading" aria-labelledby="quick-decision-framework-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Quick Decision Framework for Interviews:</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 1: "What's the primary requirement?"
+├─ High Performance → In-Memory Cache
+├─ Global Distribution → CDN Cache
+├─ High Availability → Distributed Cache
+├─ Hardware Optimization → CPU/Memory Cache
+└─ Storage Performance → Storage Cache
+
+Step 2: "What are the trade-offs?"
+├─ Performance vs Consistency
+├─ Memory vs Speed
+├─ Complexity vs Functionality
+└─ Cost vs Benefits
+
+Step 3: "What's the implementation approach?"
+├─ Cache placement strategy
+├─ Invalidation mechanism
+├─ Eviction policy
+└─ Monitoring and alerting
+</code></pre></div></div>
+<h3 id="common-interview-scenarios--quick-answers">
+  
+  
+    <a href="#common-interview-scenarios--quick-answers" class="anchor-heading" aria-labelledby="common-interview-scenarios--quick-answers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Interview Scenarios &amp; Quick Answers:</strong>
+  
+  
+</h3>
+    
+<h4 id="design-a-high-performance-web-application">
+  
+  
+    <a href="#design-a-high-performance-web-application" class="anchor-heading" aria-labelledby="design-a-high-performance-web-application"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a High-Performance Web Application”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Cache Strategy</strong>: Multi-layer caching (CDN + Application + Database)</li>
+  <li><strong>Reasoning</strong>: Global performance, reduced backend load</li>
+  <li><strong>Trade-offs</strong>: Cache consistency vs performance</li>
+</ul>
+<h4 id="design-a-social-media-feed">
+  
+  
+    <a href="#design-a-social-media-feed" class="anchor-heading" aria-labelledby="design-a-social-media-feed"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a Social Media Feed”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Cache Strategy</strong>: User-specific caching + CDN for media</li>
+  <li><strong>Reasoning</strong>: Personalized content, global media distribution</li>
+  <li><strong>Trade-offs</strong>: Cache invalidation complexity vs performance</li>
+</ul>
+<h4 id="design-an-e-commerce-platform">
+  
+  
+    <a href="#design-an-e-commerce-platform" class="anchor-heading" aria-labelledby="design-an-e-commerce-platform"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design an E-commerce Platform”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Cache Strategy</strong>: Product catalog caching + session caching</li>
+  <li><strong>Reasoning</strong>: Static product data, user session management</li>
+  <li><strong>Trade-offs</strong>: Cache warming vs cold start performance</li>
+</ul>
+<h4 id="design-a-real-time-analytics-dashboard">
+  
+  
+    <a href="#design-a-real-time-analytics-dashboard" class="anchor-heading" aria-labelledby="design-a-real-time-analytics-dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a Real-time Analytics Dashboard”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Cache Strategy</strong>: Result caching + time-series optimization</li>
+  <li><strong>Reasoning</strong>: Expensive computations, time-based data</li>
+  <li><strong>Trade-offs</strong>: Data freshness vs performance</li>
+</ul>
+<h3 id="red-flags-to-avoid-in-interviews">
+  
+  
+    <a href="#red-flags-to-avoid-in-interviews" class="anchor-heading" aria-labelledby="red-flags-to-avoid-in-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Red Flags to Avoid in Interviews:</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>❌ <strong>“I’ll cache everything”</strong> - No consideration of cache invalidation</li>
+  <li>❌ <strong>“Cache hit ratio doesn’t matter”</strong> - Ignoring performance metrics</li>
+  <li>❌ <strong>“We don’t need cache consistency”</strong> - Not considering data integrity</li>
+  <li>❌ <strong>“Memory is unlimited”</strong> - Ignoring resource constraints</li>
+  <li>❌ <strong>“Cache warming is too complex”</strong> - Not considering cold starts</li>
+</ul>
+<h3 id="green-flags-for-interviews">
+  
+  
+    <a href="#green-flags-for-interviews" class="anchor-heading" aria-labelledby="green-flags-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Green Flags for Interviews:</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>✅ <strong>“Let me understand the access patterns first”</strong> - Systematic approach</li>
+  <li>✅ <strong>“What’s the cache hit ratio target?”</strong> - Performance awareness</li>
+  <li>✅ <strong>“How do we handle cache invalidation?”</strong> - Consistency consideration</li>
+  <li>✅ <strong>“What’s the memory budget?”</strong> - Resource awareness</li>
+  <li>✅ <strong>“How do we monitor cache performance?”</strong> - Operational thinking</li>
+</ul><hr />
+<h2 id="-quick-reference-common-scenarios">
+  
+  
+    <a href="#-quick-reference-common-scenarios" class="anchor-heading" aria-labelledby="-quick-reference-common-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>QUICK REFERENCE: COMMON SCENARIOS</strong>
+  
+  
+</h2>
+    
+<h3 id="cache-selection-by-use-case">
+  
+  
+    <a href="#cache-selection-by-use-case" class="anchor-heading" aria-labelledby="cache-selection-by-use-case"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Selection by Use Case</strong>
+  
+  
+</h3>
+    
+<p>| Use Case | Primary Cache | Secondary Cache | Key Decision Factors |
+|———-|—————|—————–|———————|
+| <strong>Web Application</strong> | Application Cache | CDN Cache | Performance + global distribution |
+| <strong>Mobile App</strong> | Local Cache | Remote Cache | Offline capability + sync |
+| <strong>API Service</strong> | Response Cache | Database Cache | Latency + throughput |
+| <strong>Real-time System</strong> | In-Memory Cache | Distributed Cache | Speed + consistency |
+| <strong>Analytics Platform</strong> | Result Cache | Query Cache | Computation cost + data size |
+| <strong>E-commerce</strong> | Product Cache | Session Cache | Static data + user state |
+| <strong>Social Media</strong> | Feed Cache | Media Cache | Personalization + content |
+| <strong>Gaming</strong> | Game State Cache | Asset Cache | Real-time + resource loading |</p>
+<h3 id="cache-selection-by-data-pattern">
+  
+  
+    <a href="#cache-selection-by-data-pattern" class="anchor-heading" aria-labelledby="cache-selection-by-data-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Selection by Data Pattern</strong>
+  
+  
+</h3>
+    
+<p>| Data Pattern | Cache Choice | Reasoning | Trade-offs |
+|————–|————–|———–|————|
+| <strong>Static Data</strong> | Long TTL Cache | Rarely changes | Stale data risk |
+| <strong>Dynamic Data</strong> | Short TTL Cache | Frequently changes | Cache miss penalty |
+| <strong>User-Specific</strong> | Session Cache | User context | Memory usage |
+| <strong>Computationally Expensive</strong> | Result Cache | High computation cost | Storage cost |
+| <strong>Frequently Accessed</strong> | Hot Data Cache | Access patterns | Memory allocation |
+| <strong>Large Objects</strong> | Compressed Cache | Storage efficiency | CPU overhead |</p><hr />
+<h2 id="-scaling-patterns">
+  
+  
+    <a href="#-scaling-patterns" class="anchor-heading" aria-labelledby="-scaling-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>SCALING PATTERNS</strong>
+  
+  
+</h2>
+    
+<h3 id="horizontal-scaling">
+  
+  
+    <a href="#horizontal-scaling" class="anchor-heading" aria-labelledby="horizontal-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Horizontal Scaling</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Distributed Caching</strong>: Multiple cache nodes</li>
+  <li><strong>Consistent Hashing</strong>: Even distribution</li>
+  <li><strong>Cache Replication</strong>: High availability</li>
+  <li><strong>Load Balancing</strong>: Even load distribution</li>
+</ul>
+<h3 id="vertical-scaling">
+  
+  
+    <a href="#vertical-scaling" class="anchor-heading" aria-labelledby="vertical-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Vertical Scaling</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Memory Expansion</strong>: Larger cache capacity</li>
+  <li><strong>CPU Optimization</strong>: Better cache performance</li>
+  <li><strong>Storage Optimization</strong>: Faster cache storage</li>
+  <li><strong>Network Optimization</strong>: Reduced cache latency</li>
+</ul><hr />
+<h2 id="️-consistency-models">
+  
+  
+    <a href="#️-consistency-models" class="anchor-heading" aria-labelledby="️-consistency-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>CONSISTENCY MODELS</strong>
+  
+  
+</h2>
+    
+<h3 id="strong-consistency">
+  
+  
+    <a href="#strong-consistency" class="anchor-heading" aria-labelledby="strong-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Strong Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Write-Through</strong>: Immediate consistency</li>
+  <li><strong>Synchronous Replication</strong>: All nodes updated</li>
+  <li><strong>Use</strong>: Critical data, financial transactions</li>
+  <li><strong>Trade-off</strong>: Higher latency</li>
+</ul>
+<h3 id="eventual-consistency">
+  
+  
+    <a href="#eventual-consistency" class="anchor-heading" aria-labelledby="eventual-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Eventual Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Write-Behind</strong>: Background updates</li>
+  <li><strong>Asynchronous Replication</strong>: Eventual sync</li>
+  <li><strong>Use</strong>: Non-critical data, user preferences</li>
+  <li><strong>Trade-off</strong>: Temporary inconsistency</li>
+</ul><hr />
+<h2 id="-performance-optimization-1">
+  
+  
+    <a href="#-performance-optimization-1" class="anchor-heading" aria-labelledby="-performance-optimization-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>PERFORMANCE OPTIMIZATION</strong>
+  
+  
+</h2>
+    
+<h3 id="read-heavy-workloads">
+  
+  
+    <a href="#read-heavy-workloads" class="anchor-heading" aria-labelledby="read-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Read-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Cache warming, aggressive caching, read replicas</li>
+  <li>Performance: 80%+ hit ratio, &lt;10ms latency</li>
+</ul>
+<h3 id="write-heavy-workloads">
+  
+  
+    <a href="#write-heavy-workloads" class="anchor-heading" aria-labelledby="write-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Write-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Write-through caching, batch operations, write buffering</li>
+  <li>Performance: 50-70% hit ratio, &lt;50ms latency</li>
+</ul>
+<h3 id="mixed-workloads">
+  
+  
+    <a href="#mixed-workloads" class="anchor-heading" aria-labelledby="mixed-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Mixed Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Multi-layer caching, smart invalidation, adaptive TTL</li>
+  <li>Performance: 70-90% hit ratio, &lt;20ms latency</li>
+</ul><hr />
+<h2 id="-common-implementations">
+  
+  
+    <a href="#-common-implementations" class="anchor-heading" aria-labelledby="-common-implementations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>COMMON IMPLEMENTATIONS</strong>
+  
+  
+</h2>
+    
+<h3 id="in-memory-caches">
+  
+  
+    <a href="#in-memory-caches" class="anchor-heading" aria-labelledby="in-memory-caches"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>In-Memory Caches</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Redis</strong>: High-performance, feature-rich</li>
+  <li><strong>Memcached</strong>: Simple, fast, distributed</li>
+  <li><strong>Hazelcast</strong>: Java-based, distributed</li>
+  <li><strong>Caffeine</strong>: Java in-memory cache</li>
+</ul>
+<h3 id="distributed-caches">
+  
+  
+    <a href="#distributed-caches" class="anchor-heading" aria-labelledby="distributed-caches"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Caches</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Redis Cluster</strong>: Scalable, high availability</li>
+  <li><strong>Hazelcast IMDG</strong>: In-memory data grid</li>
+  <li><strong>Apache Ignite</strong>: Distributed computing platform</li>
+  <li><strong>Infinispan</strong>: Java-based, distributed</li>
+</ul>
+<h3 id="cdn-caches">
+  
+  
+    <a href="#cdn-caches" class="anchor-heading" aria-labelledby="cdn-caches"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CDN Caches</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>CloudFront</strong>: AWS global CDN</li>
+  <li><strong>Cloud CDN</strong>: Google Cloud CDN</li>
+  <li><strong>Azure CDN</strong>: Microsoft CDN</li>
+  <li><strong>Fastly</strong>: Real-time CDN</li>
+</ul><hr />
+<h2 id="-monitoring--alerting">
+  
+  
+    <a href="#-monitoring--alerting" class="anchor-heading" aria-labelledby="-monitoring--alerting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>MONITORING &amp; ALERTING</strong>
+  
+  
+</h2>
+    
+<h3 id="key-metrics-to-monitor">
+  
+  
+    <a href="#key-metrics-to-monitor" class="anchor-heading" aria-labelledby="key-metrics-to-monitor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Metrics to Monitor</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Cache Hit Ratio</strong>: Primary performance indicator</li>
+  <li><strong>Latency</strong>: P50, P95, P99 percentiles</li>
+  <li><strong>Throughput</strong>: Operations per second</li>
+  <li><strong>Memory Usage</strong>: Capacity and utilization</li>
+  <li><strong>Error Rate</strong>: Cache failures and timeouts</li>
+</ul>
+<h3 id="alerting-thresholds">
+  
+  
+    <a href="#alerting-thresholds" class="anchor-heading" aria-labelledby="alerting-thresholds"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alerting Thresholds</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Cache Hit Ratio &lt; 70%</strong>: Performance degradation</li>
+  <li><strong>Latency &gt; 50ms</strong>: Slow response times</li>
+  <li><strong>Memory Usage &gt; 90%</strong>: Capacity issues</li>
+  <li><strong>Error Rate &gt; 5%</strong>: Cache failures</li>
+</ul><hr />
+<h2 id="-50-caching-interview-questions">
+  
+  
+    <a href="#-50-caching-interview-questions" class="anchor-heading" aria-labelledby="-50-caching-interview-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>50 CACHING INTERVIEW QUESTIONS</strong>
+  
+  
+</h2>
+    
+<h3 id="basic-concepts">
+  
+  
+    <a href="#basic-concepts" class="anchor-heading" aria-labelledby="basic-concepts"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Basic Concepts</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>What is caching and why use it?</strong></li>
+  <li><strong>Explain cache hit vs cache miss</strong></li>
+  <li><strong>What is cache hit ratio and why is it important?</strong></li>
+  <li><strong>Describe different cache layers</strong></li>
+  <li><strong>What is cache invalidation?</strong></li>
+</ol>
+<h3 id="cache-strategies">
+  
+  
+    <a href="#cache-strategies" class="anchor-heading" aria-labelledby="cache-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Strategies</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Explain cache-aside pattern</strong></li>
+  <li><strong>What is write-through caching?</strong></li>
+  <li><strong>Describe write-behind caching</strong></li>
+  <li><strong>What is cache warming?</strong></li>
+  <li><strong>Explain stale-while-revalidate pattern</strong></li>
+</ol>
+<h3 id="cache-implementation">
+  
+  
+    <a href="#cache-implementation" class="anchor-heading" aria-labelledby="cache-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cache Implementation</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How would you implement an LRU cache?</strong></li>
+  <li><strong>What is consistent hashing?</strong></li>
+  <li><strong>How do you handle cache eviction?</strong></li>
+  <li><strong>Explain cache partitioning</strong></li>
+  <li><strong>What is cache replication?</strong></li>
+</ol>
+<h3 id="performance-optimization">
+  
+  
+    <a href="#performance-optimization" class="anchor-heading" aria-labelledby="performance-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Optimization</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you optimize cache performance?</strong></li>
+  <li><strong>What is cache compression?</strong></li>
+  <li><strong>Explain cache prefetching</strong></li>
+  <li><strong>How do you handle cache stampede?</strong></li>
+  <li><strong>What is cache pollution?</strong></li>
+</ol>
+<h3 id="distributed-caching">
+  
+  
+    <a href="#distributed-caching" class="anchor-heading" aria-labelledby="distributed-caching"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Caching</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you scale a cache horizontally?</strong></li>
+  <li><strong>What is cache consistency?</strong></li>
+  <li><strong>Explain cache coherency protocols</strong></li>
+  <li><strong>How do you handle cache failures?</strong></li>
+  <li><strong>What is cache partitioning?</strong></li>
+</ol>
+<h3 id="real-world-scenarios">
+  
+  
+    <a href="#real-world-scenarios" class="anchor-heading" aria-labelledby="real-world-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Real-World Scenarios</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Design a caching strategy for a web application</strong></li>
+  <li><strong>How would you cache a social media feed?</strong></li>
+  <li><strong>Design caching for an e-commerce platform</strong></li>
+  <li><strong>How do you cache API responses?</strong></li>
+  <li><strong>Design caching for a real-time system</strong></li>
+</ol>
+<h3 id="advanced-concepts">
+  
+  
+    <a href="#advanced-concepts" class="anchor-heading" aria-labelledby="advanced-concepts"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Advanced Concepts</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>What is cache-oblivious algorithms?</strong></li>
+  <li><strong>Explain cache-friendly data structures</strong></li>
+  <li><strong>How do you optimize for CPU cache?</strong></li>
+  <li><strong>What is cache line optimization?</strong></li>
+  <li><strong>Explain memory hierarchy optimization</strong></li>
+</ol>
+<h3 id="monitoring--observability">
+  
+  
+    <a href="#monitoring--observability" class="anchor-heading" aria-labelledby="monitoring--observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring &amp; Observability</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>What metrics do you monitor for caching?</strong></li>
+  <li><strong>How do you debug cache issues?</strong></li>
+  <li><strong>What is cache profiling?</strong></li>
+  <li><strong>How do you measure cache effectiveness?</strong></li>
+  <li><strong>What alerts do you set up for caching?</strong></li>
+</ol>
+<h3 id="system-design-questions">
+  
+  
+    <a href="#system-design-questions" class="anchor-heading" aria-labelledby="system-design-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>System Design Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Design a distributed cache system</strong></li>
+  <li><strong>How would you design a CDN?</strong></li>
+  <li><strong>Design a caching layer for a database</strong></li>
+  <li><strong>How do you cache in a microservices architecture?</strong></li>
+  <li><strong>Design caching for a mobile application</strong></li>
+</ol>
+<h3 id="troubleshooting">
+  
+  
+    <a href="#troubleshooting" class="anchor-heading" aria-labelledby="troubleshooting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Troubleshooting</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you handle cache failures?</strong></li>
+  <li><strong>What do you do when cache hit ratio is low?</strong></li>
+  <li><strong>How do you handle cache inconsistency?</strong></li>
+  <li><strong>What happens when cache memory is full?</strong></li>
+  <li><strong>How do you optimize cache for high concurrency?</strong></li>
+</ol><hr />
+<h2 id="-frequently-asked-questions-faqs">
+  
+  
+    <a href="#-frequently-asked-questions-faqs" class="anchor-heading" aria-labelledby="-frequently-asked-questions-faqs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ❓ <strong>FREQUENTLY ASKED QUESTIONS (FAQs)</strong>
+  
+  
+</h2>
+    
+<h3 id="common-misconceptions--quick-answers">
+  
+  
+    <a href="#common-misconceptions--quick-answers" class="anchor-heading" aria-labelledby="common-misconceptions--quick-answers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Misconceptions &amp; Quick Answers</strong>
+  
+  
+</h3>
+    
+<h4 id="q1-caching-always-improves-performance">
+  
+  
+    <a href="#q1-caching-always-improves-performance" class="anchor-heading" aria-labelledby="q1-caching-always-improves-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q1: “Caching always improves performance”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Caching can hurt performance if:</p>
+<ul>
+  <li>Cache hit ratio is low (&lt;50%)</li>
+  <li>Cache overhead exceeds benefits</li>
+  <li>Cache invalidation is too frequent</li>
+  <li>Memory pressure causes thrashing</li>
+</ul>
+<h4 id="q2-more-cache-is-always-better">
+  
+  
+    <a href="#q2-more-cache-is-always-better" class="anchor-heading" aria-labelledby="q2-more-cache-is-always-better"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q2: “More cache is always better”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - More cache can be worse if:</p>
+<ul>
+  <li>Memory pressure affects other components</li>
+  <li>Cache warming time is too long</li>
+  <li>Cache complexity increases latency</li>
+  <li>Cost exceeds performance benefits</li>
+</ul>
+<h4 id="q3-cache-consistency-doesnt-matter-for-performance">
+  
+  
+    <a href="#q3-cache-consistency-doesnt-matter-for-performance" class="anchor-heading" aria-labelledby="q3-cache-consistency-doesnt-matter-for-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q3: “Cache consistency doesn’t matter for performance”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Cache consistency affects:</p>
+<ul>
+  <li>User experience (stale data)</li>
+  <li>System reliability (incorrect data)</li>
+  <li>Debugging complexity</li>
+  <li>Business logic correctness</li>
+</ul>
+<h4 id="q4-cache-hit-ratio-is-the-only-metric-that-matters">
+  
+  
+    <a href="#q4-cache-hit-ratio-is-the-only-metric-that-matters" class="anchor-heading" aria-labelledby="q4-cache-hit-ratio-is-the-only-metric-that-matters"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q4: “Cache hit ratio is the only metric that matters”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Other important metrics:</p>
+<ul>
+  <li>Latency (P95, P99)</li>
+  <li>Throughput (ops/sec)</li>
+  <li>Memory usage</li>
+  <li>Error rates</li>
+  <li>Cost per operation</li>
+</ul>
+<h4 id="q5-all-caching-strategies-are-the-same">
+  
+  
+    <a href="#q5-all-caching-strategies-are-the-same" class="anchor-heading" aria-labelledby="q5-all-caching-strategies-are-the-same"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q5: “All caching strategies are the same”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Different strategies for different needs:</p>
+<ul>
+  <li>Cache-aside: Simple, flexible</li>
+  <li>Write-through: Strong consistency</li>
+  <li>Write-behind: High performance</li>
+  <li>Refresh-ahead: No cache misses</li>
+</ul><hr />
+
+<p><em>Use this cheatsheet for quick reference during interviews. Remember: choose caching strategy based on requirements, not just familiarity.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

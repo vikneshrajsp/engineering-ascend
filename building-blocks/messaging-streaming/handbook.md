@@ -1,3 +1,10 @@
+---
+title: Handbook
+layout: default
+grand_parent: Building Blocks
+parent: Messaging Streaming
+---
+
 # Message Queuing & Streaming Systems - Detailed Handbook
 ## Comprehensive Technical Deep-Dive for System Design
 

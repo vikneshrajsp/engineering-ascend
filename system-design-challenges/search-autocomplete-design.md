@@ -1,3 +1,11 @@
+---
+title: Search Autocomplete Design - System Design Challenge
+description: Comprehensive solution for search autocomplete design system design challenge
+layout: default
+parent: Search Autocomplete Design
+grand_parent: System Design Challenges
+---
+
 # Design a Search Autocomplete System - System Design Challenge
 
 *Comprehensive solution for designing a search autocomplete system, covering real-time suggestions, ranking algorithms, and global scale.*

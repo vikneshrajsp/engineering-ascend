@@ -1,3 +1,9 @@
+---
+title: System Design Fundamentals - Comprehensive Guide
+description: Master system design fundamentals and prepare for technical interviews with comprehensive coverage
+layout: default
+---
+
 # System Design Fundamentals - Comprehensive Guide
 
 > Master system design fundamentals and prepare for technical interviews with comprehensive coverage of distributed systems, scalability, and architectural patterns.

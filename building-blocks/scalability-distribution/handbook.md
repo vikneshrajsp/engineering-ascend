@@ -1,3 +1,10 @@
+---
+title: Handbook
+layout: default
+grand_parent: Building Blocks
+parent: Scalability Distribution
+---
+
 # Scalability & Distribution Systems
 ## Comprehensive Technical Handbook
 

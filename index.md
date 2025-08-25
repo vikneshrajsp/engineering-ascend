@@ -1,9 +1,8 @@
 ---
-layout: default
 title: Engineering Ascend
+description: Master system design with comprehensive building blocks, challenges, and frameworks
+layout: default
 ---
-
-# Engineering Ascend - Comprehensive Learning Resource
 
 ## 🚀 **Welcome to Engineering Ascend**
 
@@ -26,12 +25,12 @@ Master the fundamental components of system design:
 
 Practice with real-world scenarios:
 
-- **[URL Shortener](./system-design-challenges/url-shortener-design.md)**
-- **[Web Crawler](./system-design-challenges/web-crawler-design.md)**
-- **[Key-Value Store](./system-design-challenges/key-value-store-design.md)**
-- **[Unique ID Generator](./system-design-challenges/unique-id-generator-design.md)**
-- **[Notification System](./system-design-challenges/notification-system-design.md)**
-- **[Search Autocomplete](./system-design-challenges/search-autocomplete-design.md)**
+- **[URL Shortener](./system-design-challenges/url-shortener-design/)**
+- **[Web Crawler](./system-design-challenges/web-crawler-design/)**
+- **[Key-Value Store](./system-design-challenges/key-value-store-design/)**
+- **[Unique ID Generator](./system-design-challenges/unique-id-generator-design/)**
+- **[Notification System](./system-design-challenges/notification-system-design/)**
+- **[Search Autocomplete](./system-design-challenges/search-autocomplete-design/)**
 
 [View All Challenges](./system-design-challenges/)
 
@@ -39,8 +38,8 @@ Practice with real-world scenarios:
 
 Master the art of back-of-envelope calculations:
 
-- **[Quantitative Metrics](./quantitative-metrics.md)** - Essential metrics for system design
-- **[Back-of-Envelope Estimation](./back-of-envelope-estimation.md)** - Framework for quick calculations
+- **[Quantitative Metrics](./quantitative-metrics/)** - Essential metrics for system design
+- **[Back-of-Envelope Estimation](./back-of-envelope-estimation/)** - Framework for quick calculations
 
 ## 🛠️ **Learning Framework**
 
@@ -59,14 +58,14 @@ Each system design challenge follows a structured approach:
 
 1. **Begin with [Building Blocks](./building-blocks/)** - Understand fundamentals
 2. **Practice with [Challenges](./system-design-challenges/)** - Apply knowledge to real scenarios
-3. **Master [Estimation](./quantitative-metrics.md)** - Develop quick calculation skills
-4. **Review [Trade-offs](./trade-off-analysis.md)** - Understand design decisions
+3. **Master [Estimation](./quantitative-metrics/)** - Develop quick calculation skills
+4. **Review [Trade-offs](./trade-off-analysis/)** - Understand design decisions
 
 ## 📚 **Additional Resources**
 
-- **[System Design Cheatsheet](./cheatsheet.md)** - Essential concepts and patterns
-- **[Context & Background](./context.md)** - Understanding the bigger picture
-- **[Decision Framework](./decision-framework.md)** - Making architectural decisions
+- **[System Design Cheatsheet](./cheatsheet/)** - Essential concepts and patterns
+- **[Context & Background](./context/)** - Understanding the bigger picture
+- **[Decision Framework](./decision-framework/)** - Making architectural decisions
 
 ---
 

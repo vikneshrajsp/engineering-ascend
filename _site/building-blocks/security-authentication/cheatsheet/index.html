@@ -1,0 +1,1105 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cheatsheet | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cheatsheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/security-authentication/cheatsheet/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/security-authentication/cheatsheet/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cheatsheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Cheatsheet","url":"https://vikneshrajsp.github.io/engineering-ascend/building-blocks/security-authentication/cheatsheet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Security Authentication</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Cheatsheet</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="security--authentication-systems---cheat-sheet">
+  
+  
+    <a href="#security--authentication-systems---cheat-sheet" class="anchor-heading" aria-labelledby="security--authentication-systems---cheat-sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security &amp; Authentication Systems - Cheat Sheet
+  
+  
+</h1>
+    
+<h2 id="one-page-quick-reference-for-interviews">
+  
+  
+    <a href="#one-page-quick-reference-for-interviews" class="anchor-heading" aria-labelledby="one-page-quick-reference-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> One-Page Quick Reference for Interviews
+  
+  
+</h2>
+    
+<h2 id="-quick-decision-framework">
+  
+  
+    <a href="#-quick-decision-framework" class="anchor-heading" aria-labelledby="-quick-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>QUICK DECISION FRAMEWORK</strong>
+  
+  
+</h2>
+    
+<h3 id="when-to-use-authentication-types">
+  
+  
+    <a href="#when-to-use-authentication-types" class="anchor-heading" aria-labelledby="when-to-use-authentication-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>When to Use Authentication Types</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Security Requirements? → Choose Authentication
+├─ High Security? → Multi-Factor Authentication
+├─ User Convenience? → Biometric Authentication
+├─ Third-Party Access? → OAuth 2.0
+├─ Enterprise Integration? → SAML
+└─ Stateless Systems? → JWT
+</code></pre></div></div>
+<h3 id="authorization-model-selection">
+  
+  
+    <a href="#authorization-model-selection" class="anchor-heading" aria-labelledby="authorization-model-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authorization Model Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Access Control Needs?
+├─ Simple Roles? → RBAC
+├─ Complex Policies? → ABAC
+├─ Dynamic Rules? → PBAC
+├─ Fine-Grained Control? → ACLs
+└─ Hybrid Requirements? → Combined Models
+</code></pre></div></div>
+<h3 id="security-level-selection">
+  
+  
+    <a href="#security-level-selection" class="anchor-heading" aria-labelledby="security-level-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Level Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Security Level Required?
+├─ Basic Security? → Password + HTTPS
+├─ Enhanced Security? → MFA + Encryption
+├─ High Security? → Zero Trust + Advanced Monitoring
+├─ Compliance Required? → Audit Logging + Compliance Tools
+└─ Critical Systems? → Defense in Depth + Redundancy
+</code></pre></div></div><hr />
+<h2 id="-authentication-quick-reference">
+  
+  
+    <a href="#-authentication-quick-reference" class="anchor-heading" aria-labelledby="-authentication-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔐 <strong>AUTHENTICATION QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="authentication-methods">
+  
+  
+    <a href="#authentication-methods" class="anchor-heading" aria-labelledby="authentication-methods"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authentication Methods</strong>
+  
+  
+</h3>
+    
+<p>| Method | Security | User Experience | Implementation | Use Case |
+|——–|———-|—————–|—————-|———-|
+| <strong>Password</strong> | Low | Good | Simple | Basic systems |
+| <strong>MFA (TOTP)</strong> | High | Good | Medium | High security |
+| <strong>Biometric</strong> | High | Excellent | Complex | Mobile devices |
+| <strong>OAuth 2.0</strong> | High | Good | Complex | Third-party access |
+| <strong>SAML</strong> | High | Good | Complex | Enterprise SSO |
+| <strong>JWT</strong> | Medium | Good | Simple | Stateless systems |</p>
+<h3 id="password-security-levels">
+  
+  
+    <a href="#password-security-levels" class="anchor-heading" aria-labelledby="password-security-levels"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Password Security Levels</strong>
+  
+  
+</h3>
+    
+<p>| Method | Security Level | Attack Resistance | Storage Overhead |
+|——–|—————|——————|——————|
+| <strong>Plain Text</strong> | 0% | None | Minimal |
+| <strong>Simple Hash</strong> | 20% | Rainbow tables | Minimal |
+| <strong>Salted Hash</strong> | 60% | Dictionary attacks | Low |
+| <strong>Adaptive Hash</strong> | 80% | Brute force | Medium |
+| <strong>Password Manager</strong> | 95% | Most attacks | None |</p>
+<h3 id="mfa-factor-types">
+  
+  
+    <a href="#mfa-factor-types" class="anchor-heading" aria-labelledby="mfa-factor-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>MFA Factor Types</strong>
+  
+  
+</h3>
+    
+<p>| Factor | Examples | Security Gain | User Experience |
+|——–|———-|—————|—————–|
+| <strong>Knowledge</strong> | Password, PIN | 50% | Familiar |
+| <strong>Possession</strong> | TOTP, SMS | 90% | Good |
+| <strong>Inherence</strong> | Fingerprint, Face | 95% | Excellent |
+| <strong>Location</strong> | GPS, IP | 70% | Transparent |
+| <strong>Time</strong> | Time-based tokens | 80% | Good |</p><hr />
+<h2 id="-authorization-quick-reference">
+  
+  
+    <a href="#-authorization-quick-reference" class="anchor-heading" aria-labelledby="-authorization-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚪 <strong>AUTHORIZATION QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="access-control-models">
+  
+  
+    <a href="#access-control-models" class="anchor-heading" aria-labelledby="access-control-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Access Control Models</strong>
+  
+  
+</h3>
+    
+<p>| Model | Complexity | Flexibility | Performance | Best For |
+|——-|————|————-|————-|———-|
+| <strong>ACL</strong> | Low | Low | High | Simple systems |
+| <strong>RBAC</strong> | Medium | Medium | High | Organizations |
+| <strong>ABAC</strong> | High | High | Medium | Dynamic environments |
+| <strong>PBAC</strong> | Very High | Very High | Low | Complex compliance |</p>
+<h3 id="rbac-role-hierarchy">
+  
+  
+    <a href="#rbac-role-hierarchy" class="anchor-heading" aria-labelledby="rbac-role-hierarchy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>RBAC Role Hierarchy</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CEO
+├── VP Engineering
+│   ├── Engineering Manager
+│   │   ├── Senior Engineer
+│   │   └── Junior Engineer
+│   └── QA Manager
+│       └── QA Engineer
+└── VP Sales
+    ├── Sales Manager
+    └── Sales Representative
+</code></pre></div></div>
+<h3 id="abac-policy-example">
+  
+  
+    <a href="#abac-policy-example" class="anchor-heading" aria-labelledby="abac-policy-example"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>ABAC Policy Example</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IF user.role = "manager" 
+   AND user.department = resource.department
+   AND current_time BETWEEN "9:00" AND "17:00"
+   AND user.location = "office"
+THEN ALLOW access
+</code></pre></div></div><hr />
+<h2 id="-cryptographic-quick-reference">
+  
+  
+    <a href="#-cryptographic-quick-reference" class="anchor-heading" aria-labelledby="-cryptographic-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔒 <strong>CRYPTOGRAPHIC QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="encryption-algorithms">
+  
+  
+    <a href="#encryption-algorithms" class="anchor-heading" aria-labelledby="encryption-algorithms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Encryption Algorithms</strong>
+  
+  
+</h3>
+    
+<p>| Algorithm | Type | Key Size | Security | Performance |
+|———–|——|———-|———-|————-|
+| <strong>AES-256</strong> | Symmetric | 256 bits | High | High |
+| <strong>RSA-2048</strong> | Asymmetric | 2048 bits | Medium | Low |
+| <strong>ECC-256</strong> | Asymmetric | 256 bits | High | Medium |
+| <strong>ChaCha20</strong> | Symmetric | 256 bits | High | Very High |</p>
+<h3 id="hash-functions">
+  
+  
+    <a href="#hash-functions" class="anchor-heading" aria-labelledby="hash-functions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Hash Functions</strong>
+  
+  
+</h3>
+    
+<p>| Algorithm | Output Size | Security | Performance | Status |
+|———–|————-|———-|————-|——–|
+| <strong>SHA-256</strong> | 256 bits | High | Very High | Recommended |
+| <strong>SHA-384</strong> | 384 bits | Very High | High | Recommended |
+| <strong>SHA-512</strong> | 512 bits | Very High | High | Recommended |
+| <strong>MD5</strong> | 128 bits | Broken | Very High | Deprecated |</p>
+<h3 id="tls-cipher-suites">
+  
+  
+    <a href="#tls-cipher-suites" class="anchor-heading" aria-labelledby="tls-cipher-suites"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>TLS Cipher Suites</strong>
+  
+  
+</h3>
+    
+<p>| Cipher Suite | Key Exchange | Encryption | Hash | Security |
+|————–|————–|————|——|———-|
+| <strong>TLS_AES_256_GCM_SHA384</strong> | ECDHE | AES-256-GCM | SHA-384 | High |
+| <strong>TLS_CHACHA20_POLY1305_SHA256</strong> | ECDHE | ChaCha20-Poly1305 | SHA-256 | High |
+| <strong>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</strong> | ECDHE | AES-256-GCM | SHA-384 | High |</p><hr />
+<h2 id="-network-security-quick-reference">
+  
+  
+    <a href="#-network-security-quick-reference" class="anchor-heading" aria-labelledby="-network-security-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🌐 <strong>NETWORK SECURITY QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="tls-versions">
+  
+  
+    <a href="#tls-versions" class="anchor-heading" aria-labelledby="tls-versions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>TLS Versions</strong>
+  
+  
+</h3>
+    
+<p>| Version | Security | Performance | Compatibility | Recommendation |
+|———|———-|————-|—————|—————-|
+| <strong>TLS 1.0</strong> | Low | High | Legacy | Disable |
+| <strong>TLS 1.1</strong> | Low | High | Legacy | Disable |
+| <strong>TLS 1.2</strong> | Medium | High | Widely supported | Accept |
+| <strong>TLS 1.3</strong> | High | Very High | Modern browsers | Prefer |</p>
+<h3 id="vpn-types">
+  
+  
+    <a href="#vpn-types" class="anchor-heading" aria-labelledby="vpn-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>VPN Types</strong>
+  
+  
+</h3>
+    
+<p>| VPN Type | Security | Performance | Use Case | Implementation |
+|———-|———-|————-|———-|—————-|
+| <strong>IPSec</strong> | High | Medium | Site-to-site | Hardware |
+| <strong>OpenVPN</strong> | High | Medium | Remote access | Software |
+| <strong>WireGuard</strong> | High | High | Modern VPN | Kernel |
+| <strong>SSL VPN</strong> | Medium | High | Web-based | Browser |</p><hr />
+<h2 id="-performance-metrics">
+  
+  
+    <a href="#-performance-metrics" class="anchor-heading" aria-labelledby="-performance-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>PERFORMANCE METRICS</strong>
+  
+  
+</h2>
+    
+<h3 id="security-performance-impact">
+  
+  
+    <a href="#security-performance-impact" class="anchor-heading" aria-labelledby="security-performance-impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Performance Impact</strong>
+  
+  
+</h3>
+    
+<p>| Security Feature | Performance Impact | Security Gain | ROI |
+|——————|——————-|—————|—–|
+| <strong>MFA</strong> | 2-5x auth time | 99%+ improvement | High |
+| <strong>Strong Encryption</strong> | 5-15% CPU | 1000x+ resistance | High |
+| <strong>Audit Logging</strong> | 1-5% I/O | 100% compliance | Medium |
+| <strong>Rate Limiting</strong> | 1-2% latency | 90%+ prevention | High |</p>
+<h3 id="scalability-considerations">
+  
+  
+    <a href="#scalability-considerations" class="anchor-heading" aria-labelledby="scalability-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Considerations</strong>
+  
+  
+</h3>
+    
+<p>| Aspect | Challenge | Solution | Performance |
+|——–|———–|———-|————-|
+| <strong>Authentication</strong> | High volume | Distributed auth | 10K+ users/sec |
+| <strong>Authorization</strong> | Complex policies | Cached decisions | 100K+ decisions/sec |
+| <strong>Encryption</strong> | Key management | Centralized KMS | 1GB+ encrypted/sec |
+| <strong>Monitoring</strong> | High events | Distributed SIEM | 1M+ events/sec |</p><hr />
+<h2 id="️-common-vulnerabilities">
+  
+  
+    <a href="#️-common-vulnerabilities" class="anchor-heading" aria-labelledby="️-common-vulnerabilities"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>COMMON VULNERABILITIES</strong>
+  
+  
+</h2>
+    
+<h3 id="authentication-vulnerabilities">
+  
+  
+    <a href="#authentication-vulnerabilities" class="anchor-heading" aria-labelledby="authentication-vulnerabilities"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authentication Vulnerabilities</strong>
+  
+  
+</h3>
+    
+<p>| Vulnerability | Impact | Prevention | Detection |
+|—————|——–|————|———-|
+| <strong>Weak Passwords</strong> | Account compromise | Strong policies | Password audits |
+| <strong>Password Reuse</strong> | Multiple compromise | Password managers | Breach monitoring |
+| <strong>Brute Force</strong> | Account takeover | Rate limiting, MFA | Failed login alerts |
+| <strong>Session Hijacking</strong> | Unauthorized access | Secure sessions | Session monitoring |</p>
+<h3 id="authorization-vulnerabilities">
+  
+  
+    <a href="#authorization-vulnerabilities" class="anchor-heading" aria-labelledby="authorization-vulnerabilities"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authorization Vulnerabilities</strong>
+  
+  
+</h3>
+    
+<p>| Vulnerability | Impact | Prevention | Detection |
+|—————|——–|————|———-|
+| <strong>Privilege Escalation</strong> | Unauthorized access | Least privilege | Access reviews |
+| <strong>Missing Authorization</strong> | Unauthorized actions | Always check | Code reviews |
+| <strong>Insecure Direct Object References</strong> | Data access bypass | Indirect references | Penetration testing |
+| <strong>Horizontal Privilege Escalation</strong> | Other users’ data | Resource-level auth | Access monitoring |</p>
+<h3 id="cryptographic-vulnerabilities">
+  
+  
+    <a href="#cryptographic-vulnerabilities" class="anchor-heading" aria-labelledby="cryptographic-vulnerabilities"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cryptographic Vulnerabilities</strong>
+  
+  
+</h3>
+    
+<p>| Vulnerability | Impact | Prevention | Detection |
+|—————|——–|————|———-|
+| <strong>Weak Algorithms</strong> | Data compromise | Strong algorithms | Security scanning |
+| <strong>Poor Key Management</strong> | Key compromise | Secure KMS | Key rotation |
+| <strong>Random Number Generation</strong> | Predictable values | Secure RNG | Entropy testing |
+| <strong>Timing Attacks</strong> | Key extraction | Constant-time ops | Security testing |</p><hr />
+<h2 id="-interview-quick-tips">
+  
+  
+    <a href="#-interview-quick-tips" class="anchor-heading" aria-labelledby="-interview-quick-tips"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>INTERVIEW QUICK TIPS</strong>
+  
+  
+</h2>
+    
+<h3 id="when-asked-about-security">
+  
+  
+    <a href="#when-asked-about-security" class="anchor-heading" aria-labelledby="when-asked-about-security"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>When Asked About Security:</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Start with Requirements</strong>: “What are the security requirements?”</li>
+  <li><strong>Analyze Threats</strong>: “What are the potential threats?”</li>
+  <li><strong>Consider Compliance</strong>: “What compliance requirements exist?”</li>
+  <li><strong>Evaluate Trade-offs</strong>: “What’s the security vs usability trade-off?”</li>
+  <li><strong>Discuss Implementation</strong>: “How would you implement this securely?”</li>
+</ol>
+<h3 id="quick-decision-framework-for-interviews">
+  
+  
+    <a href="#quick-decision-framework-for-interviews" class="anchor-heading" aria-labelledby="quick-decision-framework-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Quick Decision Framework for Interviews:</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 1: "What's the security requirement?"
+├─ High Security → Multi-factor, encryption, monitoring
+├─ Medium Security → Strong passwords, HTTPS, logging
+├─ Basic Security → Passwords, HTTPS
+└─ Compliance Required → Audit logging, access controls
+
+Step 2: "What are the threats?"
+├─ External Attacks → Firewalls, intrusion detection
+├─ Internal Threats → Access controls, monitoring
+├─ Data Breaches → Encryption, access controls
+└─ Compliance Violations → Audit logging, policies
+
+Step 3: "What's the implementation approach?"
+├─ Authentication strategy
+├─ Authorization model
+├─ Encryption requirements
+└─ Monitoring and alerting
+</code></pre></div></div>
+<h3 id="common-interview-scenarios--quick-answers">
+  
+  
+    <a href="#common-interview-scenarios--quick-answers" class="anchor-heading" aria-labelledby="common-interview-scenarios--quick-answers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Interview Scenarios &amp; Quick Answers:</strong>
+  
+  
+</h3>
+    
+<h4 id="design-a-secure-authentication-system">
+  
+  
+    <a href="#design-a-secure-authentication-system" class="anchor-heading" aria-labelledby="design-a-secure-authentication-system"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a Secure Authentication System”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Authentication</strong>: Multi-factor authentication (password + TOTP)</li>
+  <li><strong>Authorization</strong>: Role-based access control (RBAC)</li>
+  <li><strong>Security</strong>: HTTPS, rate limiting, audit logging</li>
+  <li><strong>Trade-offs</strong>: Security vs user experience</li>
+</ul>
+<h4 id="design-oauth-20-for-third-party-access">
+  
+  
+    <a href="#design-oauth-20-for-third-party-access" class="anchor-heading" aria-labelledby="design-oauth-20-for-third-party-access"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design OAuth 2.0 for Third-Party Access”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Flow</strong>: Authorization Code Flow (most secure)</li>
+  <li><strong>Security</strong>: Short-lived tokens, refresh tokens</li>
+  <li><strong>Implementation</strong>: OAuth 2.0 server, client applications</li>
+  <li><strong>Trade-offs</strong>: Security vs complexity</li>
+</ul>
+<h4 id="design-a-secure-api">
+  
+  
+    <a href="#design-a-secure-api" class="anchor-heading" aria-labelledby="design-a-secure-api"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a Secure API”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Authentication</strong>: JWT tokens or API keys</li>
+  <li><strong>Authorization</strong>: Role-based or attribute-based</li>
+  <li><strong>Security</strong>: HTTPS, rate limiting, input validation</li>
+  <li><strong>Trade-offs</strong>: Performance vs security</li>
+</ul>
+<h4 id="design-a-zero-trust-architecture">
+  
+  
+    <a href="#design-a-zero-trust-architecture" class="anchor-heading" aria-labelledby="design-a-zero-trust-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>“Design a Zero Trust Architecture”</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Principle</strong>: Never trust, always verify</li>
+  <li><strong>Implementation</strong>: Continuous verification, micro-segmentation</li>
+  <li><strong>Security</strong>: Identity-based access, least privilege</li>
+  <li><strong>Trade-offs</strong>: Complexity vs security</li>
+</ul>
+<h3 id="red-flags-to-avoid-in-interviews">
+  
+  
+    <a href="#red-flags-to-avoid-in-interviews" class="anchor-heading" aria-labelledby="red-flags-to-avoid-in-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Red Flags to Avoid in Interviews:</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>❌ <strong>“Security doesn’t matter for this”</strong> - Security always matters</li>
+  <li>❌ <strong>“We’ll add security later”</strong> - Security by design is better</li>
+  <li>❌ <strong>“Passwords are fine”</strong> - Multi-factor is standard</li>
+  <li>❌ <strong>“No need for encryption”</strong> - Data protection is essential</li>
+  <li>❌ <strong>“We don’t need monitoring”</strong> - Security monitoring is critical</li>
+</ul>
+<h3 id="green-flags-for-interviews">
+  
+  
+    <a href="#green-flags-for-interviews" class="anchor-heading" aria-labelledby="green-flags-for-interviews"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Green Flags for Interviews:</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>✅ <strong>“Let me understand the security requirements first”</strong> - Systematic approach</li>
+  <li>✅ <strong>“What are the compliance requirements?”</strong> - Regulatory awareness</li>
+  <li>✅ <strong>“How do we handle key management?”</strong> - Technical depth</li>
+  <li>✅ <strong>“What’s our incident response plan?”</strong> - Operational thinking</li>
+  <li>✅ <strong>“How do we monitor for threats?”</strong> - Proactive security</li>
+</ul><hr />
+<h2 id="-quick-reference-common-scenarios">
+  
+  
+    <a href="#-quick-reference-common-scenarios" class="anchor-heading" aria-labelledby="-quick-reference-common-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>QUICK REFERENCE: COMMON SCENARIOS</strong>
+  
+  
+</h2>
+    
+<h3 id="security-selection-by-use-case">
+  
+  
+    <a href="#security-selection-by-use-case" class="anchor-heading" aria-labelledby="security-selection-by-use-case"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Selection by Use Case</strong>
+  
+  
+</h3>
+    
+<p>| Use Case | Primary Security | Secondary Security | Key Decision Factors |
+|———-|—————–|——————-|———————|
+| <strong>Web Application</strong> | HTTPS + MFA | Input validation | User experience + security |
+| <strong>Mobile App</strong> | Biometric + JWT | Certificate pinning | Convenience + security |
+| <strong>API Service</strong> | API keys + OAuth | Rate limiting | Performance + security |
+| <strong>Enterprise System</strong> | SAML + RBAC | Audit logging | Compliance + security |
+| <strong>IoT Device</strong> | Certificate-based | Secure boot | Scalability + security |
+| <strong>Financial System</strong> | Multi-factor + encryption | Compliance monitoring | Regulatory + security |</p>
+<h3 id="security-selection-by-data-sensitivity">
+  
+  
+    <a href="#security-selection-by-data-sensitivity" class="anchor-heading" aria-labelledby="security-selection-by-data-sensitivity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Selection by Data Sensitivity</strong>
+  
+  
+</h3>
+    
+<p>| Data Sensitivity | Authentication | Authorization | Encryption | Monitoring |
+|——————|—————-|—————|————|————|
+| <strong>Public Data</strong> | Basic | None | None | Basic |
+| <strong>Internal Data</strong> | Password | RBAC | In transit | Logging |
+| <strong>Confidential Data</strong> | MFA | ABAC | At rest + transit | Alerting |
+| <strong>Highly Sensitive</strong> | Multi-factor | PBAC | End-to-end | Real-time |
+| <strong>Regulated Data</strong> | Compliance | Compliance | Compliance | Compliance |</p><hr />
+<h2 id="-security-patterns">
+  
+  
+    <a href="#-security-patterns" class="anchor-heading" aria-labelledby="-security-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>SECURITY PATTERNS</strong>
+  
+  
+</h2>
+    
+<h3 id="authentication-patterns">
+  
+  
+    <a href="#authentication-patterns" class="anchor-heading" aria-labelledby="authentication-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authentication Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Single Sign-On (SSO)</strong>: Centralized authentication</li>
+  <li><strong>Federation</strong>: Cross-domain authentication</li>
+  <li><strong>Delegation</strong>: Third-party authentication</li>
+  <li><strong>Stateless</strong>: Token-based authentication</li>
+</ul>
+<h3 id="authorization-patterns">
+  
+  
+    <a href="#authorization-patterns" class="anchor-heading" aria-labelledby="authorization-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authorization Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Role-Based</strong>: Permission by role</li>
+  <li><strong>Attribute-Based</strong>: Permission by attributes</li>
+  <li><strong>Policy-Based</strong>: Permission by policies</li>
+  <li><strong>Resource-Based</strong>: Permission by resource</li>
+</ul>
+<h3 id="security-architecture-patterns">
+  
+  
+    <a href="#security-architecture-patterns" class="anchor-heading" aria-labelledby="security-architecture-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Architecture Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Defense in Depth</strong>: Multiple security layers</li>
+  <li><strong>Zero Trust</strong>: Never trust, always verify</li>
+  <li><strong>Security by Design</strong>: Built-in security</li>
+  <li><strong>Privacy by Design</strong>: Built-in privacy</li>
+</ul><hr />
+<h2 id="️-compliance-frameworks">
+  
+  
+    <a href="#️-compliance-frameworks" class="anchor-heading" aria-labelledby="️-compliance-frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>COMPLIANCE FRAMEWORKS</strong>
+  
+  
+</h2>
+    
+<h3 id="common-compliance-standards">
+  
+  
+    <a href="#common-compliance-standards" class="anchor-heading" aria-labelledby="common-compliance-standards"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Compliance Standards</strong>
+  
+  
+</h3>
+    
+<p>| Standard | Focus | Requirements | Implementation |
+|———-|——-|————–|—————-|
+| <strong>GDPR</strong> | Privacy | Consent, encryption, rights | Privacy controls |
+| <strong>SOX</strong> | Financial | Audit trails, access controls | Financial controls |
+| <strong>HIPAA</strong> | Healthcare | Privacy, security | Healthcare controls |
+| <strong>PCI DSS</strong> | Payment | Encryption, access controls | Payment controls |</p>
+<h3 id="compliance-implementation">
+  
+  
+    <a href="#compliance-implementation" class="anchor-heading" aria-labelledby="compliance-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Compliance Implementation</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Data Classification</strong>: Classify data by sensitivity</li>
+  <li><strong>Access Controls</strong>: Implement appropriate controls</li>
+  <li><strong>Audit Logging</strong>: Log all access and changes</li>
+  <li><strong>Monitoring</strong>: Monitor for compliance violations</li>
+  <li><strong>Incident Response</strong>: Respond to security incidents</li>
+</ul><hr />
+<h2 id="-monitoring--alerting">
+  
+  
+    <a href="#-monitoring--alerting" class="anchor-heading" aria-labelledby="-monitoring--alerting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>MONITORING &amp; ALERTING</strong>
+  
+  
+</h2>
+    
+<h3 id="key-security-metrics">
+  
+  
+    <a href="#key-security-metrics" class="anchor-heading" aria-labelledby="key-security-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Security Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Authentication Success Rate</strong>: 95%+ success rate</li>
+  <li><strong>Failed Login Attempts</strong>: &lt;5% failure rate</li>
+  <li><strong>Authorization Denials</strong>: Monitor for policy violations</li>
+  <li><strong>Encryption Coverage</strong>: 100% sensitive data encrypted</li>
+  <li><strong>Security Incidents</strong>: 0 critical incidents</li>
+</ul>
+<h3 id="alerting-thresholds">
+  
+  
+    <a href="#alerting-thresholds" class="anchor-heading" aria-labelledby="alerting-thresholds"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alerting Thresholds</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Failed Logins &gt; 10/minute</strong>: Potential brute force</li>
+  <li><strong>Unauthorized Access Attempts</strong>: Immediate alert</li>
+  <li><strong>Encryption Failures</strong>: Immediate alert</li>
+  <li><strong>Compliance Violations</strong>: Immediate alert</li>
+  <li><strong>Security Incidents</strong>: Immediate response</li>
+</ul><hr />
+<h2 id="-50-security-interview-questions">
+  
+  
+    <a href="#-50-security-interview-questions" class="anchor-heading" aria-labelledby="-50-security-interview-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>50 SECURITY INTERVIEW QUESTIONS</strong>
+  
+  
+</h2>
+    
+<h3 id="authentication-questions">
+  
+  
+    <a href="#authentication-questions" class="anchor-heading" aria-labelledby="authentication-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authentication Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How would you design a secure authentication system?</strong></li>
+  <li><strong>What are the different types of MFA?</strong></li>
+  <li><strong>How does OAuth 2.0 work?</strong></li>
+  <li><strong>What are the security implications of JWT?</strong></li>
+  <li><strong>How do you handle password security?</strong></li>
+</ol>
+<h3 id="authorization-questions">
+  
+  
+    <a href="#authorization-questions" class="anchor-heading" aria-labelledby="authorization-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authorization Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>What’s the difference between RBAC and ABAC?</strong></li>
+  <li><strong>How do you implement least privilege?</strong></li>
+  <li><strong>What are the challenges of distributed authorization?</strong></li>
+  <li><strong>How do you handle privilege escalation?</strong></li>
+  <li><strong>What’s the role of policies in authorization?</strong></li>
+</ol>
+<h3 id="cryptography-questions">
+  
+  
+    <a href="#cryptography-questions" class="anchor-heading" aria-labelledby="cryptography-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cryptography Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>What’s the difference between symmetric and asymmetric encryption?</strong></li>
+  <li><strong>How do you choose encryption algorithms?</strong></li>
+  <li><strong>What are the best practices for key management?</strong></li>
+  <li><strong>How do you handle cryptographic vulnerabilities?</strong></li>
+  <li><strong>What’s the role of hash functions in security?</strong></li>
+</ol>
+<h3 id="network-security-questions">
+  
+  
+    <a href="#network-security-questions" class="anchor-heading" aria-labelledby="network-security-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Network Security Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How does TLS/SSL work?</strong></li>
+  <li><strong>What are the security implications of different TLS versions?</strong></li>
+  <li><strong>How do you secure API communications?</strong></li>
+  <li><strong>What’s the role of VPNs in security?</strong></li>
+  <li><strong>How do you handle network segmentation?</strong></li>
+</ol>
+<h3 id="application-security-questions">
+  
+  
+    <a href="#application-security-questions" class="anchor-heading" aria-labelledby="application-security-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Application Security Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you prevent SQL injection?</strong></li>
+  <li><strong>What are the OWASP Top 10 vulnerabilities?</strong></li>
+  <li><strong>How do you implement secure coding practices?</strong></li>
+  <li><strong>What’s the role of input validation?</strong></li>
+  <li><strong>How do you handle session security?</strong></li>
+</ol>
+<h3 id="security-architecture-questions">
+  
+  
+    <a href="#security-architecture-questions" class="anchor-heading" aria-labelledby="security-architecture-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Architecture Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you design a zero trust architecture?</strong></li>
+  <li><strong>What’s the role of defense in depth?</strong></li>
+  <li><strong>How do you implement security by design?</strong></li>
+  <li><strong>What are the challenges of cloud security?</strong></li>
+  <li><strong>How do you handle microservices security?</strong></li>
+</ol>
+<h3 id="compliance-questions">
+  
+  
+    <a href="#compliance-questions" class="anchor-heading" aria-labelledby="compliance-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Compliance Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you implement GDPR compliance?</strong></li>
+  <li><strong>What are the requirements for PCI DSS?</strong></li>
+  <li><strong>How do you handle audit logging?</strong></li>
+  <li><strong>What’s the role of data classification?</strong></li>
+  <li><strong>How do you implement privacy by design?</strong></li>
+</ol>
+<h3 id="incident-response-questions">
+  
+  
+    <a href="#incident-response-questions" class="anchor-heading" aria-labelledby="incident-response-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Incident Response Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you handle security incidents?</strong></li>
+  <li><strong>What’s your incident response plan?</strong></li>
+  <li><strong>How do you detect security threats?</strong></li>
+  <li><strong>What’s the role of threat intelligence?</strong></li>
+  <li><strong>How do you handle data breaches?</strong></li>
+</ol>
+<h3 id="security-monitoring-questions">
+  
+  
+    <a href="#security-monitoring-questions" class="anchor-heading" aria-labelledby="security-monitoring-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Monitoring Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you implement security monitoring?</strong></li>
+  <li><strong>What metrics do you track for security?</strong></li>
+  <li><strong>How do you handle false positives?</strong></li>
+  <li><strong>What’s the role of SIEM systems?</strong></li>
+  <li><strong>How do you implement automated response?</strong></li>
+</ol>
+<h3 id="advanced-security-questions">
+  
+  
+    <a href="#advanced-security-questions" class="anchor-heading" aria-labelledby="advanced-security-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Advanced Security Questions</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>How do you handle quantum-resistant cryptography?</strong></li>
+  <li><strong>What’s the role of machine learning in security?</strong></li>
+  <li><strong>How do you implement secure DevOps?</strong></li>
+  <li><strong>What are the challenges of IoT security?</strong></li>
+  <li><strong>How do you handle supply chain security?</strong></li>
+</ol><hr />
+<h2 id="-frequently-asked-questions-faqs">
+  
+  
+    <a href="#-frequently-asked-questions-faqs" class="anchor-heading" aria-labelledby="-frequently-asked-questions-faqs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ❓ <strong>FREQUENTLY ASKED QUESTIONS (FAQs)</strong>
+  
+  
+</h2>
+    
+<h3 id="common-misconceptions--quick-answers">
+  
+  
+    <a href="#common-misconceptions--quick-answers" class="anchor-heading" aria-labelledby="common-misconceptions--quick-answers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Misconceptions &amp; Quick Answers</strong>
+  
+  
+</h3>
+    
+<h4 id="q1-security-is-too-expensive">
+  
+  
+    <a href="#q1-security-is-too-expensive" class="anchor-heading" aria-labelledby="q1-security-is-too-expensive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q1: “Security is too expensive”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Security is an investment that prevents costly breaches:</p>
+<ul>
+  <li><strong>Cost of Breach</strong>: $3.86M average cost of data breach</li>
+  <li><strong>Security Investment</strong>: 1-5% of IT budget typically sufficient</li>
+  <li><strong>ROI</strong>: Security investments typically pay for themselves</li>
+</ul>
+<h4 id="q2-passwords-are-secure-enough">
+  
+  
+    <a href="#q2-passwords-are-secure-enough" class="anchor-heading" aria-labelledby="q2-passwords-are-secure-enough"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q2: “Passwords are secure enough”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Passwords alone are insufficient:</p>
+<ul>
+  <li><strong>Password Attacks</strong>: 80% of breaches involve weak passwords</li>
+  <li><strong>MFA Impact</strong>: 99%+ reduction in account compromise</li>
+  <li><strong>Best Practice</strong>: Always use multi-factor authentication</li>
+</ul>
+<h4 id="q3-security-slows-down-development">
+  
+  
+    <a href="#q3-security-slows-down-development" class="anchor-heading" aria-labelledby="q3-security-slows-down-development"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q3: “Security slows down development”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Security by design is faster:</p>
+<ul>
+  <li><strong>Early Integration</strong>: Security built-in is faster than retrofitting</li>
+  <li><strong>Automated Tools</strong>: Security scanning and testing can be automated</li>
+  <li><strong>DevSecOps</strong>: Security integrated into CI/CD pipeline</li>
+</ul>
+<h4 id="q4-were-too-small-to-be-attacked">
+  
+  
+    <a href="#q4-were-too-small-to-be-attacked" class="anchor-heading" aria-labelledby="q4-were-too-small-to-be-attacked"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q4: “We’re too small to be attacked”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Small organizations are common targets:</p>
+<ul>
+  <li><strong>Attack Statistics</strong>: 43% of cyber attacks target small businesses</li>
+  <li><strong>Automated Attacks</strong>: Most attacks are automated and target everyone</li>
+  <li><strong>Supply Chain</strong>: Small organizations are entry points to larger targets</li>
+</ul>
+<h4 id="q5-security-is-its-responsibility">
+  
+  
+    <a href="#q5-security-is-its-responsibility" class="anchor-heading" aria-labelledby="q5-security-is-its-responsibility"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q5: “Security is IT’s responsibility”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Security is everyone’s responsibility:</p>
+<ul>
+  <li><strong>Human Factor</strong>: 95% of breaches involve human error</li>
+  <li><strong>Business Impact</strong>: Security affects business operations</li>
+  <li><strong>Shared Responsibility</strong>: Security requires organizational commitment</li>
+</ul><hr />
+
+<p><em>Use this cheatsheet for quick reference during interviews. Remember: security is not optional, it’s essential for any system design.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

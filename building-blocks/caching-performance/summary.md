@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Caching Performance
+---
+
 # Caching & Performance Systems
 ## Concise Summary
 

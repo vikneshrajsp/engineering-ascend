@@ -1,3 +1,10 @@
+---
+title: Cheatsheet
+layout: default
+grand_parent: Building Blocks
+parent: Caching Performance
+---
+
 # Caching & Performance Systems - Cheat Sheet
 ## One-Page Quick Reference for Interviews
 

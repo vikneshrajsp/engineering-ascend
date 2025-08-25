@@ -1,3 +1,10 @@
+---
+title: Handbook
+layout: default
+grand_parent: Building Blocks
+parent: Networking Communication
+---
+
 # Networking & Communication Systems - Detailed Handbook
 ## Comprehensive Technical Deep-Dive for System Design
 

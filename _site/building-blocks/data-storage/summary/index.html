@@ -1,0 +1,1676 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Storage Systems - Concise Summary | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Data Storage Systems - Concise Summary" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Quick revision guide for system design" />
+<meta property="og:description" content="Quick revision guide for system design" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/data-storage/summary/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/data-storage/summary/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Storage Systems - Concise Summary" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Quick revision guide for system design","headline":"Data Storage Systems - Concise Summary","url":"https://vikneshrajsp.github.io/engineering-ascend/building-blocks/data-storage/summary/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Data Storage</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Data Storage Systems - Concise Summary</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="data-storage-systems---concise-summary">
+  
+  
+    <a href="#data-storage-systems---concise-summary" class="anchor-heading" aria-labelledby="data-storage-systems---concise-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Storage Systems - Concise Summary
+  
+  
+</h1>
+    
+<h2 id="quick-revision-guide-for-system-design">
+  
+  
+    <a href="#quick-revision-guide-for-system-design" class="anchor-heading" aria-labelledby="quick-revision-guide-for-system-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick Revision Guide for System Design
+  
+  
+</h2>
+    
+<h2 id="-storage-system-overview">
+  
+  
+    <a href="#-storage-system-overview" class="anchor-heading" aria-labelledby="-storage-system-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>STORAGE SYSTEM OVERVIEW</strong>
+  
+  
+</h2>
+    
+<h3 id="storage-types-classification-with-performance-metrics">
+  
+  
+    <a href="#storage-types-classification-with-performance-metrics" class="anchor-heading" aria-labelledby="storage-types-classification-with-performance-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Types Classification with Performance Metrics</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Primary Use | Consistency Model | Scaling Pattern | Read Throughput | Write Throughput | Latency | Examples |
+|————–|————-|——————-|—————–|—————–|——————|———|———-|
+| <strong>RDBMS</strong> | ACID transactions | Linearizable | Vertical + Read Replicas | 10K-50K ops/sec | 5K-20K ops/sec | 1-5ms | MySQL, PostgreSQL |
+| <strong>Key-Value</strong> | Simple lookups | Eventual/Linearizable | Horizontal Sharding | 100K-1M ops/sec | 50K-500K ops/sec | 0.1-1ms | Redis, DynamoDB |
+| <strong>Wide Column</strong> | Analytics | Eventual | Hash-based Partitioning | 10K-100K ops/sec | 50K-200K ops/sec | 5-20ms | Cassandra, HBase |
+| <strong>Document</strong> | Flexible schemas | Eventual | Range-based Sharding | 10K-50K ops/sec | 5K-20K ops/sec | 1-10ms | MongoDB, CouchDB |
+| <strong>Time Series</strong> | Time-ordered data | Eventual | Time-based Partitioning | 10K-100K ops/sec | 100K-1M ops/sec | 1-10ms | InfluxDB, TimescaleDB |
+| <strong>Text Search</strong> | Full-text search | Eventual | Document-based Sharding | 1K-10K ops/sec | 1K-5K ops/sec | 10-100ms | Elasticsearch, Solr |
+| <strong>Object Store</strong> | Large files | Eventual | Hash-based Distribution | 100-1K ops/sec | 100-1K ops/sec | 100ms-1s | S3, GCS, Azure Blob |
+| <strong>Geospatial</strong> | Location data | Eventual | Geographic Partitioning | 1K-10K ops/sec | 1K-5K ops/sec | 1-10ms | PostGIS, MongoDB |</p><hr />
+<h2 id="️-core-storage-systems">
+  
+  
+    <a href="#️-core-storage-systems" class="anchor-heading" aria-labelledby="️-core-storage-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>CORE STORAGE SYSTEMS</strong>
+  
+  
+</h2>
+    
+<h3 id="1-relational-database-management-systems-rdbms">
+  
+  
+    <a href="#1-relational-database-management-systems-rdbms" class="anchor-heading" aria-labelledby="1-relational-database-management-systems-rdbms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Relational Database Management Systems (RDBMS)</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics">
+  
+  
+    <a href="#key-characteristics" class="anchor-heading" aria-labelledby="key-characteristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Linearizable consistency (ACID properties)</li>
+  <li>✅ Structured schemas with relational constraints</li>
+  <li>✅ SQL query language with ACID transactions</li>
+  <li>✅ Multi-version concurrency control (MVCC)</li>
+  <li>❌ Limited horizontal scaling (vertical + read replicas)</li>
+  <li>❌ Schema rigidity and migration complexity</li>
+</ul>
+<h4 id="internal-structures">
+  
+  
+    <a href="#internal-structures" class="anchor-heading" aria-labelledby="internal-structures"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Internal Structures</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>B-Tree Indexes:
+- Balanced tree structure
+- O(log n) search complexity
+- Efficient range queries
+- Disk-optimized
+
+B+ Tree Indexes:
+- All data in leaf nodes
+- Better sequential access
+- Reduced tree height
+- Linked leaf nodes
+
+Skiplist Structures:
+- Probabilistic O(log n) height
+- Multiple forward pointers
+- Memory efficient
+- Redis sorted sets
+</code></pre></div></div>
+<h4 id="data-structure-transformations">
+  
+  
+    <a href="#data-structure-transformations" class="anchor-heading" aria-labelledby="data-structure-transformations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Structure Transformations</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write Path: Buffer Pool → WAL → B+ Tree → Disk
+- Hash Table: O(1) page lookup
+- LRU List: O(1) eviction
+- Sequential WAL: O(1) append
+- B+ Tree: O(log n) updates
+
+Read Path: Query → Index → Buffer Pool → Data
+- Parse Tree: O(n) parsing
+- B+ Tree: O(log n) search
+- Buffer Pool: O(1) access
+- Tuple Assembly: O(k) for k fields
+</code></pre></div></div>
+<h4 id="use-cases">
+  
+  
+    <a href="#use-cases" class="anchor-heading" aria-labelledby="use-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Financial transactions</li>
+  <li>User account management</li>
+  <li>Inventory systems</li>
+  <li>E-commerce orders</li>
+</ul><hr />
+<h3 id="2-key-value-stores">
+  
+  
+    <a href="#2-key-value-stores" class="anchor-heading" aria-labelledby="2-key-value-stores"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Key-Value Stores</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-1">
+  
+  
+    <a href="#key-characteristics-1" class="anchor-heading" aria-labelledby="key-characteristics-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Simple key-value pairs with O(1) lookup</li>
+  <li>✅ High performance with hash table implementation</li>
+  <li>✅ Horizontal scaling via consistent hashing</li>
+  <li>✅ High write throughput with LSM trees</li>
+  <li>❌ Limited query capabilities (no range queries)</li>
+  <li>❌ Eventual consistency (configurable in some systems)</li>
+</ul>
+<h4 id="internal-mechanisms">
+  
+  
+    <a href="#internal-mechanisms" class="anchor-heading" aria-labelledby="internal-mechanisms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Internal Mechanisms</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hash Tables:
+- O(1) average lookup
+- Collision resolution (chaining, open addressing)
+- Memory efficient
+- No natural ordering
+
+LSM Trees:
+- Write-optimized (append to MemTable)
+- Background compaction
+- Bloom filters for existence checks
+- Sequential disk writes
+
+Skiplist MemTable:
+- O(log n) insertion in memory
+- Sorted by key for efficient lookups
+- Hash table for duplicate detection
+- Bloom filter for existence checks
+</code></pre></div></div>
+<h4 id="data-structure-transformations-1">
+  
+  
+    <a href="#data-structure-transformations-1" class="anchor-heading" aria-labelledby="data-structure-transformations-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Structure Transformations</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write Path: MemTable → SSTable → LSM Tree
+- Skiplist: O(log n) in-memory insertion
+- Hash Table: O(1) duplicate detection
+- Sequential Write: O(n) SSTable creation
+- Merge Sort: O(n log n) compaction
+
+Read Path: MemTable → Bloom Filter → SSTable
+- Skiplist: O(log n) memory search
+- Bloom Filter: O(k) hash operations
+- Binary Search: O(log n) SSTable lookup
+- Merge Logic: Latest value selection
+</code></pre></div></div>
+<h4 id="use-cases-1">
+  
+  
+    <a href="#use-cases-1" class="anchor-heading" aria-labelledby="use-cases-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Session storage</li>
+  <li>Configuration management</li>
+  <li>Real-time analytics</li>
+  <li>Gaming leaderboards</li>
+</ul><hr />
+<h3 id="3-wide-column-stores">
+  
+  
+    <a href="#3-wide-column-stores" class="anchor-heading" aria-labelledby="3-wide-column-stores"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Wide Column Stores</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-2">
+  
+  
+    <a href="#key-characteristics-2" class="anchor-heading" aria-labelledby="key-characteristics-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Column-oriented storage</li>
+  <li>✅ High compression ratios</li>
+  <li>✅ Sparse data handling</li>
+  <li>✅ Analytical queries</li>
+  <li>❌ Complex data modeling</li>
+  <li>❌ Limited ACID support</li>
+</ul>
+<h4 id="storage-structure">
+  
+  
+    <a href="#storage-structure" class="anchor-heading" aria-labelledby="storage-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Structure</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Row-Oriented vs Column-Oriented:
+
+Row: [User1: John, 25, NYC] [User2: Jane, 30, LA]
+Col: [John, Jane] [25, 30] [NYC, LA]
+
+Column Families:
+- Basic Info: {name, email, age}
+- Address: {street, city, state, zip}
+- Preferences: {theme, language}
+</code></pre></div></div>
+<h4 id="use-cases-2">
+  
+  
+    <a href="#use-cases-2" class="anchor-heading" aria-labelledby="use-cases-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Data warehousing</li>
+  <li>IoT sensor data</li>
+  <li>Log analysis</li>
+  <li>Business intelligence</li>
+</ul><hr />
+<h3 id="4-document-stores">
+  
+  
+    <a href="#4-document-stores" class="anchor-heading" aria-labelledby="4-document-stores"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Document Stores</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-3">
+  
+  
+    <a href="#key-characteristics-3" class="anchor-heading" aria-labelledby="key-characteristics-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Schema flexibility</li>
+  <li>✅ Rich data types (nested objects, arrays)</li>
+  <li>✅ Complex queries</li>
+  <li>✅ Horizontal scaling</li>
+  <li>❌ No ACID guarantees</li>
+  <li>❌ Complex transactions</li>
+</ul>
+<h4 id="document-structure">
+  
+  
+    <a href="#document-structure" class="anchor-heading" aria-labelledby="document-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Document Structure</strong>
+  
+  
+</h4>
+    
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="p">,</span><span class="w"> </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NYC"</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"work"</span><span class="p">,</span><span class="w"> </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA"</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h4 id="indexing-strategies">
+  
+  
+    <a href="#indexing-strategies" class="anchor-heading" aria-labelledby="indexing-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Indexing Strategies</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Single field: <code class="language-plaintext highlighter-rouge">{"email": 1}</code></li>
+  <li>Compound: <code class="language-plaintext highlighter-rouge">{"age": 1, "city": 1}</code></li>
+  <li>Array: <code class="language-plaintext highlighter-rouge">{"addresses.city": 1}</code></li>
+  <li>Text: <code class="language-plaintext highlighter-rouge">{"profile.name": "text"}</code></li>
+</ul>
+<h4 id="use-cases-3">
+  
+  
+    <a href="#use-cases-3" class="anchor-heading" aria-labelledby="use-cases-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Content management</li>
+  <li>User profiles</li>
+  <li>Product catalogs</li>
+  <li>API data storage</li>
+</ul><hr />
+<h3 id="5-time-series-databases">
+  
+  
+    <a href="#5-time-series-databases" class="anchor-heading" aria-labelledby="5-time-series-databases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Time Series Databases</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-4">
+  
+  
+    <a href="#key-characteristics-4" class="anchor-heading" aria-labelledby="key-characteristics-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Time-ordered data</li>
+  <li>✅ High write throughput</li>
+  <li>✅ Data retention policies</li>
+  <li>✅ Time-based aggregations</li>
+  <li>❌ Limited general-purpose use</li>
+  <li>❌ Complex retention management</li>
+</ul>
+<h4 id="storage-architecture">
+  
+  
+    <a href="#storage-architecture" class="anchor-heading" aria-labelledby="storage-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Architecture</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Time Buckets:
+Hour 1: [Data Points 1-3600]
+Hour 2: [Data Points 3601-7200]
+
+Compression:
+Raw: 1-minute intervals (1 day)
+Hourly: Aggregates (1 month)
+Daily: Summaries (1 year)
+</code></pre></div></div>
+<h4 id="data-structure-transformations-2">
+  
+  
+    <a href="#data-structure-transformations-2" class="anchor-heading" aria-labelledby="data-structure-transformations-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Structure Transformations</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Write Path: Timestamp → Bucket → Column → Compressed
+- Time Bucketing: O(1) bucket assignment
+- Value Encoding: Delta encoding O(n)
+- Compression: Run-length encoding
+- Index Updates: Time-based maintenance
+
+Read Path: Query → Buckets → Columns → Time Series
+- Time Range: O(log n) bucket selection
+- Column Access: Direct column reading
+- Decompression: O(n) value processing
+- Aggregation: Statistical operations
+</code></pre></div></div>
+<h4 id="use-cases-4">
+  
+  
+    <a href="#use-cases-4" class="anchor-heading" aria-labelledby="use-cases-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>IoT sensor data</li>
+  <li>Application metrics</li>
+  <li>Financial time series</li>
+  <li>System monitoring</li>
+</ul><hr />
+<h3 id="6-text-search-engines">
+  
+  
+    <a href="#6-text-search-engines" class="anchor-heading" aria-labelledby="6-text-search-engines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>6. Text Search Engines</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-5">
+  
+  
+    <a href="#key-characteristics-5" class="anchor-heading" aria-labelledby="key-characteristics-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Full-text search</li>
+  <li>✅ Relevance scoring</li>
+  <li>✅ Faceted search</li>
+  <li>✅ Real-time indexing</li>
+  <li>❌ Complex indexing</li>
+  <li>❌ Storage overhead</li>
+</ul>
+<h4 id="inverted-index">
+  
+  
+    <a href="#inverted-index" class="anchor-heading" aria-labelledby="inverted-index"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Inverted Index</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Documents:
+Doc1: "The quick brown fox"
+Doc2: "A quick brown dog"
+
+Index:
+"quick": [Doc1:2, Doc2:2]
+"brown": [Doc1:3, Doc2:3]
+"fox": [Doc1:4]
+"dog": [Doc2:4]
+</code></pre></div></div>
+<h4 id="data-structure-transformations-3">
+  
+  
+    <a href="#data-structure-transformations-3" class="anchor-heading" aria-labelledby="data-structure-transformations-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Structure Transformations</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Indexing Path: Text → Tokens → Inverted Index
+- Tokenization: O(n) character processing
+- Term Dictionary: Hash table O(1) lookups
+- Posting Lists: Skip list O(log n) access
+- Compression: Variable-length encoding
+
+Search Path: Query → Terms → Posting Lists → Results
+- Query Parsing: O(n) query length
+- Term Lookup: O(1) dictionary access
+- List Intersection: O(n) merge complexity
+- Scoring: TF-IDF, BM25 algorithms
+</code></pre></div></div>
+<h4 id="search-types">
+  
+  
+    <a href="#search-types" class="anchor-heading" aria-labelledby="search-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Search Types</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Boolean: <code class="language-plaintext highlighter-rouge">"quick AND brown"</code></li>
+  <li>Fuzzy: <code class="language-plaintext highlighter-rouge">"quik" → "quick"</code></li>
+  <li>Phrase: <code class="language-plaintext highlighter-rouge">"quick brown fox"</code></li>
+</ul>
+<h4 id="use-cases-5">
+  
+  
+    <a href="#use-cases-5" class="anchor-heading" aria-labelledby="use-cases-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>E-commerce search</li>
+  <li>Content discovery</li>
+  <li>Log analysis</li>
+  <li>Knowledge bases</li>
+</ul><hr />
+<h3 id="7-write-ahead-logs-wal">
+  
+  
+    <a href="#7-write-ahead-logs-wal" class="anchor-heading" aria-labelledby="7-write-ahead-logs-wal"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>7. Write-Ahead Logs (WAL)</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-6">
+  
+  
+    <a href="#key-characteristics-6" class="anchor-heading" aria-labelledby="key-characteristics-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Sequential writes</li>
+  <li>✅ Crash recovery</li>
+  <li>✅ Durability guarantees</li>
+  <li>✅ Performance optimization</li>
+  <li>❌ Storage overhead</li>
+  <li>❌ Complex recovery</li>
+</ul>
+<h4 id="wal-structure">
+  
+  
+    <a href="#wal-structure" class="anchor-heading" aria-labelledby="wal-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>WAL Structure</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Header] [Record1] [Record2] [Record3] ... [Footer]
+
+Record: [Length] [Timestamp] [Operation] [Data] [Checksum]
+
+Operations: BEGIN_TXN, INSERT, UPDATE, DELETE, COMMIT, ROLLBACK
+</code></pre></div></div>
+<h4 id="recovery-process">
+  
+  
+    <a href="#recovery-process" class="anchor-heading" aria-labelledby="recovery-process"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Recovery Process</strong>
+  
+  
+</h4>
+    
+<ol>
+  <li>Read WAL from checkpoint</li>
+  <li>Replay operations in order</li>
+  <li>Reconstruct state</li>
+  <li>Verify consistency</li>
+  <li>Resume operation</li>
+</ol>
+<h4 id="use-cases-6">
+  
+  
+    <a href="#use-cases-6" class="anchor-heading" aria-labelledby="use-cases-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Database transaction logs</li>
+  <li>Message queue persistence</li>
+  <li>Event sourcing</li>
+  <li>Audit trails</li>
+</ul><hr />
+<h3 id="8-object-stores">
+  
+  
+    <a href="#8-object-stores" class="anchor-heading" aria-labelledby="8-object-stores"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>8. Object Stores</strong>
+  
+  
+</h3>
+    
+<h4 id="key-characteristics-7">
+  
+  
+    <a href="#key-characteristics-7" class="anchor-heading" aria-labelledby="key-characteristics-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Characteristics</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>✅ Large file storage</li>
+  <li>✅ RESTful API access</li>
+  <li>✅ High durability</li>
+  <li>✅ Cost-effective</li>
+  <li>❌ High latency</li>
+  <li>❌ Limited query capabilities</li>
+</ul>
+<h4 id="storage-tiers">
+  
+  
+    <a href="#storage-tiers" class="anchor-heading" aria-labelledby="storage-tiers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Tiers</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Hot</strong>: Frequently accessed, low latency</li>
+  <li><strong>Warm</strong>: Occasionally accessed, medium latency</li>
+  <li><strong>Cold</strong>: Rarely accessed, high latency</li>
+  <li><strong>Archive</strong>: Long-term storage, very high latency</li>
+</ul>
+<h4 id="use-cases-7">
+  
+  
+    <a href="#use-cases-7" class="anchor-heading" aria-labelledby="use-cases-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Cases</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li>Media file storage</li>
+  <li>Backup and archival</li>
+  <li>Data lake storage</li>
+  <li>Static asset hosting</li>
+</ul><hr />
+<h2 id="-indexing-strategies">
+  
+  
+    <a href="#-indexing-strategies" class="anchor-heading" aria-labelledby="-indexing-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>INDEXING STRATEGIES</strong>
+  
+  
+</h2>
+    
+<h3 id="in-memory-indexes">
+  
+  
+    <a href="#in-memory-indexes" class="anchor-heading" aria-labelledby="in-memory-indexes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>In-Memory Indexes</strong>
+  
+  
+</h3>
+    
+<p>| Index Type | Lookup | Insert/Delete | Memory | Ordering |
+|————|——–|—————|———|———-|
+| <strong>Hash Tables</strong> | O(1) | O(1) | O(n) | No |
+| <strong>B-Trees</strong> | O(log n) | O(log n) | O(n) | Yes |
+| <strong>Skip Lists</strong> | O(log n) | O(log n) | O(n) | Yes |</p>
+<h3 id="on-disk-indexes">
+  
+  
+    <a href="#on-disk-indexes" class="anchor-heading" aria-labelledby="on-disk-indexes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>On-Disk Indexes</strong>
+  
+  
+</h3>
+    
+<p>| Index Type | Write Performance | Read Performance | Space Efficiency |
+|————|——————-|——————|——————|
+| <strong>B-Tree</strong> | Good | Excellent | Good |
+| <strong>LSM Tree</strong> | Excellent | Good | Excellent |
+| <strong>Bitmap</strong> | Poor | Excellent | Excellent |</p>
+<h3 id="spatial-indexes">
+  
+  
+    <a href="#spatial-indexes" class="anchor-heading" aria-labelledby="spatial-indexes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Spatial Indexes</strong>
+  
+  
+</h3>
+    
+<p>| Index Type | Point Query | Range Query | Nearest Neighbor | Use Case |
+|————|————-|————-|——————|———-|
+| <strong>R-Tree</strong> | O(log n) | O(log n + k) | O(log n) | Geographic data |
+| <strong>Quad-Tree</strong> | O(log n) | O(log n + k) | O(log n) | 2D spatial data |
+| <strong>Geohash</strong> | O(1) | O(log n) | O(log n) | Location services |</p><hr />
+<h2 id="-decision-matrix">
+  
+  
+    <a href="#-decision-matrix" class="anchor-heading" aria-labelledby="-decision-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>DECISION MATRIX</strong>
+  
+  
+</h2>
+    
+<h3 id="storage-selection-decision-framework">
+  
+  
+    <a href="#storage-selection-decision-framework" class="anchor-heading" aria-labelledby="storage-selection-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Selection Decision Framework</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Criteria</th>
+      <th>Weight</th>
+      <th>RDBMS</th>
+      <th>Key-Value</th>
+      <th>Wide Column</th>
+      <th>Document</th>
+      <th>Time Series</th>
+      <th>Text Search</th>
+      <th>Object Store</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ACID Compliance</strong></td>
+      <td>20%</td>
+      <td>10</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Query Flexibility</strong></td>
+      <td>15%</td>
+      <td>10</td>
+      <td>2</td>
+      <td>7</td>
+      <td>8</td>
+      <td>5</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Horizontal Scaling</strong></td>
+      <td>15%</td>
+      <td>3</td>
+      <td>9</td>
+      <td>8</td>
+      <td>7</td>
+      <td>8</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Write Performance</strong></td>
+      <td>12%</td>
+      <td>5</td>
+      <td>9</td>
+      <td>8</td>
+      <td>7</td>
+      <td>9</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Read Performance</strong></td>
+      <td>12%</td>
+      <td>8</td>
+      <td>9</td>
+      <td>7</td>
+      <td>7</td>
+      <td>8</td>
+      <td>8</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Flexibility</strong></td>
+      <td>10%</td>
+      <td>2</td>
+      <td>10</td>
+      <td>6</td>
+      <td>10</td>
+      <td>7</td>
+      <td>5</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Operational Cost</strong></td>
+      <td>8%</td>
+      <td>6</td>
+      <td>8</td>
+      <td>7</td>
+      <td>6</td>
+      <td>7</td>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Team Expertise</strong></td>
+      <td>8%</td>
+      <td>9</td>
+      <td>7</td>
+      <td>5</td>
+      <td>6</td>
+      <td>5</td>
+      <td>4</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Total Score</strong></td>
+      <td><strong>100%</strong></td>
+      <td><strong>7.2</strong></td>
+      <td><strong>7.1</strong></td>
+      <td><strong>6.5</strong></td>
+      <td><strong>6.8</strong></td>
+      <td><strong>6.8</strong></td>
+      <td><strong>5.6</strong></td>
+      <td><strong>6.8</strong></td>
+    </tr>
+  </tbody>
+</table></div><hr />
+<h2 id="-scaling-strategies">
+  
+  
+    <a href="#-scaling-strategies" class="anchor-heading" aria-labelledby="-scaling-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>SCALING STRATEGIES</strong>
+  
+  
+</h2>
+    
+<h3 id="horizontal-scaling-scale-out">
+  
+  
+    <a href="#horizontal-scaling-scale-out" class="anchor-heading" aria-labelledby="horizontal-scaling-scale-out"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Horizontal Scaling (Scale Out)</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Hash-based Sharding</strong>: Even distribution, consistent hashing</li>
+  <li><strong>Range-based Sharding</strong>: Efficient range queries, potential hotspots</li>
+  <li><strong>Directory-based Sharding</strong>: Flexible distribution, centralized control</li>
+  <li><strong>Leader-Follower Replication</strong>: Primary for writes, replicas for reads</li>
+  <li><strong>Multi-Master Replication</strong>: Multiple write nodes, conflict resolution</li>
+</ul>
+<h3 id="vertical-scaling-scale-up">
+  
+  
+    <a href="#vertical-scaling-scale-up" class="anchor-heading" aria-labelledby="vertical-scaling-scale-up"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Vertical Scaling (Scale Up)</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>CPU</strong>: Multi-core utilization, hyper-threading, CPU affinity</li>
+  <li><strong>Memory</strong>: Larger RAM, memory hierarchy optimization, NUMA awareness</li>
+  <li><strong>Storage</strong>: SSD/NVMe drives, RAID configurations, storage tiering</li>
+  <li><strong>Network</strong>: Higher bandwidth, lower latency, network optimization</li>
+</ul><hr />
+<h2 id="️-consistency-models">
+  
+  
+    <a href="#️-consistency-models" class="anchor-heading" aria-labelledby="️-consistency-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>CONSISTENCY MODELS</strong>
+  
+  
+</h2>
+    
+<h3 id="strong-consistency">
+  
+  
+    <a href="#strong-consistency" class="anchor-heading" aria-labelledby="strong-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Strong Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Linearizability</strong>: All operations appear atomic with global ordering</li>
+  <li><strong>Sequential Consistency</strong>: Operations appear in some sequential order</li>
+  <li><strong>Causal Consistency</strong>: Causally related operations appear in order</li>
+  <li><strong>Use Cases</strong>: Financial transactions, user accounts, critical data</li>
+</ul>
+<h3 id="eventual-consistency">
+  
+  
+    <a href="#eventual-consistency" class="anchor-heading" aria-labelledby="eventual-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Eventual Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Monotonic Reads</strong>: Reads never go backwards in time</li>
+  <li><strong>Monotonic Writes</strong>: Writes appear in order for same client</li>
+  <li><strong>Read-Your-Writes</strong>: Client sees own writes immediately</li>
+  <li><strong>Use Cases</strong>: Social media feeds, content delivery, non-critical data</li>
+</ul><hr />
+<h2 id="-market-implementations">
+  
+  
+    <a href="#-market-implementations" class="anchor-heading" aria-labelledby="-market-implementations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>MARKET IMPLEMENTATIONS</strong>
+  
+  
+</h2>
+    
+<h3 id="rdbms">
+  
+  
+    <a href="#rdbms" class="anchor-heading" aria-labelledby="rdbms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>RDBMS</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>MySQL</strong>: Web applications, high availability</li>
+  <li><strong>PostgreSQL</strong>: Complex queries, ACID compliance</li>
+  <li><strong>Oracle</strong>: Enterprise applications, high performance</li>
+</ul>
+<h3 id="nosql">
+  
+  
+    <a href="#nosql" class="anchor-heading" aria-labelledby="nosql"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>NoSQL</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>MongoDB</strong>: Document store, flexible schema</li>
+  <li><strong>Cassandra</strong>: Wide column, high availability</li>
+  <li><strong>Redis</strong>: Key-value, in-memory performance</li>
+  <li><strong>Elasticsearch</strong>: Text search, analytics</li>
+</ul>
+<h3 id="specialized">
+  
+  
+    <a href="#specialized" class="anchor-heading" aria-labelledby="specialized"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Specialized</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>InfluxDB</strong>: Time series data</li>
+  <li><strong>S3</strong>: Object storage, cloud-native</li>
+  <li><strong>DynamoDB</strong>: Managed NoSQL, auto-scaling</li>
+</ul><hr />
+<h2 id="-quick-decision-tree">
+  
+  
+    <a href="#-quick-decision-tree" class="anchor-heading" aria-labelledby="-quick-decision-tree"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>QUICK DECISION TREE</strong>
+  
+  
+</h2>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ACID Required? → RDBMS
+High Performance? → Key-Value
+Analytics? → Wide Column
+Time Series? → Time Series DB
+Search? → Text Search Engine
+Large Files? → Object Store
+Flexible Schema? → Document Store
+</code></pre></div></div><hr />
+<h2 id="-performance-characteristics">
+  
+  
+    <a href="#-performance-characteristics" class="anchor-heading" aria-labelledby="-performance-characteristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>PERFORMANCE CHARACTERISTICS</strong>
+  
+  
+</h2>
+    
+<h3 id="read-heavy-workloads">
+  
+  
+    <a href="#read-heavy-workloads" class="anchor-heading" aria-labelledby="read-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Read-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Optimizations</strong>: Read replicas, caching layers, B-tree indexing</li>
+  <li><strong>Storage Types</strong>: RDBMS with B-tree indexes, read-optimized NoSQL</li>
+  <li><strong>Performance Metrics</strong>: 1-10ms latency, 10K-100K ops/sec throughput</li>
+</ul>
+<h3 id="write-heavy-workloads">
+  
+  
+    <a href="#write-heavy-workloads" class="anchor-heading" aria-labelledby="write-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Write-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Optimizations</strong>: Write buffering, LSM trees, async processing</li>
+  <li><strong>Storage Types</strong>: LSM-based stores, time series databases</li>
+  <li><strong>Performance Metrics</strong>: 1-100ms latency, 1K-100K ops/sec throughput</li>
+</ul>
+<h3 id="mixed-workloads">
+  
+  
+    <a href="#mixed-workloads" class="anchor-heading" aria-labelledby="mixed-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Mixed Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Strategies</strong>: Read/write separation, caching layers, background processing</li>
+  <li><strong>Architecture</strong>: Multi-tier storage, intelligent routing, load balancing</li>
+  <li><strong>Performance Metrics</strong>: 5-50ms latency, 5K-50K ops/sec throughput</li>
+</ul><hr />
+<h2 id="-operational-nuances">
+  
+  
+    <a href="#-operational-nuances" class="anchor-heading" aria-labelledby="-operational-nuances"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>OPERATIONAL NUANCES</strong>
+  
+  
+</h2>
+    
+<h3 id="backup-strategies">
+  
+  
+    <a href="#backup-strategies" class="anchor-heading" aria-labelledby="backup-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Backup Strategies</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Full Backups</strong>: Complete data copy, daily/weekly, 2-3x storage</li>
+  <li><strong>Incremental Backups</strong>: Changed data only, hourly/daily, 10-50% storage</li>
+  <li><strong>Continuous Backup</strong>: Real-time replication, zero data loss</li>
+</ul>
+<h3 id="recovery-procedures">
+  
+  
+    <a href="#recovery-procedures" class="anchor-heading" aria-labelledby="recovery-procedures"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Recovery Procedures</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Point-in-Time Recovery</strong>: RTO 15min-4hr, RPO 1min-1hr</li>
+  <li><strong>Disaster Recovery</strong>: Multi-region, RTO 5-30min, RPO 1-5min</li>
+  <li><strong>Failover Process</strong>: Automatic detection, promotion, DNS updates</li>
+</ul>
+<h3 id="monitoring--alerting">
+  
+  
+    <a href="#monitoring--alerting" class="anchor-heading" aria-labelledby="monitoring--alerting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring &amp; Alerting</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Performance</strong>: Query latency, throughput, cache hit rate</li>
+  <li><strong>Operational</strong>: Backup success, replication lag, disk space</li>
+  <li><strong>Critical Alerts</strong>: DB unavailable, replication lag &gt;30s, disk &gt;90%</li>
+</ul>
+<h3 id="maintenance-procedures">
+  
+  
+    <a href="#maintenance-procedures" class="anchor-heading" aria-labelledby="maintenance-procedures"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Maintenance Procedures</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Schema Migrations</strong>: Zero-downtime, dual-write capability</li>
+  <li><strong>Index Management</strong>: Online creation, usage analysis, cleanup</li>
+  <li><strong>Rollback Plans</strong>: Always maintain ability to rollback</li>
+</ul><hr />
+<h2 id="-frequently-asked-questions-faqs">
+  
+  
+    <a href="#-frequently-asked-questions-faqs" class="anchor-heading" aria-labelledby="-frequently-asked-questions-faqs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ❓ <strong>FREQUENTLY ASKED QUESTIONS (FAQs)</strong>
+  
+  
+</h2>
+    
+<h3 id="common-misconceptions">
+  
+  
+    <a href="#common-misconceptions" class="anchor-heading" aria-labelledby="common-misconceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Misconceptions</strong>
+  
+  
+</h3>
+    
+<h4 id="q1-rdbms-cant-scale">
+  
+  
+    <a href="#q1-rdbms-cant-scale" class="anchor-heading" aria-labelledby="q1-rdbms-cant-scale"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q1: “RDBMS can’t scale”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - RDBMS can scale significantly:</p>
+<ul>
+  <li><strong>Vertical</strong>: CPU, memory, storage upgrades (2-10x)</li>
+  <li><strong>Horizontal</strong>: Read replicas (10-50x), sharding (100-1000x)</li>
+  <li><strong>Real Examples</strong>: Facebook MySQL (1B+ users), YouTube (1B+ requests/day)</li>
+</ul>
+<h4 id="q2-nosql-is-always-faster-than-rdbms">
+  
+  
+    <a href="#q2-nosql-is-always-faster-than-rdbms" class="anchor-heading" aria-labelledby="q2-nosql-is-always-faster-than-rdbms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q2: “NoSQL is always faster than RDBMS”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Performance depends on use case:</p>
+<ul>
+  <li><strong>Simple Lookups</strong>: NoSQL (0.1-1ms) vs RDBMS (1-10ms)</li>
+  <li><strong>Complex Queries</strong>: RDBMS (1-10ms) vs NoSQL (10-100ms)</li>
+  <li><strong>Analytics</strong>: RDBMS (10ms-1s) vs NoSQL (100ms-10s)</li>
+</ul>
+<h4 id="q3-document-stores-are-schema-less">
+  
+  
+    <a href="#q3-document-stores-are-schema-less" class="anchor-heading" aria-labelledby="q3-document-stores-are-schema-less"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q3: “Document stores are schema-less”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: PARTIALLY TRUE</strong> - Schema flexibility has trade-offs:</p>
+<ul>
+  <li><strong>Flexible</strong>: Add fields without migration</li>
+  <li><strong>Constraints</strong>: Application-level validation required</li>
+  <li><strong>Indexing</strong>: Schema changes affect query performance</li>
+</ul>
+<h4 id="q4-time-series-dbs-are-just-databases-with-timestamps">
+  
+  
+    <a href="#q4-time-series-dbs-are-just-databases-with-timestamps" class="anchor-heading" aria-labelledby="q4-time-series-dbs-are-just-databases-with-timestamps"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Q4: “Time series DBs are just databases with timestamps”</strong>
+  
+  
+</h4>
+    
+<p><strong>A: FALSE</strong> - Highly specialized for time data:</p>
+<ul>
+  <li><strong>Storage</strong>: Time-based partitioning, columnar compression</li>
+  <li><strong>Queries</strong>: Time-range optimization, aggregation functions</li>
+  <li><strong>Lifecycle</strong>: Automatic downsampling, retention policies</li>
+</ul>
+<h2 id="-scaling-mechanisms">
+  
+  
+    <a href="#-scaling-mechanisms" class="anchor-heading" aria-labelledby="-scaling-mechanisms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>SCALING MECHANISMS</strong>
+  
+  
+</h2>
+    
+<h3 id="rdbms-scaling">
+  
+  
+    <a href="#rdbms-scaling" class="anchor-heading" aria-labelledby="rdbms-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>RDBMS Scaling</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Scale Factor | Implementation | Use Case |
+|———-|————–|—————-|———-|
+| <strong>Vertical Scaling</strong> | 2-10x | Hardware upgrade | Single instance performance |
+| <strong>Read Replicas</strong> | 10-50x | Master-slave replication | Read-heavy workloads |
+| <strong>Sharding</strong> | 100-1000x | Hash/range partitioning | Write-heavy workloads |
+| <strong>Partitioning</strong> | 10-100x | Table partitioning | Large tables |</p>
+<h3 id="key-value-store-scaling">
+  
+  
+    <a href="#key-value-store-scaling" class="anchor-heading" aria-labelledby="key-value-store-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key-Value Store Scaling</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Scale Factor | Implementation | Use Case |
+|———-|————–|—————-|———-|
+| <strong>Horizontal Scaling</strong> | 100-1000x | Consistent hashing | Even distribution |
+| <strong>Replication</strong> | 10-100x | Master-slave | High availability |
+| <strong>Partitioning</strong> | 100-1000x | Hash partitioning | Data distribution |
+| <strong>Auto-scaling</strong> | 10-100x | Dynamic scaling | Variable workloads |</p>
+<h3 id="document-store-scaling">
+  
+  
+    <a href="#document-store-scaling" class="anchor-heading" aria-labelledby="document-store-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Document Store Scaling</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Scale Factor | Implementation | Use Case |
+|———-|————–|—————-|———-|
+| <strong>Horizontal Scaling</strong> | 100-1000x | Sharding | Data distribution |
+| <strong>Replication</strong> | 10-100x | Replica sets | High availability |
+| <strong>Indexing</strong> | 10-100x | B-tree indexes | Query performance |
+| <strong>Caching</strong> | 10-100x | In-memory cache | Frequently accessed data |</p>
+<h3 id="wide-column-store-scaling">
+  
+  
+    <a href="#wide-column-store-scaling" class="anchor-heading" aria-labelledby="wide-column-store-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Wide Column Store Scaling</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Scale Factor | Implementation | Use Case |
+|———-|————–|—————-|———-|
+| <strong>Horizontal Scaling</strong> | 100-1000x | Consistent hashing | Data distribution |
+| <strong>Replication</strong> | 10-100x | Multi-DC replication | Geographic distribution |
+| <strong>Compression</strong> | 2-10x | Columnar compression | Storage optimization |
+| <strong>Batch Operations</strong> | 10-100x | Bulk operations | High throughput |</p>
+<h3 id="time-series-db-scaling">
+  
+  
+    <a href="#time-series-db-scaling" class="anchor-heading" aria-labelledby="time-series-db-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Time Series DB Scaling</strong>
+  
+  
+</h3>
+    
+<p>| Strategy | Scale Factor | Implementation | Use Case |
+|———-|————–|—————-|———-|
+| <strong>Horizontal Scaling</strong> | 100-1000x | Time-based sharding | Data distribution |
+| <strong>Compression</strong> | 5-20x | Columnar compression | Storage optimization |
+| <strong>Downsampling</strong> | 10-100x | Time-based aggregation | Long-term storage |
+| <strong>Retention Policies</strong> | 10-100x | TTL-based deletion | Storage management |</p>
+<h2 id="-consensus-algorithms">
+  
+  
+    <a href="#-consensus-algorithms" class="anchor-heading" aria-labelledby="-consensus-algorithms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔄 <strong>CONSENSUS ALGORITHMS</strong>
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Use Case</th>
+      <th>Complexity</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Paxos</strong></td>
+      <td>Distributed consensus</td>
+      <td>High</td>
+      <td>Google Chubby, ZooKeeper</td>
+    </tr>
+    <tr>
+      <td><strong>Raft</strong></td>
+      <td>Distributed consensus</td>
+      <td>Medium</td>
+      <td>etcd, Consul, MongoDB</td>
+    </tr>
+    <tr>
+      <td><strong>Gossip</strong></td>
+      <td>Eventual consistency</td>
+      <td>Low</td>
+      <td>Cassandra, DynamoDB</td>
+    </tr>
+    <tr>
+      <td><strong>Vector Clocks</strong></td>
+      <td>Causal consistency</td>
+      <td>Medium</td>
+      <td>DynamoDB, Riak</td>
+    </tr>
+    <tr>
+      <td><strong>CRDTs</strong></td>
+      <td>Conflict resolution</td>
+      <td>Low</td>
+      <td>Riak, Redis CRDTs</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="️-system-characteristics">
+  
+  
+    <a href="#️-system-characteristics" class="anchor-heading" aria-labelledby="️-system-characteristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🛡️ <strong>SYSTEM CHARACTERISTICS</strong>
+  
+  
+</h2>
+    
+<h3 id="availability-by-storage-type">
+  
+  
+    <a href="#availability-by-storage-type" class="anchor-heading" aria-labelledby="availability-by-storage-type"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Availability by Storage Type</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Native | Max with Scaling | Failure Recovery |
+|————–|——–|——————|——————|
+| <strong>RDBMS</strong> | 99.9% | 99.99% | Automatic failover |
+| <strong>Key-Value</strong> | 99.95% | 99.999% | Sub-second failover |
+| <strong>Document</strong> | 99.9% | 99.99% | Automatic failover |
+| <strong>Wide Column</strong> | 99.99% | 99.999% | Geographic failover |
+| <strong>Time Series</strong> | 99.9% | 99.99% | Automatic failover |
+| <strong>Object Store</strong> | 99.99% | 99.999% | Regional failover |</p>
+<h3 id="consistency-models">
+  
+  
+    <a href="#consistency-models" class="anchor-heading" aria-labelledby="consistency-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Consistency Models</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Default | Configurable | Trade-offs |
+|————–|———|————–|————|
+| <strong>RDBMS</strong> | Linearizable | Read committed, repeatable read | Performance vs consistency |
+| <strong>Key-Value</strong> | Eventual | Strong, causal, session | Consistency vs availability |
+| <strong>Document</strong> | Eventual | Read concern levels | Consistency vs performance |
+| <strong>Wide Column</strong> | Eventual | Quorum reads/writes | Consistency vs latency |
+| <strong>Time Series</strong> | Eventual | Time-based consistency | Consistency vs performance |</p>
+<h2 id="-backup--archival">
+  
+  
+    <a href="#-backup--archival" class="anchor-heading" aria-labelledby="-backup--archival"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 💾 <strong>BACKUP &amp; ARCHIVAL</strong>
+  
+  
+</h2>
+    
+<h3 id="backup-methods">
+  
+  
+    <a href="#backup-methods" class="anchor-heading" aria-labelledby="backup-methods"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Backup Methods</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Method | Recovery Time | Frequency |
+|————–|——–|—————|———–|
+| <strong>RDBMS</strong> | Full + incremental | Hours | Daily |
+| <strong>Key-Value</strong> | Snapshot + WAL | Minutes | Daily |
+| <strong>Document</strong> | Oplog replay | Minutes | Daily |
+| <strong>Wide Column</strong> | SSTable backup | Hours | Daily |
+| <strong>Time Series</strong> | Time-based backup | Minutes | Daily |
+| <strong>Object Store</strong> | Cross-region copy | Hours | Daily |</p>
+<h3 id="storage-tiering">
+  
+  
+    <a href="#storage-tiering" class="anchor-heading" aria-labelledby="storage-tiering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Tiering</strong>
+  
+  
+</h3>
+    
+<p>| Tier | Access Pattern | Latency | Cost | Migration Trigger |
+|——|—————-|———|——|——————-|
+| <strong>Hot</strong> | Frequent | &lt; 10ms | High | Active data |
+| <strong>Warm</strong> | Occasional | 10-100ms | Medium | Recent data |
+| <strong>Cold</strong> | Rare | 100ms-1s | Low | Historical data |
+| <strong>Archive</strong> | Compliance | 1s-1min | Very Low | Long-term retention |</p>
+<h2 id="-capacity--limits">
+  
+  
+    <a href="#-capacity--limits" class="anchor-heading" aria-labelledby="-capacity--limits"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>CAPACITY &amp; LIMITS</strong>
+  
+  
+</h2>
+    
+<h3 id="storage-capacity">
+  
+  
+    <a href="#storage-capacity" class="anchor-heading" aria-labelledby="storage-capacity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Capacity</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Single Instance | Clustered | Total Capacity |
+|————–|—————-|———–|—————-|
+| <strong>RDBMS</strong> | 1-10TB | 100TB-1PB | 1PB+ |
+| <strong>Key-Value</strong> | 100GB-1TB | 10TB-100TB | 100TB+ |
+| <strong>Document</strong> | 1-10TB | 100TB-1PB | 1PB+ |
+| <strong>Wide Column</strong> | 10-100TB | 1PB-10PB | 10PB+ |
+| <strong>Time Series</strong> | 1-10TB | 100TB-1PB | 1PB+ |
+| <strong>Object Store</strong> | 1-10TB | 1PB-100PB | 100PB+ |</p>
+<h3 id="performance-limits">
+  
+  
+    <a href="#performance-limits" class="anchor-heading" aria-labelledby="performance-limits"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Limits</strong>
+  
+  
+</h3>
+    
+<p>| Storage Type | Read Throughput | Write Throughput | Concurrent Connections |
+|————–|—————-|——————|———————-|
+| <strong>RDBMS</strong> | 10K-100K ops/sec | 1K-10K ops/sec | 10K-100K |
+| <strong>Key-Value</strong> | 100K-1M ops/sec | 100K-1M ops/sec | 100K-1M |
+| <strong>Document</strong> | 10K-100K ops/sec | 10K-100K ops/sec | 10K-100K |
+| <strong>Wide Column</strong> | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| <strong>Time Series</strong> | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| <strong>Object Store</strong> | 100-1K ops/sec | 100-1K ops/sec | 1K-10K |</p>
+<h2 id="️-common-pitfalls">
+  
+  
+    <a href="#️-common-pitfalls" class="anchor-heading" aria-labelledby="️-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>COMMON PITFALLS</strong>
+  
+  
+</h2>
+    
+<h3 id="rdbms-pitfalls">
+  
+  
+    <a href="#rdbms-pitfalls" class="anchor-heading" aria-labelledby="rdbms-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>RDBMS Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>N+1 Query Problem</strong>: Multiple queries instead of joins</li>
+  <li><strong>Missing Indexes</strong>: No indexes on frequently queried columns</li>
+  <li><strong>Connection Pool Exhaustion</strong>: Too many database connections</li>
+  <li><strong>Long-Running Transactions</strong>: Transactions holding locks too long</li>
+</ul>
+<h3 id="key-value-store-pitfalls">
+  
+  
+    <a href="#key-value-store-pitfalls" class="anchor-heading" aria-labelledby="key-value-store-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key-Value Store Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Memory Exhaustion</strong>: Running out of memory</li>
+  <li><strong>Hot Keys</strong>: Uneven key distribution</li>
+  <li><strong>Network Partition</strong>: Split-brain scenarios</li>
+  <li><strong>Cache Stampede</strong>: Multiple requests for same expired key</li>
+</ul>
+<h3 id="document-store-pitfalls">
+  
+  
+    <a href="#document-store-pitfalls" class="anchor-heading" aria-labelledby="document-store-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Document Store Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Large Documents</strong>: Documents exceeding 16MB</li>
+  <li><strong>Missing Indexes</strong>: No indexes on queried fields</li>
+  <li><strong>Schema Drift</strong>: Inconsistent document structures</li>
+  <li><strong>Embedded Array Growth</strong>: Unbounded array growth</li>
+</ul>
+<h3 id="wide-column-store-pitfalls">
+  
+  
+    <a href="#wide-column-store-pitfalls" class="anchor-heading" aria-labelledby="wide-column-store-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Wide Column Store Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Poor Partition Key Design</strong>: Uneven data distribution</li>
+  <li><strong>Wide Rows</strong>: Too many columns per row</li>
+  <li><strong>Read Repair Overhead</strong>: Frequent consistency repairs</li>
+  <li><strong>Compaction Pressure</strong>: Insufficient compaction resources</li>
+</ul>
+<h3 id="time-series-db-pitfalls">
+  
+  
+    <a href="#time-series-db-pitfalls" class="anchor-heading" aria-labelledby="time-series-db-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Time Series DB Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Cardinality Explosion</strong>: Too many unique time series</li>
+  <li><strong>Retention Policy Issues</strong>: Incorrect data lifecycle</li>
+  <li><strong>Query Time Range</strong>: Very large time ranges</li>
+  <li><strong>Downsampling Configuration</strong>: Incorrect aggregation intervals</li>
+</ul>
+<h2 id="-key-takeaways">
+  
+  
+    <a href="#-key-takeaways" class="anchor-heading" aria-labelledby="-key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>KEY TAKEAWAYS</strong>
+  
+  
+</h2>
+    
+
+<ol>
+  <li><strong>Choose storage based on access patterns, not just data structure</strong></li>
+  <li><strong>Consider consistency requirements vs. performance needs</strong></li>
+  <li><strong>Plan for scaling from day one</strong></li>
+  <li><strong>Use appropriate indexing strategies for your workload</strong></li>
+  <li><strong>Monitor and optimize based on actual usage patterns</strong></li>
+  <li><strong>Consider operational complexity and team expertise</strong></li>
+  <li><strong>Plan for data lifecycle and retention policies</strong></li>
+  <li><strong>Implement comprehensive backup and recovery procedures</strong></li>
+  <li><strong>Establish monitoring and alerting for operational visibility</strong></li>
+  <li><strong>Plan for zero-downtime maintenance procedures</strong></li>
+</ol><hr />
+
+<p><em>This summary provides quick reference for data storage systems. Use it for rapid revision and decision-making during system design discussions.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

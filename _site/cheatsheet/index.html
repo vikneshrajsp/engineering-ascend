@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+.site-nav > ul.nav-list:first-child > li:not(:nth-child(12)) > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > a,
+.site-nav > ul.nav-list:first-child > li > ul > li > ul > li > a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:not(:first-child) a,
+.site-nav li.external a {
+  background-image: none;
+}
+
+.site-nav > ul.nav-list:first-child > li:nth-child(12) > a {
+  font-weight: 600;
+  text-decoration: none;
+}.site-nav > ul.nav-list:first-child > li:nth-child(12) > button svg {
+  transform: rotate(-90deg);
+}.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(12) > ul.nav-list {
+  display: block;
+}
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>System Design - Quick Reference | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="System Design - Quick Reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Essential system design concepts, patterns, and decision frameworks for technical interviews" />
+<meta property="og:description" content="Essential system design concepts, patterns, and decision frameworks for technical interviews" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/cheatsheet/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/cheatsheet/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="System Design - Quick Reference" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Essential system design concepts, patterns, and decision frameworks for technical interviews","headline":"System Design - Quick Reference","url":"https://vikneshrajsp.github.io/engineering-ascend/cheatsheet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="system-design---quick-reference">
+  
+  
+    <a href="#system-design---quick-reference" class="anchor-heading" aria-labelledby="system-design---quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> System Design - Quick Reference
+  
+  
+</h1>
+    
+
+<blockquote>
+  <p>Essential system design concepts, patterns, and decision frameworks for technical interviews and architecture design.</p>
+</blockquote>
+<h2 id="️-building-blocks-decision-tree">
+  
+  
+    <a href="#️-building-blocks-decision-tree" class="anchor-heading" aria-labelledby="️-building-blocks-decision-tree"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>BUILDING BLOCKS DECISION TREE</strong>
+  
+  
+</h2>
+    
+<h3 id="data-storage">
+  
+  
+    <a href="#data-storage" class="anchor-heading" aria-labelledby="data-storage"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Storage</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ACID Required? → RDBMS (MySQL, PostgreSQL)
+High Performance? → Key-Value (Redis, DynamoDB)
+Analytics? → Wide Column (Cassandra, HBase)
+Time Series? → InfluxDB, TimescaleDB
+Search? → Elasticsearch, Solr
+Large Files? → Object Store (S3, GCS)
+</code></pre></div></div>
+<h3 id="compute--processing">
+  
+  
+    <a href="#compute--processing" class="anchor-heading" aria-labelledby="compute--processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Compute &amp; Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I/O Bound? → Async Processing + CPU
+CPU Bound? → Multi-core + Algorithm Optimization
+Parallel Workload? → GPU + Distributed Computing
+Batch Processing? → MapReduce + Stream Processing
+Real-time? → Event-Driven + Stream Processing
+</code></pre></div></div>
+<h3 id="messaging--communication">
+  
+  
+    <a href="#messaging--communication" class="anchor-heading" aria-labelledby="messaging--communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Messaging &amp; Communication</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reliable Delivery? → Message Queue (RabbitMQ, SQS)
+Broadcasting? → Pub/Sub (Kafka, SNS)
+Event Sourcing? → Event Streaming (Kafka, Pulsar)
+Real-time? → WebSocket + Stream Processing
+</code></pre></div></div>
+<h3 id="networking--load-balancing">
+  
+  
+    <a href="#networking--load-balancing" class="anchor-heading" aria-labelledby="networking--load-balancing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Networking &amp; Load Balancing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Layer 7 Routing? → Application Load Balancer
+High Performance? → Network Load Balancer
+Global Distribution? → CDN + Geographic Load Balancing
+Microservices? → Service Mesh (Istio, Linkerd)
+</code></pre></div></div>
+<h3 id="caching-strategy">
+  
+  
+    <a href="#caching-strategy" class="anchor-heading" aria-labelledby="caching-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Caching Strategy</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fastest Access? → In-Memory Cache (Redis)
+Shared Access? → Distributed Cache (Redis Cluster)
+Global Distribution? → CDN
+Multi-level? → L1 (Memory) + L2 (Redis) + L3 (Database)
+</code></pre></div></div><hr />
+<h2 id="-trade-off-matrix">
+  
+  
+    <a href="#-trade-off-matrix" class="anchor-heading" aria-labelledby="-trade-off-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>TRADE-OFF MATRIX</strong>
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Option A</th>
+      <th>Option B</th>
+      <th>When to Choose A</th>
+      <th>When to Choose B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Consistency</strong></td>
+      <td>Strong</td>
+      <td>Eventual</td>
+      <td>Financial, User Accounts</td>
+      <td>Social Media, Content</td>
+    </tr>
+    <tr>
+      <td><strong>Availability</strong></td>
+      <td>High</td>
+      <td>Low</td>
+      <td>Social Media, Content</td>
+      <td>Financial, Critical Systems</td>
+    </tr>
+    <tr>
+      <td><strong>Performance</strong></td>
+      <td>Low Latency</td>
+      <td>High Throughput</td>
+      <td>Real-time, User Experience</td>
+      <td>Batch Processing, Analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Scalability</strong></td>
+      <td>Vertical</td>
+      <td>Horizontal</td>
+      <td>Small Scale, Simple</td>
+      <td>Large Scale, Complex</td>
+    </tr>
+    <tr>
+      <td><strong>Complexity</strong></td>
+      <td>Simple</td>
+      <td>Complex</td>
+      <td>MVP, Small Team</td>
+      <td>Enterprise, Large Team</td>
+    </tr>
+    <tr>
+      <td><strong>Cost</strong></td>
+      <td>Low</td>
+      <td>High</td>
+      <td>Startup, Budget Constrained</td>
+      <td>Enterprise, Performance Critical</td>
+    </tr>
+  </tbody>
+</table></div><hr />
+<h2 id="-scaling-patterns">
+  
+  
+    <a href="#-scaling-patterns" class="anchor-heading" aria-labelledby="-scaling-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>SCALING PATTERNS</strong>
+  
+  
+</h2>
+    
+<h3 id="horizontal-scaling">
+  
+  
+    <a href="#horizontal-scaling" class="anchor-heading" aria-labelledby="horizontal-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Horizontal Scaling</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Sharding</strong>: Data distribution across nodes</li>
+  <li><strong>Partitioning</strong>: Logical data separation</li>
+  <li><strong>Replication</strong>: Data redundancy and availability</li>
+  <li><strong>Load Balancing</strong>: Traffic distribution</li>
+</ul>
+<h3 id="vertical-scaling">
+  
+  
+    <a href="#vertical-scaling" class="anchor-heading" aria-labelledby="vertical-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Vertical Scaling</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>CPU</strong>: More cores, higher clock speeds</li>
+  <li><strong>Memory</strong>: Larger RAM, faster access</li>
+  <li><strong>Storage</strong>: SSDs, NVMe drives</li>
+  <li><strong>Network</strong>: Higher bandwidth, lower latency</li>
+</ul><hr />
+<h2 id="-consistency-models">
+  
+  
+    <a href="#-consistency-models" class="anchor-heading" aria-labelledby="-consistency-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔄 <strong>CONSISTENCY MODELS</strong>
+  
+  
+</h2>
+    
+<h3 id="strong-consistency">
+  
+  
+    <a href="#strong-consistency" class="anchor-heading" aria-labelledby="strong-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Strong Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Linearizability</strong>: All operations appear atomic</li>
+  <li><strong>Sequential Consistency</strong>: Operations appear in sequential order</li>
+  <li><strong>Use Cases</strong>: Financial transactions, user accounts</li>
+</ul>
+<h3 id="eventual-consistency">
+  
+  
+    <a href="#eventual-consistency" class="anchor-heading" aria-labelledby="eventual-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Eventual Consistency</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Monotonic Reads</strong>: Reads never go backwards</li>
+  <li><strong>Monotonic Writes</strong>: Writes appear in order</li>
+  <li><strong>Use Cases</strong>: Social media feeds, content delivery</li>
+</ul><hr />
+<h2 id="-performance-optimization">
+  
+  
+    <a href="#-performance-optimization" class="anchor-heading" aria-labelledby="-performance-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>PERFORMANCE OPTIMIZATION</strong>
+  
+  
+</h2>
+    
+<h3 id="read-heavy-workloads">
+  
+  
+    <a href="#read-heavy-workloads" class="anchor-heading" aria-labelledby="read-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Read-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Optimizations</strong>: Read replicas, caching, indexing</li>
+  <li><strong>Storage Types</strong>: RDBMS with B-tree indexes, read-optimized NoSQL</li>
+</ul>
+<h3 id="write-heavy-workloads">
+  
+  
+    <a href="#write-heavy-workloads" class="anchor-heading" aria-labelledby="write-heavy-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Write-Heavy Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Optimizations</strong>: Write buffering, LSM trees, async processing</li>
+  <li><strong>Storage Types</strong>: LSM-based stores, time series databases</li>
+</ul>
+<h3 id="mixed-workloads">
+  
+  
+    <a href="#mixed-workloads" class="anchor-heading" aria-labelledby="mixed-workloads"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Mixed Workloads</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Strategies</strong>: Read/write separation, caching layers, background processing</li>
+  <li><strong>Architecture</strong>: Multi-tier storage, intelligent routing</li>
+</ul><hr />
+<h2 id="-indexing-strategies">
+  
+  
+    <a href="#-indexing-strategies" class="anchor-heading" aria-labelledby="-indexing-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>INDEXING STRATEGIES</strong>
+  
+  
+</h2>
+    
+<h3 id="in-memory-indexes">
+  
+  
+    <a href="#in-memory-indexes" class="anchor-heading" aria-labelledby="in-memory-indexes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>In-Memory Indexes</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Hash Tables</strong>: O(1) lookup, memory-intensive</li>
+  <li><strong>B-Trees</strong>: Balanced performance, range queries</li>
+  <li><strong>Skip Lists</strong>: Probabilistic structure, good for concurrent access</li>
+</ul>
+<h3 id="on-disk-indexes">
+  
+  
+    <a href="#on-disk-indexes" class="anchor-heading" aria-labelledby="on-disk-indexes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>On-Disk Indexes</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>B-Tree Variants</strong>: Optimized for disk access patterns</li>
+  <li><strong>LSM Trees</strong>: Write-optimized, background compaction</li>
+  <li><strong>Bitmap Indexes</strong>: Boolean operations, compression</li>
+</ul><hr />
+<h2 id="-interview-framework">
+  
+  
+    <a href="#-interview-framework" class="anchor-heading" aria-labelledby="-interview-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>INTERVIEW FRAMEWORK</strong>
+  
+  
+</h2>
+    
+<h3 id="1-requirements-clarification">
+  
+  
+    <a href="#1-requirements-clarification" class="anchor-heading" aria-labelledby="1-requirements-clarification"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Requirements Clarification</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Functional requirements</li>
+  <li>Non-functional requirements (scale, performance, availability)</li>
+  <li>Constraints and assumptions</li>
+</ul>
+<h3 id="2-high-level-design">
+  
+  
+    <a href="#2-high-level-design" class="anchor-heading" aria-labelledby="2-high-level-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. High-Level Design</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>System components and their relationships</li>
+  <li>Data flow and API design</li>
+  <li>Technology choices and rationale</li>
+</ul>
+<h3 id="3-deep-dive">
+  
+  
+    <a href="#3-deep-dive" class="anchor-heading" aria-labelledby="3-deep-dive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Deep Dive</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Detailed component design</li>
+  <li>Data models and schemas</li>
+  <li>Scaling and performance considerations</li>
+</ul>
+<h3 id="4-trade-off-discussion">
+  
+  
+    <a href="#4-trade-off-discussion" class="anchor-heading" aria-labelledby="4-trade-off-discussion"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Trade-off Discussion</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Consistency vs. availability</li>
+  <li>Performance vs. complexity</li>
+  <li>Cost vs. performance</li>
+</ul>
+<h3 id="5-failure-scenarios">
+  
+  
+    <a href="#5-failure-scenarios" class="anchor-heading" aria-labelledby="5-failure-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Failure Scenarios</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Single points of failure</li>
+  <li>Disaster recovery</li>
+  <li>Monitoring and alerting</li>
+</ul><hr />
+<h2 id="-common-patterns">
+  
+  
+    <a href="#-common-patterns" class="anchor-heading" aria-labelledby="-common-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>COMMON PATTERNS</strong>
+  
+  
+</h2>
+    
+<h3 id="design-patterns">
+  
+  
+    <a href="#design-patterns" class="anchor-heading" aria-labelledby="design-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Design Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>CQRS</strong>: Command and query responsibility separation</li>
+  <li><strong>Event Sourcing</strong>: State reconstruction from events</li>
+  <li><strong>Saga Pattern</strong>: Distributed transaction coordination</li>
+  <li><strong>Circuit Breaker</strong>: Failure detection and isolation</li>
+  <li><strong>Bulkhead</strong>: Resource isolation and failure containment</li>
+</ul>
+<h3 id="architecture-patterns">
+  
+  
+    <a href="#architecture-patterns" class="anchor-heading" aria-labelledby="architecture-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Architecture Patterns</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Microservices</strong>: Service-oriented architecture</li>
+  <li><strong>Event-Driven</strong>: Reactive system design</li>
+  <li><strong>Lambda Architecture</strong>: Batch + stream processing</li>
+  <li><strong>Kappa Architecture</strong>: Stream-only processing</li>
+</ul><hr />
+<h2 id="-monitoring-metrics">
+  
+  
+    <a href="#-monitoring-metrics" class="anchor-heading" aria-labelledby="-monitoring-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>MONITORING METRICS</strong>
+  
+  
+</h2>
+    
+<h3 id="key-performance-indicators">
+  
+  
+    <a href="#key-performance-indicators" class="anchor-heading" aria-labelledby="key-performance-indicators"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Performance Indicators</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Latency</strong>: Response time percentiles (P50, P95, P99)</li>
+  <li><strong>Throughput</strong>: Operations per second</li>
+  <li><strong>Availability</strong>: Uptime percentage</li>
+  <li><strong>Error Rate</strong>: Failure percentage</li>
+  <li><strong>Resource Utilization</strong>: CPU, memory, disk, network</li>
+</ul>
+<h3 id="business-metrics">
+  
+  
+    <a href="#business-metrics" class="anchor-heading" aria-labelledby="business-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Business Metrics</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>User Experience</strong>: Page load time, transaction success rate</li>
+  <li><strong>Business Impact</strong>: Revenue, user engagement, conversion rates</li>
+  <li><strong>Operational</strong>: Cost per request, resource efficiency</li>
+</ul><hr />
+<h2 id="️-red-flags-to-avoid">
+  
+  
+    <a href="#️-red-flags-to-avoid" class="anchor-heading" aria-labelledby="️-red-flags-to-avoid"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>RED FLAGS TO AVOID</strong>
+  
+  
+</h2>
+    
+<h3 id="design-issues">
+  
+  
+    <a href="#design-issues" class="anchor-heading" aria-labelledby="design-issues"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Design Issues</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Single point of failure</li>
+  <li>No scalability plan</li>
+  <li>Ignoring consistency requirements</li>
+  <li>Over-engineering simple problems</li>
+  <li>No monitoring or observability</li>
+</ul>
+<h3 id="interview-mistakes">
+  
+  
+    <a href="#interview-mistakes" class="anchor-heading" aria-labelledby="interview-mistakes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Interview Mistakes</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li>Jumping to solutions without understanding requirements</li>
+  <li>Not considering trade-offs</li>
+  <li>Ignoring failure scenarios</li>
+  <li>No performance considerations</li>
+  <li>Not asking clarifying questions</li>
+</ul><hr />
+<h2 id="-key-takeaways">
+  
+  
+    <a href="#-key-takeaways" class="anchor-heading" aria-labelledby="-key-takeaways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>KEY TAKEAWAYS</strong>
+  
+  
+</h2>
+    
+
+<ol>
+  <li><strong>Always start with requirements clarification</strong></li>
+  <li><strong>Consider trade-offs explicitly</strong></li>
+  <li><strong>Plan for failure from day one</strong></li>
+  <li><strong>Monitor everything, optimize based on data</strong></li>
+  <li><strong>Choose simplicity over complexity when possible</strong></li>
+  <li><strong>Think about operational aspects</strong></li>
+  <li><strong>Consider cost implications of design choices</strong></li>
+</ol><hr />
+
+<p><em>Use this cheatsheet as a quick reference during interviews and system design discussions. Remember: there are no perfect solutions, only appropriate trade-offs for specific contexts.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

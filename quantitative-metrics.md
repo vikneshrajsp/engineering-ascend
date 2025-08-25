@@ -1,3 +1,9 @@
+---
+title: Quantitative Metrics for System Design
+description: Essential metrics and KPIs for system design and performance evaluation
+layout: default
+---
+
 # Quantitative Metrics for System Design
 ## Comprehensive Guide for Performance and Capacity Planning
 

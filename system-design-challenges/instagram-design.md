@@ -1,3 +1,11 @@
+---
+title: Instagram Design - System Design Challenge
+description: Comprehensive solution for instagram design system design challenge
+layout: default
+parent: Instagram Design
+grand_parent: System Design Challenges
+---
+
 # Design Instagram - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

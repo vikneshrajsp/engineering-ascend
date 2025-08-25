@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Security Authentication
+---
+
 # Security & Authentication Systems
 ## Concise Summary
 

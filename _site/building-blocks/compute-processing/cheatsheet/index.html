@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/engineering-ascend/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+.site-nav ul li a {
+  background-image: none;
+}
+
+  </style>
+
+  
+
+  
+    <script src="/engineering-ascend/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/engineering-ascend/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Cheatsheet | Engineering Ascend</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Cheatsheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<link rel="canonical" href="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/compute-processing/cheatsheet/" />
+<meta property="og:url" content="https://vikneshrajsp.github.io/engineering-ascend/building-blocks/compute-processing/cheatsheet/" />
+<meta property="og:site_name" content="Engineering Ascend" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cheatsheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Cheatsheet","url":"https://vikneshrajsp.github.io/engineering-ascend/building-blocks/compute-processing/cheatsheet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/engineering-ascend/" class="site-title lh-tight">
+  Engineering Ascend
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/engineering-ascend/back-of-envelope-estimation/" class="nav-list-link">Back-of-the-Envelope Cost Estimation</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/caching-performance/" class="nav-list-link">Caching & Performance - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/compute-processing/" class="nav-list-link">Compute & Processing - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/data-storage/" class="nav-list-link">Data Storage - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/" class="nav-list-link">Engineering Ascend</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/messaging-streaming/" class="nav-list-link">Messaging & Streaming - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/monitoring-observability/" class="nav-list-link">Monitoring & Observability - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/networking-communication/" class="nav-list-link">Networking & Communication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/quantitative-metrics/" class="nav-list-link">Quantitative Metrics for System Design</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/scalability-distribution/" class="nav-list-link">Scalability & Distribution - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/building-blocks/security-authentication/" class="nav-list-link">Security & Authentication - Building Block</a></li><li class="nav-list-item"><a href="/engineering-ascend/cheatsheet/" class="nav-list-link">System Design - Quick Reference</a></li><li class="nav-list-item"><a href="/engineering-ascend/system-design-challenges/" class="nav-list-link">System Design Challenges</a></li><li class="nav-list-item"><a href="/engineering-ascend/decision-framework/" class="nav-list-link">System Design Decision Framework</a></li><li class="nav-list-item"><a href="/engineering-ascend/context/" class="nav-list-link">System Design Fundamentals - Comprehensive Guide</a></li><li class="nav-list-item"><a href="/engineering-ascend/trade-off-analysis/" class="nav-list-link">Trade-off Analysis in System Design</a></li></ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Engineering Ascend" aria-label="Search Engineering Ascend" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
+    <li class="breadcrumb-nav-list-item"><a href="">Compute Processing</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Cheatsheet</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="compute--processing-systems---cheat-sheet">
+  
+  
+    <a href="#compute--processing-systems---cheat-sheet" class="anchor-heading" aria-labelledby="compute--processing-systems---cheat-sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Compute &amp; Processing Systems - Cheat Sheet
+  
+  
+</h1>
+    
+<h2 id="one-page-quick-reference-for-system-design">
+  
+  
+    <a href="#one-page-quick-reference-for-system-design" class="anchor-heading" aria-labelledby="one-page-quick-reference-for-system-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> One-Page Quick Reference for System Design
+  
+  
+</h2>
+    
+<h2 id="-quick-selection-guide">
+  
+  
+    <a href="#-quick-selection-guide" class="anchor-heading" aria-labelledby="-quick-selection-guide"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 <strong>QUICK SELECTION GUIDE</strong>
+  
+  
+</h2>
+    
+<h3 id="processing-type-selection">
+  
+  
+    <a href="#processing-type-selection" class="anchor-heading" aria-labelledby="processing-type-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Processing Type Selection</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>General Purpose Computing? → CPU
+Massive Parallel Processing? → GPU
+Large-Scale Distributed? → Distributed Computing
+I/O-Bound Operations? → Asynchronous Processing
+Bulk Data Processing? → Batch Processing
+</code></pre></div></div>
+<h3 id="performance-requirements">
+  
+  
+    <a href="#performance-requirements" class="anchor-heading" aria-labelledby="performance-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Requirements</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Low Latency (&lt; 1ms)? → CPU or Async
+High Throughput (&gt; 1M ops/sec)? → GPU or Distributed
+Real-time Processing? → Async or GPU
+Large Data Volume (&gt; 1TB)? → Batch or Distributed
+</code></pre></div></div><hr />
+<h2 id="-performance-comparison">
+  
+  
+    <a href="#-performance-comparison" class="anchor-heading" aria-labelledby="-performance-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>PERFORMANCE COMPARISON</strong>
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Processing Type</th>
+      <th>Latency</th>
+      <th>Throughput</th>
+      <th>Scalability</th>
+      <th>Complexity</th>
+      <th>Cost</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CPU</strong></td>
+      <td>1-100μs</td>
+      <td>1K-100K ops/sec</td>
+      <td>Vertical</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>General computing</td>
+    </tr>
+    <tr>
+      <td><strong>GPU</strong></td>
+      <td>100-1000μs</td>
+      <td>10-40 TFLOPS</td>
+      <td>Multi-GPU</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Parallel computing</td>
+    </tr>
+    <tr>
+      <td><strong>Distributed</strong></td>
+      <td>1-1000ms</td>
+      <td>10K-1M ops/sec</td>
+      <td>Horizontal</td>
+      <td>High</td>
+      <td>Medium</td>
+      <td>Large-scale systems</td>
+    </tr>
+    <tr>
+      <td><strong>Async</strong></td>
+      <td>1-10ms</td>
+      <td>10K-100K ops/sec</td>
+      <td>Event loops</td>
+      <td>Medium</td>
+      <td>Low</td>
+      <td>I/O-bound tasks</td>
+    </tr>
+    <tr>
+      <td><strong>Batch</strong></td>
+      <td>1-1000 min</td>
+      <td>1-100 GB/s</td>
+      <td>Clusters</td>
+      <td>Medium</td>
+      <td>Low</td>
+      <td>Data processing</td>
+    </tr>
+  </tbody>
+</table></div><hr />
+<h2 id="-processing-characteristics">
+  
+  
+    <a href="#-processing-characteristics" class="anchor-heading" aria-labelledby="-processing-characteristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>PROCESSING CHARACTERISTICS</strong>
+  
+  
+</h2>
+    
+<h3 id="cpu-processing">
+  
+  
+    <a href="#cpu-processing" class="anchor-heading" aria-labelledby="cpu-processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CPU Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture: Multi-core, cache hierarchy
+Performance: 1-4 ops/cycle, 50-100 GB/s memory
+Scaling: Vertical (more cores), horizontal (more machines)
+Use Cases: Web servers, databases, general applications
+</code></pre></div></div>
+<h3 id="gpu-processing">
+  
+  
+    <a href="#gpu-processing" class="anchor-heading" aria-labelledby="gpu-processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>GPU Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture: SIMT, 1000-10000 cores
+Performance: 10-40 TFLOPS, 500-2000 GB/s memory
+Scaling: Multi-GPU, GPU clusters
+Use Cases: ML training, scientific computing, rendering
+</code></pre></div></div>
+<h3 id="distributed-processing">
+  
+  
+    <a href="#distributed-processing" class="anchor-heading" aria-labelledby="distributed-processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture: Multi-machine, network communication
+Performance: Network-dependent, 10K-1M ops/sec
+Scaling: Horizontal, geographic distribution
+Use Cases: Microservices, big data, cloud applications
+</code></pre></div></div>
+<h3 id="asynchronous-processing">
+  
+  
+    <a href="#asynchronous-processing" class="anchor-heading" aria-labelledby="asynchronous-processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Asynchronous Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture: Event loops, non-blocking I/O
+Performance: 10K-100K ops/sec, low latency
+Scaling: Multiple event loops, thread pools
+Use Cases: Web apps, real-time systems, APIs
+</code></pre></div></div>
+<h3 id="batch-processing">
+  
+  
+    <a href="#batch-processing" class="anchor-heading" aria-labelledby="batch-processing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Batch Processing</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Architecture: Scheduled, bulk processing
+Performance: 1-100 GB/s, high throughput
+Scaling: Clusters, parallel processing
+Use Cases: ETL, analytics, ML pipelines
+</code></pre></div></div><hr />
+<h2 id="-scaling-patterns">
+  
+  
+    <a href="#-scaling-patterns" class="anchor-heading" aria-labelledby="-scaling-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>SCALING PATTERNS</strong>
+  
+  
+</h2>
+    
+<h3 id="vertical-scaling-scale-up">
+  
+  
+    <a href="#vertical-scaling-scale-up" class="anchor-heading" aria-labelledby="vertical-scaling-scale-up"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Vertical Scaling (Scale Up)</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>CPU</strong>: More cores, higher clock speed, larger cache</li>
+  <li><strong>Memory</strong>: More RAM, faster memory, larger cache</li>
+  <li><strong>Storage</strong>: Faster storage, more I/O bandwidth</li>
+  <li><strong>Network</strong>: Higher bandwidth, lower latency</li>
+</ul>
+<h3 id="horizontal-scaling-scale-out">
+  
+  
+    <a href="#horizontal-scaling-scale-out" class="anchor-heading" aria-labelledby="horizontal-scaling-scale-out"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Horizontal Scaling (Scale Out)</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Load Balancing</strong>: Distribute work across nodes</li>
+  <li><strong>Auto-scaling</strong>: Automatic instance management</li>
+  <li><strong>Geographic Distribution</strong>: Multi-region deployment</li>
+  <li><strong>Service Discovery</strong>: Dynamic service registration</li>
+</ul>
+<h3 id="hybrid-scaling">
+  
+  
+    <a href="#hybrid-scaling" class="anchor-heading" aria-labelledby="hybrid-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Hybrid Scaling</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Scale Up</strong>: For compute-intensive tasks</li>
+  <li><strong>Scale Out</strong>: For I/O-intensive tasks</li>
+  <li><strong>Optimize</strong>: For specific workload patterns</li>
+  <li><strong>Balance</strong>: Cost and performance trade-offs</li>
+</ul><hr />
+<h2 id="-performance-metrics">
+  
+  
+    <a href="#-performance-metrics" class="anchor-heading" aria-labelledby="-performance-metrics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚡ <strong>PERFORMANCE METRICS</strong>
+  
+  
+</h2>
+    
+<h3 id="latency-benchmarks">
+  
+  
+    <a href="#latency-benchmarks" class="anchor-heading" aria-labelledby="latency-benchmarks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Latency Benchmarks</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU Operations: 1-100μs
+GPU Operations: 100-1000μs
+Network Calls: 1-100ms
+Disk I/O: 1-10ms
+Database Queries: 1-100ms
+</code></pre></div></div>
+<h3 id="throughput-benchmarks">
+  
+  
+    <a href="#throughput-benchmarks" class="anchor-heading" aria-labelledby="throughput-benchmarks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Throughput Benchmarks</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU: 1K-100K ops/sec per core
+GPU: 10-40 TFLOPS
+Network: 1-100 Gbps
+Disk: 100-1000 MB/s
+Memory: 10-100 GB/s
+</code></pre></div></div>
+<h3 id="scalability-limits">
+  
+  
+    <a href="#scalability-limits" class="anchor-heading" aria-labelledby="scalability-limits"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Limits</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Single CPU: 4-64 cores
+Single GPU: 1000-10000 cores
+Single Machine: 1-10 TB RAM
+Single Cluster: 100-10000 nodes
+Single Region: 1-100 ms latency
+</code></pre></div></div><hr />
+<h2 id="-decision-framework">
+  
+  
+    <a href="#-decision-framework" class="anchor-heading" aria-labelledby="-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>DECISION FRAMEWORK</strong>
+  
+  
+</h2>
+    
+<h3 id="workload-analysis">
+  
+  
+    <a href="#workload-analysis" class="anchor-heading" aria-labelledby="workload-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Workload Analysis</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Compute-Intensive? → CPU or GPU
+I/O-Intensive? → Async or Distributed
+Memory-Intensive? → CPU with large memory
+Network-Intensive? → Distributed with optimization
+</code></pre></div></div>
+<h3 id="scale-requirements">
+  
+  
+    <a href="#scale-requirements" class="anchor-heading" aria-labelledby="scale-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scale Requirements</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Small Scale (&lt; 1000 users)? → CPU or Async
+Medium Scale (1000-100K users)? → Distributed
+Large Scale (&gt; 100K users)? → Distributed + GPU
+Global Scale? → Multi-region distributed
+</code></pre></div></div>
+<h3 id="cost-considerations">
+  
+  
+    <a href="#cost-considerations" class="anchor-heading" aria-labelledby="cost-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Cost Considerations</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Budget Constrained? → CPU or Async
+Performance Critical? → GPU or Distributed
+Balanced Approach? → Hybrid scaling
+</code></pre></div></div><hr />
+<h2 id="-optimization-techniques">
+  
+  
+    <a href="#-optimization-techniques" class="anchor-heading" aria-labelledby="-optimization-techniques"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>OPTIMIZATION TECHNIQUES</strong>
+  
+  
+</h2>
+    
+<h3 id="cpu-optimization">
+  
+  
+    <a href="#cpu-optimization" class="anchor-heading" aria-labelledby="cpu-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CPU Optimization</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Algorithm</strong>: Choose efficient algorithms</li>
+  <li><strong>Cache</strong>: Optimize memory access patterns</li>
+  <li><strong>Parallelization</strong>: Use multi-core effectively</li>
+  <li><strong>Vectorization</strong>: Use SIMD instructions</li>
+</ul>
+<h3 id="gpu-optimization">
+  
+  
+    <a href="#gpu-optimization" class="anchor-heading" aria-labelledby="gpu-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>GPU Optimization</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Memory</strong>: Coalesced memory access</li>
+  <li><strong>Kernels</strong>: Optimize CUDA kernels</li>
+  <li><strong>Occupancy</strong>: Maximize thread occupancy</li>
+  <li><strong>Communication</strong>: Minimize GPU-CPU transfers</li>
+</ul>
+<h3 id="distributed-optimization">
+  
+  
+    <a href="#distributed-optimization" class="anchor-heading" aria-labelledby="distributed-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Optimization</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Network</strong>: Optimize network communication</li>
+  <li><strong>Data Locality</strong>: Process data where it’s stored</li>
+  <li><strong>Load Balancing</strong>: Distribute work evenly</li>
+  <li><strong>Fault Tolerance</strong>: Handle node failures</li>
+</ul>
+<h3 id="async-optimization">
+  
+  
+    <a href="#async-optimization" class="anchor-heading" aria-labelledby="async-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Async Optimization</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Event Loop</strong>: Optimize event loop efficiency</li>
+  <li><strong>I/O</strong>: Use non-blocking I/O operations</li>
+  <li><strong>Threading</strong>: Use thread pools effectively</li>
+  <li><strong>Memory</strong>: Minimize memory allocations</li>
+</ul><hr />
+<h2 id="-implementation-checklist">
+  
+  
+    <a href="#-implementation-checklist" class="anchor-heading" aria-labelledby="-implementation-checklist"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📋 <strong>IMPLEMENTATION CHECKLIST</strong>
+  
+  
+</h2>
+    
+<h3 id="cpu-systems">
+  
+  
+    <a href="#cpu-systems" class="anchor-heading" aria-labelledby="cpu-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CPU Systems</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Multi-core utilization configured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cache-friendly algorithms implemented?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Memory allocation optimized?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Thread safety ensured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Performance monitoring in place?</li>
+</ul>
+<h3 id="gpu-systems">
+  
+  
+    <a href="#gpu-systems" class="anchor-heading" aria-labelledby="gpu-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>GPU Systems</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />CUDA kernels optimized?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Memory access patterns optimized?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Multi-GPU scaling configured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />GPU-CPU communication minimized?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Power consumption monitored?</li>
+</ul>
+<h3 id="distributed-systems">
+  
+  
+    <a href="#distributed-systems" class="anchor-heading" aria-labelledby="distributed-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Systems</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Load balancing configured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Service discovery implemented?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Fault tolerance mechanisms in place?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Network optimization applied?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Monitoring and alerting set up?</li>
+</ul>
+<h3 id="async-systems">
+  
+  
+    <a href="#async-systems" class="anchor-heading" aria-labelledby="async-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Async Systems</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Event loop configured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Non-blocking I/O implemented?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Thread pools sized correctly?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Error handling implemented?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backpressure handling configured?</li>
+</ul>
+<h3 id="batch-systems">
+  
+  
+    <a href="#batch-systems" class="anchor-heading" aria-labelledby="batch-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Batch Systems</strong>
+  
+  
+</h3>
+    
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Job scheduling configured?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Resource allocation optimized?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Fault tolerance implemented?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Monitoring and alerting set up?</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Cost optimization applied?</li>
+</ul><hr />
+<h2 id="-common-pitfalls">
+  
+  
+    <a href="#-common-pitfalls" class="anchor-heading" aria-labelledby="-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚨 <strong>COMMON PITFALLS</strong>
+  
+  
+</h2>
+    
+<h3 id="cpu-pitfalls">
+  
+  
+    <a href="#cpu-pitfalls" class="anchor-heading" aria-labelledby="cpu-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CPU Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Single-threaded bottlenecks</strong>: Not utilizing multiple cores</li>
+  <li><strong>Cache misses</strong>: Poor memory access patterns</li>
+  <li><strong>Context switching</strong>: Too many threads</li>
+  <li><strong>Memory leaks</strong>: Not managing memory properly</li>
+</ul>
+<h3 id="gpu-pitfalls">
+  
+  
+    <a href="#gpu-pitfalls" class="anchor-heading" aria-labelledby="gpu-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>GPU Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Memory bandwidth</strong>: Not optimizing memory access</li>
+  <li><strong>Kernel overhead</strong>: Too many small kernels</li>
+  <li><strong>GPU-CPU transfers</strong>: Excessive data movement</li>
+  <li><strong>Power consumption</strong>: Not monitoring power usage</li>
+</ul>
+<h3 id="distributed-pitfalls">
+  
+  
+    <a href="#distributed-pitfalls" class="anchor-heading" aria-labelledby="distributed-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Network latency</strong>: Not considering network overhead</li>
+  <li><strong>Consistency issues</strong>: Not handling distributed state</li>
+  <li><strong>Single points of failure</strong>: Not implementing redundancy</li>
+  <li><strong>Monitoring gaps</strong>: Not monitoring distributed systems</li>
+</ul>
+<h3 id="async-pitfalls">
+  
+  
+    <a href="#async-pitfalls" class="anchor-heading" aria-labelledby="async-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Async Pitfalls</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Callback hell</strong>: Complex nested callbacks</li>
+  <li><strong>Memory leaks</strong>: Not cleaning up resources</li>
+  <li><strong>Error handling</strong>: Not handling async errors</li>
+  <li><strong>Backpressure</strong>: Not handling high load</li>
+</ul><hr />
+<h2 id="-quick-reference">
+  
+  
+    <a href="#-quick-reference" class="anchor-heading" aria-labelledby="-quick-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📚 <strong>QUICK REFERENCE</strong>
+  
+  
+</h2>
+    
+<h3 id="performance-formulas">
+  
+  
+    <a href="#performance-formulas" class="anchor-heading" aria-labelledby="performance-formulas"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Formulas</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU Performance = Clock Speed × IPC × Cores
+GPU Performance = Cores × Clock Speed × Operations per cycle
+Network Performance = Bandwidth / Latency
+Memory Performance = Bandwidth / Access Time
+</code></pre></div></div>
+<h3 id="scaling-laws">
+  
+  
+    <a href="#scaling-laws" class="anchor-heading" aria-labelledby="scaling-laws"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Laws</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amdahl's Law: Speedup = 1 / ((1-p) + p/n)
+Gustafson's Law: Speedup = n + (1-n) × p
+Moore's Law: Transistors double every 18-24 months
+</code></pre></div></div>
+<h3 id="common-patterns">
+  
+  
+    <a href="#common-patterns" class="anchor-heading" aria-labelledby="common-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Patterns</strong>
+  
+  
+</h3>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Master-Worker: Centralized task distribution
+Peer-to-Peer: Decentralized coordination
+Event-Driven: Reactive to events
+Pipeline: Multi-stage processing
+MapReduce: Distributed data processing
+</code></pre></div></div><hr />
+
+<p><em>Use this cheatsheet for quick reference during interviews and system design discussions. Remember: choose processing type based on workload characteristics, not just familiarity.</em></p>
+
+          
+
+          
+        </main>
+        
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

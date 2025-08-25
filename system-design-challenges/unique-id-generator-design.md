@@ -1,3 +1,11 @@
+---
+title: Unique Id Generator Design - System Design Challenge
+description: Comprehensive solution for unique id generator design system design challenge
+layout: default
+parent: Unique Id Generator Design
+grand_parent: System Design Challenges
+---
+
 # Design a Unique ID Generator - System Design Challenge
 
 *Comprehensive solution for designing a distributed unique ID generator, covering various ID generation strategies, collision handling, and global scale.*

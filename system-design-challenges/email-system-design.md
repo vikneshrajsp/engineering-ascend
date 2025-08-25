@@ -1,3 +1,11 @@
+---
+title: Email System Design - System Design Challenge
+description: Comprehensive solution for email system design system design challenge
+layout: default
+parent: Email System Design
+grand_parent: System Design Challenges
+---
+
 # Design Email System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

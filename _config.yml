@@ -1,11 +1,11 @@
 # Site settings
 title: Engineering Ascend
-description: Comprehensive system design learning resource for technical interview preparation and scalable system architecture
+description: Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture
 url: https://vikneshrajsp.github.io
-baseurl: /software-engineering-guide
+baseurl: /engineering-ascend
 
 # Theme settings
-remote_theme: pages-themes/architect
+theme: just-the-docs
 
 # Build settings
 markdown: kramdown
@@ -21,8 +21,54 @@ plugins:
 collections:
   building-blocks:
     output: true
-  challenges:
+    permalink: /:collection/:path/
+  system-design-challenges:
     output: true
+    permalink: /:collection/:path/
+
+# Permalinks
+permalink: pretty
+
+# Just The Docs configuration
+just_the_docs:
+  # Color scheme supports "light" (default) and "dark"
+  color_scheme: light
+  
+  # Enable or disable the site title and search in the header
+  search_enabled: true
+  search:
+    # Split pages into sections that can be searched individually
+    heading_level: 2
+    previews: 3
+    preview_words_before: 5
+    preview_words_after: 10
+    tokenizer_separator: /[\s/\-]+/
+    rel_url: true
+    suggest: true
+  
+  # Enable or disable heading anchors
+  heading_anchors: true
+  
+  # Enable or disable the back-to-top button
+  back_to_top: true
+  back_to_top_text: "Back to top"
+  
+  # Enable or disable the link to the repository
+  gh_edit_link: false
+  
+  # Enable or disable the last modified date
+  last_edit_timestamp: false
+  
+  # Enable or disable the table of contents
+  toc: true
+  
+  # Navigation settings
+  nav_exclude: false
+  nav_fold: true
+  nav_external_links:
+    - title: GitHub
+      url: https://github.com/vikneshrajsp/engineering-ascend
+      hide_icon: false
 
 # Exclude from processing
 exclude:

@@ -1,3 +1,11 @@
+---
+title: Apple Music Design - System Design Challenge
+description: Comprehensive solution for apple music design system design challenge
+layout: default
+parent: Apple Music Design
+grand_parent: System Design Challenges
+---
+
 # Design Apple Music - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

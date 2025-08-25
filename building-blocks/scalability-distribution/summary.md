@@ -1,3 +1,10 @@
+---
+title: Summary
+layout: default
+grand_parent: Building Blocks
+parent: Scalability Distribution
+---
+
 # Scalability & Distribution Systems
 ## Concise Summary
 

@@ -1,3 +1,9 @@
+---
+title: Trade-off Analysis in System Design
+description: Comprehensive guide to evaluating design choices and balancing competing requirements
+layout: default
+---
+
 # Trade-off Analysis in System Design
 ## Comprehensive Guide to Evaluating Design Choices
 

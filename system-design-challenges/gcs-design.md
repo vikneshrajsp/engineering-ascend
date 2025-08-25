@@ -1,3 +1,11 @@
+---
+title: Gcs Design - System Design Challenge
+description: Comprehensive solution for gcs design system design challenge
+layout: default
+parent: Gcs Design
+grand_parent: System Design Challenges
+---
+
 # Design Cloud Storage - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*

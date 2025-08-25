@@ -1,3 +1,11 @@
+---
+title: Recommendation System Design - System Design Challenge
+description: Comprehensive solution for recommendation system design system design challenge
+layout: default
+parent: Recommendation System Design
+grand_parent: System Design Challenges
+---
+
 # Design Recommendation System - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*
