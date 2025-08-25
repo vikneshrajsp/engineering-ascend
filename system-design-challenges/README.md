@@ -21,57 +21,193 @@ All challenges follow the **RESHADED** framework:
 
 ## 📚 Challenge Categories
 
-### 🔗 **Infrastructure & Core Services**
+### 🔧 **Infrastructure & Core Services**
 
-#### URL Shortener
-- **[URL Shortener Design](./url-shortener-design.md)**
-  - **Difficulty**: Easy
-  - **Key Concepts**: Hash generation, database design, caching
-  - **Technologies**: Redis, PostgreSQL, CDN
-
-#### Web Crawler
-- **[Web Crawler Design](./web-crawler-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Distributed crawling, politeness, deduplication
-  - **Technologies**: Queue systems, distributed storage, rate limiting
-
-#### Load Balancer
-- **[Load Balancer Design](./load-balancer-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Load distribution algorithms, health checks, session affinity
-  - **Technologies**: NGINX, HAProxy, cloud load balancers
-
-#### Rate Limiter
-- **[Rate Limiter Design](./rate-limiter-design.md)**
+#### Rate Limiting
+- **[Rate Limiter Design](./rate-limiting-design.md)**
   - **Difficulty**: Medium
   - **Key Concepts**: Token bucket, sliding window, distributed rate limiting
-  - **Technologies**: Redis, in-memory counters, distributed coordination
+  - **Technologies**: Redis, distributed counters, algorithms
 
-### 💬 **Communication & Social**
+#### Data Storage
+- **[Key-Value Store Design](./key-value-store-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Distributed storage, consistency models, replication
+  - **Technologies**: LSM trees, consistent hashing, consensus protocols
+
+#### ID Generation
+- **[Unique ID Generator Design](./unique-id-generator-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Distributed ID generation, clock synchronization, collision avoidance
+  - **Technologies**: Snowflake algorithm, UUID, ULID
+
+#### URL Shortening
+- **[URL Shortener Design](./url-shortener-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: URL shortening, redirect handling, analytics
+  - **Technologies**: Hash functions, caching, analytics tracking
+
+#### Web Crawling
+- **[Web Crawler Design](./web-crawler-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Web crawling, politeness policies, distributed crawling
+  - **Technologies**: Crawl frontier, robots.txt, content extraction
+
+#### Notifications
+- **[Notification System Design](./notification-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Push notifications, multi-platform delivery, user preferences
+  - **Technologies**: APNS, FCM, email services, message queues
+
+#### News Feed
+- **[News Feed System Design](./facebook-feed-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Feed generation, content ranking, real-time updates
+  - **Technologies**: Graph databases, ranking algorithms, real-time processing
 
 #### Chat System
 - **[Chat System Design](./chat-system-design.md)**
   - **Difficulty**: Hard
-  - **Key Concepts**: Real-time messaging, message ordering, presence
-  - **Technologies**: WebSockets, message queues, real-time databases
+  - **Key Concepts**: Real-time messaging, message ordering, group chats
+  - **Technologies**: WebSockets, message queues, distributed systems
 
-#### Instagram
-- **[Instagram Design](./instagram-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Feed generation, media storage, social graph
-  - **Technologies**: CDN, graph databases, recommendation systems
+#### Search Autocomplete
+- **[Search Autocomplete Design](./search-autocomplete-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Real-time suggestions, query completion, personalization
+  - **Technologies**: Trie data structures, caching, ranking algorithms
 
-#### Facebook Feed
-- **[Facebook Feed Design](./facebook-feed-design.md)**
+#### Video Streaming
+- **[Video Streaming Design](./netflix-design.md)**
   - **Difficulty**: Hard
-  - **Key Concepts**: News feed algorithm, social ranking, real-time updates
-  - **Technologies**: Graph databases, recommendation engines, caching
+  - **Key Concepts**: Video streaming, content delivery, recommendation
+  - **Technologies**: CDN, adaptive bitrate streaming, recommendation systems
 
-#### Gmail
-- **[Gmail Design](./gmail-design.md)**
+#### Cloud Storage
+- **[Cloud Storage Design](./gcs-design.md)**
   - **Difficulty**: Hard
-  - **Key Concepts**: Email protocols, search, spam filtering
-  - **Technologies**: IMAP/SMTP, search engines, ML for spam detection
+  - **Key Concepts**: Multi-region storage, versioning, lifecycle management
+  - **Technologies**: Distributed file systems, version control, automated policies
+
+#### Maps Service
+- **[Maps Service Design](./google-maps-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Geospatial data, routing algorithms, real-time traffic
+  - **Technologies**: Spatial databases, graph algorithms, real-time data
+
+#### Object Storage
+- **[Object Storage Design](./aws-s3-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Object storage, consistency, durability
+  - **Technologies**: Distributed storage, replication, CDN
+
+#### Search Engine
+- **[Search Engine Design](./google-search-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Web crawling, indexing, ranking algorithms
+  - **Technologies**: Search engines, distributed indexing, ML ranking
+
+#### Ride Sharing
+- **[Ride Sharing Design](./uber-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time location, ride matching, payment processing
+  - **Technologies**: GPS, real-time databases, payment gateways
+
+#### Email Service
+- **[Email Service Design](./gmail-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Email storage, spam filtering, search capabilities
+  - **Technologies**: Distributed databases, search indexing, ML filtering
+
+#### Email System
+- **[Email System Design](./email-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Email protocols, storage, delivery
+  - **Technologies**: SMTP, IMAP, POP3, distributed storage
+
+#### Video Conferencing
+- **[Video Conferencing Design](./video-conferencing-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time video, audio processing, screen sharing
+  - **Technologies**: WebRTC, media servers, peer-to-peer networking
+
+#### Load Balancer
+- **[Load Balancer Design](./load-balancer-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Traffic distribution, health checking, failover
+  - **Technologies**: Load balancing algorithms, health monitoring, SSL termination
+
+#### Payment System
+- **[Payment System Design](./payment-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Payment processing, fraud detection, compliance
+  - **Technologies**: Payment gateways, fraud detection, PCI compliance
+
+#### Chat System
+- **[Chat System Design](./chat-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time messaging, message ordering, group chats
+  - **Technologies**: WebSockets, message queues, distributed systems
+
+#### Recommendation System
+- **[Recommendation System Design](./recommendation-system-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Collaborative filtering, content-based filtering, ML
+  - **Technologies**: ML algorithms, user behavior analysis, A/B testing
+
+#### Distributed Cache
+- **[Distributed Cache Design](./distributed-cache-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Cache distribution, consistency, eviction policies
+  - **Technologies**: Redis, Memcached, cache invalidation
+
+#### Monitoring & Alerting
+- **[Monitoring & Alerting Design](./monitoring-alerting-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Metrics collection, alerting, anomaly detection
+  - **Technologies**: Time-series databases, alerting systems, ML
+
+#### Data Warehouse
+- **[Data Warehouse Design](./data-warehouse-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Data modeling, ETL processes, analytics
+  - **Technologies**: Columnar storage, query optimization, data pipelines
+
+#### BigQuery
+- **[BigQuery Design](./bigquery-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Data warehousing, SQL processing, serverless
+  - **Technologies**: Columnar storage, distributed query processing
+
+#### CDN
+- **[CDN Design](./cdn-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Content delivery, edge caching, global distribution
+  - **Technologies**: Edge servers, cache management, geographic routing
+
+#### Telemedicine
+- **[Telemedicine Design](./telemedicine-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Video consultations, patient data, compliance
+  - **Technologies**: HIPAA compliance, video streaming, secure storage
+
+#### Online Gaming
+- **[Online Gaming Design](./online-gaming-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: Real-time multiplayer, matchmaking, anti-cheat
+  - **Technologies**: Game servers, real-time networking, cheat detection
+
+#### ChatGPT
+- **[ChatGPT Design](./chatgpt-design.md)**
+  - **Difficulty**: Hard
+  - **Key Concepts**: LLM inference, conversation management, scaling
+  - **Technologies**: Transformer models, GPU clusters, conversation storage
+
+#### Leaderboard
+- **[Leaderboard Design](./leaderboard-design.md)**
+  - **Difficulty**: Medium
+  - **Key Concepts**: Real-time rankings, score updates, competition
+  - **Technologies**: Sorted sets, real-time updates, caching
 
 ### 🎵 **Media & Entertainment**
 
@@ -129,93 +265,19 @@ All challenges follow the **RESHADED** framework:
   - **Key Concepts**: Web crawling, indexing, ranking algorithms
   - **Technologies**: Search engines, distributed indexing, ML ranking
 
-#### BigQuery
-- **[BigQuery Design](./bigquery-design.md)**
+### 📱 **Social Media & Content**
+
+#### Instagram
+- **[Instagram Design](./instagram-design.md)**
   - **Difficulty**: Hard
-  - **Key Concepts**: Data warehousing, SQL processing, columnar storage
-  - **Technologies**: Columnar databases, distributed query processing, data lakes
+  - **Key Concepts**: Photo sharing, social networking, content discovery
+  - **Technologies**: Image processing, social graphs, recommendation systems
 
-#### Data Warehouse
-- **[Data Warehouse Design](./data-warehouse-design.md)**
+#### Facebook Feed
+- **[Facebook Feed Design](./facebook-feed-design.md)**
   - **Difficulty**: Hard
-  - **Key Concepts**: ETL processes, dimensional modeling, OLAP
-  - **Technologies**: Star/snowflake schemas, data pipelines, analytics engines
-
-### 🤖 **AI & Machine Learning**
-
-#### ChatGPT
-- **[ChatGPT Design](./chatgpt-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Large language models, inference optimization, conversation management
-  - **Technologies**: GPU clusters, model serving, conversation databases
-
-#### Recommendation System
-- **[Recommendation System Design](./recommendation-system-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Collaborative filtering, content-based filtering, hybrid approaches
-  - **Technologies**: ML pipelines, feature stores, A/B testing
-
-### 💳 **Finance & Payments**
-
-#### Payment System
-- **[Payment System Design](./payment-system-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Payment processing, fraud detection, compliance
-  - **Technologies**: Payment gateways, fraud detection ML, compliance systems
-
-### 🏥 **Healthcare & Services**
-
-#### Telemedicine
-- **[Telemedicine Design](./telemedicine-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Video conferencing, HIPAA compliance, appointment scheduling
-  - **Technologies**: WebRTC, secure video, compliance frameworks
-
-### 🎮 **Gaming & Entertainment**
-
-#### Online Gaming
-- **[Online Gaming Design](./online-gaming-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Real-time gaming, matchmaking, anti-cheat
-  - **Technologies**: Game servers, real-time networking, cheat detection
-
-#### Leaderboard
-- **[Leaderboard Design](./leaderboard-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Real-time ranking, high-frequency updates, global vs local
-  - **Technologies**: Sorted sets, real-time updates, caching
-
-### 🏗️ **Infrastructure & Tools**
-
-#### CDN
-- **[CDN Design](./cdn-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Content distribution, edge caching, origin servers
-  - **Technologies**: Edge servers, cache invalidation, geographic distribution
-
-#### Distributed Cache
-- **[Distributed Cache Design](./distributed-cache-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Cache consistency, partitioning, failover
-  - **Technologies**: Redis Cluster, Memcached, cache invalidation
-
-#### Monitoring & Alerting
-- **[Monitoring & Alerting Design](./monitoring-alerting-design.md)**
-  - **Difficulty**: Medium
-  - **Key Concepts**: Metrics collection, alerting rules, incident management
-  - **Technologies**: Time-series databases, alerting systems, incident response
-
-#### Email System
-- **[Email System Design](./email-system-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Email protocols, spam filtering, delivery optimization
-  - **Technologies**: SMTP/IMAP, spam detection, email routing
-
-#### Video Conferencing
-- **[Video Conferencing Design](./video-conferencing-design.md)**
-  - **Difficulty**: Hard
-  - **Key Concepts**: Real-time video, audio processing, room management
-  - **Technologies**: WebRTC, media servers, real-time communication
+  - **Key Concepts**: Feed generation, content ranking, real-time updates
+  - **Technologies**: Graph databases, ranking algorithms, real-time processing
 
 ## 📊 Difficulty Levels
 
