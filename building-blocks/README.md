@@ -147,16 +147,16 @@ Each building block includes three levels of documentation:
 
 ## 🔧 Framework Integration
 
-These building blocks integrate with the **RESHADED** framework:
+These building blocks integrate with the structured approach:
 
-- **Requirements & Constraints** → Choose appropriate building blocks
-- **Estimation & Scale** → Size building blocks for your scale
-- **System Interface Design** → Define APIs and communication patterns
-- **High-Level Architecture** → Combine building blocks into a system
-- **Application Layer Design** → Implement compute and processing
-- **Data Layer Design** → Design storage and caching strategies
-- **Error Handling & Edge Cases** → Plan monitoring and observability
-- **Deployment & Monitoring** → Implement security and scalability
+- **Requirements & Constraints** - Use building blocks to understand system requirements
+- **Estimation & Scale** - Apply quantitative metrics for capacity planning
+- **System Interface Design** - Design APIs using networking and communication patterns
+- **High-Level Architecture** - Combine building blocks for overall system design
+- **Application Layer Design** - Implement business logic using compute and processing
+- **Data Layer Design** - Choose appropriate data storage and caching strategies
+- **Error Handling & Edge Cases** - Implement monitoring and security measures
+- **Deployment & Monitoring** - Use scalability patterns for deployment
 
 ## 🚀 Quick Start
 

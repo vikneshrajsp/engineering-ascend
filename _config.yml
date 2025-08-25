@@ -2,15 +2,15 @@
 # This file configures how GitHub Pages renders the markdown files
 
 # Site settings
-title: System Design Guide
-description: Comprehensive learning resource for system design interviews
-url: "https://vikneshrajsp.github.io/software-engineering-guide"
-baseurl: "/software-engineering-guide"
+title: Engineering Ascend
+description: Comprehensive system design learning resource for technical interview preparation and scalable system architecture
+url: https://vikneshrajsp.github.io
+baseurl: /software-engineering-guide
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: pretty
+permalink: /:title/
 
 # Plugins
 plugins:
@@ -21,18 +21,13 @@ plugins:
 collections:
   building-blocks:
     output: true
-    permalink: /building-blocks/:name/
+    permalink: /building-blocks/:path/
   challenges:
     output: true
-    permalink: /system-design-challenges/:name/
+    permalink: /system-design-challenges/:path/
 
 # Defaults
 defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
   - scope:
       path: ""
       type: "building-blocks"
@@ -46,11 +41,9 @@ defaults:
 
 # Exclude from processing
 exclude:
+  - Gemfile
+  - Gemfile.lock
   - node_modules
+  - vendor
   - .git
-  - .github
-  - scripts
-  - assets
-  - package.json
-  - package-lock.json
   - .gitignore

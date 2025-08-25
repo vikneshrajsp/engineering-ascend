@@ -1,23 +1,6 @@
 # System Design Challenges
 
-> 40+ detailed system design challenges with comprehensive solutions following the RESHADED framework.
-
-## 🎯 Overview
-
-This collection contains detailed solutions to real-world system design challenges commonly asked in senior software engineer interviews at top tech companies. Each challenge follows a structured approach and includes trade-off analysis, scalability considerations, and implementation details.
-
-## 🔧 Framework
-
-All challenges follow the **RESHADED** framework:
-
-- **R**equirements & Constraints - Clarify functional and non-functional requirements
-- **E**stimation & Scale - Back-of-envelope calculations and capacity planning
-- **S**ystem Interface Design - Define APIs and data contracts
-- **H**igh-Level Architecture - Overall system design and component interaction
-- **A**pplication Layer Design - Business logic and service architecture
-- **D**ata Layer Design - Database design and data access patterns
-- **E**rror Handling & Edge Cases - Failure scenarios and recovery mechanisms
-- **D**eployment & Monitoring - Infrastructure and observability
+> 40+ detailed system design challenges with comprehensive solutions following a structured approach.
 
 ## 📚 Challenge Categories
 
@@ -281,60 +264,55 @@ All challenges follow the **RESHADED** framework:
 
 ## 📊 Difficulty Levels
 
-### 🟢 **Easy** (0-2 years experience)
-- Basic system design concepts
-- Single service architecture
-- Simple data models
-- Basic scalability considerations
+### **Easy** 🟢
+- Basic concepts and single-service designs
+- Good for beginners and mid-level engineers
+- Focus on fundamental patterns
 
-### 🟡 **Medium** (2-5 years experience)
-- Distributed system concepts
-- Multiple service interactions
-- Complex data models
-- Advanced scalability patterns
+### **Medium** 🟡
+- Multi-service architectures and common patterns
+- Suitable for senior engineers
+- Includes trade-offs and scaling considerations
 
-### 🔴 **Hard** (5+ years experience)
-- Large-scale distributed systems
-- Complex system interactions
-- Advanced data architectures
-- Enterprise-level considerations
+### **Hard** 🔴
+- Complex distributed systems and advanced patterns
+- Designed for lead engineers and architects
+- Comprehensive trade-off analysis and edge cases
 
-## 🎯 Interview Preparation
+## 🎯 **Framework**
 
-### **Before the Interview**
-1. **Review Building Blocks** - Understand the 8 core components
-2. **Practice Estimation** - Master back-of-envelope calculations
-3. **Study Patterns** - Learn common architectural patterns
-4. **Review Trade-offs** - Understand CAP theorem, consistency vs availability
+All challenges follow a structured approach:
 
-### **During the Interview**
-1. **Clarify Requirements** - Ask clarifying questions
-2. **Estimate Scale** - Do quick calculations
-3. **Start Simple** - Begin with basic architecture
-4. **Iterate** - Add complexity step by step
-5. **Discuss Trade-offs** - Explain your decisions
+- **Requirements & Constraints** - Clarify functional and non-functional requirements
+- **Estimation & Scale** - Back-of-envelope calculations and capacity planning
+- **System Interface Design** - Define APIs and data contracts
+- **High-Level Architecture** - Overall system design and component interaction
+- **Application Layer Design** - Business logic and service architecture
+- **Data Layer Design** - Database design and data access patterns
+- **Error Handling & Edge Cases** - Failure scenarios and recovery mechanisms
+- **Deployment & Monitoring** - Infrastructure and observability
 
-### **Common Pitfalls to Avoid**
-- **Over-engineering** - Start simple, add complexity as needed
-- **Ignoring Scale** - Always consider scale in your design
-- **Forgetting Trade-offs** - Every decision has trade-offs
-- **Not Testing** - Consider failure scenarios and edge cases
+## 🚀 **Getting Started**
 
-## 🔗 Related Resources
+1. **Choose Your Level** - Start with challenges matching your experience
+2. **Read the Problem** - Understand requirements and constraints
+3. **Think Through the Solution** - Use the structured approach
+4. **Review the Solution** - Compare your approach with the detailed solution
+5. **Practice Variations** - Try different scenarios and constraints
 
-- **[Building Blocks](../building-blocks/README.md)** - Understand the core components
-- **[Quantitative Metrics](../quantitative-metrics.md)** - Learn performance metrics
-- **[Back of Envelope Estimation](../back-of-envelope-estimation.md)** - Master quick calculations
+## 📈 **Success Metrics**
 
-## 📈 Success Metrics
+- **Understanding**: Can you explain the design decisions?
+- **Trade-offs**: Do you understand the pros and cons of each choice?
+- **Scalability**: Can you handle increased load and complexity?
+- **Practicality**: Is the solution implementable and maintainable?
 
-Track your progress with these metrics:
+## 🔗 **Related Resources**
 
-- **Challenges Completed**: Aim for 20+ challenges
-- **Building Blocks Mastered**: Understand all 8 components
-- **Estimation Accuracy**: Practice until you're within 10% of actual numbers
-- **Interview Confidence**: Feel prepared for any system design question
+- **[Building Blocks](./building-blocks/README.md)** - Core system design components
+- **[Quantitative Metrics](../quantitative-metrics.md)** - Performance and capacity metrics
+- **[Back of Envelope Estimation](../back-of-envelope-estimation.md)** - Fast estimation techniques
 
 ---
 
-**Ready to master system design?** Start with any challenge above and build your expertise! 🚀
+**Ready to master system design? Pick a challenge and start building! 🚀**

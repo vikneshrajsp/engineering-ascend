@@ -571,7 +571,7 @@ Requirements Analysis
 
 ## 🎯 **CONCLUSION**
 
-This comprehensive system design guide provides a structured approach to understanding and implementing scalable, reliable, and performant systems. Each building block is thoroughly documented with:
+This comprehensive system design resource provides a structured approach to understanding and implementing scalable, reliable, and performant systems. Each building block is thoroughly documented with:
 
 1. **Historical Context**: Why each technology was developed
 2. **Design Philosophy**: Core principles and assumptions
