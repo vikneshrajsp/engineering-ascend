@@ -1,6 +1,6 @@
 # Design Online Gaming - System Design Challenge
 
-*Comprehensive solution for designing an online gaming platform at Principal Engineer level, covering real-time multiplayer, matchmaking, and global scale.*
+*Comprehensive solution for designing an online gaming platform, covering real-time multiplayer, matchmaking, and global scale.*
 
 ## 🎯 **Challenge Overview**
 

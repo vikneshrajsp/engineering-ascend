@@ -1,5 +1,6 @@
-# System Design Building Blocks - Complete Mindmap
-## Comprehensive Guide for Senior Staff Software Engineer Interviews
+# System Design Fundamentals - Comprehensive Guide
+
+> Master system design fundamentals and prepare for technical interviews with comprehensive coverage of distributed systems, scalability, and architectural patterns.
 
 ## 🏗️ **SYSTEM DESIGN BUILDING BLOCKS OVERVIEW**
 
@@ -105,7 +106,7 @@ Building Block/
   - Performance characteristics and trade-offs
   - Implementation patterns and code examples
   - Best practices and common pitfalls
-- **Audience**: Senior engineers, architects, system designers
+- **Audience**: Software engineers, architects, system designers
 - **Use Cases**: System design, architecture decisions, implementation
 
 #### **2. Concise Summary (summary.md)**

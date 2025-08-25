@@ -75,56 +75,56 @@ All challenges follow the **RESHADED** framework:
 
 ### 🎵 **Media & Entertainment**
 
-#### Netflix
-- **[Netflix Design](./netflix-design.md)**
+#### Video Streaming
+- **[Video Streaming Design](./netflix-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Video streaming, content delivery, recommendation
   - **Technologies**: CDN, adaptive bitrate streaming, recommendation systems
 
-#### Spotify
-- **[Spotify Design](./spotify-design.md)**
+#### Music Streaming
+- **[Music Streaming Design](./spotify-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Audio streaming, playlist management, recommendation
   - **Technologies**: Audio compression, streaming protocols, ML recommendations
 
-#### Apple Music
-- **[Apple Music Design](./apple-music-design.md)**
+#### Music Platform
+- **[Music Platform Design](./apple-music-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Music streaming, library sync, cross-platform
-  - **Technologies**: iCloud integration, audio streaming, device sync
+  - **Technologies**: Cloud integration, audio streaming, device sync
 
 ### 🚗 **Transportation & Services**
 
-#### Uber
-- **[Uber Design](./uber-design.md)**
+#### Ride Sharing
+- **[Ride Sharing Design](./uber-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Real-time location, ride matching, payment processing
   - **Technologies**: GPS, real-time databases, payment gateways
 
-#### Google Maps
-- **[Google Maps Design](./google-maps-design.md)**
+#### Maps Service
+- **[Maps Service Design](./google-maps-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Geospatial data, routing algorithms, real-time traffic
   - **Technologies**: Spatial databases, graph algorithms, real-time data
 
 ### 🛒 **E-commerce & Storage**
 
-#### Amazon S3
-- **[AWS S3 Design](./aws-s3-design.md)**
+#### Object Storage
+- **[Object Storage Design](./aws-s3-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Object storage, consistency, durability
   - **Technologies**: Distributed storage, replication, CDN
 
-#### Google Cloud Storage
-- **[GCS Design](./gcs-design.md)**
+#### Cloud Storage
+- **[Cloud Storage Design](./gcs-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Multi-region storage, versioning, lifecycle management
   - **Technologies**: Distributed file systems, version control, automated policies
 
 ### 🔍 **Search & Analytics**
 
-#### Google Search
-- **[Google Search Design](./google-search-design.md)**
+#### Search Engine
+- **[Search Engine Design](./google-search-design.md)**
   - **Difficulty**: Hard
   - **Key Concepts**: Web crawling, indexing, ranking algorithms
   - **Technologies**: Search engines, distributed indexing, ML ranking

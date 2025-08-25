@@ -618,9 +618,9 @@ Step 3: "What's the operational impact?"
 
 ---
 
-## 🎯 **50 MAANG SYSTEM DESIGN INTERVIEW QUESTIONS**
+## 🎯 **50 SYSTEM DESIGN INTERVIEW QUESTIONS**
 
-### **Google-Style Questions**
+### **Search & Analytics Questions**
 
 #### **1. Design a URL Shortener (bit.ly)**
 - **Storage Choice**: Key-Value Store (Redis) + RDBMS (PostgreSQL)
@@ -647,7 +647,7 @@ Step 3: "What's the operational impact?"
 - **Trade-offs**: PostGIS for location queries, Redis for real-time data
 - **Scaling**: Geographic partitioning, real-time updates
 
-#### **6. Design a Search Engine (Google)**
+#### **6. Design a Search Engine**
 - **Storage Choice**: Text Search (Elasticsearch) + Object Store (GCS)
 - **Trade-offs**: Elasticsearch for search, GCS for web pages
 - **Scaling**: Document-based sharding, distributed indexing
@@ -657,7 +657,7 @@ Step 3: "What's the operational impact?"
 - **Trade-offs**: PostgreSQL for ACID transactions, Kafka for events
 - **Scaling**: Account-based sharding, read replicas
 
-#### **8. Design a Recommendation System (Netflix)**
+#### **8. Design a Recommendation System**
 - **Storage Choice**: Document Store (MongoDB) + Time Series (InfluxDB)
 - **Trade-offs**: MongoDB for user profiles, InfluxDB for viewing patterns
 - **Scaling**: User-based sharding, ML model serving
@@ -672,7 +672,7 @@ Step 3: "What's the operational impact?"
 - **Trade-offs**: InfluxDB for historical data, Redis for real-time
 - **Scaling**: Time-based partitioning, stream processing
 
-### **Amazon-Style Questions**
+### **E-commerce & Storage Questions**
 
 #### **11. Design an E-commerce Platform (Amazon)**
 - **Storage Choice**: RDBMS (Aurora) + Document Store (DynamoDB)

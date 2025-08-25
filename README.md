@@ -63,19 +63,19 @@
 ### Social Media & Content
 - [Instagram](./system-design-challenges/instagram-design.md)
 - [Facebook Feed](./system-design-challenges/facebook-feed-design.md)
-- [Netflix](./system-design-challenges/netflix-design.md)
-- [YouTube](./system-design-challenges/video-conferencing-design.md)
+- [Video Streaming](./system-design-challenges/netflix-design.md)
+- [Video Conferencing](./system-design-challenges/video-conferencing-design.md)
 
 ### E-commerce & Services
-- [Uber](./system-design-challenges/uber-design.md)
-- [Amazon S3](./system-design-challenges/aws-s3-design.md)
-- [Google Search](./system-design-challenges/google-search-design.md)
-- [Google Maps](./system-design-challenges/google-maps-design.md)
+- [Ride Sharing](./system-design-challenges/uber-design.md)
+- [Object Storage](./system-design-challenges/aws-s3-design.md)
+- [Search Engine](./system-design-challenges/google-search-design.md)
+- [Maps Service](./system-design-challenges/google-maps-design.md)
 
 ### Communication & Productivity
-- [Gmail](./system-design-challenges/gmail-design.md)
+- [Email Service](./system-design-challenges/gmail-design.md)
 - [Email System](./system-design-challenges/email-system-design.md)
-- [Google Drive](./system-design-challenges/gcs-design.md)
+- [Cloud Storage](./system-design-challenges/gcs-design.md)
 - [Video Conferencing](./system-design-challenges/video-conferencing-design.md)
 
 ### Data & Analytics

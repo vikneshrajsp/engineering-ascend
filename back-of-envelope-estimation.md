@@ -500,9 +500,9 @@ Monthly HR Cost = Number of Engineers × Average Salary / 12
 
 Typical Salaries:
 - Junior Engineer: $80K-120K/year
-- Senior Engineer: $120K-200K/year
-- Staff Engineer: $200K-300K/year
-- Principal Engineer: $300K-500K/year
+- Mid-level Engineer: $100K-150K/year
+- Senior Engineer: $150K-250K/year
+- Lead Engineer: $250K-400K/year
 
 Example:
 - Team Size: 5 engineers

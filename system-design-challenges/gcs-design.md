@@ -1,4 +1,4 @@
-# Design Google Cloud Storage - System Design Challenge
+# Design Cloud Storage - System Design Challenge
 
 *Complete interview walkthrough showing the thought process from requirement clarification to detailed solution design, following the RESHADED framework.*
 
@@ -6,18 +6,18 @@
 
 ### **Step 1: Requirement Clarification & Scoping**
 
-**Interviewer**: "Design Google Cloud Storage for me."
+**Interviewer**: "Design a cloud storage service for me."
 
 **My Response**: "Great! Before I start designing, I need to understand the scope and requirements better. Let me ask some clarifying questions:
 
-1. **Scale**: Are we talking about Google Cloud scale (exabytes of data) or starting from scratch?
+1. **Scale**: Are we talking about cloud-scale (exabytes of data) or starting from scratch?
 2. **Features**: Which core features should I focus on? Object storage, lifecycle management, multi-region, or all of them?
 3. **Data Types**: What types of data? Files, images, videos, databases, or mixed data types?
 4. **Constraints**: Any specific performance, cost, or technical constraints I should consider?"
 
-**Interviewer**: "Let's start with Google Cloud scale and focus on object storage, lifecycle management, multi-region support, and enterprise features."
+**Interviewer**: "Let's start with cloud-scale and focus on object storage, lifecycle management, multi-region support, and enterprise features."
 
-**My Response**: "Perfect! So I'm designing Google Cloud Storage at scale with:
+**My Response**: "Perfect! So I'm designing a cloud storage service at scale with:
 - Exabytes of data across multiple regions
 - Core features: object storage, lifecycle management, multi-region support
 - Multiple data types and enterprise features
@@ -102,7 +102,7 @@ Let me break this down into building blocks and explain my choices."
 
 **Why This Choice:**
 - **Colossus (Distributed File System)**: For massive-scale file storage and distribution
-- **Bigtable**: For metadata, access logs, and structured data
+- **Distributed Database**: For metadata, access logs, and structured data
 - **Spanner**: For transactional data and consistency guarantees
 - **Object Storage**: For user objects and content delivery
 
@@ -387,7 +387,7 @@ Let me break this down into building blocks and explain my choices."
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                Google Cloud Storage                    │
+│                Cloud Storage Service                   │
 ├─────────────────────────────────────────────────────────┤
 │                                                         │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │

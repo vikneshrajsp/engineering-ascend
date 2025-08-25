@@ -1,5 +1,6 @@
-# System Design Interview Cheatsheet
-## Senior Staff Software Engineer - Quick Reference
+# System Design - Quick Reference
+
+> Essential system design concepts, patterns, and decision frameworks for technical interviews and architecture design.
 
 ## 🏗️ **BUILDING BLOCKS DECISION TREE**
 

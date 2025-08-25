@@ -1,6 +1,6 @@
 # Design ChatGPT - System Design Challenge
 
-*Comprehensive solution for designing ChatGPT at Principal Engineer level, covering LLM inference, conversation management, and global scale.*
+*Comprehensive solution for designing ChatGPT, covering LLM inference, conversation management, and global scale.*
 
 ## 🎯 **Challenge Overview**
 

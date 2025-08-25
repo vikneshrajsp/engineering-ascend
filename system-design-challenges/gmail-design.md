@@ -12,7 +12,7 @@
 
 1. **Scale**: Are we talking about Gmail scale (1.5B+ users) or starting from scratch?
 2. **Features**: Which core features should I focus on? Email storage, spam filtering, search, or all of them?
-3. **Integration**: How important is integration with Google's ecosystem (Calendar, Drive, etc.)?
+3. **Integration**: How important is integration with the broader ecosystem (Calendar, Drive, etc.)?
 4. **Constraints**: Any specific performance, cost, or technical constraints I should consider?"
 
 **Interviewer**: "Let's start with Gmail scale and focus on email storage, spam filtering, search, and real-time synchronization."
@@ -20,7 +20,7 @@
 **My Response**: "Perfect! So I'm designing Gmail at scale with:
 - 1.5B+ monthly active users
 - Core features: email storage, spam filtering, search, real-time sync
-- Deep integration with Google's ecosystem
+- Deep integration with the broader ecosystem
 - Global scale with intelligent email processing
 
 Let me start by identifying the core problems we need to solve."
@@ -99,7 +99,7 @@ Let me break this down into building blocks and explain my choices."
 **Choice**: Hybrid approach (Bigtable + Spanner + Object Storage + Search Index)
 
 **Why This Choice:**
-- **Bigtable**: For email metadata, user data, and search indexes
+- **Distributed Database**: For email metadata, user data, and search indexes
 - **Spanner**: For transactional data and consistency guarantees
 - **Object Storage**: For email attachments and large files
 - **Search Index**: For fast email search and retrieval

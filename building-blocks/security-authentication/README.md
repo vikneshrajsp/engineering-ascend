@@ -6,7 +6,7 @@
 ### **1. [Detailed Handbook](./handbook.md)**
 **Comprehensive Technical Deep-Dive**
 - **Purpose**: Deep technical understanding, implementation details, algorithm explanations
-- **Audience**: Senior engineers, architects, system designers
+- **Audience**: Software engineers, architects, system designers
 - **Content**: Detailed explanations, code examples, security analysis, trade-offs
 - **Use Cases**: System design, architecture decisions, security implementation
 

@@ -5,7 +5,7 @@
 
 ### **📚 Detailed Handbook** (`handbook.md`)
 - **Purpose**: Comprehensive technical deep-dive for system design experts
-- **Audience**: Senior Staff Engineers, Architects, Technical Leads
+- **Audience**: Software Engineers, Architects, Technical Leads
 - **Content**: 
   - Historical context and design philosophy
   - Deep optimization strategies with mathematical foundations
