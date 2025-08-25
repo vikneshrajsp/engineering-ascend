@@ -1,6 +1,7 @@
 ---
 title: Monitoring & Observability - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Monitoring & Observability Systems

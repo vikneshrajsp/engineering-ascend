@@ -1,6 +1,7 @@
 ---
 title: Compute & Processing - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Compute & Processing Systems

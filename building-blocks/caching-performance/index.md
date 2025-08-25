@@ -1,6 +1,7 @@
 ---
 title: Caching & Performance - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Caching & Performance Systems

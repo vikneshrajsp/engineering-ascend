@@ -11,6 +11,22 @@ theme: just-the-docs
 markdown: kramdown
 highlighter: rouge
 
+# Kramdown configuration
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+  math_engine: mathjax
+
 # Plugins
 plugins:
   - jekyll-remote-theme
@@ -61,6 +77,10 @@ just_the_docs:
   
   # Enable or disable the table of contents
   toc: true
+  
+  # Enable breadcrumbs
+  breadcrumbs: true
+  breadcrumbs_icon: true
   
   # Navigation settings
   nav_exclude: false

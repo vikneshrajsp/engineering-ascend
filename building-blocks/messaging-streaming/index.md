@@ -1,6 +1,7 @@
 ---
 title: Messaging & Streaming - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Messaging & Streaming Systems

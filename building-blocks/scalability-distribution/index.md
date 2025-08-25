@@ -1,6 +1,7 @@
 ---
 title: Scalability & Distribution - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Scalability & Distribution Systems

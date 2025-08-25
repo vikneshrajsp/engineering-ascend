@@ -1,6 +1,7 @@
 ---
 title: Networking & Communication - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Networking & Communication Systems

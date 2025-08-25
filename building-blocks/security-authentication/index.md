@@ -1,6 +1,7 @@
 ---
 title: Security & Authentication - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Security & Authentication Systems

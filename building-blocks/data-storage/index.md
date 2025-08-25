@@ -1,6 +1,7 @@
 ---
 title: Data Storage - Building Block
 layout: default
+parent: Building Blocks
 ---
 
 # Data Storage Systems
