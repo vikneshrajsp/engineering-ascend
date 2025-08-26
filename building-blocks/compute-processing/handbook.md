@@ -276,14 +276,68 @@ Scalability:
 
 ## 📊 Decision Matrix
 
-| Processing Type | Latency | Throughput | Scalability | Complexity | Cost | Use Case Fit |
-|-----------------|---------|------------|-------------|------------|------|--------------|
-| **CPU** | ⚠️ 5 | ⚠️ 6 | ❌ 3 | ✅ 8 | ⚠️ 6 | General Computing |
-| **GPU** | ❌ 3 | ✅ 9 | ⚠️ 6 | ❌ 4 | ❌ 4 | Parallel Computing |
-| **Distributed** | ❌ 3 | ✅ 9 | ✅ 9 | ❌ 4 | ⚠️ 6 | Large-scale Processing |
-| **Async** | ✅ 8 | ✅ 8 | ⚠️ 6 | ⚠️ 5 | ✅ 8 | I/O-bound Tasks |
-| **Batch** | ❌ 2 | ✅ 9 | ✅ 9 | ⚠️ 5 | ✅ 7 | Data Processing |
-
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Processing Type</th>
+<th>Latency</th>
+<th>Throughput</th>
+<th>Scalability</th>
+<th>Complexity</th>
+<th>Cost</th>
+<th>Use Case Fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**CPU**</td>
+<td>⚠️ 5</td>
+<td>⚠️ 6</td>
+<td>❌ 3</td>
+<td>✅ 8</td>
+<td>⚠️ 6</td>
+<td>General Computing</td>
+</tr>
+<tr>
+<td>**GPU**</td>
+<td>❌ 3</td>
+<td>✅ 9</td>
+<td>⚠️ 6</td>
+<td>❌ 4</td>
+<td>❌ 4</td>
+<td>Parallel Computing</td>
+</tr>
+<tr>
+<td>**Distributed**</td>
+<td>❌ 3</td>
+<td>✅ 9</td>
+<td>✅ 9</td>
+<td>❌ 4</td>
+<td>⚠️ 6</td>
+<td>Large-scale Processing</td>
+</tr>
+<tr>
+<td>**Async**</td>
+<td>✅ 8</td>
+<td>✅ 8</td>
+<td>⚠️ 6</td>
+<td>⚠️ 5</td>
+<td>✅ 8</td>
+<td>I/O-bound Tasks</td>
+</tr>
+<tr>
+<td>**Batch**</td>
+<td>❌ 2</td>
+<td>✅ 9</td>
+<td>✅ 9</td>
+<td>⚠️ 5</td>
+<td>✅ 7</td>
+<td>Data Processing</td>
+</tr>
+</tbody>
+</table>
+</div>
 ### **Scoring Legend**
 - **✅ 9-10**: Excellent fit
 - **⚠️ 5-8**: Good fit with trade-offs

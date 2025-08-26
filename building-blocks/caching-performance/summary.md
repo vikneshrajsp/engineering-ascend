@@ -11,190 +11,482 @@ parent: Caching Performance
 ## 📋 **CACHE FUNDAMENTALS**
 
 ### **Cache Hit vs Cache Miss**
-| Metric | Cache Hit | Cache Miss |
-|--------|-----------|------------|
-| **Latency** | 0.1-10ms | Backend latency + cache update |
-| **Performance** | Fast response | Slower response |
-| **Resource Usage** | Minimal | Higher |
-| **Backend Load** | Reduced | Increased |
-
-### **Cache Hit Ratio Performance**
-| Hit Ratio | Performance Level | Action Required |
-|-----------|------------------|----------------|
-| **90%+** | Excellent | Monitor and optimize |
-| **70-90%** | Good | Consider optimization |
-| **50-70%** | Acceptable | Needs improvement |
-| **<50%** | Poor | Major optimization needed |
-
----
-
-## 🗄️ **CACHE LAYERS**
-
-### **Cache Hierarchy**
-| Layer | Size | Latency | Use Case |
-|-------|------|---------|----------|
-| **L1 Cache** | 32-64KB | 1-3 cycles (~1ns) | CPU instructions/data |
-| **L2 Cache** | 256KB-1MB | 10-20 cycles (~10ns) | Unified cache |
-| **L3 Cache** | 8-32MB | 40-80 cycles (~40ns) | Shared across cores |
-| **Memory Cache** | 1-100GB | 100-1000ns | Application data |
-| **Distributed Cache** | 1TB+ | 1-10ms | Multi-node systems |
-| **CDN Cache** | Unlimited | 10-100ms | Global content |
-
-### **Cache Types Comparison**
-| Cache Type | Performance | Memory Usage | Use Case |
-|------------|-------------|--------------|----------|
-| **Hash Tables** | O(1) average | 20-50% overhead | Key-value storage |
-| **Skip Lists** | O(log n) average | 10-30% overhead | Sorted data |
-| **B-Trees** | O(log n) worst | 30-50% overhead | Range queries |
-| **LRU Cache** | O(1) average | Variable | Frequently accessed data |
-
----
-
-## 🎯 **CACHING STRATEGIES**
-
-### **Cache Placement Patterns**
-| Pattern | Consistency | Performance | Complexity |
-|---------|-------------|-------------|------------|
-| **Cache-Aside** | Eventual | High | Low |
-| **Write-Through** | Strong | Medium | Low |
-| **Write-Behind** | Eventual | Very High | High |
-| **Refresh-Ahead** | Eventual | High | Medium |
-
-### **Cache Invalidation Strategies**
-| Strategy | Implementation | Use Case |
-|----------|----------------|----------|
-| **TTL (Time-To-Live)** | Automatic expiration | Time-sensitive data |
-| **Event-Based** | Publish-subscribe | Real-time updates |
-| **Version-Based** | Cache key versioning | Schema changes |
-| **Manual** | Explicit invalidation | Critical updates |
-
----
-
-## ⚡ **PERFORMANCE OPTIMIZATION**
-
-### **Latency Optimization Techniques**
-| Technique | Implementation | Performance Gain |
-|-----------|----------------|------------------|
-| **Cache Warming** | Pre-load data | 20-50% improvement |
-| **Stale-While-Revalidate** | Return stale + update | 50-80% improvement |
-| **Cache Prefetching** | Predict future requests | 10-30% improvement |
-| **Connection Pooling** | Reuse connections | 30-60% improvement |
-
-### **Throughput Optimization**
-| Technique | Implementation | Throughput Gain |
-|-----------|----------------|-----------------|
-| **Batch Operations** | Group multiple operations | 2-5x improvement |
-| **Pipeline Operations** | Parallel processing | 3-10x improvement |
-| **Lock-Free Caching** | Concurrent data structures | 2-4x improvement |
-| **Compression** | Reduce data size | 20-50% improvement |
-
-### **Memory Optimization**
-| Technique | Implementation | Memory Savings |
-|-----------|----------------|----------------|
-| **Memory Pooling** | Reuse objects | 30-60% reduction |
-| **Compression** | Compress cache data | 40-80% reduction |
-| **Eviction Policies** | LRU, LFU, TTL | Variable |
-| **Cache Partitioning** | Distribute load | Better utilization |
-
----
-
-## 🔧 **IMPLEMENTATION PATTERNS**
-
-### **Cache Implementation Comparison**
-| Implementation | Performance | Scalability | Complexity |
-|----------------|-------------|-------------|------------|
-| **Redis** | Very High | High | Low |
-| **Memcached** | High | High | Low |
-| **In-Memory** | Very High | Low | Medium |
-| **Distributed** | High | Very High | High |
-
-### **Cache Eviction Policies**
-| Policy | Algorithm | Best For |
-|--------|-----------|----------|
-| **LRU** | Least Recently Used | Temporal locality |
-| **LFU** | Least Frequently Used | Access patterns |
-| **TTL** | Time-To-Live | Time-sensitive data |
-| **FIFO** | First-In-First-Out | Simple scenarios |
-
----
-
-## 📊 **PERFORMANCE METRICS**
-
-### **Key Performance Indicators**
-| Metric | Target | Monitoring |
-|--------|--------|------------|
-| **Cache Hit Ratio** | >80% | Real-time |
-| **Average Latency** | <10ms | P95, P99 |
-| **Throughput** | >10K ops/sec | Per second |
-| **Memory Usage** | <80% capacity | Continuous |
-| **Error Rate** | <1% | Per minute |
-
-### **Cache Performance Benchmarks**
-| Cache Type | Read Latency | Write Latency | Throughput |
-|------------|--------------|---------------|------------|
-| **CPU Cache** | 1-40ns | 1-40ns | 100M+ ops/sec |
-| **Memory Cache** | 100-1000ns | 100-1000ns | 1M+ ops/sec |
-| **Redis** | 1-10ms | 1-10ms | 100K+ ops/sec |
-| **Distributed Cache** | 1-50ms | 1-50ms | 10K+ ops/sec |
-| **CDN Cache** | 10-100ms | N/A | 1K+ ops/sec |
-
----
-
-## ⚠️ **COMMON PITFALLS**
-
-### **Cache Stampede**
-- **Problem**: Multiple requests for same missing data
-- **Impact**: Backend overload, poor performance
-- **Solution**: Cache warming, background refresh, request deduplication
-
-### **Cache Pollution**
-- **Problem**: Cache filled with rarely accessed data
-- **Impact**: Low hit ratio, memory waste
-- **Solution**: Appropriate TTL, effective eviction policies
-
-### **Cache Inconsistency**
-- **Problem**: Cache data becomes stale
-- **Impact**: Incorrect data, user confusion
-- **Solution**: Proper invalidation strategies, consistency patterns
-
----
-
-## 🎯 **BEST PRACTICES**
-
-### **Cache Key Design**
-- ✅ Use descriptive, unique keys
-- ✅ Include relevant context
-- ✅ Avoid cache key collisions
-- ✅ Consider key size and performance
-- ❌ Avoid generic keys like "data"
-- ❌ Avoid very long keys
-
-### **TTL Strategy**
-- **Static Data**: Long TTL (hours to days)
-- **Dynamic Data**: Short TTL (minutes to hours)
-- **User-Specific Data**: Session-based TTL
-- **Computationally Expensive**: Medium TTL
-- **Frequently Updated**: Short TTL with invalidation
-
-### **Cache Size Management**
-- Monitor memory usage continuously
-- Set appropriate size limits
-- Use effective eviction policies
-- Implement cache warming strategies
-- Regular cache cleanup and maintenance
-
----
-
-## 🔗 **RELATED CONCEPTS**
-
-### **Integration with Other Systems**
-| System | Integration Point | Benefits |
-|--------|-------------------|----------|
-| **Data Storage** | Query result caching | Reduced database load |
-| **Networking** | CDN caching | Global performance |
-| **Compute** | CPU/memory optimization | Hardware efficiency |
-| **Security** | Session caching | Authentication performance |
-
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Cache Hit</th>
+<th>Cache Miss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Latency**</td>
+<td>0.1-10ms</td>
+<td>Backend latency + cache update</td>
+</tr>
+<tr>
+<td>**Performance**</td>
+<td>Fast response</td>
+<td>Slower response</td>
+</tr>
+<tr>
+<td>**Resource Usage**</td>
+<td>Minimal</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>**Backend Load**</td>
+<td>Reduced</td>
+<td>Increased</td>
+</tr>
+<tr>
+<td>Hit Ratio</td>
+<td>Performance Level</td>
+<td>Action Required</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>------------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**90%+**</td>
+<td>Excellent</td>
+<td>Monitor and optimize</td>
+</tr>
+<tr>
+<td>**70-90%**</td>
+<td>Good</td>
+<td>Consider optimization</td>
+</tr>
+<tr>
+<td>**50-70%**</td>
+<td>Acceptable</td>
+<td>Needs improvement</td>
+</tr>
+<tr>
+<td>**<50%**</td>
+<td>Poor</td>
+<td>Major optimization needed</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Size</td>
+<td>Latency</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>------</td>
+<td>---------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**L1 Cache**</td>
+<td>32-64KB</td>
+<td>1-3 cycles (~1ns)</td>
+<td>CPU instructions/data</td>
+</tr>
+<tr>
+<td>**L2 Cache**</td>
+<td>256KB-1MB</td>
+<td>10-20 cycles (~10ns)</td>
+<td>Unified cache</td>
+</tr>
+<tr>
+<td>**L3 Cache**</td>
+<td>8-32MB</td>
+<td>40-80 cycles (~40ns)</td>
+<td>Shared across cores</td>
+</tr>
+<tr>
+<td>**Memory Cache**</td>
+<td>1-100GB</td>
+<td>100-1000ns</td>
+<td>Application data</td>
+</tr>
+<tr>
+<td>**Distributed Cache**</td>
+<td>1TB+</td>
+<td>1-10ms</td>
+<td>Multi-node systems</td>
+</tr>
+<tr>
+<td>**CDN Cache**</td>
+<td>Unlimited</td>
+<td>10-100ms</td>
+<td>Global content</td>
+</tr>
+<tr>
+<td>Cache Type</td>
+<td>Performance</td>
+<td>Memory Usage</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>-------------</td>
+<td>--------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Hash Tables**</td>
+<td>O(1) average</td>
+<td>20-50% overhead</td>
+<td>Key-value storage</td>
+</tr>
+<tr>
+<td>**Skip Lists**</td>
+<td>O(log n) average</td>
+<td>10-30% overhead</td>
+<td>Sorted data</td>
+</tr>
+<tr>
+<td>**B-Trees**</td>
+<td>O(log n) worst</td>
+<td>30-50% overhead</td>
+<td>Range queries</td>
+</tr>
+<tr>
+<td>**LRU Cache**</td>
+<td>O(1) average</td>
+<td>Variable</td>
+<td>Frequently accessed data</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>Consistency</td>
+<td>Performance</td>
+<td>Complexity</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>-------------</td>
+<td>-------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Cache-Aside**</td>
+<td>Eventual</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Write-Through**</td>
+<td>Strong</td>
+<td>Medium</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Write-Behind**</td>
+<td>Eventual</td>
+<td>Very High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Refresh-Ahead**</td>
+<td>Eventual</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**TTL (Time-To-Live)**</td>
+<td>Automatic expiration</td>
+<td>Time-sensitive data</td>
+</tr>
+<tr>
+<td>**Event-Based**</td>
+<td>Publish-subscribe</td>
+<td>Real-time updates</td>
+</tr>
+<tr>
+<td>**Version-Based**</td>
+<td>Cache key versioning</td>
+<td>Schema changes</td>
+</tr>
+<tr>
+<td>**Manual**</td>
+<td>Explicit invalidation</td>
+<td>Critical updates</td>
+</tr>
+<tr>
+<td>Technique</td>
+<td>Implementation</td>
+<td>Performance Gain</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------------</td>
+<td>------------------</td>
+</tr>
+<tr>
+<td>**Cache Warming**</td>
+<td>Pre-load data</td>
+<td>20-50% improvement</td>
+</tr>
+<tr>
+<td>**Stale-While-Revalidate**</td>
+<td>Return stale + update</td>
+<td>50-80% improvement</td>
+</tr>
+<tr>
+<td>**Cache Prefetching**</td>
+<td>Predict future requests</td>
+<td>10-30% improvement</td>
+</tr>
+<tr>
+<td>**Connection Pooling**</td>
+<td>Reuse connections</td>
+<td>30-60% improvement</td>
+</tr>
+<tr>
+<td>Technique</td>
+<td>Implementation</td>
+<td>Throughput Gain</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------------</td>
+<td>-----------------</td>
+</tr>
+<tr>
+<td>**Batch Operations**</td>
+<td>Group multiple operations</td>
+<td>2-5x improvement</td>
+</tr>
+<tr>
+<td>**Pipeline Operations**</td>
+<td>Parallel processing</td>
+<td>3-10x improvement</td>
+</tr>
+<tr>
+<td>**Lock-Free Caching**</td>
+<td>Concurrent data structures</td>
+<td>2-4x improvement</td>
+</tr>
+<tr>
+<td>**Compression**</td>
+<td>Reduce data size</td>
+<td>20-50% improvement</td>
+</tr>
+<tr>
+<td>Technique</td>
+<td>Implementation</td>
+<td>Memory Savings</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**Memory Pooling**</td>
+<td>Reuse objects</td>
+<td>30-60% reduction</td>
+</tr>
+<tr>
+<td>**Compression**</td>
+<td>Compress cache data</td>
+<td>40-80% reduction</td>
+</tr>
+<tr>
+<td>**Eviction Policies**</td>
+<td>LRU, LFU, TTL</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>**Cache Partitioning**</td>
+<td>Distribute load</td>
+<td>Better utilization</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>Performance</td>
+<td>Scalability</td>
+<td>Complexity</td>
+</tr>
+<tr>
+<td>----------------</td>
+<td>-------------</td>
+<td>-------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Redis**</td>
+<td>Very High</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Memcached**</td>
+<td>High</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**In-Memory**</td>
+<td>Very High</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Distributed**</td>
+<td>High</td>
+<td>Very High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Policy</td>
+<td>Algorithm</td>
+<td>Best For</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**LRU**</td>
+<td>Least Recently Used</td>
+<td>Temporal locality</td>
+</tr>
+<tr>
+<td>**LFU**</td>
+<td>Least Frequently Used</td>
+<td>Access patterns</td>
+</tr>
+<tr>
+<td>**TTL**</td>
+<td>Time-To-Live</td>
+<td>Time-sensitive data</td>
+</tr>
+<tr>
+<td>**FIFO**</td>
+<td>First-In-First-Out</td>
+<td>Simple scenarios</td>
+</tr>
+<tr>
+<td>Metric</td>
+<td>Target</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>--------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Cache Hit Ratio**</td>
+<td>>80%</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>**Average Latency**</td>
+<td><10ms</td>
+<td>P95, P99</td>
+</tr>
+<tr>
+<td>**Throughput**</td>
+<td>>10K ops/sec</td>
+<td>Per second</td>
+</tr>
+<tr>
+<td>**Memory Usage**</td>
+<td><80% capacity</td>
+<td>Continuous</td>
+</tr>
+<tr>
+<td>**Error Rate**</td>
+<td><1%</td>
+<td>Per minute</td>
+</tr>
+<tr>
+<td>Cache Type</td>
+<td>Read Latency</td>
+<td>Write Latency</td>
+<td>Throughput</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>--------------</td>
+<td>---------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**CPU Cache**</td>
+<td>1-40ns</td>
+<td>1-40ns</td>
+<td>100M+ ops/sec</td>
+</tr>
+<tr>
+<td>**Memory Cache**</td>
+<td>100-1000ns</td>
+<td>100-1000ns</td>
+<td>1M+ ops/sec</td>
+</tr>
+<tr>
+<td>**Redis**</td>
+<td>1-10ms</td>
+<td>1-10ms</td>
+<td>100K+ ops/sec</td>
+</tr>
+<tr>
+<td>**Distributed Cache**</td>
+<td>1-50ms</td>
+<td>1-50ms</td>
+<td>10K+ ops/sec</td>
+</tr>
+<tr>
+<td>**CDN Cache**</td>
+<td>10-100ms</td>
+<td>N/A</td>
+<td>1K+ ops/sec</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Integration Point</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-------------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Data Storage**</td>
+<td>Query result caching</td>
+<td>Reduced database load</td>
+</tr>
+<tr>
+<td>**Networking**</td>
+<td>CDN caching</td>
+<td>Global performance</td>
+</tr>
+<tr>
+<td>**Compute**</td>
+<td>CPU/memory optimization</td>
+<td>Hardware efficiency</td>
+</tr>
+<tr>
+<td>**Security**</td>
+<td>Session caching</td>
+<td>Authentication performance</td>
+</tr>
+</tbody>
+</table>
+</div>
 ### **Monitoring & Observability**
 - **Cache Hit Ratio**: Primary performance metric
 - **Latency Monitoring**: P50, P95, P99 percentiles

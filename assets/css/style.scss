@@ -203,6 +203,42 @@ table {
   }
 }
 
+// Table wrapper for responsive tables
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  table {
+    margin: 0;
+    min-width: 600px; // Ensure tables don't get too narrow
+    
+    th, td {
+      white-space: nowrap; // Prevent text wrapping in cells
+    }
+  }
+  
+  // Add horizontal scrollbar styling
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+    
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}
+
 // Improved blockquotes
 blockquote {
   border-left: 4px solid var(--accent-color);

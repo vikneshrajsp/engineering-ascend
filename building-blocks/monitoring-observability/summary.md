@@ -11,365 +11,857 @@ parent: Monitoring Observability
 ## 📋 **MONITORING FUNDAMENTALS**
 
 ### **Monitoring vs Observability**
-| Aspect | Monitoring | Observability |
-|--------|------------|---------------|
-| **Purpose** | Detect known issues | Understand unknown issues |
-| **Approach** | Reactive | Proactive |
-| **Focus** | What is happening | Why is it happening |
-| **Data** | Predefined metrics | Exploratory analysis |
-
-### **Monitoring Principles**
-| Principle | Definition | Implementation |
-|-----------|------------|----------------|
-| **Proactive Detection** | Identify issues before impact | Early warning systems |
-| **Comprehensive Coverage** | Monitor all components | Full-stack monitoring |
-| **Real-Time Visibility** | Immediate system state | Live dashboards |
-| **Actionable Insights** | Data drives decisions | Alert correlation |
-
----
-
-## 📊 **OBSERVABILITY PILLARS**
-
-### **Three Pillars Comparison**
-| Pillar | Purpose | Data Type | Use Case | Performance Impact |
-|--------|---------|-----------|----------|-------------------|
-| **Logs** | Event recording | Structured events | Debugging, audit | Low |
-| **Metrics** | Performance measurement | Time-series data | Monitoring, alerting | Very Low |
-| **Traces** | Request tracking | Distributed spans | Performance debugging | Medium |
-
-### **Logging Levels**
-| Level | Volume | Value | Use Case | Storage Impact |
-|-------|--------|-------|----------|----------------|
-| **DEBUG** | 80% | 20% | Development | High |
-| **INFO** | 15% | 30% | Normal operations | Medium |
-| **WARN** | 3% | 25% | Potential issues | Low |
-| **ERROR** | 2% | 25% | Actual errors | Low |
-| **FATAL** | <1% | High | Critical failures | Minimal |
-
-### **Structured Logging Format**
-```json
-{
-  "timestamp": "2024-01-15T10:30:00Z",
-  "level": "INFO",
-  "service": "user-service",
-  "trace_id": "abc123def456",
-  "user_id": "user-123",
-  "action": "login",
-  "duration_ms": 45,
-  "message": "User login successful"
-}
-```
-
----
-
-## 📈 **METRICS COLLECTION**
-
-### **Metrics Types**
-| Type | Purpose | Example | Storage | Analysis |
-|------|---------|---------|---------|----------|
-| **Counter** | Cumulative values | Request count | Minimal | Rate calculation |
-| **Gauge** | Current values | CPU usage | Medium | Current state |
-| **Histogram** | Distribution | Response time | High | Percentiles |
-| **Summary** | Statistical summary | Request duration | Medium | Averages |
-
-### **Pull vs Push Models**
-| Model | Advantages | Disadvantages | Use Case | Example |
-|-------|------------|---------------|----------|---------|
-| **Pull** | Simple, reliable | Requires availability | Infrastructure | Prometheus |
-| **Push** | Flexible, fire-forget | Potential data loss | Applications | StatsD |
-
-### **Time-Series Database Features**
-| Feature | Benefit | Implementation | Performance |
-|---------|---------|----------------|-------------|
-| **Columnar Storage** | Efficient queries | Time-based columns | Fast reads |
-| **Compression** | Reduced storage | Delta encoding | 10-100x compression |
-| **Indexing** | Fast lookups | Time-based indexes | Sub-second queries |
-| **Retention** | Data lifecycle | Automatic cleanup | Configurable |
-
----
-
-## 📝 **LOGGING SYSTEMS**
-
-### **Log Aggregation Pipeline**
-```
-1. Log Generation → 2. Log Collection → 3. Log Processing → 4. Log Storage → 5. Log Analysis
-```
-
-### **Log Retention Strategy**
-| Tier | Duration | Access Speed | Cost | Use Case |
-|------|----------|--------------|------|----------|
-| **Hot** | 0-7 days | Fast | High | Real-time analysis |
-| **Warm** | 7-30 days | Medium | Medium | Trend analysis |
-| **Cold** | 30-365 days | Slow | Low | Compliance |
-| **Archive** | 1+ years | Very slow | Minimal | Legal requirements |
-
-### **Log Analysis Capabilities**
-| Capability | Purpose | Implementation | Performance |
-|------------|---------|----------------|-------------|
-| **Full-text Search** | Find specific events | Elasticsearch | Sub-second |
-| **Pattern Matching** | Identify trends | Regex, ML | Real-time |
-| **Correlation** | Link related events | Trace IDs | Fast |
-| **Alerting** | Trigger notifications | Rules engine | Immediate |
-
----
-
-## 🔍 **DISTRIBUTED TRACING**
-
-### **Trace Structure**
-```
-Trace ID: abc123def456
-├── Span 1: HTTP Request (100ms)
-│   ├── Span 1.1: Database Query (50ms)
-│   └── Span 1.2: Cache Lookup (10ms)
-├── Span 2: External API Call (200ms)
-└── Span 3: Response Generation (20ms)
-```
-
-### **Sampling Strategies**
-| Strategy | Advantages | Disadvantages | Use Case | Performance Impact |
-|----------|------------|---------------|----------|-------------------|
-| **Head-based** | Complete traces | May miss important | Performance monitoring | 5-10% overhead |
-| **Tail-based** | Captures errors | Incomplete traces | Error analysis | 10-20% overhead |
-| **Adaptive** | Balances visibility | Complex | Production systems | 1-5% overhead |
-
-### **Trace Propagation**
-| Method | Protocol | Use Case | Implementation |
-|--------|----------|----------|----------------|
-| **HTTP Headers** | HTTP/HTTPS | Web services | X-Trace-ID header |
-| **gRPC Metadata** | gRPC | Microservices | Metadata context |
-| **Message Headers** | Message queues | Event processing | Message properties |
-| **Database Context** | SQL/NoSQL | Database queries | Connection context |
-
----
-
-## 🏥 **HEALTH CHECKS**
-
-### **Health Check Types**
-| Type | Purpose | Frequency | Timeout | Action |
-|------|---------|-----------|---------|--------|
-| **Liveness** | Is service alive? | 30-60s | 5-10s | Restart |
-| **Readiness** | Ready for traffic? | 5-10s | 1-5s | Remove from LB |
-| **Startup** | Started successfully? | 5-10s | 1-5s | Restart |
-
-### **Health Check Implementation**
-```python
-GET /health/live
-Response: 200 OK (alive) or 503 Service Unavailable (dead)
-
-GET /health/ready
-Response: 200 OK (ready) or 503 Service Unavailable (not ready)
-```
-
-### **Health Check Hierarchy**
-```
-Service Health
-├── Application Health
-│   ├── Database Connectivity
-│   ├── Cache Connectivity
-│   └── External API Connectivity
-├── System Health
-│   ├── CPU Usage
-│   ├── Memory Usage
-│   └── Disk Usage
-└── Business Health
-    ├── Key Metrics
-    ├── SLA Compliance
-    └── Error Rates
-```
-
----
-
-## 🚨 **ALERTING SYSTEMS**
-
-### **Alerting Strategies**
-| Strategy | Purpose | Implementation | Use Case |
-|----------|---------|----------------|----------|
-| **Threshold-based** | Static limits | Fixed values | Basic monitoring |
-| **Dynamic** | Adaptive limits | Historical data | Variable systems |
-| **Anomaly Detection** | Unusual patterns | ML algorithms | Complex systems |
-| **Correlation** | Related alerts | Pattern matching | Incident response |
-
-### **Alert Severity Levels**
-| Level | Response Time | Notification | Escalation |
-|-------|---------------|--------------|------------|
-| **Info** | 24 hours | Email | None |
-| **Warning** | 4 hours | Email, Slack | Team lead |
-| **Critical** | 15 minutes | Phone, SMS | On-call engineer |
-| **Fatal** | 5 minutes | Phone, SMS, Pager | Manager |
-
-### **Alert Management**
-| Process | Purpose | Implementation | Benefits |
-|---------|---------|----------------|----------|
-| **Correlation** | Group related alerts | Time-based grouping | Reduce noise |
-| **Suppression** | Prevent alert storms | Rule-based suppression | Reduce fatigue |
-| **Escalation** | Ensure response | Time-based escalation | Timely response |
-| **Documentation** | Guide response | Runbooks | Consistent response |
-
----
-
-## 📊 **DASHBOARDS & VISUALIZATION**
-
-### **Dashboard Types**
-| Type | Audience | Focus | Metrics |
-|------|----------|-------|---------|
-| **Operational** | Engineers | System health | Performance, errors |
-| **Business** | Executives | Business metrics | Revenue, users |
-| **Technical** | Developers | Code performance | Latency, throughput |
-
-### **Visualization Techniques**
-| Technique | Use Case | Implementation | Benefits |
-|-----------|----------|----------------|----------|
-| **Time Series** | Trends over time | Line charts | Pattern identification |
-| **Heatmaps** | Multi-dimensional | Color-coded grids | Correlation analysis |
-| **Gauges** | Current values | Circular indicators | Quick status |
-| **Tables** | Detailed data | Sortable tables | Deep analysis |
-
-### **Real-time Features**
-| Feature | Purpose | Implementation | Performance |
-|---------|---------|----------------|-------------|
-| **Live Updates** | Current state | WebSocket, SSE | Sub-second |
-| **Interactive Controls** | User control | JavaScript | Immediate |
-| **Drill-down** | Detailed analysis | Click handlers | Fast navigation |
-| **Alert Integration** | Visual alerts | Color coding | Immediate |
-
----
-
-## 🔧 **IMPLEMENTATION PATTERNS**
-
-### **Monitoring Agent**
-```python
-class MonitoringAgent:
-    def collect_metrics(self):
-        metrics = {
-            'cpu_usage': self.get_cpu_usage(),
-            'memory_usage': self.get_memory_usage(),
-            'disk_usage': self.get_disk_usage()
-        }
-        self.metrics_collector.send(metrics)
-    
-    def collect_logs(self, level, message, **kwargs):
-        log_entry = {
-            'timestamp': datetime.utcnow().isoformat(),
-            'level': level,
-            'message': message,
-            **kwargs
-        }
-        self.log_collector.send(log_entry)
-```
-
-### **Health Checker**
-```python
-class HealthChecker:
-    def check_health(self):
-        health_status = {
-            'status': 'healthy',
-            'checks': {},
-            'timestamp': datetime.utcnow().isoformat()
-        }
-        
-        for check_name, check_func in self.checks.items():
-            result = check_func()
-            health_status['checks'][check_name] = {
-                'status': 'healthy' if result else 'unhealthy'
-            }
-        
-        return health_status
-```
-
----
-
-## ⚠️ **COMMON PITFALLS**
-
-### **Monitoring Pitfalls**
-| Pitfall | Impact | Prevention | Detection |
-|---------|--------|------------|-----------|
-| **Alert Fatigue** | Missed alerts | Reduce noise | Alert metrics |
-| **False Positives** | Wasted time | Tune thresholds | Alert analysis |
-| **Incomplete Coverage** | Blind spots | Comprehensive monitoring | Gap analysis |
-| **Performance Impact** | System degradation | Efficient collection | Performance monitoring |
-
-### **Observability Pitfalls**
-| Pitfall | Impact | Prevention | Detection |
-|---------|--------|------------|-----------|
-| **High Cardinality** | Storage explosion | Limit dimensions | Cardinality monitoring |
-| **Sampling Issues** | Lost data | Appropriate sampling | Sampling validation |
-| **Correlation Failures** | Debugging difficulty | Consistent IDs | Trace validation |
-| **Data Retention** | Compliance issues | Proper retention | Retention monitoring |
-
----
-
-## 🎯 **BEST PRACTICES**
-
-### **Monitoring Best Practices**
-- ✅ **Comprehensive Coverage**: Monitor all system components
-- ✅ **Real-time Visibility**: Provide immediate system state
-- ✅ **Actionable Alerts**: Ensure alerts drive action
-- ✅ **Performance Optimization**: Minimize monitoring overhead
-- ✅ **Data Retention**: Implement appropriate retention policies
-- ❌ **Alert Storms**: Avoid overwhelming notifications
-- ❌ **False Positives**: Minimize incorrect alerts
-- ❌ **Incomplete Monitoring**: Don't leave blind spots
-
-### **Observability Best Practices**
-- ✅ **Structured Logging**: Use consistent log formats
-- ✅ **Correlation IDs**: Enable request tracing across services
-- ✅ **Sampling Strategies**: Balance visibility with performance
-- ✅ **Metric Naming**: Use consistent naming conventions
-- ✅ **Dashboard Design**: Create actionable visualizations
-- ❌ **High Cardinality**: Avoid excessive metric dimensions
-- ❌ **Poor Sampling**: Don't lose important data
-- ❌ **Inconsistent Formats**: Don't mix log formats
-
-### **Alerting Best Practices**
-- ✅ **Reduce Noise**: Minimize false positives
-- ✅ **Escalation Paths**: Define clear escalation procedures
-- ✅ **Alert Correlation**: Group related alerts
-- ✅ **Automated Response**: Implement automated remediation
-- ✅ **Alert Documentation**: Document alert meaning and response
-- ❌ **Alert Storms**: Avoid overwhelming notifications
-- ❌ **Poor Thresholds**: Don't set inappropriate limits
-- ❌ **Missing Context**: Don't send alerts without context
-
----
-
-## 🔗 **RELATED CONCEPTS**
-
-### **Integration with Other Systems**
-| System | Integration Point | Benefits |
-|--------|-------------------|----------|
-| **Data Storage** | Metrics and log storage | Persistent data |
-| **Networking** | Data transmission | Reliable collection |
-| **Caching** | Performance monitoring | Cache optimization |
-| **Security** | Security monitoring | Threat detection |
-
-### **Compliance Requirements**
-| Standard | Requirements | Implementation |
-|----------|-------------|----------------|
-| **SOX** | Audit trails | Comprehensive logging |
-| **HIPAA** | Access monitoring | User activity tracking |
-| **PCI DSS** | Security monitoring | Security event logging |
-| **GDPR** | Data processing | Privacy monitoring |
-
----
-
-## 📈 **PERFORMANCE CONSIDERATIONS**
-
-### **Monitoring Performance Impact**
-| Component | Performance Impact | Optimization | Monitoring |
-|-----------|-------------------|--------------|------------|
-| **Metrics Collection** | 1-5% CPU | Sampling | Collection rate |
-| **Log Processing** | 5-15% CPU | Async processing | Processing latency |
-| **Tracing** | 5-10% latency | Sampling | Trace overhead |
-| **Health Checks** | <1% overhead | Efficient checks | Check duration |
-
-### **Scalability Considerations**
-| Aspect | Challenge | Solution | Performance |
-|--------|-----------|----------|-------------|
-| **Data Volume** | High volume | Sampling, aggregation | 1M+ events/sec |
-| **Storage** | Large datasets | Compression, retention | 10-100x compression |
-| **Queries** | Slow queries | Indexing, caching | Sub-second response |
-| **Real-time** | High latency | Streaming, caching | <1 second latency |
-
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Monitoring</th>
+<th>Observability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Purpose**</td>
+<td>Detect known issues</td>
+<td>Understand unknown issues</td>
+</tr>
+<tr>
+<td>**Approach**</td>
+<td>Reactive</td>
+<td>Proactive</td>
+</tr>
+<tr>
+<td>**Focus**</td>
+<td>What is happening</td>
+<td>Why is it happening</td>
+</tr>
+<tr>
+<td>**Data**</td>
+<td>Predefined metrics</td>
+<td>Exploratory analysis</td>
+</tr>
+<tr>
+<td>Principle</td>
+<td>Definition</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**Proactive Detection**</td>
+<td>Identify issues before impact</td>
+<td>Early warning systems</td>
+</tr>
+<tr>
+<td>**Comprehensive Coverage**</td>
+<td>Monitor all components</td>
+<td>Full-stack monitoring</td>
+</tr>
+<tr>
+<td>**Real-Time Visibility**</td>
+<td>Immediate system state</td>
+<td>Live dashboards</td>
+</tr>
+<tr>
+<td>**Actionable Insights**</td>
+<td>Data drives decisions</td>
+<td>Alert correlation</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>Purpose</td>
+<td>Data Type</td>
+<td>Use Case</td>
+<td>Performance Impact</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------------</td>
+</tr>
+<tr>
+<td>**Logs**</td>
+<td>Event recording</td>
+<td>Structured events</td>
+<td>Debugging, audit</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Metrics**</td>
+<td>Performance measurement</td>
+<td>Time-series data</td>
+<td>Monitoring, alerting</td>
+<td>Very Low</td>
+</tr>
+<tr>
+<td>**Traces**</td>
+<td>Request tracking</td>
+<td>Distributed spans</td>
+<td>Performance debugging</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Volume</td>
+<td>Value</td>
+<td>Use Case</td>
+<td>Storage Impact</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>--------</td>
+<td>-------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**DEBUG**</td>
+<td>80%</td>
+<td>20%</td>
+<td>Development</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**INFO**</td>
+<td>15%</td>
+<td>30%</td>
+<td>Normal operations</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**WARN**</td>
+<td>3%</td>
+<td>25%</td>
+<td>Potential issues</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**ERROR**</td>
+<td>2%</td>
+<td>25%</td>
+<td>Actual errors</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**FATAL**</td>
+<td><1%</td>
+<td>High</td>
+<td>Critical failures</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Purpose</td>
+<td>Example</td>
+<td>Storage</td>
+<td>Analysis</td>
+</tr>
+<tr>
+<td>------</td>
+<td>---------</td>
+<td>---------</td>
+<td>---------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Counter**</td>
+<td>Cumulative values</td>
+<td>Request count</td>
+<td>Minimal</td>
+<td>Rate calculation</td>
+</tr>
+<tr>
+<td>**Gauge**</td>
+<td>Current values</td>
+<td>CPU usage</td>
+<td>Medium</td>
+<td>Current state</td>
+</tr>
+<tr>
+<td>**Histogram**</td>
+<td>Distribution</td>
+<td>Response time</td>
+<td>High</td>
+<td>Percentiles</td>
+</tr>
+<tr>
+<td>**Summary**</td>
+<td>Statistical summary</td>
+<td>Request duration</td>
+<td>Medium</td>
+<td>Averages</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+<td>Use Case</td>
+<td>Example</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>------------</td>
+<td>---------------</td>
+<td>----------</td>
+<td>---------</td>
+</tr>
+<tr>
+<td>**Pull**</td>
+<td>Simple, reliable</td>
+<td>Requires availability</td>
+<td>Infrastructure</td>
+<td>Prometheus</td>
+</tr>
+<tr>
+<td>**Push**</td>
+<td>Flexible, fire-forget</td>
+<td>Potential data loss</td>
+<td>Applications</td>
+<td>StatsD</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Benefit</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Columnar Storage**</td>
+<td>Efficient queries</td>
+<td>Time-based columns</td>
+<td>Fast reads</td>
+</tr>
+<tr>
+<td>**Compression**</td>
+<td>Reduced storage</td>
+<td>Delta encoding</td>
+<td>10-100x compression</td>
+</tr>
+<tr>
+<td>**Indexing**</td>
+<td>Fast lookups</td>
+<td>Time-based indexes</td>
+<td>Sub-second queries</td>
+</tr>
+<tr>
+<td>**Retention**</td>
+<td>Data lifecycle</td>
+<td>Automatic cleanup</td>
+<td>Configurable</td>
+</tr>
+<tr>
+<td>Tier</td>
+<td>Duration</td>
+<td>Access Speed</td>
+<td>Cost</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>------</td>
+<td>----------</td>
+<td>--------------</td>
+<td>------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Hot**</td>
+<td>0-7 days</td>
+<td>Fast</td>
+<td>High</td>
+<td>Real-time analysis</td>
+</tr>
+<tr>
+<td>**Warm**</td>
+<td>7-30 days</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Trend analysis</td>
+</tr>
+<tr>
+<td>**Cold**</td>
+<td>30-365 days</td>
+<td>Slow</td>
+<td>Low</td>
+<td>Compliance</td>
+</tr>
+<tr>
+<td>**Archive**</td>
+<td>1+ years</td>
+<td>Very slow</td>
+<td>Minimal</td>
+<td>Legal requirements</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Full-text Search**</td>
+<td>Find specific events</td>
+<td>Elasticsearch</td>
+<td>Sub-second</td>
+</tr>
+<tr>
+<td>**Pattern Matching**</td>
+<td>Identify trends</td>
+<td>Regex, ML</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Link related events</td>
+<td>Trace IDs</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>**Alerting**</td>
+<td>Trigger notifications</td>
+<td>Rules engine</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+<td>Use Case</td>
+<td>Performance Impact</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>------------</td>
+<td>---------------</td>
+<td>----------</td>
+<td>-------------------</td>
+</tr>
+<tr>
+<td>**Head-based**</td>
+<td>Complete traces</td>
+<td>May miss important</td>
+<td>Performance monitoring</td>
+<td>5-10% overhead</td>
+</tr>
+<tr>
+<td>**Tail-based**</td>
+<td>Captures errors</td>
+<td>Incomplete traces</td>
+<td>Error analysis</td>
+<td>10-20% overhead</td>
+</tr>
+<tr>
+<td>**Adaptive**</td>
+<td>Balances visibility</td>
+<td>Complex</td>
+<td>Production systems</td>
+<td>1-5% overhead</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Protocol</td>
+<td>Use Case</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>----------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**HTTP Headers**</td>
+<td>HTTP/HTTPS</td>
+<td>Web services</td>
+<td>X-Trace-ID header</td>
+</tr>
+<tr>
+<td>**gRPC Metadata**</td>
+<td>gRPC</td>
+<td>Microservices</td>
+<td>Metadata context</td>
+</tr>
+<tr>
+<td>**Message Headers**</td>
+<td>Message queues</td>
+<td>Event processing</td>
+<td>Message properties</td>
+</tr>
+<tr>
+<td>**Database Context**</td>
+<td>SQL/NoSQL</td>
+<td>Database queries</td>
+<td>Connection context</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Purpose</td>
+<td>Frequency</td>
+<td>Timeout</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>---------</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>**Liveness**</td>
+<td>Is service alive?</td>
+<td>30-60s</td>
+<td>5-10s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>**Readiness**</td>
+<td>Ready for traffic?</td>
+<td>5-10s</td>
+<td>1-5s</td>
+<td>Remove from LB</td>
+</tr>
+<tr>
+<td>**Startup**</td>
+<td>Started successfully?</td>
+<td>5-10s</td>
+<td>1-5s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Threshold-based**</td>
+<td>Static limits</td>
+<td>Fixed values</td>
+<td>Basic monitoring</td>
+</tr>
+<tr>
+<td>**Dynamic**</td>
+<td>Adaptive limits</td>
+<td>Historical data</td>
+<td>Variable systems</td>
+</tr>
+<tr>
+<td>**Anomaly Detection**</td>
+<td>Unusual patterns</td>
+<td>ML algorithms</td>
+<td>Complex systems</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Related alerts</td>
+<td>Pattern matching</td>
+<td>Incident response</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Response Time</td>
+<td>Notification</td>
+<td>Escalation</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>---------------</td>
+<td>--------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Info**</td>
+<td>24 hours</td>
+<td>Email</td>
+<td>None</td>
+</tr>
+<tr>
+<td>**Warning**</td>
+<td>4 hours</td>
+<td>Email, Slack</td>
+<td>Team lead</td>
+</tr>
+<tr>
+<td>**Critical**</td>
+<td>15 minutes</td>
+<td>Phone, SMS</td>
+<td>On-call engineer</td>
+</tr>
+<tr>
+<td>**Fatal**</td>
+<td>5 minutes</td>
+<td>Phone, SMS, Pager</td>
+<td>Manager</td>
+</tr>
+<tr>
+<td>Process</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Group related alerts</td>
+<td>Time-based grouping</td>
+<td>Reduce noise</td>
+</tr>
+<tr>
+<td>**Suppression**</td>
+<td>Prevent alert storms</td>
+<td>Rule-based suppression</td>
+<td>Reduce fatigue</td>
+</tr>
+<tr>
+<td>**Escalation**</td>
+<td>Ensure response</td>
+<td>Time-based escalation</td>
+<td>Timely response</td>
+</tr>
+<tr>
+<td>**Documentation**</td>
+<td>Guide response</td>
+<td>Runbooks</td>
+<td>Consistent response</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Audience</td>
+<td>Focus</td>
+<td>Metrics</td>
+</tr>
+<tr>
+<td>------</td>
+<td>----------</td>
+<td>-------</td>
+<td>---------</td>
+</tr>
+<tr>
+<td>**Operational**</td>
+<td>Engineers</td>
+<td>System health</td>
+<td>Performance, errors</td>
+</tr>
+<tr>
+<td>**Business**</td>
+<td>Executives</td>
+<td>Business metrics</td>
+<td>Revenue, users</td>
+</tr>
+<tr>
+<td>**Technical**</td>
+<td>Developers</td>
+<td>Code performance</td>
+<td>Latency, throughput</td>
+</tr>
+<tr>
+<td>Technique</td>
+<td>Use Case</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Time Series**</td>
+<td>Trends over time</td>
+<td>Line charts</td>
+<td>Pattern identification</td>
+</tr>
+<tr>
+<td>**Heatmaps**</td>
+<td>Multi-dimensional</td>
+<td>Color-coded grids</td>
+<td>Correlation analysis</td>
+</tr>
+<tr>
+<td>**Gauges**</td>
+<td>Current values</td>
+<td>Circular indicators</td>
+<td>Quick status</td>
+</tr>
+<tr>
+<td>**Tables**</td>
+<td>Detailed data</td>
+<td>Sortable tables</td>
+<td>Deep analysis</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Live Updates**</td>
+<td>Current state</td>
+<td>WebSocket, SSE</td>
+<td>Sub-second</td>
+</tr>
+<tr>
+<td>**Interactive Controls**</td>
+<td>User control</td>
+<td>JavaScript</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>**Drill-down**</td>
+<td>Detailed analysis</td>
+<td>Click handlers</td>
+<td>Fast navigation</td>
+</tr>
+<tr>
+<td>**Alert Integration**</td>
+<td>Visual alerts</td>
+<td>Color coding</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**Alert Fatigue**</td>
+<td>Missed alerts</td>
+<td>Reduce noise</td>
+<td>Alert metrics</td>
+</tr>
+<tr>
+<td>**False Positives**</td>
+<td>Wasted time</td>
+<td>Tune thresholds</td>
+<td>Alert analysis</td>
+</tr>
+<tr>
+<td>**Incomplete Coverage**</td>
+<td>Blind spots</td>
+<td>Comprehensive monitoring</td>
+<td>Gap analysis</td>
+</tr>
+<tr>
+<td>**Performance Impact**</td>
+<td>System degradation</td>
+<td>Efficient collection</td>
+<td>Performance monitoring</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**High Cardinality**</td>
+<td>Storage explosion</td>
+<td>Limit dimensions</td>
+<td>Cardinality monitoring</td>
+</tr>
+<tr>
+<td>**Sampling Issues**</td>
+<td>Lost data</td>
+<td>Appropriate sampling</td>
+<td>Sampling validation</td>
+</tr>
+<tr>
+<td>**Correlation Failures**</td>
+<td>Debugging difficulty</td>
+<td>Consistent IDs</td>
+<td>Trace validation</td>
+</tr>
+<tr>
+<td>**Data Retention**</td>
+<td>Compliance issues</td>
+<td>Proper retention</td>
+<td>Retention monitoring</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Integration Point</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-------------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Data Storage**</td>
+<td>Metrics and log storage</td>
+<td>Persistent data</td>
+</tr>
+<tr>
+<td>**Networking**</td>
+<td>Data transmission</td>
+<td>Reliable collection</td>
+</tr>
+<tr>
+<td>**Caching**</td>
+<td>Performance monitoring</td>
+<td>Cache optimization</td>
+</tr>
+<tr>
+<td>**Security**</td>
+<td>Security monitoring</td>
+<td>Threat detection</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>Requirements</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>-------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**SOX**</td>
+<td>Audit trails</td>
+<td>Comprehensive logging</td>
+</tr>
+<tr>
+<td>**HIPAA**</td>
+<td>Access monitoring</td>
+<td>User activity tracking</td>
+</tr>
+<tr>
+<td>**PCI DSS**</td>
+<td>Security monitoring</td>
+<td>Security event logging</td>
+</tr>
+<tr>
+<td>**GDPR**</td>
+<td>Data processing</td>
+<td>Privacy monitoring</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Performance Impact</td>
+<td>Optimization</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>-------------------</td>
+<td>--------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Metrics Collection**</td>
+<td>1-5% CPU</td>
+<td>Sampling</td>
+<td>Collection rate</td>
+</tr>
+<tr>
+<td>**Log Processing**</td>
+<td>5-15% CPU</td>
+<td>Async processing</td>
+<td>Processing latency</td>
+</tr>
+<tr>
+<td>**Tracing**</td>
+<td>5-10% latency</td>
+<td>Sampling</td>
+<td>Trace overhead</td>
+</tr>
+<tr>
+<td>**Health Checks**</td>
+<td><1% overhead</td>
+<td>Efficient checks</td>
+<td>Check duration</td>
+</tr>
+<tr>
+<td>Aspect</td>
+<td>Challenge</td>
+<td>Solution</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Data Volume**</td>
+<td>High volume</td>
+<td>Sampling, aggregation</td>
+<td>1M+ events/sec</td>
+</tr>
+<tr>
+<td>**Storage**</td>
+<td>Large datasets</td>
+<td>Compression, retention</td>
+<td>10-100x compression</td>
+</tr>
+<tr>
+<td>**Queries**</td>
+<td>Slow queries</td>
+<td>Indexing, caching</td>
+<td>Sub-second response</td>
+</tr>
+<tr>
+<td>**Real-time**</td>
+<td>High latency</td>
+<td>Streaming, caching</td>
+<td><1 second latency</td>
+</tr>
+</tbody>
+</table>
+</div>
 ---
 
 ## 🎯 **KEY TAKEAWAYS**

@@ -45,292 +45,705 @@ Security Level Required?
 ## 🔐 **AUTHENTICATION QUICK REFERENCE**
 
 ### **Authentication Methods**
-| Method | Security | User Experience | Implementation | Use Case |
-|--------|----------|-----------------|----------------|----------|
-| **Password** | Low | Good | Simple | Basic systems |
-| **MFA (TOTP)** | High | Good | Medium | High security |
-| **Biometric** | High | Excellent | Complex | Mobile devices |
-| **OAuth 2.0** | High | Good | Complex | Third-party access |
-| **SAML** | High | Good | Complex | Enterprise SSO |
-| **JWT** | Medium | Good | Simple | Stateless systems |
-
-### **Password Security Levels**
-| Method | Security Level | Attack Resistance | Storage Overhead |
-|--------|---------------|------------------|------------------|
-| **Plain Text** | 0% | None | Minimal |
-| **Simple Hash** | 20% | Rainbow tables | Minimal |
-| **Salted Hash** | 60% | Dictionary attacks | Low |
-| **Adaptive Hash** | 80% | Brute force | Medium |
-| **Password Manager** | 95% | Most attacks | None |
-
-### **MFA Factor Types**
-| Factor | Examples | Security Gain | User Experience |
-|--------|----------|---------------|-----------------|
-| **Knowledge** | Password, PIN | 50% | Familiar |
-| **Possession** | TOTP, SMS | 90% | Good |
-| **Inherence** | Fingerprint, Face | 95% | Excellent |
-| **Location** | GPS, IP | 70% | Transparent |
-| **Time** | Time-based tokens | 80% | Good |
-
----
-
-## 🚪 **AUTHORIZATION QUICK REFERENCE**
-
-### **Access Control Models**
-| Model | Complexity | Flexibility | Performance | Best For |
-|-------|------------|-------------|-------------|----------|
-| **ACL** | Low | Low | High | Simple systems |
-| **RBAC** | Medium | Medium | High | Organizations |
-| **ABAC** | High | High | Medium | Dynamic environments |
-| **PBAC** | Very High | Very High | Low | Complex compliance |
-
-### **RBAC Role Hierarchy**
-```
-CEO
-├── VP Engineering
-│   ├── Engineering Manager
-│   │   ├── Senior Engineer
-│   │   └── Junior Engineer
-│   └── QA Manager
-│       └── QA Engineer
-└── VP Sales
-    ├── Sales Manager
-    └── Sales Representative
-```
-
-### **ABAC Policy Example**
-```
-IF user.role = "manager" 
-   AND user.department = resource.department
-   AND current_time BETWEEN "9:00" AND "17:00"
-   AND user.location = "office"
-THEN ALLOW access
-```
-
----
-
-## 🔒 **CRYPTOGRAPHIC QUICK REFERENCE**
-
-### **Encryption Algorithms**
-| Algorithm | Type | Key Size | Security | Performance |
-|-----------|------|----------|----------|-------------|
-| **AES-256** | Symmetric | 256 bits | High | High |
-| **RSA-2048** | Asymmetric | 2048 bits | Medium | Low |
-| **ECC-256** | Asymmetric | 256 bits | High | Medium |
-| **ChaCha20** | Symmetric | 256 bits | High | Very High |
-
-### **Hash Functions**
-| Algorithm | Output Size | Security | Performance | Status |
-|-----------|-------------|----------|-------------|--------|
-| **SHA-256** | 256 bits | High | Very High | Recommended |
-| **SHA-384** | 384 bits | Very High | High | Recommended |
-| **SHA-512** | 512 bits | Very High | High | Recommended |
-| **MD5** | 128 bits | Broken | Very High | Deprecated |
-
-### **TLS Cipher Suites**
-| Cipher Suite | Key Exchange | Encryption | Hash | Security |
-|--------------|--------------|------------|------|----------|
-| **TLS_AES_256_GCM_SHA384** | ECDHE | AES-256-GCM | SHA-384 | High |
-| **TLS_CHACHA20_POLY1305_SHA256** | ECDHE | ChaCha20-Poly1305 | SHA-256 | High |
-| **TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384** | ECDHE | AES-256-GCM | SHA-384 | High |
-
----
-
-## 🌐 **NETWORK SECURITY QUICK REFERENCE**
-
-### **TLS Versions**
-| Version | Security | Performance | Compatibility | Recommendation |
-|---------|----------|-------------|---------------|----------------|
-| **TLS 1.0** | Low | High | Legacy | Disable |
-| **TLS 1.1** | Low | High | Legacy | Disable |
-| **TLS 1.2** | Medium | High | Widely supported | Accept |
-| **TLS 1.3** | High | Very High | Modern browsers | Prefer |
-
-### **VPN Types**
-| VPN Type | Security | Performance | Use Case | Implementation |
-|----------|----------|-------------|----------|----------------|
-| **IPSec** | High | Medium | Site-to-site | Hardware |
-| **OpenVPN** | High | Medium | Remote access | Software |
-| **WireGuard** | High | High | Modern VPN | Kernel |
-| **SSL VPN** | Medium | High | Web-based | Browser |
-
----
-
-## 📊 **PERFORMANCE METRICS**
-
-### **Security Performance Impact**
-| Security Feature | Performance Impact | Security Gain | ROI |
-|------------------|-------------------|---------------|-----|
-| **MFA** | 2-5x auth time | 99%+ improvement | High |
-| **Strong Encryption** | 5-15% CPU | 1000x+ resistance | High |
-| **Audit Logging** | 1-5% I/O | 100% compliance | Medium |
-| **Rate Limiting** | 1-2% latency | 90%+ prevention | High |
-
-### **Scalability Considerations**
-| Aspect | Challenge | Solution | Performance |
-|--------|-----------|----------|-------------|
-| **Authentication** | High volume | Distributed auth | 10K+ users/sec |
-| **Authorization** | Complex policies | Cached decisions | 100K+ decisions/sec |
-| **Encryption** | Key management | Centralized KMS | 1GB+ encrypted/sec |
-| **Monitoring** | High events | Distributed SIEM | 1M+ events/sec |
-
----
-
-## ⚠️ **COMMON VULNERABILITIES**
-
-### **Authentication Vulnerabilities**
-| Vulnerability | Impact | Prevention | Detection |
-|---------------|--------|------------|----------|
-| **Weak Passwords** | Account compromise | Strong policies | Password audits |
-| **Password Reuse** | Multiple compromise | Password managers | Breach monitoring |
-| **Brute Force** | Account takeover | Rate limiting, MFA | Failed login alerts |
-| **Session Hijacking** | Unauthorized access | Secure sessions | Session monitoring |
-
-### **Authorization Vulnerabilities**
-| Vulnerability | Impact | Prevention | Detection |
-|---------------|--------|------------|----------|
-| **Privilege Escalation** | Unauthorized access | Least privilege | Access reviews |
-| **Missing Authorization** | Unauthorized actions | Always check | Code reviews |
-| **Insecure Direct Object References** | Data access bypass | Indirect references | Penetration testing |
-| **Horizontal Privilege Escalation** | Other users' data | Resource-level auth | Access monitoring |
-
-### **Cryptographic Vulnerabilities**
-| Vulnerability | Impact | Prevention | Detection |
-|---------------|--------|------------|----------|
-| **Weak Algorithms** | Data compromise | Strong algorithms | Security scanning |
-| **Poor Key Management** | Key compromise | Secure KMS | Key rotation |
-| **Random Number Generation** | Predictable values | Secure RNG | Entropy testing |
-| **Timing Attacks** | Key extraction | Constant-time ops | Security testing |
-
----
-
-## 🎯 **INTERVIEW QUICK TIPS**
-
-### **When Asked About Security:**
-1. **Start with Requirements**: "What are the security requirements?"
-2. **Analyze Threats**: "What are the potential threats?"
-3. **Consider Compliance**: "What compliance requirements exist?"
-4. **Evaluate Trade-offs**: "What's the security vs usability trade-off?"
-5. **Discuss Implementation**: "How would you implement this securely?"
-
-### **Quick Decision Framework for Interviews:**
-```
-Step 1: "What's the security requirement?"
-├─ High Security → Multi-factor, encryption, monitoring
-├─ Medium Security → Strong passwords, HTTPS, logging
-├─ Basic Security → Passwords, HTTPS
-└─ Compliance Required → Audit logging, access controls
-
-Step 2: "What are the threats?"
-├─ External Attacks → Firewalls, intrusion detection
-├─ Internal Threats → Access controls, monitoring
-├─ Data Breaches → Encryption, access controls
-└─ Compliance Violations → Audit logging, policies
-
-Step 3: "What's the implementation approach?"
-├─ Authentication strategy
-├─ Authorization model
-├─ Encryption requirements
-└─ Monitoring and alerting
-```
-
-### **Common Interview Scenarios & Quick Answers:**
-
-#### **"Design a Secure Authentication System"**
-- **Authentication**: Multi-factor authentication (password + TOTP)
-- **Authorization**: Role-based access control (RBAC)
-- **Security**: HTTPS, rate limiting, audit logging
-- **Trade-offs**: Security vs user experience
-
-#### **"Design OAuth 2.0 for Third-Party Access"**
-- **Flow**: Authorization Code Flow (most secure)
-- **Security**: Short-lived tokens, refresh tokens
-- **Implementation**: OAuth 2.0 server, client applications
-- **Trade-offs**: Security vs complexity
-
-#### **"Design a Secure API"**
-- **Authentication**: JWT tokens or API keys
-- **Authorization**: Role-based or attribute-based
-- **Security**: HTTPS, rate limiting, input validation
-- **Trade-offs**: Performance vs security
-
-#### **"Design a Zero Trust Architecture"**
-- **Principle**: Never trust, always verify
-- **Implementation**: Continuous verification, micro-segmentation
-- **Security**: Identity-based access, least privilege
-- **Trade-offs**: Complexity vs security
-
-### **Red Flags to Avoid in Interviews:**
-- ❌ **"Security doesn't matter for this"** - Security always matters
-- ❌ **"We'll add security later"** - Security by design is better
-- ❌ **"Passwords are fine"** - Multi-factor is standard
-- ❌ **"No need for encryption"** - Data protection is essential
-- ❌ **"We don't need monitoring"** - Security monitoring is critical
-
-### **Green Flags for Interviews:**
-- ✅ **"Let me understand the security requirements first"** - Systematic approach
-- ✅ **"What are the compliance requirements?"** - Regulatory awareness
-- ✅ **"How do we handle key management?"** - Technical depth
-- ✅ **"What's our incident response plan?"** - Operational thinking
-- ✅ **"How do we monitor for threats?"** - Proactive security
-
----
-
-## 📋 **QUICK REFERENCE: COMMON SCENARIOS**
-
-### **Security Selection by Use Case**
-| Use Case | Primary Security | Secondary Security | Key Decision Factors |
-|----------|-----------------|-------------------|---------------------|
-| **Web Application** | HTTPS + MFA | Input validation | User experience + security |
-| **Mobile App** | Biometric + JWT | Certificate pinning | Convenience + security |
-| **API Service** | API keys + OAuth | Rate limiting | Performance + security |
-| **Enterprise System** | SAML + RBAC | Audit logging | Compliance + security |
-| **IoT Device** | Certificate-based | Secure boot | Scalability + security |
-| **Financial System** | Multi-factor + encryption | Compliance monitoring | Regulatory + security |
-
-### **Security Selection by Data Sensitivity**
-| Data Sensitivity | Authentication | Authorization | Encryption | Monitoring |
-|------------------|----------------|---------------|------------|------------|
-| **Public Data** | Basic | None | None | Basic |
-| **Internal Data** | Password | RBAC | In transit | Logging |
-| **Confidential Data** | MFA | ABAC | At rest + transit | Alerting |
-| **Highly Sensitive** | Multi-factor | PBAC | End-to-end | Real-time |
-| **Regulated Data** | Compliance | Compliance | Compliance | Compliance |
-
----
-
-## 🚀 **SECURITY PATTERNS**
-
-### **Authentication Patterns**
-- **Single Sign-On (SSO)**: Centralized authentication
-- **Federation**: Cross-domain authentication
-- **Delegation**: Third-party authentication
-- **Stateless**: Token-based authentication
-
-### **Authorization Patterns**
-- **Role-Based**: Permission by role
-- **Attribute-Based**: Permission by attributes
-- **Policy-Based**: Permission by policies
-- **Resource-Based**: Permission by resource
-
-### **Security Architecture Patterns**
-- **Defense in Depth**: Multiple security layers
-- **Zero Trust**: Never trust, always verify
-- **Security by Design**: Built-in security
-- **Privacy by Design**: Built-in privacy
-
----
-
-## ⚖️ **COMPLIANCE FRAMEWORKS**
-
-### **Common Compliance Standards**
-| Standard | Focus | Requirements | Implementation |
-|----------|-------|--------------|----------------|
-| **GDPR** | Privacy | Consent, encryption, rights | Privacy controls |
-| **SOX** | Financial | Audit trails, access controls | Financial controls |
-| **HIPAA** | Healthcare | Privacy, security | Healthcare controls |
-| **PCI DSS** | Payment | Encryption, access controls | Payment controls |
-
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Security</th>
+<th>User Experience</th>
+<th>Implementation</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Password**</td>
+<td>Low</td>
+<td>Good</td>
+<td>Simple</td>
+<td>Basic systems</td>
+</tr>
+<tr>
+<td>**MFA (TOTP)**</td>
+<td>High</td>
+<td>Good</td>
+<td>Medium</td>
+<td>High security</td>
+</tr>
+<tr>
+<td>**Biometric**</td>
+<td>High</td>
+<td>Excellent</td>
+<td>Complex</td>
+<td>Mobile devices</td>
+</tr>
+<tr>
+<td>**OAuth 2.0**</td>
+<td>High</td>
+<td>Good</td>
+<td>Complex</td>
+<td>Third-party access</td>
+</tr>
+<tr>
+<td>**SAML**</td>
+<td>High</td>
+<td>Good</td>
+<td>Complex</td>
+<td>Enterprise SSO</td>
+</tr>
+<tr>
+<td>**JWT**</td>
+<td>Medium</td>
+<td>Good</td>
+<td>Simple</td>
+<td>Stateless systems</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Security Level</td>
+<td>Attack Resistance</td>
+<td>Storage Overhead</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>---------------</td>
+<td>------------------</td>
+<td>------------------</td>
+</tr>
+<tr>
+<td>**Plain Text**</td>
+<td>0%</td>
+<td>None</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>**Simple Hash**</td>
+<td>20%</td>
+<td>Rainbow tables</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>**Salted Hash**</td>
+<td>60%</td>
+<td>Dictionary attacks</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Adaptive Hash**</td>
+<td>80%</td>
+<td>Brute force</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Password Manager**</td>
+<td>95%</td>
+<td>Most attacks</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Factor</td>
+<td>Examples</td>
+<td>Security Gain</td>
+<td>User Experience</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>----------</td>
+<td>---------------</td>
+<td>-----------------</td>
+</tr>
+<tr>
+<td>**Knowledge**</td>
+<td>Password, PIN</td>
+<td>50%</td>
+<td>Familiar</td>
+</tr>
+<tr>
+<td>**Possession**</td>
+<td>TOTP, SMS</td>
+<td>90%</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>**Inherence**</td>
+<td>Fingerprint, Face</td>
+<td>95%</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>**Location**</td>
+<td>GPS, IP</td>
+<td>70%</td>
+<td>Transparent</td>
+</tr>
+<tr>
+<td>**Time**</td>
+<td>Time-based tokens</td>
+<td>80%</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>Complexity</td>
+<td>Flexibility</td>
+<td>Performance</td>
+<td>Best For</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>------------</td>
+<td>-------------</td>
+<td>-------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**ACL**</td>
+<td>Low</td>
+<td>Low</td>
+<td>High</td>
+<td>Simple systems</td>
+</tr>
+<tr>
+<td>**RBAC**</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>High</td>
+<td>Organizations</td>
+</tr>
+<tr>
+<td>**ABAC**</td>
+<td>High</td>
+<td>High</td>
+<td>Medium</td>
+<td>Dynamic environments</td>
+</tr>
+<tr>
+<td>**PBAC**</td>
+<td>Very High</td>
+<td>Very High</td>
+<td>Low</td>
+<td>Complex compliance</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td>Type</td>
+<td>Key Size</td>
+<td>Security</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>------</td>
+<td>----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**AES-256**</td>
+<td>Symmetric</td>
+<td>256 bits</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**RSA-2048**</td>
+<td>Asymmetric</td>
+<td>2048 bits</td>
+<td>Medium</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**ECC-256**</td>
+<td>Asymmetric</td>
+<td>256 bits</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**ChaCha20**</td>
+<td>Symmetric</td>
+<td>256 bits</td>
+<td>High</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td>Output Size</td>
+<td>Security</td>
+<td>Performance</td>
+<td>Status</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>-------------</td>
+<td>----------</td>
+<td>-------------</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>**SHA-256**</td>
+<td>256 bits</td>
+<td>High</td>
+<td>Very High</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>**SHA-384**</td>
+<td>384 bits</td>
+<td>Very High</td>
+<td>High</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>**SHA-512**</td>
+<td>512 bits</td>
+<td>Very High</td>
+<td>High</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>**MD5**</td>
+<td>128 bits</td>
+<td>Broken</td>
+<td>Very High</td>
+<td>Deprecated</td>
+</tr>
+<tr>
+<td>Cipher Suite</td>
+<td>Key Exchange</td>
+<td>Encryption</td>
+<td>Hash</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>--------------</td>
+<td>--------------</td>
+<td>------------</td>
+<td>------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**TLS_AES_256_GCM_SHA384**</td>
+<td>ECDHE</td>
+<td>AES-256-GCM</td>
+<td>SHA-384</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**TLS_CHACHA20_POLY1305_SHA256**</td>
+<td>ECDHE</td>
+<td>ChaCha20-Poly1305</td>
+<td>SHA-256</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384**</td>
+<td>ECDHE</td>
+<td>AES-256-GCM</td>
+<td>SHA-384</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Security</td>
+<td>Performance</td>
+<td>Compatibility</td>
+<td>Recommendation</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>----------</td>
+<td>-------------</td>
+<td>---------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**TLS 1.0**</td>
+<td>Low</td>
+<td>High</td>
+<td>Legacy</td>
+<td>Disable</td>
+</tr>
+<tr>
+<td>**TLS 1.1**</td>
+<td>Low</td>
+<td>High</td>
+<td>Legacy</td>
+<td>Disable</td>
+</tr>
+<tr>
+<td>**TLS 1.2**</td>
+<td>Medium</td>
+<td>High</td>
+<td>Widely supported</td>
+<td>Accept</td>
+</tr>
+<tr>
+<td>**TLS 1.3**</td>
+<td>High</td>
+<td>Very High</td>
+<td>Modern browsers</td>
+<td>Prefer</td>
+</tr>
+<tr>
+<td>VPN Type</td>
+<td>Security</td>
+<td>Performance</td>
+<td>Use Case</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>----------</td>
+<td>-------------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**IPSec**</td>
+<td>High</td>
+<td>Medium</td>
+<td>Site-to-site</td>
+<td>Hardware</td>
+</tr>
+<tr>
+<td>**OpenVPN**</td>
+<td>High</td>
+<td>Medium</td>
+<td>Remote access</td>
+<td>Software</td>
+</tr>
+<tr>
+<td>**WireGuard**</td>
+<td>High</td>
+<td>High</td>
+<td>Modern VPN</td>
+<td>Kernel</td>
+</tr>
+<tr>
+<td>**SSL VPN**</td>
+<td>Medium</td>
+<td>High</td>
+<td>Web-based</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>Security Feature</td>
+<td>Performance Impact</td>
+<td>Security Gain</td>
+<td>ROI</td>
+</tr>
+<tr>
+<td>------------------</td>
+<td>-------------------</td>
+<td>---------------</td>
+<td>-----</td>
+</tr>
+<tr>
+<td>**MFA**</td>
+<td>2-5x auth time</td>
+<td>99%+ improvement</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Strong Encryption**</td>
+<td>5-15% CPU</td>
+<td>1000x+ resistance</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Audit Logging**</td>
+<td>1-5% I/O</td>
+<td>100% compliance</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Rate Limiting**</td>
+<td>1-2% latency</td>
+<td>90%+ prevention</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Aspect</td>
+<td>Challenge</td>
+<td>Solution</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Authentication**</td>
+<td>High volume</td>
+<td>Distributed auth</td>
+<td>10K+ users/sec</td>
+</tr>
+<tr>
+<td>**Authorization**</td>
+<td>Complex policies</td>
+<td>Cached decisions</td>
+<td>100K+ decisions/sec</td>
+</tr>
+<tr>
+<td>**Encryption**</td>
+<td>Key management</td>
+<td>Centralized KMS</td>
+<td>1GB+ encrypted/sec</td>
+</tr>
+<tr>
+<td>**Monitoring**</td>
+<td>High events</td>
+<td>Distributed SIEM</td>
+<td>1M+ events/sec</td>
+</tr>
+<tr>
+<td>Vulnerability</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------------</td>
+<td>--------</td>
+<td>------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Weak Passwords**</td>
+<td>Account compromise</td>
+<td>Strong policies</td>
+<td>Password audits</td>
+</tr>
+<tr>
+<td>**Password Reuse**</td>
+<td>Multiple compromise</td>
+<td>Password managers</td>
+<td>Breach monitoring</td>
+</tr>
+<tr>
+<td>**Brute Force**</td>
+<td>Account takeover</td>
+<td>Rate limiting, MFA</td>
+<td>Failed login alerts</td>
+</tr>
+<tr>
+<td>**Session Hijacking**</td>
+<td>Unauthorized access</td>
+<td>Secure sessions</td>
+<td>Session monitoring</td>
+</tr>
+<tr>
+<td>Vulnerability</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------------</td>
+<td>--------</td>
+<td>------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Privilege Escalation**</td>
+<td>Unauthorized access</td>
+<td>Least privilege</td>
+<td>Access reviews</td>
+</tr>
+<tr>
+<td>**Missing Authorization**</td>
+<td>Unauthorized actions</td>
+<td>Always check</td>
+<td>Code reviews</td>
+</tr>
+<tr>
+<td>**Insecure Direct Object References**</td>
+<td>Data access bypass</td>
+<td>Indirect references</td>
+<td>Penetration testing</td>
+</tr>
+<tr>
+<td>**Horizontal Privilege Escalation**</td>
+<td>Other users' data</td>
+<td>Resource-level auth</td>
+<td>Access monitoring</td>
+</tr>
+<tr>
+<td>Vulnerability</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------------</td>
+<td>--------</td>
+<td>------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Weak Algorithms**</td>
+<td>Data compromise</td>
+<td>Strong algorithms</td>
+<td>Security scanning</td>
+</tr>
+<tr>
+<td>**Poor Key Management**</td>
+<td>Key compromise</td>
+<td>Secure KMS</td>
+<td>Key rotation</td>
+</tr>
+<tr>
+<td>**Random Number Generation**</td>
+<td>Predictable values</td>
+<td>Secure RNG</td>
+<td>Entropy testing</td>
+</tr>
+<tr>
+<td>**Timing Attacks**</td>
+<td>Key extraction</td>
+<td>Constant-time ops</td>
+<td>Security testing</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Primary Security</td>
+<td>Secondary Security</td>
+<td>Key Decision Factors</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>-----------------</td>
+<td>-------------------</td>
+<td>---------------------</td>
+</tr>
+<tr>
+<td>**Web Application**</td>
+<td>HTTPS + MFA</td>
+<td>Input validation</td>
+<td>User experience + security</td>
+</tr>
+<tr>
+<td>**Mobile App**</td>
+<td>Biometric + JWT</td>
+<td>Certificate pinning</td>
+<td>Convenience + security</td>
+</tr>
+<tr>
+<td>**API Service**</td>
+<td>API keys + OAuth</td>
+<td>Rate limiting</td>
+<td>Performance + security</td>
+</tr>
+<tr>
+<td>**Enterprise System**</td>
+<td>SAML + RBAC</td>
+<td>Audit logging</td>
+<td>Compliance + security</td>
+</tr>
+<tr>
+<td>**IoT Device**</td>
+<td>Certificate-based</td>
+<td>Secure boot</td>
+<td>Scalability + security</td>
+</tr>
+<tr>
+<td>**Financial System**</td>
+<td>Multi-factor + encryption</td>
+<td>Compliance monitoring</td>
+<td>Regulatory + security</td>
+</tr>
+<tr>
+<td>Data Sensitivity</td>
+<td>Authentication</td>
+<td>Authorization</td>
+<td>Encryption</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>------------------</td>
+<td>----------------</td>
+<td>---------------</td>
+<td>------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Public Data**</td>
+<td>Basic</td>
+<td>None</td>
+<td>None</td>
+<td>Basic</td>
+</tr>
+<tr>
+<td>**Internal Data**</td>
+<td>Password</td>
+<td>RBAC</td>
+<td>In transit</td>
+<td>Logging</td>
+</tr>
+<tr>
+<td>**Confidential Data**</td>
+<td>MFA</td>
+<td>ABAC</td>
+<td>At rest + transit</td>
+<td>Alerting</td>
+</tr>
+<tr>
+<td>**Highly Sensitive**</td>
+<td>Multi-factor</td>
+<td>PBAC</td>
+<td>End-to-end</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>**Regulated Data**</td>
+<td>Compliance</td>
+<td>Compliance</td>
+<td>Compliance</td>
+<td>Compliance</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>Focus</td>
+<td>Requirements</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>-------</td>
+<td>--------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**GDPR**</td>
+<td>Privacy</td>
+<td>Consent, encryption, rights</td>
+<td>Privacy controls</td>
+</tr>
+<tr>
+<td>**SOX**</td>
+<td>Financial</td>
+<td>Audit trails, access controls</td>
+<td>Financial controls</td>
+</tr>
+<tr>
+<td>**HIPAA**</td>
+<td>Healthcare</td>
+<td>Privacy, security</td>
+<td>Healthcare controls</td>
+</tr>
+<tr>
+<td>**PCI DSS**</td>
+<td>Payment</td>
+<td>Encryption, access controls</td>
+<td>Payment controls</td>
+</tr>
+</tbody>
+</table>
+</div>
 ### **Compliance Implementation**
 - **Data Classification**: Classify data by sensitivity
 - **Access Controls**: Implement appropriate controls
