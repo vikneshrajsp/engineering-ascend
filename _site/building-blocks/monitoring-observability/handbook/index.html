@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/handbook/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/handbook/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/monitoring-observability/handbook/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/monitoring-observability/handbook/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Handbook" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/handbook/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/monitoring-observability/handbook/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -284,21 +284,36 @@
   
 </h2>
     
-<h3 id="monitoring-vs-observability">
+<h3 id="-monitoring-vs-observability">
   
   
-    <a href="#monitoring-vs-observability" class="anchor-heading" aria-labelledby="monitoring-vs-observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring vs Observability</strong>
+    <a href="#-monitoring-vs-observability" class="anchor-heading" aria-labelledby="-monitoring-vs-observability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Monitoring vs Observability</strong>
   
   
 </h3>
     
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Monitoring: "What is happening?" (Reactive problem detection)
-Observability: "Why is it happening?" (Proactive understanding)
 
-Example:
-- Monitoring: CPU usage is 95%
-- Observability: CPU usage is 95% because of inefficient database queries
-</code></pre></div></div>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Monitoring</th>
+      <th>Observability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Purpose</strong></td>
+      <td>“What is happening?” (Reactive problem detection)</td>
+      <td>“Why is it happening?” (Proactive understanding)</td>
+    </tr>
+    <tr>
+      <td><strong>Example</strong></td>
+      <td>CPU usage is 95%</td>
+      <td>CPU usage is 95% because of inefficient database queries</td>
+    </tr>
+  </tbody>
+</table></div>
 <h3 id="monitoring-principles">
   
   
@@ -630,31 +645,60 @@ Modern logging optimizes for <strong>structured, searchable, and actionable log 
   
 </h3>
     
-<h4 id="log-level-optimization">
+<h4 id="-log-level-optimization">
   
   
-    <a href="#log-level-optimization" class="anchor-heading" aria-labelledby="log-level-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Log Level Optimization</strong>
+    <a href="#-log-level-optimization" class="anchor-heading" aria-labelledby="-log-level-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Log Level Optimization</strong>
   
   
 </h4>
     
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Log Level Hierarchy:
-DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL
 
-Optimization Strategy:
-- DEBUG: Development and troubleshooting
-- INFO: Normal operation events
-- WARN: Potential issues requiring attention
-- ERROR: Errors that don't stop operation
-- FATAL: Critical errors requiring immediate action
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Log Level</th>
+      <th>Hierarchy</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DEBUG</strong></td>
+      <td>Lowest</td>
+      <td>Development and troubleshooting</td>
+    </tr>
+    <tr>
+      <td><strong>INFO</strong></td>
+      <td>Low</td>
+      <td>Normal operation events</td>
+    </tr>
+    <tr>
+      <td><strong>WARN</strong></td>
+      <td>Medium</td>
+      <td>Potential issues requiring attention</td>
+    </tr>
+    <tr>
+      <td><strong>ERROR</strong></td>
+      <td>High</td>
+      <td>Errors that don’t stop operation</td>
+    </tr>
+    <tr>
+      <td><strong>FATAL</strong></td>
+      <td>Highest</td>
+      <td>Critical errors requiring immediate action</td>
+    </tr>
+  </tbody>
+</table></div>
 
-Storage Impact:
-- DEBUG: 80% of log volume, 20% of value
-- INFO: 15% of log volume, 30% of value
-- WARN: 3% of log volume, 25% of value
-- ERROR: 2% of log volume, 25% of value
-- FATAL: &lt;1% of log volume, high value
-</code></pre></div></div>
+<p><strong>Storage Impact:</strong></p>
+<ul>
+  <li><strong>DEBUG</strong>: 80% of log volume, 20% of value</li>
+  <li><strong>INFO</strong>: 15% of log volume, 30% of value</li>
+  <li><strong>WARN</strong>: 3% of log volume, 25% of value</li>
+  <li><strong>ERROR</strong>: 2% of log volume, 25% of value</li>
+  <li><strong>FATAL</strong>: &lt;1% of log volume, high value</li>
+</ul>
 <h4 id="structured-logging">
   
   

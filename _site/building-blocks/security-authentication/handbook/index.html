@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/security-authentication/handbook/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/security-authentication/handbook/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/security-authentication/handbook/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/security-authentication/handbook/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Handbook" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/security-authentication/handbook/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/security-authentication/handbook/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -282,21 +282,36 @@
   
 </h2>
     
-<h3 id="authentication-vs-authorization">
+<h3 id="-authentication-vs-authorization">
   
   
-    <a href="#authentication-vs-authorization" class="anchor-heading" aria-labelledby="authentication-vs-authorization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Authentication vs Authorization</strong>
+    <a href="#-authentication-vs-authorization" class="anchor-heading" aria-labelledby="-authentication-vs-authorization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Authentication vs Authorization</strong>
   
   
 </h3>
     
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Authentication: "Who are you?" (Identity verification)
-Authorization: "What can you do?" (Access control)
 
-Example:
-- Authentication: User provides username/password
-- Authorization: System checks if user can access specific resource
-</code></pre></div></div>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Authentication</th>
+      <th>Authorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Purpose</strong></td>
+      <td>“Who are you?” (Identity verification)</td>
+      <td>“What can you do?” (Access control)</td>
+    </tr>
+    <tr>
+      <td><strong>Example</strong></td>
+      <td>User provides username/password</td>
+      <td>System checks if user can access specific resource</td>
+    </tr>
+  </tbody>
+</table></div>
 <h3 id="security-principles">
   
   
@@ -353,24 +368,51 @@ Modern authentication optimizes for <strong>security strength with user convenie
   
 </h3>
     
-<h4 id="password-security-optimization">
+<h4 id="-password-security-optimization">
   
   
-    <a href="#password-security-optimization" class="anchor-heading" aria-labelledby="password-security-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Password Security Optimization</strong>
+    <a href="#-password-security-optimization" class="anchor-heading" aria-labelledby="-password-security-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Password Security Optimization</strong>
   
   
 </h4>
     
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Password Storage Evolution:
-Plain Text → Hashed → Salted Hash → Adaptive Hash → Password Managers
 
-Security Improvements:
-- Plain Text: 0% security (easily compromised)
-- Simple Hash: 20% security (rainbow table attacks)
-- Salted Hash: 60% security (prevents rainbow tables)
-- Adaptive Hash: 80% security (computationally expensive)
-- Password Managers: 95% security (unique, complex passwords)
-</code></pre></div></div>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Method</th>
+      <th>Security Level</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Plain Text</strong></td>
+      <td>0%</td>
+      <td>Easily compromised</td>
+    </tr>
+    <tr>
+      <td><strong>Simple Hash</strong></td>
+      <td>20%</td>
+      <td>Vulnerable to rainbow table attacks</td>
+    </tr>
+    <tr>
+      <td><strong>Salted Hash</strong></td>
+      <td>60%</td>
+      <td>Prevents rainbow table attacks</td>
+    </tr>
+    <tr>
+      <td><strong>Adaptive Hash</strong></td>
+      <td>80%</td>
+      <td>Computationally expensive</td>
+    </tr>
+    <tr>
+      <td><strong>Password Managers</strong></td>
+      <td>95%</td>
+      <td>Unique, complex passwords</td>
+    </tr>
+  </tbody>
+</table></div>
 
 <p><strong>Deep Optimization Details:</strong></p>
 <ul>

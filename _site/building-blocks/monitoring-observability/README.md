@@ -28,15 +28,21 @@
 
 ## 🎯 **How to Use This Guide**
 
-### **For System Design Interviews**
-1. **Start with Cheat Sheet** - Quick monitoring decision framework
-2. **Review Summary** - Key concepts and trade-offs
-3. **Deep dive with Handbook** - Implementation details
+### ### **For System Design Interviews**
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | **Start with Cheat Sheet** | Quick monitoring decision framework |
+| 2. | **Review Summary** | Key concepts and trade-offs |
+| 3. | **Deep dive with Handbook** | Implementation details |
 
 ### **For Architecture Decisions**
-1. **Read Handbook** - Comprehensive understanding
-2. **Use Summary** - Team discussions and presentations
-3. **Reference Cheat Sheet** - Quick validation
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | **Read Handbook** | Comprehensive understanding |
+| 2. | **Use Summary** | Team discussions and presentations |
+| 3. | **Reference Cheat Sheet** | Quick validation |
 
 ### **For Learning & Upskilling**
 1. **Begin with Summary** - Overview of concepts
@@ -72,29 +78,41 @@
 
 ## 🔗 **Related Building Blocks**
 
-### **Direct Dependencies**
-- **[Data Storage Systems](../data-storage/)** - Time-series and log storage
-- **[Networking & Communication](../networking-communication/)** - Data transmission and protocols
-- **[Caching & Performance](../caching-performance/)** - Performance monitoring and optimization
+### ### **Direct Dependencies**
+
+| Dependency | Purpose | Integration |
+|------------|---------|-------------|
+| **[Data Storage Systems](../data-storage/)** | Time-series and log storage | Data persistence |
+| **[Networking & Communication](../networking-communication/)** | Data transmission and protocols | Data collection |
+| **[Caching & Performance](../caching-performance/)** | Performance monitoring and optimization | Performance analysis |
 
 ### **Indirect Dependencies**
-- **[Message Queuing & Streaming](../messaging-streaming/)** - Event streaming and processing
-- **[Security & Authentication](../security-authentication/)** - Security monitoring and audit
-- **[Scalability & Distribution](../scalability-distribution/)** - Distributed monitoring systems
+
+| Dependency | Purpose | Integration |
+|------------|---------|-------------|
+| **[Message Queuing & Streaming](../messaging-streaming/)** | Event streaming and processing | Event collection |
+| **[Security & Authentication](../security-authentication/)** | Security monitoring and audit | Security analysis |
+| **[Scalability & Distribution](../scalability-distribution/)** | Distributed monitoring systems | System scaling |
 
 ---
 
 ## 📈 **Learning Path**
 
-### **Beginner Level**
-1. **Understand Monitoring Basics** - What is monitoring and why it's important
-2. **Learn Monitoring Types** - Different types of monitoring
-3. **Master Basic Metrics** - Common system metrics
+### ### **Beginner Level**
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | **Understand Monitoring Basics** | What is monitoring and why it's important |
+| 2. | **Learn Monitoring Types** | Different types of monitoring |
+| 3. | **Master Basic Metrics** | Common system metrics |
 
 ### **Intermediate Level**
-1. **Monitoring Design** - Designing comprehensive monitoring systems
-2. **Observability Patterns** - Implementing observability patterns
-3. **Alert Management** - Effective alerting and escalation
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | **Monitoring Design** | Designing comprehensive monitoring systems |
+| 2. | **Observability Patterns** | Implementing observability patterns |
+| 3. | **Alert Management** | Effective alerting and escalation |
 
 ### **Advanced Level**
 1. **Distributed Tracing** - Complex distributed system monitoring

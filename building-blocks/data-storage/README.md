@@ -66,14 +66,20 @@ This directory contains comprehensive documentation for Data Storage Systems, or
 ## 🎯 **How to Use This Building Block**
 
 ### **For Interview Preparation:**
-1. **Start with Cheat Sheet** for quick overview
-2. **Use Summary** for focused revision
-3. **Reference Handbook** for deep understanding
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. **Start with Cheat Sheet** | Quick overview | Get familiar with key concepts |
+| 2. **Use Summary** | Focused revision | Review important details |
+| 3. **Reference Handbook** | Deep understanding | Master fundamentals |
 
 ### **For Skill Development:**
-1. **Read Handbook** to understand fundamentals
-2. **Use Summary** for quick reference
-3. **Apply Cheat Sheet** for validation
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. **Read Handbook** | Understand fundamentals | Build strong foundation |
+| 2. **Use Summary** | Quick reference | Reinforce learning |
+| 3. **Apply Cheat Sheet** | Validation | Test understanding |
 
 ### **For Real-world Decisions:**
 1. **Use Cheat Sheet** for quick validation
@@ -85,14 +91,20 @@ This directory contains comprehensive documentation for Data Storage Systems, or
 ## 🏗️ **Storage System Categories Covered**
 
 ### **Traditional Databases**
-- **RDBMS**: ACID compliance, structured data, SQL
-- **Key-Value Stores**: High performance, simple operations
-- **Wide Column Stores**: Analytics, compression, sparse data
+
+| Database Type | Key Features | Use Cases |
+|---------------|--------------|-----------|
+| **RDBMS** | ACID compliance, structured data, SQL | Transactional systems, reporting |
+| **Key-Value Stores** | High performance, simple operations | Caching, session storage |
+| **Wide Column Stores** | Analytics, compression, sparse data | Data warehousing, analytics |
 
 ### **Modern Storage Systems**
-- **Document Stores**: Flexible schemas, rich data types
-- **Time Series Databases**: Time-ordered data, high throughput
-- **Text Search Engines**: Full-text search, relevance scoring
+
+| Storage Type | Key Features | Use Cases |
+|--------------|--------------|-----------|
+| **Document Stores** | Flexible schemas, rich data types | Content management, user profiles |
+| **Time Series Databases** | Time-ordered data, high throughput | IoT, monitoring, analytics |
+| **Text Search Engines** | Full-text search, relevance scoring | Search functionality, content discovery |
 
 ### **Specialized Storage**
 - **Write-Ahead Logs**: Durability, crash recovery

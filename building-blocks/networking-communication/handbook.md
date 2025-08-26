@@ -391,9 +391,7 @@ Control Plane Scaling:
 ## 📊 Decision Matrix
 
 <div class="table-wrapper">
-<table>
-<thead>
-<tr>
+
 <th>Network Component</th>
 <th>Latency</th>
 <th>Throughput</th>
@@ -402,51 +400,43 @@ Control Plane Scaling:
 <th>Complexity</th>
 <th>Cost</th>
 <th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**Load Balancers**</td>
-<td>1-10ms</td>
-<td>10K-1M req/sec</td>
-<td>High</td>
-<td>High</td>
-<td>Low</td>
-<td>Low</td>
-<td>Traffic distribution</td>
-</tr>
-<tr>
-<td>**CDNs**</td>
-<td>10-100ms</td>
-<td>1M-100M req/sec</td>
-<td>Very High</td>
-<td>Very High</td>
-<td>Medium</td>
-<td>Medium</td>
-<td>Content delivery</td>
-</tr>
-<tr>
-<td>**API Gateways**</td>
-<td>1-50ms</td>
-<td>1K-100K req/sec</td>
-<td>High</td>
-<td>High</td>
-<td>Medium</td>
-<td>Medium</td>
-<td>API management</td>
-</tr>
-<tr>
-<td>**Service Mesh**</td>
-<td>1-10ms</td>
-<td>10K-100K req/sec</td>
-<td>Very High</td>
-<td>High</td>
-<td>High</td>
-<td>High</td>
-<td>Microservices</td>
-</tr>
-</tbody>
-</table>
+
+**Load Balancers**
+1-10ms
+10K-1M req/sec
+High
+High
+Low
+Low
+Traffic distribution
+
+**CDNs**
+10-100ms
+1M-100M req/sec
+Very High
+Very High
+Medium
+Medium
+Content delivery
+
+**API Gateways**
+1-50ms
+1K-100K req/sec
+High
+High
+Medium
+Medium
+API management
+
+**Service Mesh**
+1-10ms
+10K-100K req/sec
+Very High
+High
+High
+High
+Microservices
+
 </div>
 ### **Scoring Legend**
 - **✅ 9-10**: Excellent fit

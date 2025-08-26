@@ -37,15 +37,12 @@ Security & Authentication systems provide mechanisms to verify user identity, co
 
 ## 🔑 **Authentication Fundamentals**
 
-### **Authentication vs Authorization**
-```
-Authentication: "Who are you?" (Identity verification)
-Authorization: "What can you do?" (Access control)
+### ### **Authentication vs Authorization**
 
-Example:
-- Authentication: User provides username/password
-- Authorization: System checks if user can access specific resource
-```
+| Aspect | Authentication | Authorization |
+|--------|----------------|---------------|
+| **Purpose** | "Who are you?" (Identity verification) | "What can you do?" (Access control) |
+| **Example** | User provides username/password | System checks if user can access specific resource |
 
 ### **Security Principles**
 - **Confidentiality**: Data is protected from unauthorized access
@@ -75,18 +72,15 @@ Modern authentication optimizes for **security strength with user convenience**.
 
 ### **Password-Based Authentication**
 
-#### **Password Security Optimization**
-```
-Password Storage Evolution:
-Plain Text → Hashed → Salted Hash → Adaptive Hash → Password Managers
+#### ### **Password Security Optimization**
 
-Security Improvements:
-- Plain Text: 0% security (easily compromised)
-- Simple Hash: 20% security (rainbow table attacks)
-- Salted Hash: 60% security (prevents rainbow tables)
-- Adaptive Hash: 80% security (computationally expensive)
-- Password Managers: 95% security (unique, complex passwords)
-```
+| Storage Method | Security Level | Description |
+|----------------|----------------|-------------|
+| **Plain Text** | 0% | Easily compromised |
+| **Simple Hash** | 20% | Vulnerable to rainbow table attacks |
+| **Salted Hash** | 60% | Prevents rainbow table attacks |
+| **Adaptive Hash** | 80% | Computationally expensive |
+| **Password Managers** | 95% | Unique, complex passwords |
 
 **Deep Optimization Details:**
 - **Problem**: Plain text passwords are easily compromised in data breaches

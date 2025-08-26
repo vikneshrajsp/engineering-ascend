@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="One-page quick reference for interviews" />
 <meta property="og:description" content="One-page quick reference for interviews" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/data-storage/cheatsheet/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/data-storage/cheatsheet/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/data-storage/cheatsheet/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/data-storage/cheatsheet/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Data Storage Systems - Cheat Sheet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"One-page quick reference for interviews","headline":"Data Storage Systems - Cheat Sheet","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/data-storage/cheatsheet/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"One-page quick reference for interviews","headline":"Data Storage Systems - Cheat Sheet","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/data-storage/cheatsheet/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -304,21 +304,33 @@
   
 </h4>
     
+<h5 id="team-expertise">
+  
+  
+    <a href="#team-expertise" class="anchor-heading" aria-labelledby="team-expertise"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Team Expertise</strong>
+  
+  
+</h5>
+    
 <ul>
-  <li><strong>Team Expertise:</strong>
-    <ul>
-      <li>What’s the team’s experience with different storage types?</li>
-      <li>What’s the learning curve for new technologies?</li>
-      <li>Do we have operational expertise?</li>
-    </ul>
-  </li>
-  <li><strong>Infrastructure Constraints:</strong>
-    <ul>
-      <li>Are we cloud-native or on-premise?</li>
-      <li>What are the cost constraints?</li>
-      <li>What are the compliance requirements?</li>
-      <li>What’s the integration complexity?</li>
-    </ul>
+  <li>What’s the team’s experience with different storage types?</li>
+  <li>What’s the learning curve for new technologies?</li>
+  <li>Do we have operational expertise?</li>
+</ul>
+<h5 id="infrastructure-constraints">
+  
+  
+    <a href="#infrastructure-constraints" class="anchor-heading" aria-labelledby="infrastructure-constraints"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Infrastructure Constraints</strong>
+  
+  
+</h5>
+    
+<ul>
+  <li>Are we cloud-native or on-premise?</li>
+  <li>What are the cost constraints?</li>
+  <li>What are the compliance requirements?</li>
+  <li>
+    <p>What’s the integration complexity?</p>
   </li>
   <li><strong>Timeline &amp; Complexity:</strong>
     <ul>
@@ -452,2008 +464,2304 @@ Step 3: Query Complexity?
 </h3>
     
 
-<div class="table-wrapper">
 <div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Primary Choice</th>
-<th>Alternative</th>
-<th>Decision Factors</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**File Metadata Storage**</td>
-<td>Document Store</td>
-<td>RDBMS</td>
-<td>Schema flexibility vs ACID</td>
-</tr>
-<tr>
-<td>**User Session Data**</td>
-<td>Key-Value Store</td>
-<td>Document Store</td>
-<td>Performance vs query flexibility</td>
-</tr>
-<tr>
-<td>**E-commerce Product Catalog**</td>
-<td>Document Store</td>
-<td>RDBMS</td>
-<td>Schema evolution vs transactions</td>
-</tr>
-<tr>
-<td>**Financial Transactions**</td>
-<td>RDBMS</td>
-<td>Event Sourcing</td>
-<td>ACID vs audit trail</td>
-</tr>
-<tr>
-<td>**Real-time Analytics**</td>
-<td>Time Series DB</td>
-<td>Wide Column Store</td>
-<td>Time queries vs general analytics</td>
-</tr>
-<tr>
-<td>**Search Functionality**</td>
-<td>Text Search Engine</td>
-<td>Document Store</td>
-<td>Search quality vs general purpose</td>
-</tr>
-<tr>
-<td>**Configuration Management**</td>
-<td>Key-Value Store</td>
-<td>Document Store</td>
-<td>Simple access vs structured data</td>
-</tr>
-<tr>
-<td>**Log Storage**</td>
-<td>Time Series DB</td>
-<td>Object Store</td>
-<td>Query patterns vs cost</td>
-</tr>
-<tr>
-<td>**User Profiles**</td>
-<td>Document Store</td>
-<td>RDBMS</td>
-<td>Schema flexibility vs relationships</td>
-</tr>
-<tr>
-<td>**Caching Layer**</td>
-<td>Key-Value Store</td>
-<td>In-Memory DB</td>
-<td>Performance vs persistence</td>
-</tr>
-<tr>
-<td>Dimension</td>
-<td>Weight</td>
-<td>Description</td>
-<td>Critical For</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>--------</td>
-<td>-------------</td>
-<td>--------------</td>
-</tr>
-<tr>
-<td>**Consistency Requirements**</td>
-<td>25%</td>
-<td>ACID vs eventual consistency</td>
-<td>Financial, user data</td>
-</tr>
-<tr>
-<td>**Performance Requirements**</td>
-<td>20%</td>
-<td>Latency &amp; throughput needs</td>
-<td>Real-time systems</td>
-</tr>
-<tr>
-<td>**Scalability Needs**</td>
-<td>20%</td>
-<td>Horizontal vs vertical scaling</td>
-<td>High-growth systems</td>
-</tr>
-<tr>
-<td>**Query Complexity**</td>
-<td>15%</td>
-<td>Simple lookups vs complex queries</td>
-<td>Analytics, reporting</td>
-</tr>
-<tr>
-<td>**Schema Flexibility**</td>
-<td>10%</td>
-<td>Fixed vs evolving schemas</td>
-<td>Rapid development</td>
-</tr>
-<tr>
-<td>**Operational Complexity**</td>
-<td>10%</td>
-<td>Team expertise &amp; maintenance</td>
-<td>Production systems</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Consistency</td>
-<td>Performance</td>
-<td>Scalability</td>
-<td>Query Flexibility</td>
-<td>Schema Flexibility</td>
-<td>Operational Complexity</td>
-<td>Best For</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>-------------</td>
-<td>-------------</td>
-<td>-------------</td>
-<td>-------------------</td>
-<td>-------------------</td>
-<td>------------------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>✅ Linearizable</td>
-<td>⚠️ 1-10ms</td>
-<td>❌ Vertical Only</td>
-<td>✅ Complex SQL</td>
-<td>❌ Schema Migration</td>
-<td>⚠️ Moderate</td>
-<td>ACID Transactions</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>⚠️ Eventual</td>
-<td>✅ 0.1-1ms</td>
-<td>✅ Horizontal</td>
-<td>❌ Simple Only</td>
-<td>✅ No Schema</td>
-<td>✅ Simple</td>
-<td>High-Performance Lookups</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>❌ Eventual</td>
-<td>✅ 1-10ms</td>
-<td>✅ Horizontal</td>
-<td>⚠️ Limited</td>
-<td>⚠️ Column Families</td>
-<td>⚠️ Moderate</td>
-<td>Analytics/OLAP</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>❌ Eventual</td>
-<td>✅ 1-10ms</td>
-<td>✅ Horizontal</td>
-<td>✅ Rich Queries</td>
-<td>✅ Flexible</td>
-<td>⚠️ Moderate</td>
-<td>Flexible Data Models</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>❌ Eventual</td>
-<td>✅ 1-10ms</td>
-<td>✅ Horizontal</td>
-<td>⚠️ Time-Based</td>
-<td>⚠️ Time Schema</td>
-<td>⚠️ Moderate</td>
-<td>Time-Ordered Data</td>
-</tr>
-<tr>
-<td>**Text Search**</td>
-<td>❌ Eventual</td>
-<td>⚠️ 10-100ms</td>
-<td>✅ Horizontal</td>
-<td>✅ Search Queries</td>
-<td>⚠️ Index Schema</td>
-<td>❌ Complex</td>
-<td>Full-Text Search</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>❌ Eventual</td>
-<td>❌ 100ms-1s</td>
-<td>✅ Horizontal</td>
-<td>❌ Metadata Only</td>
-<td>✅ No Schema</td>
-<td>✅ Simple</td>
-<td>Large Binary Files</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Primary Data Structure</td>
-<td>Secondary Structures</td>
-<td>Transformations</td>
-<td>Time Complexity</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>------------------------</td>
-<td>---------------------</td>
-<td>-----------------</td>
-<td>-----------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>B+ Tree Indexes</td>
-<td>Hash Tables (Buffer Pool), LRU Lists, WAL</td>
-<td>Buffer Pool → WAL → B+ Tree → Disk</td>
-<td>O(log n) search, O(1) buffer access</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>Hash Tables + LSM Trees</td>
-<td>Skiplist (MemTable), Bloom Filters, SSTables</td>
-<td>Skiplist → SSTable → LSM Tree</td>
-<td>O(1) hash lookup, O(log n) skiplist</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>Column-Oriented Storage</td>
-<td>B-Tree Indexes, Compression Algorithms</td>
-<td>Raw Data → Column Groups → Compressed</td>
-<td>O(log n) index, O(n) compression</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>B-Tree Indexes</td>
-<td>JSON/BSON Parser, Field Mappers</td>
-<td>JSON → BSON → Index Entries</td>
-<td>O(log n) index, O(n) parsing</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>Time Buckets</td>
-<td>Columnar Storage, Compression</td>
-<td>Timestamp → Bucket → Column → Compressed</td>
-<td>O(1) bucketing, O(n) compression</td>
-</tr>
-<tr>
-<td>**Text Search**</td>
-<td>Inverted Indexes</td>
-<td>Skip Lists, Hash Tables, Compression</td>
-<td>Text → Tokens → Inverted Index</td>
-<td>O(n) tokenization, O(log n) search</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>Hash-based Distribution</td>
-<td>Metadata Indexes, Compression</td>
-<td>File → Chunks → Distributed → Compressed</td>
-<td>O(1) hash, O(n) compression</td>
-</tr>
-<tr>
-<td>Data Structure</td>
-<td>Lookup</td>
-<td>Insert/Delete</td>
-<td>Range Queries</td>
-<td>Memory Usage</td>
-<td>Best For</td>
-</tr>
-<tr>
-<td>----------------</td>
-<td>--------</td>
-<td>---------------</td>
-<td>---------------</td>
-<td>--------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Hash Tables**</td>
-<td>O(1)</td>
-<td>O(1)</td>
-<td>❌</td>
-<td>O(n)</td>
-<td>Exact lookups</td>
-</tr>
-<tr>
-<td>**B-Trees**</td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>✅</td>
-<td>O(n)</td>
-<td>Ordered data</td>
-</tr>
-<tr>
-<td>**Skip Lists**</td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>✅</td>
-<td>O(n)</td>
-<td>Concurrent access</td>
-</tr>
-<tr>
-<td>**LSM Trees**</td>
-<td>O(log n)</td>
-<td>O(1)</td>
-<td>✅</td>
-<td>O(n)</td>
-<td>Write-heavy workloads</td>
-</tr>
-<tr>
-<td>**Inverted Indexes**</td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>✅</td>
-<td>O(n)</td>
-<td>Text search</td>
-</tr>
-<tr>
-<td>**Columnar Storage**</td>
-<td>O(log n)</td>
-<td>O(n)</td>
-<td>✅</td>
-<td>O(n)</td>
-<td>Analytics</td>
-</tr>
-<tr>
-<td>Use Case</td>
-<td>Primary Storage</td>
-<td>Secondary Storage</td>
-<td>Key Decision Factors</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----------------</td>
-<td>-------------------</td>
-<td>---------------------</td>
-</tr>
-<tr>
-<td>**User Authentication**</td>
-<td>RDBMS</td>
-<td>Key-Value Cache</td>
-<td>ACID + performance</td>
-</tr>
-<tr>
-<td>**Session Management**</td>
-<td>Key-Value Store</td>
-<td>-</td>
-<td>Performance + TTL</td>
-</tr>
-<tr>
-<td>**Product Catalog**</td>
-<td>Document Store</td>
-<td>Text Search</td>
-<td>Flexibility + search</td>
-</tr>
-<tr>
-<td>**Order Management**</td>
-<td>RDBMS</td>
-<td>Message Queue</td>
-<td>ACID + event sourcing</td>
-</tr>
-<tr>
-<td>**User Profiles**</td>
-<td>Document Store</td>
-<td>RDBMS</td>
-<td>Flexibility vs relationships</td>
-</tr>
-<tr>
-<td>**File Storage**</td>
-<td>Object Store</td>
-<td>Document Store</td>
-<td>Large files + metadata</td>
-</tr>
-<tr>
-<td>**Analytics Dashboard**</td>
-<td>Time Series DB</td>
-<td>Wide Column Store</td>
-<td>Time queries + analytics</td>
-</tr>
-<tr>
-<td>**Configuration**</td>
-<td>Key-Value Store</td>
-<td>Document Store</td>
-<td>Simple access + complexity</td>
-</tr>
-<tr>
-<td>**Log Storage**</td>
-<td>Time Series DB</td>
-<td>Object Store</td>
-<td>Time queries + cost</td>
-</tr>
-<tr>
-<td>**Search Engine**</td>
-<td>Text Search Engine</td>
-<td>Object Store</td>
-<td>Search quality + documents</td>
-</tr>
-<tr>
-<td>**Real-time Chat**</td>
-<td>Document Store</td>
-<td>Message Queue</td>
-<td>Flexibility + real-time</td>
-</tr>
-<tr>
-<td>**Gaming Leaderboard**</td>
-<td>Key-Value Store</td>
-<td>Time Series DB</td>
-<td>Performance + historical</td>
-</tr>
-<tr>
-<td>**IoT Data**</td>
-<td>Time Series DB</td>
-<td>Object Store</td>
-<td>Time queries + large volumes</td>
-</tr>
-<tr>
-<td>**Content Management**</td>
-<td>Document Store</td>
-<td>Text Search</td>
-<td>Flexibility + search</td>
-</tr>
-<tr>
-<td>**Financial Transactions**</td>
-<td>RDBMS</td>
-<td>Event Store</td>
-<td>ACID + audit trail</td>
-</tr>
-<tr>
-<td>Data Pattern</td>
-<td>Storage Choice</td>
-<td>Reasoning</td>
-<td>Trade-offs</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>----------------</td>
-<td>-----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Simple Key-Value**</td>
-<td>Key-Value Store</td>
-<td>O(1) lookups</td>
-<td>Limited querying</td>
-</tr>
-<tr>
-<td>**Complex Documents**</td>
-<td>Document Store</td>
-<td>Schema flexibility</td>
-<td>Eventual consistency</td>
-</tr>
-<tr>
-<td>**Time-Series Data**</td>
-<td>Time Series DB</td>
-<td>Time-optimized queries</td>
-<td>Limited general use</td>
-</tr>
-<tr>
-<td>**Relational Data**</td>
-<td>RDBMS</td>
-<td>ACID + joins</td>
-<td>Scaling complexity</td>
-</tr>
-<tr>
-<td>**Large Binary Files**</td>
-<td>Object Store</td>
-<td>Cost-effective storage</td>
-<td>High latency</td>
-</tr>
-<tr>
-<td>**Searchable Content**</td>
-<td>Text Search Engine</td>
-<td>Rich search capabilities</td>
-<td>Storage overhead</td>
-</tr>
-<tr>
-<td>**Analytical Data**</td>
-<td>Wide Column Store</td>
-<td>Column-oriented queries</td>
-<td>Complex modeling</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Vertical Scaling**</td>
-<td>2-10x</td>
-<td>Hardware upgrade</td>
-<td>Single instance performance</td>
-</tr>
-<tr>
-<td>**Read Replicas**</td>
-<td>10-50x</td>
-<td>Master-slave replication</td>
-<td>Read-heavy workloads</td>
-</tr>
-<tr>
-<td>**Sharding**</td>
-<td>100-1000x</td>
-<td>Hash/range partitioning</td>
-<td>Write-heavy workloads</td>
-</tr>
-<tr>
-<td>**Partitioning**</td>
-<td>10-100x</td>
-<td>Table partitioning</td>
-<td>Large tables</td>
-</tr>
-<tr>
-<td>**Connection Pooling**</td>
-<td>10-100x</td>
-<td>Connection management</td>
-<td>Connection limits</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>10-100x</td>
-<td>Application cache</td>
-<td>Frequently accessed data</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Consistent hashing</td>
-<td>Even distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Master-slave</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**Partitioning**</td>
-<td>100-1000x</td>
-<td>Hash partitioning</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Auto-scaling**</td>
-<td>10-100x</td>
-<td>Dynamic scaling</td>
-<td>Variable workloads</td>
-</tr>
-<tr>
-<td>**Caching Layers**</td>
-<td>10-100x</td>
-<td>Multi-level cache</td>
-<td>Performance optimization</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Sharding</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Replica sets</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**Indexing**</td>
-<td>10-100x</td>
-<td>B-tree indexes</td>
-<td>Query performance</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>10-100x</td>
-<td>In-memory cache</td>
-<td>Frequently accessed data</td>
-</tr>
-<tr>
-<td>**Aggregation**</td>
-<td>10-100x</td>
-<td>Pipeline processing</td>
-<td>Analytics queries</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Consistent hashing</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Multi-DC replication</td>
-<td>Geographic distribution</td>
-</tr>
-<tr>
-<td>**Compression**</td>
-<td>2-10x</td>
-<td>Columnar compression</td>
-<td>Storage optimization</td>
-</tr>
-<tr>
-<td>**Batch Operations**</td>
-<td>10-100x</td>
-<td>Bulk operations</td>
-<td>High throughput</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>10-100x</td>
-<td>Row/key cache</td>
-<td>Performance optimization</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Time-based sharding</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Compression**</td>
-<td>5-20x</td>
-<td>Columnar compression</td>
-<td>Storage optimization</td>
-</tr>
-<tr>
-<td>**Downsampling**</td>
-<td>10-100x</td>
-<td>Time-based aggregation</td>
-<td>Long-term storage</td>
-</tr>
-<tr>
-<td>**Retention Policies**</td>
-<td>10-100x</td>
-<td>TTL-based deletion</td>
-<td>Storage management</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>10-100x</td>
-<td>Hot data caching</td>
-<td>Recent data access</td>
-</tr>
-<tr>
-<td>Algorithm</td>
-<td>Use Case</td>
-<td>Complexity</td>
-<td>Examples</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Paxos**</td>
-<td>Distributed consensus</td>
-<td>High</td>
-<td>Google Chubby, ZooKeeper</td>
-</tr>
-<tr>
-<td>**Raft**</td>
-<td>Distributed consensus</td>
-<td>Medium</td>
-<td>etcd, Consul, MongoDB</td>
-</tr>
-<tr>
-<td>**ZAB**</td>
-<td>Atomic broadcast</td>
-<td>Medium</td>
-<td>Apache ZooKeeper</td>
-</tr>
-<tr>
-<td>**Gossip**</td>
-<td>Eventual consistency</td>
-<td>Low</td>
-<td>Cassandra, DynamoDB</td>
-</tr>
-<tr>
-<td>**Vector Clocks**</td>
-<td>Causal consistency</td>
-<td>Medium</td>
-<td>DynamoDB, Riak</td>
-</tr>
-<tr>
-<td>**CRDTs**</td>
-<td>Conflict resolution</td>
-<td>Low</td>
-<td>Riak, Redis CRDTs</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-<td>Use Cases</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>------------</td>
-<td>---------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Hash-based**</td>
-<td>Consistent hashing</td>
-<td>Even distribution</td>
-<td>Range queries difficult</td>
-<td>Key-value stores</td>
-</tr>
-<tr>
-<td>**Range-based**</td>
-<td>Key ranges</td>
-<td>Efficient range queries</td>
-<td>Potential hotspots</td>
-<td>Time series, analytics</td>
-</tr>
-<tr>
-<td>**Directory-based**</td>
-<td>Lookup table</td>
-<td>Flexible, balanced</td>
-<td>Centralized directory</td>
-<td>Complex requirements</td>
-</tr>
-<tr>
-<td>**Time-based**</td>
-<td>Time buckets</td>
-<td>Natural time queries</td>
-<td>Time-based hotspots</td>
-<td>Time series data</td>
-</tr>
-<tr>
-<td>**Geographic**</td>
-<td>Location-based</td>
-<td>Low latency</td>
-<td>Geographic hotspots</td>
-<td>Global applications</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Native</td>
-<td>Max with Scaling</td>
-<td>Failure Recovery</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>--------</td>
-<td>------------------</td>
-<td>------------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>99.95%</td>
-<td>99.999%</td>
-<td>Sub-second failover</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>99.99%</td>
-<td>99.999%</td>
-<td>Geographic failover</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>99.99%</td>
-<td>99.999%</td>
-<td>Regional failover</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Default</td>
-<td>Configurable</td>
-<td>Trade-offs</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>---------</td>
-<td>--------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>Linearizable</td>
-<td>Read committed, repeatable read</td>
-<td>Performance vs consistency</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>Eventual</td>
-<td>Strong, causal, session</td>
-<td>Consistency vs availability</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>Eventual</td>
-<td>Read concern levels</td>
-<td>Consistency vs performance</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>Eventual</td>
-<td>Quorum reads/writes</td>
-<td>Consistency vs latency</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>Eventual</td>
-<td>Time-based consistency</td>
-<td>Consistency vs performance</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Method</td>
-<td>Recovery Time</td>
-<td>Frequency</td>
-<td>Special Considerations</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>--------</td>
-<td>---------------</td>
-<td>-----------</td>
-<td>----------------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>Full + incremental</td>
-<td>Hours</td>
-<td>Daily</td>
-<td>Point-in-time recovery</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>Snapshot + WAL</td>
-<td>Minutes</td>
-<td>Daily</td>
-<td>Memory state + disk state</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>Oplog replay</td>
-<td>Minutes</td>
-<td>Daily</td>
-<td>Replica set consistency</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>SSTable backup</td>
-<td>Hours</td>
-<td>Daily</td>
-<td>Consistency across nodes</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>Time-based backup</td>
-<td>Minutes</td>
-<td>Daily</td>
-<td>Retention policy alignment</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>Cross-region copy</td>
-<td>Hours</td>
-<td>Daily</td>
-<td>Geographic distribution</td>
-</tr>
-<tr>
-<td>Tier</td>
-<td>Access Pattern</td>
-<td>Latency</td>
-<td>Cost</td>
-<td>Migration Trigger</td>
-</tr>
-<tr>
-<td>------</td>
-<td>----------------</td>
-<td>---------</td>
-<td>------</td>
-<td>-------------------</td>
-</tr>
-<tr>
-<td>**Hot Storage**</td>
-<td>Frequent access</td>
-<td>&lt; 10ms</td>
-<td>High</td>
-<td>Active data</td>
-</tr>
-<tr>
-<td>**Warm Storage**</td>
-<td>Occasional access</td>
-<td>10-100ms</td>
-<td>Medium</td>
-<td>Recent data</td>
-</tr>
-<tr>
-<td>**Cold Storage**</td>
-<td>Rare access</td>
-<td>100ms-1s</td>
-<td>Low</td>
-<td>Historical data</td>
-</tr>
-<tr>
-<td>**Archive Storage**</td>
-<td>Compliance only</td>
-<td>1s-1min</td>
-<td>Very Low</td>
-<td>Long-term retention</td>
-</tr>
-<tr>
-<td>Phase</td>
-<td>Duration</td>
-<td>Storage Type</td>
-<td>Access Pattern</td>
-<td>Cost Optimization</td>
-</tr>
-<tr>
-<td>-------</td>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>-------------------</td>
-</tr>
-<tr>
-<td>**Active**</td>
-<td>0-30 days</td>
-<td>Hot storage</td>
-<td>Frequent</td>
-<td>Performance optimization</td>
-</tr>
-<tr>
-<td>**Recent**</td>
-<td>30-90 days</td>
-<td>Warm storage</td>
-<td>Occasional</td>
-<td>Balanced cost/performance</td>
-</tr>
-<tr>
-<td>**Historical**</td>
-<td>90 days-1 year</td>
-<td>Cold storage</td>
-<td>Rare</td>
-<td>Storage optimization</td>
-</tr>
-<tr>
-<td>**Archive**</td>
-<td>1+ years</td>
-<td>Archive storage</td>
-<td>Compliance</td>
-<td>Cost optimization</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Single Instance</td>
-<td>Clustered</td>
-<td>Total Capacity</td>
-<td>Scaling Factor</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>----------------</td>
-<td>-----------</td>
-<td>----------------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-<td>100-1000x</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>100GB-1TB</td>
-<td>10TB-100TB</td>
-<td>100TB+</td>
-<td>100-1000x</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-<td>100-1000x</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>10-100TB</td>
-<td>1PB-10PB</td>
-<td>10PB+</td>
-<td>100-1000x</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-<td>100-1000x</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>1-10TB</td>
-<td>1PB-100PB</td>
-<td>100PB+</td>
-<td>1000-10000x</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Read Throughput</td>
-<td>Write Throughput</td>
-<td>Concurrent Connections</td>
-<td>Query Complexity</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>----------------</td>
-<td>------------------</td>
-<td>----------------------</td>
-<td>------------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>10K-100K ops/sec</td>
-<td>1K-10K ops/sec</td>
-<td>10K-100K</td>
-<td>Complex SQL</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>100K-1M ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>100K-1M</td>
-<td>Simple lookups</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>10K-100K ops/sec</td>
-<td>10K-100K ops/sec</td>
-<td>10K-100K</td>
-<td>Rich queries</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>10K-100K ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>10K-100K</td>
-<td>Analytics</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>10K-100K ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>10K-100K</td>
-<td>Time queries</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>100-1K ops/sec</td>
-<td>100-1K ops/sec</td>
-<td>1K-10K</td>
-<td>Large files</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Range Partitioning**</td>
-<td>Partition by value ranges</td>
-<td>Time-series data, ordered data</td>
-<td>Efficient range queries</td>
-<td>Potential hotspots</td>
-</tr>
-<tr>
-<td>**Hash Partitioning**</td>
-<td>Partition by hash function</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>Range queries inefficient</td>
-</tr>
-<tr>
-<td>**List Partitioning**</td>
-<td>Partition by specific values</td>
-<td>Categorical data</td>
-<td>Direct partition access</td>
-<td>Limited flexibility</td>
-</tr>
-<tr>
-<td>**Composite Partitioning**</td>
-<td>Multiple partitioning methods</td>
-<td>Complex requirements</td>
-<td>Flexibility</td>
-<td>Increased complexity</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Implementation</td>
-<td>Use Case</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------------</td>
-<td>----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Hash-based Sharding**</td>
-<td>Consistent hashing</td>
-<td>User ID, UUID</td>
-<td>Even distribution</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**Range-based Sharding**</td>
-<td>Key ranges</td>
-<td>Time-series, ordered data</td>
-<td>Efficient range queries</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Directory-based Sharding**</td>
-<td>Lookup table</td>
-<td>Complex requirements</td>
-<td>Flexibility</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Composite Sharding**</td>
-<td>Multiple strategies</td>
-<td>Complex data</td>
-<td>Optimal distribution</td>
-<td>Very High</td>
-</tr>
-<tr>
-<td>Challenge</td>
-<td>Problem</td>
-<td>Solution</td>
-<td>Implementation</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>---------</td>
-<td>----------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**Cross-shard Queries**</td>
-<td>Joins across shards</td>
-<td>Denormalization, application-level joins</td>
-<td>Query routing, data duplication</td>
-</tr>
-<tr>
-<td>**Transaction Management**</td>
-<td>ACID across shards</td>
-<td>Distributed transactions, eventual consistency</td>
-<td>2PC, saga pattern</td>
-</tr>
-<tr>
-<td>**Data Distribution**</td>
-<td>Uneven shard load</td>
-<td>Rebalancing, dynamic sharding</td>
-<td>Consistent hashing, virtual nodes</td>
-</tr>
-<tr>
-<td>**Schema Changes**</td>
-<td>Coordinated schema updates</td>
-<td>Blue-green deployment, versioning</td>
-<td>Migration scripts, backward compatibility</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash Slots**</td>
-<td>16384 hash slots</td>
-<td>Even distribution</td>
-<td>Automatic rebalancing</td>
-<td>Limited flexibility</td>
-</tr>
-<tr>
-<td>**Key Tags**</td>
-<td>Custom hash tags</td>
-<td>Related data</td>
-<td>Co-location</td>
-<td>Manual management</td>
-</tr>
-<tr>
-<td>**Hash Functions**</td>
-<td>CRC16, MD5</td>
-<td>Custom distribution</td>
-<td>Flexibility</td>
-<td>Implementation complexity</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash Partition Key**</td>
-<td>Single partition key</td>
-<td>Simple access patterns</td>
-<td>Even distribution</td>
-<td>Limited query flexibility</td>
-</tr>
-<tr>
-<td>**Composite Key**</td>
-<td>Partition + Sort key</td>
-<td>Range queries</td>
-<td>Efficient range queries</td>
-<td>Design complexity</td>
-</tr>
-<tr>
-<td>**GSI Partitioning**</td>
-<td>Global secondary indexes</td>
-<td>Multiple access patterns</td>
-<td>Query flexibility</td>
-<td>Additional cost</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash-based Sharding**</td>
-<td>Hash of shard key</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>Range queries inefficient</td>
-</tr>
-<tr>
-<td>**Range-based Sharding**</td>
-<td>Shard key ranges</td>
-<td>Range queries</td>
-<td>Efficient range queries</td>
-<td>Potential hotspots</td>
-</tr>
-<tr>
-<td>**Zoned Sharding**</td>
-<td>Geographic zones</td>
-<td>Multi-region</td>
-<td>Geographic distribution</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>Criteria</td>
-<td>Considerations</td>
-<td>Best Practices</td>
-<td>Examples</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>---------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Cardinality**</td>
-<td>High cardinality</td>
-<td>Avoid low-cardinality keys</td>
-<td>user_id, order_id</td>
-</tr>
-<tr>
-<td>**Write Distribution**</td>
-<td>Even write distribution</td>
-<td>Avoid monotonically increasing</td>
-<td>UUID, hash-based</td>
-</tr>
-<tr>
-<td>**Query Patterns**</td>
-<td>Support common queries</td>
-<td>Include query fields</td>
-<td>{user_id: 1, order_date: -1}</td>
-</tr>
-<tr>
-<td>**Chunk Size**</td>
-<td>Optimal chunk size</td>
-<td>64MB-128MB chunks</td>
-<td>Balanced distribution</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash Partitioning**</td>
-<td>Consistent hashing</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>Range queries difficult</td>
-</tr>
-<tr>
-<td>**Composite Partitioning**</td>
-<td>Multiple partition keys</td>
-<td>Complex requirements</td>
-<td>Flexibility</td>
-<td>Design complexity</td>
-</tr>
-<tr>
-<td>**Time-based Partitioning**</td>
-<td>Time buckets</td>
-<td>Time-series data</td>
-<td>Time-based queries</td>
-<td>Time-based hotspots</td>
-</tr>
-<tr>
-<td>Practice</td>
-<td>Description</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**High Cardinality**</td>
-<td>Unique partition keys</td>
-<td>UUID, hash-based keys</td>
-<td>Even distribution</td>
-</tr>
-<tr>
-<td>**Avoid Hotspots**</td>
-<td>Prevent single partition overload</td>
-<td>Composite keys, time buckets</td>
-<td>Balanced load</td>
-</tr>
-<tr>
-<td>**Query Optimization**</td>
-<td>Design for query patterns</td>
-<td>Denormalization, materialized views</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>**Compaction Strategy**</td>
-<td>Choose appropriate compaction</td>
-<td>Size-tiered, leveled compaction</td>
-<td>Storage efficiency</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Time-based Partitioning**</td>
-<td>Time buckets</td>
-<td>Time-series data</td>
-<td>Efficient time queries</td>
-<td>Time-based hotspots</td>
-</tr>
-<tr>
-<td>**Tag-based Partitioning**</td>
-<td>Tag values</td>
-<td>Multi-dimensional data</td>
-<td>Flexible queries</td>
-<td>Cardinality explosion</td>
-</tr>
-<tr>
-<td>**Measurement Partitioning**</td>
-<td>Different measurements</td>
-<td>Logical separation</td>
-<td>Clear organization</td>
-<td>Cross-measurement queries</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Time-based Sharding**</td>
-<td>Time ranges per shard</td>
-<td>Historical data</td>
-<td>Efficient time queries</td>
-<td>Time-based hotspots</td>
-</tr>
-<tr>
-<td>**Metric-based Sharding**</td>
-<td>Different metrics per shard</td>
-<td>Diverse metrics</td>
-<td>Logical separation</td>
-<td>Cross-metric queries</td>
-</tr>
-<tr>
-<td>**Hybrid Sharding**</td>
-<td>Time + metric combination</td>
-<td>Complex requirements</td>
-<td>Flexibility</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Document-based Sharding**</td>
-<td>Hash of document ID</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>Cross-document queries</td>
-</tr>
-<tr>
-<td>**Routing-based Sharding**</td>
-<td>Custom routing</td>
-<td>Related documents</td>
-<td>Co-location</td>
-<td>Manual management</td>
-</tr>
-<tr>
-<td>**Time-based Sharding**</td>
-<td>Time indices</td>
-<td>Time-series data</td>
-<td>Time-based queries</td>
-<td>Time-based hotspots</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Description</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Index Aliases**</td>
-<td>Logical index names</td>
-<td>Alias → Multiple indices</td>
-<td>Zero-downtime reindexing</td>
-</tr>
-<tr>
-<td>**Index Lifecycle**</td>
-<td>Automated management</td>
-<td>Hot → Warm → Cold → Delete</td>
-<td>Cost optimization</td>
-</tr>
-<tr>
-<td>**Shard Allocation**</td>
-<td>Custom allocation</td>
-<td>Node attributes, awareness</td>
-<td>Performance optimization</td>
-</tr>
-<tr>
-<td>**Replica Management**</td>
-<td>High availability</td>
-<td>Replica allocation, recovery</td>
-<td>Fault tolerance</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash-based Partitioning**</td>
-<td>Hash of object key</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>No logical grouping</td>
-</tr>
-<tr>
-<td>**Prefix-based Partitioning**</td>
-<td>Key prefixes</td>
-<td>Logical organization</td>
-<td>Efficient listing</td>
-<td>Potential hotspots</td>
-</tr>
-<tr>
-<td>**Time-based Partitioning**</td>
-<td>Time in key</td>
-<td>Time-series objects</td>
-<td>Time-based access</td>
-<td>Time-based hotspots</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Mechanism</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Bucket-based Sharding**</td>
-<td>Different buckets</td>
-<td>Logical separation</td>
-<td>Clear organization</td>
-<td>Cross-bucket operations</td>
-</tr>
-<tr>
-<td>**Region-based Sharding**</td>
-<td>Geographic regions</td>
-<td>Global distribution</td>
-<td>Low latency</td>
-<td>Cross-region costs</td>
-</tr>
-<tr>
-<td>**Storage-tier Sharding**</td>
-<td>Different storage classes</td>
-<td>Cost optimization</td>
-<td>Cost efficiency</td>
-<td>Access pattern changes</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Description</td>
-<td>Impact</td>
-<td>Mitigation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>--------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**N+1 Query Problem**</td>
-<td>Multiple queries instead of joins</td>
-<td>Performance degradation</td>
-<td>Use eager loading, batch queries</td>
-</tr>
-<tr>
-<td>**Missing Indexes**</td>
-<td>No indexes on frequently queried columns</td>
-<td>Slow queries</td>
-<td>Analyze query patterns, add indexes</td>
-</tr>
-<tr>
-<td>**Connection Pool Exhaustion**</td>
-<td>Too many database connections</td>
-<td>Application failures</td>
-<td>Configure connection pooling</td>
-</tr>
-<tr>
-<td>**Long-Running Transactions**</td>
-<td>Transactions holding locks too long</td>
-<td>Deadlocks, poor performance</td>
-<td>Keep transactions short</td>
-</tr>
-<tr>
-<td>**Schema Lock Contention**</td>
-<td>DDL operations blocking queries</td>
-<td>Application downtime</td>
-<td>Use online DDL, maintenance windows</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Description</td>
-<td>Impact</td>
-<td>Mitigation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>--------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Memory Exhaustion**</td>
-<td>Running out of memory</td>
-<td>Service failures</td>
-<td>Configure eviction policies</td>
-</tr>
-<tr>
-<td>**Hot Keys**</td>
-<td>Uneven key distribution</td>
-<td>Performance bottlenecks</td>
-<td>Use key distribution strategies</td>
-</tr>
-<tr>
-<td>**Network Partition**</td>
-<td>Split-brain scenarios</td>
-<td>Data inconsistency</td>
-<td>Use quorum-based operations</td>
-</tr>
-<tr>
-<td>**Cache Stampede**</td>
-<td>Multiple requests for same expired key</td>
-<td>Performance degradation</td>
-<td>Use cache warming, background refresh</td>
-</tr>
-<tr>
-<td>**TTL Management**</td>
-<td>Inconsistent expiration handling</td>
-<td>Memory leaks</td>
-<td>Implement proper TTL cleanup</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Description</td>
-<td>Impact</td>
-<td>Mitigation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>--------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Large Documents**</td>
-<td>Documents exceeding 16MB</td>
-<td>Performance degradation</td>
-<td>Normalize large documents</td>
-</tr>
-<tr>
-<td>**Missing Indexes**</td>
-<td>No indexes on queried fields</td>
-<td>Slow queries</td>
-<td>Create appropriate indexes</td>
-</tr>
-<tr>
-<td>**Schema Drift**</td>
-<td>Inconsistent document structures</td>
-<td>Query complexity</td>
-<td>Design schema upfront</td>
-</tr>
-<tr>
-<td>**Embedded Array Growth**</td>
-<td>Unbounded array growth</td>
-<td>Performance degradation</td>
-<td>Use pagination, limit array size</td>
-</tr>
-<tr>
-<td>**Write Concern Issues**</td>
-<td>Insufficient write acknowledgment</td>
-<td>Data loss</td>
-<td>Configure appropriate write concerns</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Description</td>
-<td>Impact</td>
-<td>Mitigation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>--------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Poor Partition Key Design**</td>
-<td>Uneven data distribution</td>
-<td>Hotspots</td>
-<td>Design partition keys carefully</td>
-</tr>
-<tr>
-<td>**Wide Rows**</td>
-<td>Too many columns per row</td>
-<td>Performance degradation</td>
-<td>Normalize wide rows</td>
-</tr>
-<tr>
-<td>**Read Repair Overhead**</td>
-<td>Frequent consistency repairs</td>
-<td>Performance degradation</td>
-<td>Tune read repair frequency</td>
-</tr>
-<tr>
-<td>**Compaction Pressure**</td>
-<td>Insufficient compaction resources</td>
-<td>Performance degradation</td>
-<td>Monitor and tune compaction</td>
-</tr>
-<tr>
-<td>**Network Partition Handling**</td>
-<td>Poor partition recovery</td>
-<td>Data inconsistency</td>
-<td>Configure appropriate consistency levels</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Description</td>
-<td>Impact</td>
-<td>Mitigation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>--------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Cardinality Explosion**</td>
-<td>Too many unique time series</td>
-<td>Memory usage</td>
-<td>Limit cardinality, use tags wisely</td>
-</tr>
-<tr>
-<td>**Retention Policy Issues**</td>
-<td>Incorrect data lifecycle</td>
-<td>Storage costs</td>
-<td>Configure appropriate retention policies</td>
-</tr>
-<tr>
-<td>**Query Time Range**</td>
-<td>Very large time ranges</td>
-<td>Performance degradation</td>
-<td>Use appropriate time windows</td>
-</tr>
-<tr>
-<td>**Downsampling Configuration**</td>
-<td>Incorrect aggregation intervals</td>
-<td>Data loss</td>
-<td>Configure downsampling carefully</td>
-</tr>
-<tr>
-<td>**Write Buffer Issues**</td>
-<td>Insufficient write buffering</td>
-<td>Performance degradation</td>
-<td>Tune write buffer size</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Consistency</td>
-<td>Performance</td>
-<td>Scalability</td>
-<td>Query Flexibility</td>
-<td>Schema Flexibility</td>
-<td>Operational Complexity</td>
-<td>Cost</td>
-<td>Use Case Fit</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>-------------</td>
-<td>-------------</td>
-<td>-------------</td>
-<td>-------------------</td>
-<td>-------------------</td>
-<td>------------------------</td>
-<td>------</td>
-<td>--------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>✅ 10</td>
-<td>⚠️ 6</td>
-<td>❌ 3</td>
-<td>✅ 10</td>
-<td>❌ 2</td>
-<td>⚠️ 6</td>
-<td>⚠️ 6</td>
-<td>ACID Transactions</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>⚠️ 4</td>
-<td>✅ 10</td>
-<td>✅ 9</td>
-<td>❌ 2</td>
-<td>✅ 10</td>
-<td>✅ 8</td>
-<td>✅ 8</td>
-<td>Simple Lookups</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>❌ 3</td>
-<td>✅ 8</td>
-<td>⚠️ 6</td>
-<td>⚠️ 6</td>
-<td>⚠️ 6</td>
-<td>⚠️ 5</td>
-<td>✅ 7</td>
-<td>Analytics</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>❌ 3</td>
-<td>✅ 7</td>
-<td>✅ 7</td>
-<td>✅ 8</td>
-<td>✅ 10</td>
-<td>⚠️ 6</td>
-<td>⚠️ 6</td>
-<td>Flexible Data</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>❌ 3</td>
-<td>✅ 9</td>
-<td>✅ 7</td>
-<td>⚠️ 5</td>
-<td>⚠️ 6</td>
-<td>⚠️ 5</td>
-<td>✅ 7</td>
-<td>Time Data</td>
-</tr>
-<tr>
-<td>**Text Search**</td>
-<td>❌ 3</td>
-<td>⚠️ 6</td>
-<td>⚠️ 5</td>
-<td>✅ 8</td>
-<td>⚠️ 5</td>
-<td>❌ 4</td>
-<td>⚠️ 6</td>
-<td>Full-Text Search</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>❌ 2</td>
-<td>⚠️ 4</td>
-<td>❌ 3</td>
-<td>❌ 1</td>
-<td>✅ 10</td>
-<td>✅ 9</td>
-<td>✅ 9</td>
-<td>Large Files</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Primary Choice</th>
+      <th>Alternative</th>
+      <th>Decision Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>File Metadata Storage</strong></td>
+      <td>Document Store</td>
+      <td>RDBMS</td>
+      <td>Schema flexibility vs ACID</td>
+    </tr>
+    <tr>
+      <td><strong>User Session Data</strong></td>
+      <td>Key-Value Store</td>
+      <td>Document Store</td>
+      <td>Performance vs query flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>E-commerce Product Catalog</strong></td>
+      <td>Document Store</td>
+      <td>RDBMS</td>
+      <td>Schema evolution vs transactions</td>
+    </tr>
+    <tr>
+      <td><strong>Financial Transactions</strong></td>
+      <td>RDBMS</td>
+      <td>Document Store</td>
+      <td>ACID vs flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Real-time Analytics</strong></td>
+      <td>Time Series DB</td>
+      <td>Wide Column Store</td>
+      <td>Time queries vs general analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Search Functionality</strong></td>
+      <td>Text Search Engine</td>
+      <td>Document Store</td>
+      <td>Search quality vs general purpose</td>
+    </tr>
+    <tr>
+      <td><strong>Configuration Management</strong></td>
+      <td>Key-Value Store</td>
+      <td>Document Store</td>
+      <td>Simple access vs structured data</td>
+    </tr>
+    <tr>
+      <td><strong>Log Storage</strong></td>
+      <td>Time Series DB</td>
+      <td>Object Store</td>
+      <td>Time queries vs cost</td>
+    </tr>
+    <tr>
+      <td><strong>User Profiles</strong></td>
+      <td>Document Store</td>
+      <td>RDBMS</td>
+      <td>Schema flexibility vs relationships</td>
+    </tr>
+    <tr>
+      <td><strong>Caching Layer</strong></td>
+      <td>Key-Value Store</td>
+      <td>In-Memory DB</td>
+      <td>Performance vs persistence</td>
+    </tr>
+  </tbody>
 </table></div>
-</div>
+<h3 id="decision-framework-dimensions">
+  
+  
+    <a href="#decision-framework-dimensions" class="anchor-heading" aria-labelledby="decision-framework-dimensions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Framework Dimensions</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Weight</th>
+      <th>Description</th>
+      <th>Critical For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Consistency Requirements</strong></td>
+      <td>25%</td>
+      <td>ACID vs eventual consistency</td>
+      <td>Financial, user data</td>
+    </tr>
+    <tr>
+      <td><strong>Performance Requirements</strong></td>
+      <td>20%</td>
+      <td>Latency &amp; throughput needs</td>
+      <td>Real-time systems</td>
+    </tr>
+    <tr>
+      <td><strong>Scalability Needs</strong></td>
+      <td>20%</td>
+      <td>Horizontal vs vertical scaling</td>
+      <td>High-growth systems</td>
+    </tr>
+    <tr>
+      <td><strong>Query Complexity</strong></td>
+      <td>15%</td>
+      <td>Simple lookups vs complex queries</td>
+      <td>Analytics, reporting</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Flexibility</strong></td>
+      <td>10%</td>
+      <td>Fixed vs evolving schemas</td>
+      <td>Rapid development</td>
+    </tr>
+    <tr>
+      <td><strong>Operational Complexity</strong></td>
+      <td>10%</td>
+      <td>Team expertise &amp; maintenance</td>
+      <td>Production systems</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-type-comparison">
+  
+  
+    <a href="#storage-type-comparison" class="anchor-heading" aria-labelledby="storage-type-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Type Comparison</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Consistency</th>
+      <th>Performance</th>
+      <th>Scalability</th>
+      <th>Query Flexibility</th>
+      <th>Schema Flexibility</th>
+      <th>Operational Complexity</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>✅ Linearizable</td>
+      <td>⚠️ 1-10ms</td>
+      <td>❌ Vertical Only</td>
+      <td>✅ Complex SQL</td>
+      <td>❌ Schema Migration</td>
+      <td>⚠️ Moderate</td>
+      <td>ACID Transactions</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>⚠️ Eventual</td>
+      <td>✅ 0.1-1ms</td>
+      <td>✅ Horizontal</td>
+      <td>❌ Simple Only</td>
+      <td>✅ No Schema</td>
+      <td>✅ Simple</td>
+      <td>High-Performance Lookups</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>❌ Eventual</td>
+      <td>✅ 1-10ms</td>
+      <td>✅ Horizontal</td>
+      <td>⚠️ Limited</td>
+      <td>⚠️ Column Families</td>
+      <td>⚠️ Moderate</td>
+      <td>Analytics/OLAP</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>❌ Eventual</td>
+      <td>✅ 1-10ms</td>
+      <td>✅ Horizontal</td>
+      <td>✅ Rich Queries</td>
+      <td>✅ Flexible</td>
+      <td>⚠️ Moderate</td>
+      <td>Flexible Data Models</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>❌ Eventual</td>
+      <td>✅ 1-10ms</td>
+      <td>✅ Horizontal</td>
+      <td>⚠️ Time-Based</td>
+      <td>⚠️ Time Schema</td>
+      <td>⚠️ Moderate</td>
+      <td>Time-Ordered Data</td>
+    </tr>
+    <tr>
+      <td><strong>Text Search</strong></td>
+      <td>❌ Eventual</td>
+      <td>⚠️ 10-100ms</td>
+      <td>✅ Horizontal</td>
+      <td>✅ Search Queries</td>
+      <td>⚠️ Index Schema</td>
+      <td>❌ Complex</td>
+      <td>Full-Text Search</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>❌ Eventual</td>
+      <td>❌ 100ms-1s</td>
+      <td>✅ Horizontal</td>
+      <td>❌ Metadata Only</td>
+      <td>✅ No Schema</td>
+      <td>✅ Simple</td>
+      <td>Large Binary Files</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-type-data-structures">
+  
+  
+    <a href="#storage-type-data-structures" class="anchor-heading" aria-labelledby="storage-type-data-structures"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Type Data Structures</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Primary Data Structure</th>
+      <th>Secondary Structures</th>
+      <th>Transformations</th>
+      <th>Time Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>B+ Tree Indexes</td>
+      <td>Hash Tables (Buffer Pool), LRU Lists, WAL</td>
+      <td>Buffer Pool → WAL → B+ Tree → Disk</td>
+      <td>O(log n) search, O(1) buffer access</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>Hash Tables + LSM Trees</td>
+      <td>Skiplist (MemTable), Bloom Filters, SSTables</td>
+      <td>Skiplist → SSTable → LSM Tree</td>
+      <td>O(1) hash lookup, O(log n) skiplist</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>Column-Oriented Storage</td>
+      <td>B-Tree Indexes, Compression Algorithms</td>
+      <td>Raw Data → Column Groups → Compressed</td>
+      <td>O(log n) index, O(n) compression</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>B-Tree Indexes</td>
+      <td>JSON/BSON Parser, Field Mappers</td>
+      <td>JSON → BSON → Index Entries</td>
+      <td>O(log n) index, O(n) parsing</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>Time Buckets</td>
+      <td>Columnar Storage, Compression</td>
+      <td>Timestamp → Bucket → Column → Compressed</td>
+      <td>O(1) bucketing, O(n) compression</td>
+    </tr>
+    <tr>
+      <td><strong>Text Search</strong></td>
+      <td>Inverted Indexes</td>
+      <td>Skip Lists, Hash Tables, Compression</td>
+      <td>Text → Tokens → Inverted Index</td>
+      <td>O(n) tokenization, O(log n) search</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>Hash-based Distribution</td>
+      <td>Metadata Indexes, Compression</td>
+      <td>File → Chunks → Distributed → Compressed</td>
+      <td>O(1) hash, O(n) compression</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="data-structure-performance-comparison">
+  
+  
+    <a href="#data-structure-performance-comparison" class="anchor-heading" aria-labelledby="data-structure-performance-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Structure Performance Comparison</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Data Structure</th>
+      <th>Lookup</th>
+      <th>Insert/Delete</th>
+      <th>Range Queries</th>
+      <th>Memory Usage</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash Tables</strong></td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>❌</td>
+      <td>O(n)</td>
+      <td>Exact lookups</td>
+    </tr>
+    <tr>
+      <td><strong>B-Trees</strong></td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>✅</td>
+      <td>O(n)</td>
+      <td>Ordered data</td>
+    </tr>
+    <tr>
+      <td><strong>Skip Lists</strong></td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>✅</td>
+      <td>O(n)</td>
+      <td>Concurrent access</td>
+    </tr>
+    <tr>
+      <td><strong>LSM Trees</strong></td>
+      <td>O(log n)</td>
+      <td>O(1)</td>
+      <td>✅</td>
+      <td>O(n)</td>
+      <td>Write-heavy workloads</td>
+    </tr>
+    <tr>
+      <td><strong>Inverted Indexes</strong></td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>✅</td>
+      <td>O(n)</td>
+      <td>Text search</td>
+    </tr>
+    <tr>
+      <td><strong>Columnar Storage</strong></td>
+      <td>O(log n)</td>
+      <td>O(n)</td>
+      <td>✅</td>
+      <td>O(n)</td>
+      <td>Analytics</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="use-case-scenarios">
+  
+  
+    <a href="#use-case-scenarios" class="anchor-heading" aria-labelledby="use-case-scenarios"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Use Case Scenarios</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Primary Storage</th>
+      <th>Secondary Storage</th>
+      <th>Key Decision Factors</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>User Authentication</strong></td>
+      <td>RDBMS</td>
+      <td>Key-Value Cache</td>
+      <td>ACID + performance</td>
+    </tr>
+    <tr>
+      <td><strong>Session Management</strong></td>
+      <td>Key-Value Store</td>
+      <td>RDBMS</td>
+      <td>Performance + persistence</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="product-catalog">
+  
+  
+    <a href="#product-catalog" class="anchor-heading" aria-labelledby="product-catalog"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Product Catalog</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Primary Storage</th>
+      <th>Secondary Storage</th>
+      <th>Key Decision Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Product Catalog</strong></td>
+      <td>Document Store</td>
+      <td>Text Search</td>
+      <td>Flexibility + search</td>
+    </tr>
+    <tr>
+      <td><strong>Order Management</strong></td>
+      <td>RDBMS</td>
+      <td>Message Queue</td>
+      <td>ACID + event sourcing</td>
+    </tr>
+    <tr>
+      <td><strong>User Profiles</strong></td>
+      <td>Document Store</td>
+      <td>RDBMS</td>
+      <td>Flexibility vs relationships</td>
+    </tr>
+    <tr>
+      <td><strong>File Storage</strong></td>
+      <td>Object Store</td>
+      <td>Document Store</td>
+      <td>Large files + metadata</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="analytics-dashboard">
+  
+  
+    <a href="#analytics-dashboard" class="anchor-heading" aria-labelledby="analytics-dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Analytics Dashboard</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Primary Storage</th>
+      <th>Secondary Storage</th>
+      <th>Key Decision Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Analytics Dashboard</strong></td>
+      <td>Time Series DB</td>
+      <td>Wide Column Store</td>
+      <td>Time queries + analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Configuration</strong></td>
+      <td>Key-Value Store</td>
+      <td>Document Store</td>
+      <td>Simple access + complexity</td>
+    </tr>
+    <tr>
+      <td><strong>Log Storage</strong></td>
+      <td>Time Series DB</td>
+      <td>Object Store</td>
+      <td>Time queries + cost</td>
+    </tr>
+    <tr>
+      <td><strong>Search Engine</strong></td>
+      <td>Text Search Engine</td>
+      <td>Document Store</td>
+      <td>Search quality + content</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="real-time-chat">
+  
+  
+    <a href="#real-time-chat" class="anchor-heading" aria-labelledby="real-time-chat"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Real-time Chat</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Primary Storage</th>
+      <th>Secondary Storage</th>
+      <th>Key Decision Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Real-time Chat</strong></td>
+      <td>Document Store</td>
+      <td>Message Queue</td>
+      <td>Flexibility + real-time</td>
+    </tr>
+    <tr>
+      <td><strong>Gaming Leaderboard</strong></td>
+      <td>Key-Value Store</td>
+      <td>Time Series DB</td>
+      <td>Performance + historical</td>
+    </tr>
+    <tr>
+      <td><strong>IoT Data</strong></td>
+      <td>Time Series DB</td>
+      <td>Object Store</td>
+      <td>Time queries + large volumes</td>
+    </tr>
+    <tr>
+      <td><strong>Content Management</strong></td>
+      <td>Document Store</td>
+      <td>Object Store</td>
+      <td>Content + metadata</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="financial-transactions">
+  
+  
+    <a href="#financial-transactions" class="anchor-heading" aria-labelledby="financial-transactions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Financial Transactions</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Primary Storage</th>
+      <th>Secondary Storage</th>
+      <th>Key Decision Factors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Financial Transactions</strong></td>
+      <td>RDBMS</td>
+      <td>Event Store</td>
+      <td>ACID + audit trail</td>
+    </tr>
+    <tr>
+      <td><strong>Audit Trail</strong></td>
+      <td>Event Store</td>
+      <td>RDBMS</td>
+      <td>Immutable history</td>
+    </tr>
+    <tr>
+      <td><strong>Reporting</strong></td>
+      <td>Data Warehouse</td>
+      <td>RDBMS</td>
+      <td>Analytics + compliance</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="data-pattern-selection-guide">
+  
+  
+    <a href="#data-pattern-selection-guide" class="anchor-heading" aria-labelledby="data-pattern-selection-guide"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Pattern Selection Guide</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Data Pattern</th>
+      <th>Storage Choice</th>
+      <th>Reasoning</th>
+      <th>Trade-offs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Simple Key-Value</strong></td>
+      <td>Key-Value Store</td>
+      <td>Fast lookups</td>
+      <td>Limited query flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Complex Documents</strong></td>
+      <td>Document Store</td>
+      <td>Schema flexibility</td>
+      <td>Eventual consistency</td>
+    </tr>
+    <tr>
+      <td><strong>Time-Series Data</strong></td>
+      <td>Time Series DB</td>
+      <td>Time-optimized queries</td>
+      <td>Limited general use</td>
+    </tr>
+    <tr>
+      <td><strong>Relational Data</strong></td>
+      <td>RDBMS</td>
+      <td>ACID + joins</td>
+      <td>Scaling complexity</td>
+    </tr>
+    <tr>
+      <td><strong>Large Binary Files</strong></td>
+      <td>Object Store</td>
+      <td>Cost-effective storage</td>
+      <td>Limited metadata queries</td>
+    </tr>
+    <tr>
+      <td><strong>Searchable Content</strong></td>
+      <td>Text Search Engine</td>
+      <td>Rich search capabilities</td>
+      <td>Storage overhead</td>
+    </tr>
+    <tr>
+      <td><strong>Analytical Data</strong></td>
+      <td>Wide Column Store</td>
+      <td>Column-oriented queries</td>
+      <td>Complex modeling</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="scaling-strategies">
+  
+  
+    <a href="#scaling-strategies" class="anchor-heading" aria-labelledby="scaling-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Scale Factor</th>
+      <th>Implementation</th>
+      <th>Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Vertical Scaling</strong></td>
+      <td>2-10x</td>
+      <td>Hardware upgrade</td>
+      <td>Single instance performance</td>
+    </tr>
+    <tr>
+      <td><strong>Read Replicas</strong></td>
+      <td>10-50x</td>
+      <td>Master-slave replication</td>
+      <td>Read-heavy workloads</td>
+    </tr>
+    <tr>
+      <td><strong>Sharding</strong></td>
+      <td>100-1000x</td>
+      <td>Hash/range partitioning</td>
+      <td>Write-heavy workloads</td>
+    </tr>
+    <tr>
+      <td><strong>Connection Pooling</strong></td>
+      <td>10-100x</td>
+      <td>Connection management</td>
+      <td>Connection limits</td>
+    </tr>
+    <tr>
+      <td><strong>Caching</strong></td>
+      <td>10-100x</td>
+      <td>Application cache</td>
+      <td>Frequently accessed data</td>
+    </tr>
+    <tr>
+      <td><strong>Horizontal Scaling</strong></td>
+      <td>100-1000x</td>
+      <td>Consistent hashing</td>
+      <td>Even distribution</td>
+    </tr>
+    <tr>
+      <td><strong>Replication</strong></td>
+      <td>10-100x</td>
+      <td>Master-slave</td>
+      <td>High availability</td>
+    </tr>
+    <tr>
+      <td><strong>Partitioning</strong></td>
+      <td>100-1000x</td>
+      <td>Hash partitioning</td>
+      <td>Data distribution</td>
+    </tr>
+    <tr>
+      <td><strong>Auto-scaling</strong></td>
+      <td>10-100x</td>
+      <td>Dynamic scaling</td>
+      <td>Variable workloads</td>
+    </tr>
+    <tr>
+      <td><strong>Caching Layers</strong></td>
+      <td>10-100x</td>
+      <td>Multi-level cache</td>
+      <td>Performance optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Indexing</strong></td>
+      <td>10-100x</td>
+      <td>B-tree indexes</td>
+      <td>Query performance</td>
+    </tr>
+    <tr>
+      <td><strong>Aggregation</strong></td>
+      <td>10-100x</td>
+      <td>Pre-computed results</td>
+      <td>Analytics performance</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="scaling-strategy">
+  
+  
+    <a href="#scaling-strategy" class="anchor-heading" aria-labelledby="scaling-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scaling Strategy</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Scale Factor</th>
+      <th>Implementation</th>
+      <th>Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Horizontal Scaling</strong></td>
+      <td>100-1000x</td>
+      <td>Consistent hashing</td>
+      <td>Data distribution</td>
+    </tr>
+    <tr>
+      <td><strong>Replication</strong></td>
+      <td>10-100x</td>
+      <td>Master-slave</td>
+      <td>High availability</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="compression">
+  
+  
+    <a href="#compression" class="anchor-heading" aria-labelledby="compression"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Compression</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Compression Ratio</th>
+      <th>Method</th>
+      <th>Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Columnar Compression</strong></td>
+      <td>2-10x</td>
+      <td>Columnar compression</td>
+      <td>Storage optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Batch Operations</strong></td>
+      <td>10-100x</td>
+      <td>Bulk operations</td>
+      <td>High throughput</td>
+    </tr>
+    <tr>
+      <td><strong>Caching</strong></td>
+      <td>10-100x</td>
+      <td>Row/key cache</td>
+      <td>Performance optimization</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="advanced-scaling">
+  
+  
+    <a href="#advanced-scaling" class="anchor-heading" aria-labelledby="advanced-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Advanced Scaling</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Scale Factor</th>
+      <th>Method</th>
+      <th>Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Horizontal Scaling</strong></td>
+      <td>100-1000x</td>
+      <td>Time-based sharding</td>
+      <td>Data distribution</td>
+    </tr>
+    <tr>
+      <td><strong>Compression</strong></td>
+      <td>5-20x</td>
+      <td>Columnar compression</td>
+      <td>Storage optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Downsampling</strong></td>
+      <td>10-100x</td>
+      <td>Data aggregation</td>
+      <td>Historical data</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="retention-policies">
+  
+  
+    <a href="#retention-policies" class="anchor-heading" aria-labelledby="retention-policies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Retention Policies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Efficiency Gain</th>
+      <th>Method</th>
+      <th>Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>TTL-based Deletion</strong></td>
+      <td>10-100x</td>
+      <td>TTL-based deletion</td>
+      <td>Storage management</td>
+    </tr>
+    <tr>
+      <td><strong>Hot Data Caching</strong></td>
+      <td>10-100x</td>
+      <td>Hot data caching</td>
+      <td>Recent data access</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="consensus-algorithms">
+  
+  
+    <a href="#consensus-algorithms" class="anchor-heading" aria-labelledby="consensus-algorithms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Consensus Algorithms</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Use Case</th>
+      <th>Complexity</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Paxos</strong></td>
+      <td>Distributed consensus</td>
+      <td>High</td>
+      <td>Google Chubby, ZooKeeper</td>
+    </tr>
+    <tr>
+      <td><strong>Raft</strong></td>
+      <td>Distributed consensus</td>
+      <td>Medium</td>
+      <td>etcd, Consul, MongoDB</td>
+    </tr>
+    <tr>
+      <td><strong>ZAB</strong></td>
+      <td>Atomic broadcast</td>
+      <td>Medium</td>
+      <td>Apache ZooKeeper</td>
+    </tr>
+    <tr>
+      <td><strong>Gossip</strong></td>
+      <td>Eventual consistency</td>
+      <td>Low</td>
+      <td>Cassandra, DynamoDB</td>
+    </tr>
+    <tr>
+      <td><strong>Vector Clocks</strong></td>
+      <td>Causal consistency</td>
+      <td>Medium</td>
+      <td>DynamoDB, Riak</td>
+    </tr>
+    <tr>
+      <td><strong>CRDTs</strong></td>
+      <td>Conflict resolution</td>
+      <td>Low</td>
+      <td>Riak, Redis CRDTs</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="partitioning-strategies">
+  
+  
+    <a href="#partitioning-strategies" class="anchor-heading" aria-labelledby="partitioning-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+      <th>Use Cases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash-based</strong></td>
+      <td>Consistent hashing</td>
+      <td>Even distribution</td>
+      <td>Range queries difficult</td>
+      <td>Key-value stores</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="table-wrapper"><table>
+  <tbody>
+    <tr>
+      <td><strong>Range-based</strong></td>
+      <td>Key ranges</td>
+      <td>Efficient range queries</td>
+      <td>Potential hotspots</td>
+      <td>Time series, analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Directory-based</strong></td>
+      <td>Lookup table</td>
+      <td>Flexible, balanced</td>
+      <td>Centralized directory</td>
+      <td>Complex requirements</td>
+    </tr>
+    <tr>
+      <td><strong>Time-based</strong></td>
+      <td>Time buckets</td>
+      <td>Natural time queries</td>
+      <td>Time-based hotspots</td>
+      <td>Time series data</td>
+    </tr>
+    <tr>
+      <td><strong>Geographic</strong></td>
+      <td>Location-based</td>
+      <td>Low latency</td>
+      <td>Geographic hotspots</td>
+      <td>Global applications</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-type-availability">
+  
+  
+    <a href="#storage-type-availability" class="anchor-heading" aria-labelledby="storage-type-availability"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Type Availability</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Native Availability</th>
+      <th>Max with Scaling</th>
+      <th>Failure Recovery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>99.9%</td>
+      <td>99.99%</td>
+      <td>Automatic failover</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>99.9%</td>
+      <td>99.99%</td>
+      <td>Automatic failover</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>99.9%</td>
+      <td>99.99%</td>
+      <td>Automatic failover</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>99.99%</td>
+      <td>99.999%</td>
+      <td>Geographic failover</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>99.9%</td>
+      <td>99.99%</td>
+      <td>Automatic failover</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>99.9%</td>
+      <td>99.99%</td>
+      <td>Geographic failover</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-type-consistency">
+  
+  
+    <a href="#storage-type-consistency" class="anchor-heading" aria-labelledby="storage-type-consistency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Type Consistency</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Default</th>
+      <th>Configurable</th>
+      <th>Trade-offs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>Linearizable</td>
+      <td>Read committed, repeatable read</td>
+      <td>Performance vs consistency</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>Eventual</td>
+      <td>Strong consistency</td>
+      <td>Consistency vs latency</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>Eventual</td>
+      <td>Read concern levels</td>
+      <td>Consistency vs performance</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>Eventual</td>
+      <td>Quorum reads/writes</td>
+      <td>Consistency vs latency</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>Eventual</td>
+      <td>Time-based consistency</td>
+      <td>Consistency vs performance</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="backup-and-recovery">
+  
+  
+    <a href="#backup-and-recovery" class="anchor-heading" aria-labelledby="backup-and-recovery"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Backup and Recovery</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Method</th>
+      <th>Recovery Time</th>
+      <th>Frequency</th>
+      <th>Special Considerations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>Full + incremental</td>
+      <td>Hours</td>
+      <td>Daily</td>
+      <td>Point-in-time recovery</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>Snapshot + WAL</td>
+      <td>Minutes</td>
+      <td>Daily</td>
+      <td>Memory state + disk state</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>Oplog replay</td>
+      <td>Minutes</td>
+      <td>Daily</td>
+      <td>Replica set consistency</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>SSTable backup</td>
+      <td>Hours</td>
+      <td>Daily</td>
+      <td>Consistency across nodes</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>Time-based backup</td>
+      <td>Minutes</td>
+      <td>Daily</td>
+      <td>Retention policy alignment</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>Cross-region copy</td>
+      <td>Hours</td>
+      <td>Daily</td>
+      <td>Geographic distribution</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-tiers">
+  
+  
+    <a href="#storage-tiers" class="anchor-heading" aria-labelledby="storage-tiers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Tiers</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Access Pattern</th>
+      <th>Latency</th>
+      <th>Cost</th>
+      <th>Migration Trigger</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hot Storage</strong></td>
+      <td>Frequent access</td>
+      <td>&lt; 10ms</td>
+      <td>High</td>
+      <td>Active data</td>
+    </tr>
+    <tr>
+      <td><strong>Warm Storage</strong></td>
+      <td>Occasional access</td>
+      <td>10-100ms</td>
+      <td>Medium</td>
+      <td>Recent data</td>
+    </tr>
+    <tr>
+      <td><strong>Cold Storage</strong></td>
+      <td>Rare access</td>
+      <td>100ms-1s</td>
+      <td>Low</td>
+      <td>Historical data</td>
+    </tr>
+    <tr>
+      <td><strong>Archive Storage</strong></td>
+      <td>Compliance only</td>
+      <td>1s-1min</td>
+      <td>Very Low</td>
+      <td>Long-term retention</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="data-lifecycle-phases">
+  
+  
+    <a href="#data-lifecycle-phases" class="anchor-heading" aria-labelledby="data-lifecycle-phases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Data Lifecycle Phases</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Duration</th>
+      <th>Storage Type</th>
+      <th>Access Pattern</th>
+      <th>Cost Optimization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>0-30 days</td>
+      <td>Hot storage</td>
+      <td>Frequent</td>
+      <td>Performance optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Recent</strong></td>
+      <td>30-90 days</td>
+      <td>Warm storage</td>
+      <td>Occasional</td>
+      <td>Balanced cost/performance</td>
+    </tr>
+    <tr>
+      <td><strong>Historical</strong></td>
+      <td>90 days-1 year</td>
+      <td>Cold storage</td>
+      <td>Rare</td>
+      <td>Storage optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Archive</strong></td>
+      <td>1+ years</td>
+      <td>Archive storage</td>
+      <td>Compliance</td>
+      <td>Cost optimization</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-capacity">
+  
+  
+    <a href="#storage-capacity" class="anchor-heading" aria-labelledby="storage-capacity"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Capacity</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Single Instance</th>
+      <th>Clustered</th>
+      <th>Total Capacity</th>
+      <th>Scaling Factor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>1-10TB</td>
+      <td>100TB-1PB</td>
+      <td>1PB+</td>
+      <td>100-1000x</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>100GB-1TB</td>
+      <td>10TB-100TB</td>
+      <td>100TB+</td>
+      <td>100-1000x</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>1-10TB</td>
+      <td>100TB-1PB</td>
+      <td>1PB+</td>
+      <td>100-1000x</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>10-100TB</td>
+      <td>1PB-10PB</td>
+      <td>10PB+</td>
+      <td>100-1000x</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>1-10TB</td>
+      <td>100TB-1PB</td>
+      <td>1PB+</td>
+      <td>100-1000x</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>1-10TB</td>
+      <td>1PB-100PB</td>
+      <td>100PB+</td>
+      <td>1000-10000x</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-performance">
+  
+  
+    <a href="#storage-performance" class="anchor-heading" aria-labelledby="storage-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Performance</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Read Throughput</th>
+      <th>Write Throughput</th>
+      <th>Concurrent Connections</th>
+      <th>Query Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>10K-100K ops/sec</td>
+      <td>1K-10K ops/sec</td>
+      <td>10K-100K</td>
+      <td>Complex SQL</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>100K-1M ops/sec</td>
+      <td>100K-1M ops/sec</td>
+      <td>100K-1M</td>
+      <td>Simple lookups</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>10K-100K ops/sec</td>
+      <td>10K-100K ops/sec</td>
+      <td>10K-100K</td>
+      <td>Rich queries</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>10K-100K ops/sec</td>
+      <td>100K-1M ops/sec</td>
+      <td>10K-100K</td>
+      <td>Analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>10K-100K ops/sec</td>
+      <td>100K-1M ops/sec</td>
+      <td>10K-100K</td>
+      <td>Time queries</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>100-1K ops/sec</td>
+      <td>100-1K ops/sec</td>
+      <td>1K-10K</td>
+      <td>Large files</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="partitioning-strategies-1">
+  
+  
+    <a href="#partitioning-strategies-1" class="anchor-heading" aria-labelledby="partitioning-strategies-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Range Partitioning</strong></td>
+      <td>Partition by value ranges</td>
+      <td>Time-series data, ordered data</td>
+      <td>Efficient range queries</td>
+      <td>Potential hotspots</td>
+    </tr>
+    <tr>
+      <td><strong>Hash Partitioning</strong></td>
+      <td>Partition by hash function</td>
+      <td>Even distribution</td>
+      <td>Balanced load</td>
+      <td>Range queries inefficient</td>
+    </tr>
+    <tr>
+      <td><strong>List Partitioning</strong></td>
+      <td>Partition by specific values</td>
+      <td>Categorical data</td>
+      <td>Direct partition access</td>
+      <td>Limited flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Composite Partitioning</strong></td>
+      <td>Multiple partitioning methods</td>
+      <td>Complex requirements</td>
+      <td>Flexibility</td>
+      <td>Increased complexity</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="sharding-strategies">
+  
+  
+    <a href="#sharding-strategies" class="anchor-heading" aria-labelledby="sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Implementation</th>
+      <th>Use Case</th>
+      <th>Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash-based Sharding</strong></td>
+      <td>Consistent hashing</td>
+      <td>User ID, UUID</td>
+      <td>Even distribution</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td><strong>Range-based Sharding</strong></td>
+      <td>Key ranges</td>
+      <td>Time-series, ordered data</td>
+      <td>Efficient range queries</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td><strong>Directory-based Sharding</strong></td>
+      <td>Lookup table</td>
+      <td>Complex requirements</td>
+      <td>Flexibility</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td><strong>Composite Sharding</strong></td>
+      <td>Multiple strategies</td>
+      <td>Complex data</td>
+      <td>Optimal distribution</td>
+      <td>Very High</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="sharding-challenges">
+  
+  
+    <a href="#sharding-challenges" class="anchor-heading" aria-labelledby="sharding-challenges"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Sharding Challenges</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Problem</th>
+      <th>Solution</th>
+      <th>Implementation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cross-shard Queries</strong></td>
+      <td>Denormalization, application-level joins</td>
+      <td>Query routing, data duplication</td>
+    </tr>
+    <tr>
+      <td><strong>Transaction Management</strong></td>
+      <td>Distributed transactions, saga pattern</td>
+      <td>Two-phase commit, compensation logic</td>
+    </tr>
+    <tr>
+      <td><strong>Data Distribution</strong></td>
+      <td>Uneven shard load</td>
+      <td>Rebalancing, dynamic sharding</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Changes</strong></td>
+      <td>Coordinated schema updates</td>
+      <td>Blue-green deployment, versioning</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="redis-sharding-strategies">
+  
+  
+    <a href="#redis-sharding-strategies" class="anchor-heading" aria-labelledby="redis-sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Redis Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash Slots</strong></td>
+      <td>16384 hash slots</td>
+      <td>Even distribution</td>
+      <td>Automatic rebalancing</td>
+      <td>Limited flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Key Tags</strong></td>
+      <td>Custom hash tags</td>
+      <td>Related data</td>
+      <td>Co-location</td>
+      <td>Manual management</td>
+    </tr>
+    <tr>
+      <td><strong>Hash Functions</strong></td>
+      <td>CRC16, MD5</td>
+      <td>Custom distribution</td>
+      <td>Flexibility</td>
+      <td>Implementation complexity</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="dynamodb-partitioning-strategies">
+  
+  
+    <a href="#dynamodb-partitioning-strategies" class="anchor-heading" aria-labelledby="dynamodb-partitioning-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>DynamoDB Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash Partition Key</strong></td>
+      <td>Single partition key</td>
+      <td>Simple access patterns</td>
+      <td>Even distribution</td>
+      <td>Limited query flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Composite Key</strong></td>
+      <td>Partition + Sort key</td>
+      <td>Range queries</td>
+      <td>Efficient range queries</td>
+      <td>Design complexity</td>
+    </tr>
+    <tr>
+      <td><strong>GSI Partitioning</strong></td>
+      <td>Global secondary indexes</td>
+      <td>Multiple access patterns</td>
+      <td>Query flexibility</td>
+      <td>Additional cost</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="mongodb-sharding-strategies">
+  
+  
+    <a href="#mongodb-sharding-strategies" class="anchor-heading" aria-labelledby="mongodb-sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>MongoDB Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash-based Sharding</strong></td>
+      <td>Hash of shard key</td>
+      <td>Even distribution</td>
+      <td>Balanced load</td>
+      <td>Range queries inefficient</td>
+    </tr>
+    <tr>
+      <td><strong>Range-based Sharding</strong></td>
+      <td>Shard key ranges</td>
+      <td>Range queries</td>
+      <td>Efficient range queries</td>
+      <td>Potential hotspots</td>
+    </tr>
+    <tr>
+      <td><strong>Zoned Sharding</strong></td>
+      <td>Geographic zones</td>
+      <td>Multi-region</td>
+      <td>Geographic distribution</td>
+      <td>Complexity</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="mongodb-sharding-criteria">
+  
+  
+    <a href="#mongodb-sharding-criteria" class="anchor-heading" aria-labelledby="mongodb-sharding-criteria"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>MongoDB Sharding Criteria</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Considerations</th>
+      <th>Best Practices</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cardinality</strong></td>
+      <td>High cardinality</td>
+      <td>user_id, order_id</td>
+    </tr>
+    <tr>
+      <td><strong>Write Distribution</strong></td>
+      <td>Avoid low-cardinality keys</td>
+      <td>Even distribution across shards</td>
+    </tr>
+    <tr>
+      <td><strong>Query Patterns</strong></td>
+      <td>Support common queries</td>
+      <td>Include query fields in shard key</td>
+    </tr>
+    <tr>
+      <td><strong>Chunk Size</strong></td>
+      <td>Optimal chunk size</td>
+      <td>64MB-128MB chunks</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="mongodb-partitioning-strategies">
+  
+  
+    <a href="#mongodb-partitioning-strategies" class="anchor-heading" aria-labelledby="mongodb-partitioning-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>MongoDB Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash Partitioning</strong></td>
+      <td>Consistent hashing</td>
+      <td>Even distribution</td>
+      <td>Balanced load</td>
+      <td>Range queries difficult</td>
+    </tr>
+    <tr>
+      <td><strong>Composite Partitioning</strong></td>
+      <td>Multiple partition keys</td>
+      <td>Complex requirements</td>
+      <td>Flexibility</td>
+      <td>Design complexity</td>
+    </tr>
+    <tr>
+      <td><strong>Time-based Partitioning</strong></td>
+      <td>Time buckets</td>
+      <td>Time-series data</td>
+      <td>Time-based queries</td>
+      <td>Time-based hotspots</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="mongodb-best-practices">
+  
+  
+    <a href="#mongodb-best-practices" class="anchor-heading" aria-labelledby="mongodb-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>MongoDB Best Practices</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Implementation</th>
+      <th>Benefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>High Cardinality</strong></td>
+      <td>UUID, hash-based keys</td>
+      <td>Even distribution</td>
+    </tr>
+    <tr>
+      <td><strong>Avoid Hotspots</strong></td>
+      <td>Unique partition keys</td>
+      <td>Balanced load</td>
+    </tr>
+    <tr>
+      <td><strong>Query Optimization</strong></td>
+      <td>Design for query patterns</td>
+      <td>Performance</td>
+    </tr>
+    <tr>
+      <td><strong>Compaction Strategy</strong></td>
+      <td>Size-tiered, leveled compaction</td>
+      <td>Storage efficiency</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="influxdb-partitioning-strategies">
+  
+  
+    <a href="#influxdb-partitioning-strategies" class="anchor-heading" aria-labelledby="influxdb-partitioning-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>InfluxDB Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Time-based Partitioning</strong></td>
+      <td>Time buckets</td>
+      <td>Time-series data</td>
+      <td>Efficient time queries</td>
+      <td>Time-based hotspots</td>
+    </tr>
+    <tr>
+      <td><strong>Tag-based Partitioning</strong></td>
+      <td>Tag values</td>
+      <td>Multi-dimensional data</td>
+      <td>Flexible queries</td>
+      <td>Cardinality explosion</td>
+    </tr>
+    <tr>
+      <td><strong>Measurement Partitioning</strong></td>
+      <td>Different measurements</td>
+      <td>Logical separation</td>
+      <td>Clear organization</td>
+      <td>Cross-measurement queries</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="influxdb-sharding-strategies">
+  
+  
+    <a href="#influxdb-sharding-strategies" class="anchor-heading" aria-labelledby="influxdb-sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>InfluxDB Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Time-based Sharding</strong></td>
+      <td>Time ranges per shard</td>
+      <td>Historical data</td>
+      <td>Efficient time queries</td>
+      <td>Time-based hotspots</td>
+    </tr>
+    <tr>
+      <td><strong>Metric-based Sharding</strong></td>
+      <td>Different metrics per shard</td>
+      <td>Diverse metrics</td>
+      <td>Logical separation</td>
+      <td>Cross-metric queries</td>
+    </tr>
+    <tr>
+      <td><strong>Hybrid Sharding</strong></td>
+      <td>Time + metric combination</td>
+      <td>Complex requirements</td>
+      <td>Flexibility</td>
+      <td>Complexity</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="elasticsearch-sharding-strategies">
+  
+  
+    <a href="#elasticsearch-sharding-strategies" class="anchor-heading" aria-labelledby="elasticsearch-sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Elasticsearch Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Document-based Sharding</strong></td>
+      <td>Hash of document ID</td>
+      <td>Even distribution</td>
+      <td>Balanced load</td>
+      <td>Cross-document queries</td>
+    </tr>
+    <tr>
+      <td><strong>Routing-based Sharding</strong></td>
+      <td>Custom routing</td>
+      <td>Related documents</td>
+      <td>Co-location</td>
+      <td>Manual management</td>
+    </tr>
+    <tr>
+      <td><strong>Time-based Sharding</strong></td>
+      <td>Time indices</td>
+      <td>Time-series data</td>
+      <td>Time-based queries</td>
+      <td>Time-based hotspots</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="elasticsearch-best-practices">
+  
+  
+    <a href="#elasticsearch-best-practices" class="anchor-heading" aria-labelledby="elasticsearch-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Elasticsearch Best Practices</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Implementation</th>
+      <th>Benefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Index Aliases</strong></td>
+      <td>Alias → Multiple indices</td>
+      <td>Zero-downtime reindexing</td>
+    </tr>
+    <tr>
+      <td><strong>Index Lifecycle</strong></td>
+      <td>Logical index names</td>
+      <td>Management flexibility</td>
+    </tr>
+    <tr>
+      <td><strong>Shard Allocation</strong></td>
+      <td>Custom allocation</td>
+      <td>Performance optimization</td>
+    </tr>
+    <tr>
+      <td><strong>Replica Management</strong></td>
+      <td>Replica allocation, recovery</td>
+      <td>Fault tolerance</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="s3-partitioning-strategies">
+  
+  
+    <a href="#s3-partitioning-strategies" class="anchor-heading" aria-labelledby="s3-partitioning-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>S3 Partitioning Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hash-based Partitioning</strong></td>
+      <td>Hash of object key</td>
+      <td>Even distribution</td>
+      <td>Balanced load</td>
+      <td>No logical grouping</td>
+    </tr>
+    <tr>
+      <td><strong>Prefix-based Partitioning</strong></td>
+      <td>Key prefixes</td>
+      <td>Logical organization</td>
+      <td>Efficient listing</td>
+      <td>Potential hotspots</td>
+    </tr>
+    <tr>
+      <td><strong>Time-based Partitioning</strong></td>
+      <td>Time in key</td>
+      <td>Time-series objects</td>
+      <td>Time-based access</td>
+      <td>Time-based hotspots</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="s3-sharding-strategies">
+  
+  
+    <a href="#s3-sharding-strategies" class="anchor-heading" aria-labelledby="s3-sharding-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>S3 Sharding Strategies</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Strategy</th>
+      <th>Mechanism</th>
+      <th>Use Case</th>
+      <th>Advantages</th>
+      <th>Disadvantages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bucket-based Sharding</strong></td>
+      <td>Different buckets</td>
+      <td>Logical separation</td>
+      <td>Clear organization</td>
+      <td>Cross-bucket operations</td>
+    </tr>
+    <tr>
+      <td><strong>Region-based Sharding</strong></td>
+      <td>Geographic regions</td>
+      <td>Global distribution</td>
+      <td>Low latency</td>
+      <td>Cross-region costs</td>
+    </tr>
+    <tr>
+      <td><strong>Storage-tier Sharding</strong></td>
+      <td>Different storage classes</td>
+      <td>Cost optimization</td>
+      <td>Cost efficiency</td>
+      <td>Access pattern changes</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="common-pitfalls-and-mitigation">
+  
+  
+    <a href="#common-pitfalls-and-mitigation" class="anchor-heading" aria-labelledby="common-pitfalls-and-mitigation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Pitfalls and Mitigation</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Pitfall</th>
+      <th>Description</th>
+      <th>Impact</th>
+      <th>Mitigation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>N+1 Query Problem</strong></td>
+      <td>Multiple queries instead of joins</td>
+      <td>Performance degradation</td>
+      <td>Use eager loading, batch queries</td>
+    </tr>
+    <tr>
+      <td><strong>Missing Indexes</strong></td>
+      <td>No indexes on queried fields</td>
+      <td>Slow queries</td>
+      <td>Create appropriate indexes</td>
+    </tr>
+    <tr>
+      <td><strong>Connection Pool Exhaustion</strong></td>
+      <td>Too many database connections</td>
+      <td>Application failures</td>
+      <td>Configure connection pooling</td>
+    </tr>
+    <tr>
+      <td><strong>Long-Running Transactions</strong></td>
+      <td>Transactions holding locks too long</td>
+      <td>Deadlocks, poor performance</td>
+      <td>Keep transactions short</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Lock Contention</strong></td>
+      <td>DDL operations blocking queries</td>
+      <td>Application downtime</td>
+      <td>Use online DDL, maintenance windows</td>
+    </tr>
+    <tr>
+      <td><strong>Memory Exhaustion</strong></td>
+      <td>Running out of memory</td>
+      <td>Service failures</td>
+      <td>Configure eviction policies</td>
+    </tr>
+    <tr>
+      <td><strong>Hot Keys</strong></td>
+      <td>Uneven key distribution</td>
+      <td>Performance bottlenecks</td>
+      <td>Use key distribution strategies</td>
+    </tr>
+    <tr>
+      <td><strong>Cache Stampede</strong></td>
+      <td>Multiple requests for same expired key</td>
+      <td>Performance degradation</td>
+      <td>Use cache warming, background refresh</td>
+    </tr>
+    <tr>
+      <td><strong>TTL Management</strong></td>
+      <td>Inconsistent expiration handling</td>
+      <td>Memory leaks</td>
+      <td>Implement proper TTL cleanup</td>
+    </tr>
+    <tr>
+      <td><strong>Large Documents</strong></td>
+      <td>Documents exceeding 16MB</td>
+      <td>Performance degradation</td>
+      <td>Normalize large documents</td>
+    </tr>
+    <tr>
+      <td><strong>Schema Drift</strong></td>
+      <td>Inconsistent document structures</td>
+      <td>Query complexity</td>
+      <td>Design schema upfront</td>
+    </tr>
+    <tr>
+      <td><strong>Write Concern Issues</strong></td>
+      <td>Insufficient write acknowledgment</td>
+      <td>Data loss</td>
+      <td>Configure appropriate write concerns</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Rows</strong></td>
+      <td>Too many columns per row</td>
+      <td>Performance degradation</td>
+      <td>Normalize wide rows</td>
+    </tr>
+    <tr>
+      <td><strong>Read Repair Overhead</strong></td>
+      <td>Frequent consistency repairs</td>
+      <td>Performance degradation</td>
+      <td>Tune read repair frequency</td>
+    </tr>
+    <tr>
+      <td><strong>Compaction Pressure</strong></td>
+      <td>Insufficient compaction resources</td>
+      <td>Performance degradation</td>
+      <td>Monitor and tune compaction</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="time-series-database-pitfalls">
+  
+  
+    <a href="#time-series-database-pitfalls" class="anchor-heading" aria-labelledby="time-series-database-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Time Series Database Pitfalls</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Impact</th>
+      <th>Mitigation</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cardinality Explosion</strong></td>
+      <td>Too many unique time series</td>
+      <td>Memory usage</td>
+      <td>Limit cardinality, use tags wisely</td>
+    </tr>
+    <tr>
+      <td><strong>Retention Policy Issues</strong></td>
+      <td>Very large time ranges</td>
+      <td>Performance degradation</td>
+      <td>Use appropriate time windows</td>
+    </tr>
+    <tr>
+      <td><strong>Downsampling Configuration</strong></td>
+      <td>Incorrect aggregation intervals</td>
+      <td>Data loss</td>
+      <td>Configure downsampling carefully</td>
+    </tr>
+    <tr>
+      <td><strong>Write Buffer Issues</strong></td>
+      <td>Insufficient write buffering</td>
+      <td>Performance degradation</td>
+      <td>Tune write buffer size</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="storage-type-scoring-matrix">
+  
+  
+    <a href="#storage-type-scoring-matrix" class="anchor-heading" aria-labelledby="storage-type-scoring-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Storage Type Scoring Matrix</strong>
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Storage Type</th>
+      <th>Consistency</th>
+      <th>Performance</th>
+      <th>Scalability</th>
+      <th>Query Flexibility</th>
+      <th>Schema Flexibility</th>
+      <th>Operational Complexity</th>
+      <th>Cost</th>
+      <th>Use Case Fit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RDBMS</strong></td>
+      <td>✅ 10</td>
+      <td>⚠️ 6</td>
+      <td>❌ 3</td>
+      <td>✅ 10</td>
+      <td>❌ 2</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 6</td>
+      <td>ACID Transactions</td>
+    </tr>
+    <tr>
+      <td><strong>Key-Value</strong></td>
+      <td>⚠️ 4</td>
+      <td>✅ 10</td>
+      <td>✅ 9</td>
+      <td>❌ 2</td>
+      <td>✅ 10</td>
+      <td>✅ 8</td>
+      <td>✅ 8</td>
+      <td>Simple Lookups</td>
+    </tr>
+    <tr>
+      <td><strong>Wide Column</strong></td>
+      <td>❌ 3</td>
+      <td>✅ 8</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 5</td>
+      <td>✅ 7</td>
+      <td>Analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Document</strong></td>
+      <td>❌ 3</td>
+      <td>✅ 7</td>
+      <td>✅ 7</td>
+      <td>✅ 8</td>
+      <td>✅ 10</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 6</td>
+      <td>Flexible Data</td>
+    </tr>
+    <tr>
+      <td><strong>Time Series</strong></td>
+      <td>❌ 3</td>
+      <td>✅ 9</td>
+      <td>✅ 7</td>
+      <td>⚠️ 5</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 5</td>
+      <td>✅ 7</td>
+      <td>Time Data</td>
+    </tr>
+    <tr>
+      <td><strong>Text Search</strong></td>
+      <td>❌ 3</td>
+      <td>⚠️ 6</td>
+      <td>⚠️ 5</td>
+      <td>✅ 8</td>
+      <td>⚠️ 5</td>
+      <td>❌ 4</td>
+      <td>⚠️ 6</td>
+      <td>Full-Text Search</td>
+    </tr>
+    <tr>
+      <td><strong>Object Store</strong></td>
+      <td>❌ 2</td>
+      <td>⚠️ 4</td>
+      <td>❌ 3</td>
+      <td>❌ 1</td>
+      <td>✅ 10</td>
+      <td>✅ 9</td>
+      <td>✅ 9</td>
+      <td>Large Files</td>
+    </tr>
+  </tbody>
+</table></div>
 <h3 id="scoring-methodology">
   
   
@@ -2462,11 +2770,33 @@ Step 3: Query Complexity?
   
 </h3>
     
-<ul>
-  <li><strong>✅ 9-10</strong>: Excellent fit for the requirement</li>
-  <li><strong>⚠️ 5-8</strong>: Good fit with some trade-offs</li>
-  <li><strong>❌ 1-4</strong>: Poor fit, significant compromises needed</li>
-</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Score Range</th>
+      <th>Rating</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>✅ 9-10</strong></td>
+      <td>Excellent</td>
+      <td>Excellent fit for the requirement</td>
+    </tr>
+    <tr>
+      <td><strong>⚠️ 5-8</strong></td>
+      <td>Good</td>
+      <td>Good fit with some trade-offs</td>
+    </tr>
+    <tr>
+      <td><strong>❌ 1-4</strong></td>
+      <td>Poor</td>
+      <td>Poor fit, significant compromises needed</td>
+    </tr>
+  </tbody>
+</table></div>
 <h3 id="decision-validation-process">
   
   
@@ -2475,6 +2805,7 @@ Step 3: Query Complexity?
   
 </h3>
     
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 1: Proof of Concept
 ├─ Technical feasibility validation
 ├─ Performance testing

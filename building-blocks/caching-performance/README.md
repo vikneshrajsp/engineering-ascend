@@ -28,15 +28,11 @@
 
 ## 🎯 **How to Use This Guide**
 
-### **For System Design Interviews**
-1. **Start with Cheat Sheet** - Quick decision framework
-2. **Review Summary** - Key concepts and trade-offs
-3. **Deep dive with Handbook** - Implementation details
+### ### **For System Design Interviews**
 
-### **For Architecture Decisions**
-1. **Read Handbook** - Comprehensive understanding
-2. **Use Summary** - Team discussions and presentations
-3. **Reference Cheat Sheet** - Quick validation
+| 1. **Start with Cheat Sheet** - Quick decision framework | 2. **Review Summary** - Key concepts and trade-offs | 3. **Deep dive with Handbook** - Implementation details |
+|---|---|---|
+| ### **For Architecture Decisions** | 1. **Read Handbook** - Comprehensive understanding | 2. **Use Summary** - Team discussions and presentations | 3. **Reference Cheat Sheet** - Quick validation |
 
 ### **For Learning & Upskilling**
 1. **Begin with Summary** - Overview of concepts
@@ -74,29 +70,21 @@
 
 ## 🔗 **Related Building Blocks**
 
-### **Direct Dependencies**
-- **[Data Storage Systems](../data-storage/)** - Cache data sources
-- **[Networking & Communication](../networking-communication/)** - CDN and network caching
-- **[Compute & Processing](../compute-processing/)** - CPU and memory optimization
+### ### **Direct Dependencies**
 
-### **Indirect Dependencies**
-- **[Message Queuing & Streaming](../messaging-streaming/)** - Cache invalidation patterns
-- **[Security & Authentication](../security-authentication/)** - Secure caching
-- **[Monitoring & Observability](../monitoring-observability/)** - Cache performance monitoring
+| - **[Data Storage Systems](../data-storage/)** - Cache data sources | - **[Networking & Communication](../networking-communication/)** - CDN and network caching | - **[Compute & Processing](../compute-processing/)** - CPU and memory optimization |
+|---|---|---|
+| ### **Indirect Dependencies** | - **[Message Queuing & Streaming](../messaging-streaming/)** - Cache invalidation patterns | - **[Security & Authentication](../security-authentication/)** - Secure caching | - **[Monitoring & Observability](../monitoring-observability/)** - Cache performance monitoring |
 
 ---
 
 ## 📈 **Learning Path**
 
-### **Beginner Level**
-1. **Understand Cache Basics** - What is caching and why use it
-2. **Learn Cache Types** - Different types of caches
-3. **Master Cache Patterns** - Common caching patterns
+### ### **Beginner Level**
 
-### **Intermediate Level**
-1. **Cache Design** - Designing effective caching strategies
-2. **Performance Analysis** - Measuring and optimizing cache performance
-3. **Cache Consistency** - Managing cache consistency challenges
+| 1. **Understand Cache Basics** - What is caching and why use it | 2. **Learn Cache Types** - Different types of caches | 3. **Master Cache Patterns** - Common caching patterns |
+|---|---|---|
+| ### **Intermediate Level** | 1. **Cache Design** - Designing effective caching strategies | 2. **Performance Analysis** - Measuring and optimizing cache performance | 3. **Cache Consistency** - Managing cache consistency challenges |
 
 ### **Advanced Level**
 1. **Distributed Caching** - Multi-node cache systems

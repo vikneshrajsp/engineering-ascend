@@ -28,15 +28,11 @@
 
 ## 🎯 **How to Use This Guide**
 
-### **For System Design Interviews**
-1. **Start with Cheat Sheet** - Quick scaling decision framework
-2. **Review Summary** - Key concepts and trade-offs
-3. **Deep dive with Handbook** - Implementation details
+### ### **For System Design Interviews**
 
-### **For Architecture Decisions**
-1. **Read Handbook** - Comprehensive understanding
-2. **Use Summary** - Team discussions and presentations
-3. **Reference Cheat Sheet** - Quick validation
+| 1. **Start with Cheat Sheet** - Quick scaling decision framework | 2. **Review Summary** - Key concepts and trade-offs | 3. **Deep dive with Handbook** - Implementation details |
+|---|---|---|
+| ### **For Architecture Decisions** | 1. **Read Handbook** - Comprehensive understanding | 2. **Use Summary** - Team discussions and presentations | 3. **Reference Cheat Sheet** - Quick validation |
 
 ### **For Learning & Upskilling**
 1. **Begin with Summary** - Overview of concepts
@@ -72,29 +68,21 @@
 
 ## 🔗 **Related Building Blocks**
 
-### **Direct Dependencies**
-- **[Data Storage Systems](../data-storage/)** - Distributed databases and storage
-- **[Message Queuing & Streaming](../messaging-streaming/)** - Distributed communication
-- **[Networking & Communication](../networking-communication/)** - Network protocols and load balancing
+### ### **Direct Dependencies**
 
-### **Indirect Dependencies**
-- **[Caching & Performance](../caching-performance/)** - Distributed caching and performance
-- **[Security & Authentication](../security-authentication/)** - Distributed security systems
-- **[Monitoring & Observability](../monitoring-observability/)** - Distributed monitoring
+| - **[Data Storage Systems](../data-storage/)** - Distributed databases and storage | - **[Message Queuing & Streaming](../messaging-streaming/)** - Distributed communication | - **[Networking & Communication](../networking-communication/)** - Network protocols and load balancing |
+|---|---|---|
+| ### **Indirect Dependencies** | - **[Caching & Performance](../caching-performance/)** - Distributed caching and performance | - **[Security & Authentication](../security-authentication/)** - Distributed security systems | - **[Monitoring & Observability](../monitoring-observability/)** - Distributed monitoring |
 
 ---
 
 ## 📈 **Learning Path**
 
-### **Beginner Level**
-1. **Understand Scaling Basics** - What is scaling and why it's important
-2. **Learn Scaling Types** - Horizontal vs vertical scaling
-3. **Master Load Balancing** - Basic load balancing concepts
+### ### **Beginner Level**
 
-### **Intermediate Level**
-1. **Scaling Design** - Designing scalable systems
-2. **Distribution Patterns** - Implementing distributed patterns
-3. **Consensus Mechanisms** - Understanding consensus algorithms
+| 1. **Understand Scaling Basics** - What is scaling and why it's important | 2. **Learn Scaling Types** - Horizontal vs vertical scaling | 3. **Master Load Balancing** - Basic load balancing concepts |
+|---|---|---|
+| ### **Intermediate Level** | 1. **Scaling Design** - Designing scalable systems | 2. **Distribution Patterns** - Implementing distributed patterns | 3. **Consensus Mechanisms** - Understanding consensus algorithms |
 
 ### **Advanced Level**
 1. **Distributed Systems** - Complex distributed system design

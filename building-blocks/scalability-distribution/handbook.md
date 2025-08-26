@@ -40,15 +40,12 @@ Scalability & Distribution systems enable applications to handle increasing load
 
 ## 📈 **Scaling Fundamentals**
 
-### **Scaling vs Distribution**
-```
-Scaling: "How much can we handle?" (Capacity increase)
-Distribution: "How do we spread the load?" (Load distribution)
+### ### **Scaling vs Distribution**
 
-Example:
-- Scaling: Adding more servers to handle more users
-- Distribution: Spreading users across multiple servers
-```
+| Aspect | Scaling | Distribution |
+|--------|---------|--------------|
+| **Purpose** | "How much can we handle?" (Capacity increase) | "How do we spread the load?" (Load distribution) |
+| **Example** | Adding more servers to handle more users | Spreading users across multiple servers |
 
 ### **Scaling Principles**
 - **Horizontal Scaling**: Add more machines to distribute load

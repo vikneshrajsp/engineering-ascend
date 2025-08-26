@@ -11,1100 +11,278 @@ parent: Networking Communication
 ## 🌐 **NETWORKING FUNDAMENTALS**
 
 ### **Network Protocols Comparison**
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Protocol</th>
-<th>Use Case</th>
-<th>Performance</th>
-<th>Security</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**HTTP/HTTPS**</td>
-<td>Web applications</td>
-<td>Medium</td>
-<td>High (HTTPS)</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**gRPC**</td>
-<td>Microservices</td>
-<td>High</td>
-<td>High</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**WebSocket**</td>
-<td>Real-time apps</td>
-<td>High</td>
-<td>Medium</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**TCP**</td>
-<td>Reliable communication</td>
-<td>High</td>
-<td>Low</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**UDP**</td>
-<td>Fast communication</td>
-<td>Very High</td>
-<td>Low</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>Topology</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Star**</td>
-<td>Centralized systems</td>
-<td>Simple, centralized control</td>
-<td>Single point of failure</td>
-</tr>
-<tr>
-<td>**Ring**</td>
-<td>Token-based systems</td>
-<td>Equal access, fault tolerance</td>
-<td>Complex routing</td>
-</tr>
-<tr>
-<td>**Mesh**</td>
-<td>Distributed systems</td>
-<td>High reliability, multiple paths</td>
-<td>High complexity</td>
-</tr>
-<tr>
-<td>**Tree**</td>
-<td>Hierarchical systems</td>
-<td>Scalable, organized</td>
-<td>Root dependency</td>
-</tr>
-<tr>
-<td>**Hybrid**</td>
-<td>Complex systems</td>
-<td>Flexibility, optimization</td>
-<td>Complex management</td>
-</tr>
-<tr>
-<td>Layer</td>
-<td>Security</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>-------</td>
-<td>----------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Transport**</td>
-<td>SSL/TLS</td>
-<td>Encryption</td>
-<td>Secure communication</td>
-</tr>
-<tr>
-<td>**Network**</td>
-<td>VPN</td>
-<td>Tunneling</td>
-<td>Remote access</td>
-</tr>
-<tr>
-<td>**Application**</td>
-<td>Firewall</td>
-<td>Access control</td>
-<td>Traffic filtering</td>
-</tr>
-<tr>
-<td>**Monitoring**</td>
-<td>IDS/IPS</td>
-<td>Threat detection</td>
-<td>Security monitoring</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Protocol</td>
-<td>Use Case</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>----------</td>
-<td>----------</td>
-<td>-------------</td>
-</tr>
-<tr>
-<td>**Request/Response**</td>
-<td>HTTP/REST</td>
-<td>Web APIs</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**RPC**</td>
-<td>gRPC</td>
-<td>Service calls</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**GraphQL**</td>
-<td>HTTP</td>
-<td>Flexible queries</td>
-<td>Variable</td>
-</tr>
-<tr>
-<td>**SOAP**</td>
-<td>HTTP/XML</td>
-<td>Enterprise APIs</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Technology</td>
-<td>Use Case</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>------------</td>
-<td>----------</td>
-<td>-------------</td>
-</tr>
-<tr>
-<td>**Message Queues**</td>
-<td>RabbitMQ, Kafka</td>
-<td>Decoupled services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Event Streaming**</td>
-<td>Kafka, Pulsar</td>
-<td>Event processing</td>
-<td>Very High</td>
-</tr>
-<tr>
-<td>**Publish/Subscribe**</td>
-<td>Redis, MQTT</td>
-<td>Broadcasting</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Event Sourcing**</td>
-<td>Event stores</td>
-<td>Audit trails</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Technology</td>
-<td>Use Case</td>
-<td>Performance</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>------------</td>
-<td>----------</td>
-<td>-------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**WebSocket**</td>
-<td>Bidirectional real-time</td>
-<td>High</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**Server-Sent Events**</td>
-<td>Server push</td>
-<td>Medium</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**Long Polling**</td>
-<td>Simple real-time</td>
-<td>Low</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**WebRTC**</td>
-<td>Peer-to-peer</td>
-<td>Very High</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>Layer</td>
-<td>Use Case</td>
-<td>Features</td>
-</tr>
-<tr>
-<td>------</td>
-<td>-------</td>
-<td>----------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Application (ALB)**</td>
-<td>Layer 7</td>
-<td>Web applications</td>
-<td>Content-based routing</td>
-</tr>
-<tr>
-<td>**Network (NLB)**</td>
-<td>Layer 4</td>
-<td>High performance</td>
-<td>TCP/UDP support</td>
-</tr>
-<tr>
-<td>**Global (GLB)**</td>
-<td>DNS</td>
-<td>Geographic distribution</td>
-<td>Multi-region</td>
-</tr>
-<tr>
-<td>Algorithm</td>
-<td>Use Case</td>
-<td>Performance</td>
-<td>Fairness</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>----------</td>
-<td>-------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Round Robin**</td>
-<td>Simple distribution</td>
-<td>O(1)</td>
-<td>Equal</td>
-</tr>
-<tr>
-<td>**Least Connections**</td>
-<td>Dynamic load</td>
-<td>O(n)</td>
-<td>Load-based</td>
-</tr>
-<tr>
-<td>**Weighted Round Robin**</td>
-<td>Different capacities</td>
-<td>O(1)</td>
-<td>Capacity-based</td>
-</tr>
-<tr>
-<td>**IP Hash**</td>
-<td>Session affinity</td>
-<td>O(1)</td>
-<td>Client-based</td>
-</tr>
-<tr>
-<td>**Least Response Time**</td>
-<td>Performance-based</td>
-<td>O(n)</td>
-<td>Performance-based</td>
-</tr>
-<tr>
-<td>Check Type</td>
-<td>Purpose</td>
-<td>Frequency</td>
-<td>Action</td>
-</tr>
-<tr>
-<td>------------</td>
-<td>---------</td>
-<td>-----------</td>
-<td>--------</td>
-</tr>
-<tr>
-<td>**Liveness**</td>
-<td>Is service alive?</td>
-<td>30-60s</td>
-<td>Restart</td>
-</tr>
-<tr>
-<td>**Readiness**</td>
-<td>Ready for traffic?</td>
-<td>5-10s</td>
-<td>Remove from LB</td>
-</tr>
-<tr>
-<td>**Startup**</td>
-<td>Started successfully?</td>
-<td>5-10s</td>
-<td>Restart</td>
-</tr>
-<tr>
-<td>Feature</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Edge Caching**</td>
-<td>Cache content globally</td>
-<td>Distributed cache</td>
-<td>Reduced latency</td>
-</tr>
-<tr>
-<td>**Geographic Distribution**</td>
-<td>Serve from optimal location</td>
-<td>Edge servers</td>
-<td>Better performance</td>
-</tr>
-<tr>
-<td>**Load Balancing**</td>
-<td>Distribute traffic</td>
-<td>Global load balancer</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**DDoS Protection**</td>
-<td>Protect against attacks</td>
-<td>Traffic filtering</td>
-<td>Security</td>
-</tr>
-<tr>
-<td>Optimization</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Performance Gain</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>------------------</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>Reduce origin requests</td>
-<td>Edge caching</td>
-<td>80-90% reduction</td>
-</tr>
-<tr>
-<td>**Compression**</td>
-<td>Reduce bandwidth</td>
-<td>Gzip, Brotli</td>
-<td>50-80% reduction</td>
-</tr>
-<tr>
-<td>**Image Optimization**</td>
-<td>Reduce image size</td>
-<td>WebP, AVIF</td>
-<td>30-70% reduction</td>
-</tr>
-<tr>
-<td>**HTTP/2**</td>
-<td>Multiplexing</td>
-<td>Protocol upgrade</td>
-<td>20-50% improvement</td>
-</tr>
-<tr>
-<td>Use Case</td>
-<td>Implementation</td>
-<td>Benefits</td>
-<td>Considerations</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----------------</td>
-<td>----------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**Static Content**</td>
-<td>Cache images, CSS, JS</td>
-<td>Fast delivery</td>
-<td>Cache invalidation</td>
-</tr>
-<tr>
-<td>**Video Streaming**</td>
-<td>Video caching</td>
-<td>Reduced bandwidth</td>
-<td>Video optimization</td>
-</tr>
-<tr>
-<td>**API Acceleration**</td>
-<td>API caching</td>
-<td>Reduced latency</td>
-<td>Cache consistency</td>
-</tr>
-<tr>
-<td>**Security**</td>
-<td>DDoS protection</td>
-<td>Attack mitigation</td>
-<td>Security monitoring</td>
-</tr>
-<tr>
-<td>Protocol</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Security Level</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**SSL/TLS**</td>
-<td>Transport encryption</td>
-<td>Certificate-based</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**VPN**</td>
-<td>Secure tunneling</td>
-<td>IPSec, OpenVPN</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Firewall**</td>
-<td>Traffic filtering</td>
-<td>Rule-based</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**IDS/IPS**</td>
-<td>Threat detection</td>
-<td>Signature-based</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Layer</td>
-<td>Security</td>
-<td>Implementation</td>
-<td>Monitoring</td>
-</tr>
-<tr>
-<td>-------</td>
-<td>----------</td>
-<td>----------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Perimeter**</td>
-<td>Network boundary</td>
-<td>Firewall, DMZ</td>
-<td>Network monitoring</td>
-</tr>
-<tr>
-<td>**Transport**</td>
-<td>Data in transit</td>
-<td>SSL/TLS, VPN</td>
-<td>Certificate monitoring</td>
-</tr>
-<tr>
-<td>**Application**</td>
-<td>Application security</td>
-<td>WAF, API security</td>
-<td>Application monitoring</td>
-</tr>
-<tr>
-<td>**Data**</td>
-<td>Data at rest</td>
-<td>Encryption, access control</td>
-<td>Data monitoring</td>
-</tr>
-<tr>
-<td>Protection Type</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Effectiveness</td>
-</tr>
-<tr>
-<td>-----------------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Rate Limiting**</td>
-<td>Limit request rate</td>
-<td>Request counting</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**Traffic Filtering**</td>
-<td>Filter malicious traffic</td>
-<td>Signature matching</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Geographic Blocking**</td>
-<td>Block by location</td>
-<td>IP geolocation</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**Behavioral Analysis**</td>
-<td>Detect anomalies</td>
-<td>ML-based detection</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Feature</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Request Routing**</td>
-<td>Route to services</td>
-<td>Path-based routing</td>
-<td>Service discovery</td>
-</tr>
-<tr>
-<td>**Authentication**</td>
-<td>Verify identity</td>
-<td>JWT, OAuth</td>
-<td>Security</td>
-</tr>
-<tr>
-<td>**Rate Limiting**</td>
-<td>Control request rate</td>
-<td>Token bucket</td>
-<td>Resource protection</td>
-</tr>
-<tr>
-<td>**Load Balancing**</td>
-<td>Distribute load</td>
-<td>Round robin, least connections</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Aggregation**</td>
-<td>Combine multiple APIs</td>
-<td>Response aggregation</td>
-<td>Mobile apps</td>
-</tr>
-<tr>
-<td>**Transformation**</td>
-<td>Transform requests/responses</td>
-<td>Data transformation</td>
-<td>Legacy integration</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>Cache API responses</td>
-<td>Response caching</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>**Circuit Breaker**</td>
-<td>Handle failures</td>
-<td>Failure detection</td>
-<td>Resilience</td>
-</tr>
-<tr>
-<td>Component</td>
-<td>Purpose</td>
-<td>Technology</td>
-<td>Configuration</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>---------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Router**</td>
-<td>Route requests</td>
-<td>Path matching</td>
-<td>Route configuration</td>
-</tr>
-<tr>
-<td>**Authenticator**</td>
-<td>Verify requests</td>
-<td>JWT validation</td>
-<td>Auth configuration</td>
-</tr>
-<tr>
-<td>**Rate Limiter**</td>
-<td>Limit requests</td>
-<td>Token bucket</td>
-<td>Rate configuration</td>
-</tr>
-<tr>
-<td>**Load Balancer**</td>
-<td>Distribute load</td>
-<td>Algorithm selection</td>
-<td>Load balancer config</td>
-</tr>
-<tr>
-<td>Component</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Data Plane**</td>
-<td>Handle traffic</td>
-<td>Sidecar proxies</td>
-<td>Traffic management</td>
-</tr>
-<tr>
-<td>**Control Plane**</td>
-<td>Manage configuration</td>
-<td>Centralized control</td>
-<td>Policy management</td>
-</tr>
-<tr>
-<td>**Service Discovery**</td>
-<td>Find services</td>
-<td>Service registry</td>
-<td>Dynamic routing</td>
-</tr>
-<tr>
-<td>**Observability**</td>
-<td>Monitor traffic</td>
-<td>Metrics, logs, traces</td>
-<td>Visibility</td>
-</tr>
-<tr>
-<td>Feature</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Traffic Management**</td>
-<td>Route traffic</td>
-<td>Load balancing, routing</td>
-<td>Traffic control</td>
-</tr>
-<tr>
-<td>**Security**</td>
-<td>Secure communication</td>
-<td>mTLS, authorization</td>
-<td>Security</td>
-</tr>
-<tr>
-<td>**Observability**</td>
-<td>Monitor services</td>
-<td>Metrics, logs, traces</td>
-<td>Visibility</td>
-</tr>
-<tr>
-<td>**Policy Enforcement**</td>
-<td>Enforce policies</td>
-<td>Rate limiting, access control</td>
-<td>Governance</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Circuit Breaker**</td>
-<td>Handle failures</td>
-<td>Failure detection</td>
-<td>Resilience</td>
-</tr>
-<tr>
-<td>**Retry Logic**</td>
-<td>Retry failed requests</td>
-<td>Exponential backoff</td>
-<td>Reliability</td>
-</tr>
-<tr>
-<td>**Timeout Management**</td>
-<td>Handle timeouts</td>
-<td>Request timeouts</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>**Load Balancing**</td>
-<td>Distribute load</td>
-<td>Algorithm selection</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>Benefit</td>
-<td>Description</td>
-<td>Implementation</td>
-<td>Impact</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>----------------</td>
-<td>--------</td>
-</tr>
-<tr>
-<td>**Low Latency**</td>
-<td>Reduce network latency</td>
-<td>Local processing</td>
-<td>50-90% reduction</td>
-</tr>
-<tr>
-<td>**Bandwidth Optimization**</td>
-<td>Reduce bandwidth usage</td>
-<td>Local caching</td>
-<td>60-80% reduction</td>
-</tr>
-<tr>
-<td>**Offline Capability**</td>
-<td>Work without internet</td>
-<td>Local storage</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**Privacy**</td>
-<td>Keep data local</td>
-<td>Local processing</td>
-<td>Enhanced privacy</td>
-</tr>
-<tr>
-<td>Use Case</td>
-<td>Implementation</td>
-<td>Benefits</td>
-<td>Challenges</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----------------</td>
-<td>----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**IoT Devices**</td>
-<td>Local processing</td>
-<td>Real-time response</td>
-<td>Device management</td>
-</tr>
-<tr>
-<td>**Mobile Apps**</td>
-<td>Edge caching</td>
-<td>Fast loading</td>
-<td>Cache consistency</td>
-</tr>
-<tr>
-<td>**Video Processing**</td>
-<td>Edge transcoding</td>
-<td>Reduced bandwidth</td>
-<td>Processing power</td>
-</tr>
-<tr>
-<td>**Gaming**</td>
-<td>Edge servers</td>
-<td>Low latency</td>
-<td>Server management</td>
-</tr>
-<tr>
-<td>Component</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Considerations</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**Edge Nodes**</td>
-<td>Local processing</td>
-<td>Edge servers</td>
-<td>Hardware requirements</td>
-</tr>
-<tr>
-<td>**Edge Gateway**</td>
-<td>Traffic management</td>
-<td>Load balancer</td>
-<td>Network configuration</td>
-</tr>
-<tr>
-<td>**Edge Storage**</td>
-<td>Local data</td>
-<td>Edge databases</td>
-<td>Storage management</td>
-</tr>
-<tr>
-<td>**Edge Analytics**</td>
-<td>Local analytics</td>
-<td>ML models</td>
-<td>Model management</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Impact</td>
-<td>Prevention</td>
-<td>Detection</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>--------</td>
-<td>------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Single Point of Failure**</td>
-<td>System downtime</td>
-<td>Redundancy</td>
-<td>Health monitoring</td>
-</tr>
-<tr>
-<td>**Poor Load Distribution**</td>
-<td>Uneven load</td>
-<td>Proper load balancing</td>
-<td>Load monitoring</td>
-</tr>
-<tr>
-<td>**Security Vulnerabilities**</td>
-<td>Data breaches</td>
-<td>Security best practices</td>
-<td>Security monitoring</td>
-</tr>
-<tr>
-<td>**Network Congestion**</td>
-<td>Performance degradation</td>
-<td>Traffic management</td>
-<td>Network monitoring</td>
-</tr>
-<tr>
-<td>Pitfall</td>
-<td>Impact</td>
-<td>Prevention</td>
-<td>Detection</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>--------</td>
-<td>------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Protocol Mismatch**</td>
-<td>Communication failure</td>
-<td>Standard protocols</td>
-<td>Protocol monitoring</td>
-</tr>
-<tr>
-<td>**Timeout Issues**</td>
-<td>Request failures</td>
-<td>Proper timeout configuration</td>
-<td>Timeout monitoring</td>
-</tr>
-<tr>
-<td>**Retry Storms**</td>
-<td>System overload</td>
-<td>Exponential backoff</td>
-<td>Retry monitoring</td>
-</tr>
-<tr>
-<td>**Circuit Breaker Issues**</td>
-<td>Service isolation</td>
-<td>Proper configuration</td>
-<td>Circuit breaker monitoring</td>
-</tr>
-<tr>
-<td>System</td>
-<td>Integration Point</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>-------------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Data Storage**</td>
-<td>Network protocols for database access</td>
-<td>Efficient data access</td>
-</tr>
-<tr>
-<td>**Compute & Processing**</td>
-<td>Network communication between services</td>
-<td>Distributed processing</td>
-</tr>
-<tr>
-<td>**Message Queuing & Streaming**</td>
-<td>Network transport for messages</td>
-<td>Reliable messaging</td>
-</tr>
-<tr>
-<td>**Caching & Performance**</td>
-<td>Network optimization and CDN</td>
-<td>Performance improvement</td>
-</tr>
-<tr>
-<td>Aspect</td>
-<td>Challenge</td>
-<td>Solution</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>-----------</td>
-<td>----------</td>
-<td>-------------</td>
-</tr>
-<tr>
-<td>**Network Latency**</td>
-<td>High latency</td>
-<td>CDN, edge computing</td>
-<td>50-90% reduction</td>
-</tr>
-<tr>
-<td>**Bandwidth Usage**</td>
-<td>High bandwidth</td>
-<td>Compression, caching</td>
-<td>50-80% reduction</td>
-</tr>
-<tr>
-<td>**Load Distribution**</td>
-<td>Uneven load</td>
-<td>Load balancing</td>
-<td>Better performance</td>
-</tr>
-<tr>
-<td>**Security Overhead**</td>
-<td>Security impact</td>
-<td>Efficient security</td>
-<td>Minimal impact</td>
-</tr>
-<tr>
-<td>Component</td>
-<td>Performance Impact</td>
-<td>Optimization</td>
-<td>Monitoring</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>-------------------</td>
-<td>--------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Load Balancing**</td>
-<td>Minimal overhead</td>
-<td>Efficient algorithms</td>
-<td>Load balancer metrics</td>
-</tr>
-<tr>
-<td>**CDN**</td>
-<td>Significant improvement</td>
-<td>Edge caching</td>
-<td>CDN metrics</td>
-</tr>
-<tr>
-<td>**API Gateway**</td>
-<td>Low overhead</td>
-<td>Efficient routing</td>
-<td>Gateway metrics</td>
-</tr>
-<tr>
-<td>**Service Mesh**</td>
-<td>Moderate overhead</td>
-<td>Optimized proxies</td>
-<td>Mesh metrics</td>
-</tr>
-<tr>
-<td>Protocol</td>
-<td>Performance</td>
-<td>Optimization</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>-------------</td>
-<td>--------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**HTTP/HTTPS**</td>
-<td>Medium</td>
-<td>HTTP/2, compression</td>
-<td>Web applications</td>
-</tr>
-<tr>
-<td>**gRPC**</td>
-<td>High</td>
-<td>Protocol buffers, HTTP/2</td>
-<td>Microservices</td>
-</tr>
-<tr>
-<td>**WebSocket**</td>
-<td>High</td>
-<td>Binary protocols</td>
-<td>Real-time applications</td>
-</tr>
-<tr>
-<td>**TCP**</td>
-<td>High</td>
-<td>Connection pooling</td>
-<td>Reliable communication</td>
-</tr>
-<tr>
-<td>**UDP**</td>
-<td>Very High</td>
-<td>Minimal overhead</td>
-<td>Fast communication</td>
-</tr>
-</tbody>
-</table>
-</div>
+
+| Protocol | Use Case | Performance | Security | Complexity |
+|----------|----------|-------------|----------|------------|
+| **HTTP/HTTPS** | Web applications | Medium | High (HTTPS) | Low |
+| **gRPC** | Microservices | High | High | Medium |
+| **WebSocket** | Real-time apps | High | Medium | Medium |
+| **TCP** | Reliable communication | High | Low | Low |
+| **UDP** | Fast communication | Very High | Low | Low |
+
+### **Network Topologies**
+
+| Topology | Use Case | Advantages | Disadvantages |
+|----------|----------|------------|---------------|
+| **Star** | Centralized systems | Simple, centralized control | Single point of failure |
+| **Ring** | Token-based systems | Equal access, fault tolerance | Complex routing |
+| **Mesh** | Distributed systems | High reliability, multiple paths | High complexity |
+| **Tree** | Hierarchical systems | Scalable, organized | Root dependency |
+| **Hybrid** | Complex systems | Flexibility, optimization | Complex management |
+
+### **Network Security Layers**
+
+| Layer | Security | Implementation | Use Case |
+|-------|----------|----------------|----------|
+| **Transport** | SSL/TLS | Encryption | Secure communication |
+| **Network** | VPN | Tunneling | Remote access |
+| **Application** | Firewall | Access control | Traffic filtering |
+| **Monitoring** | IDS/IPS | Threat detection | Security monitoring |
+
+### **Communication Patterns**
+
+### **Request/Response Patterns**
+
+| Pattern | Protocol | Use Case | Performance |
+|---------|----------|----------|-------------|
+| **Request/Response** | HTTP/REST | Web APIs | Medium |
+| **RPC** | gRPC | Service calls | High |
+| **GraphQL** | HTTP | Flexible queries | Variable |
+| **SOAP** | HTTP/XML | Enterprise APIs | Low |
+
+### **Asynchronous Communication Patterns**
+
+| Pattern | Technology | Use Case | Performance |
+|---------|------------|----------|-------------|
+| **Message Queues** | RabbitMQ, Kafka | Decoupled services | High |
+| **Event Streaming** | Kafka, Pulsar | Event processing | Very High |
+| **Publish/Subscribe** | Redis, MQTT | Broadcasting | High |
+| **Event Sourcing** | Event stores | Audit trails | Medium |
+
+### **Real-Time Communication Technologies**
+
+| Technology | Use Case | Performance | Complexity |
+|------------|----------|-------------|------------|
+| **WebSocket** | Bidirectional real-time | High | Medium |
+| **Server-Sent Events** | Server push | Medium | Low |
+| **Long Polling** | Simple real-time | Low | Low |
+| **WebRTC** | Peer-to-peer | Very High | High |
+
+### **Load Balancer Types**
+
+| Type | Layer | Use Case | Features |
+|------|-------|----------|----------|
+| **Application (ALB)** | Layer 7 | Web applications | Content-based routing |
+| **Network (NLB)** | Layer 4 | High performance | TCP/UDP support |
+| **Global (GLB)** | DNS | Geographic distribution | Multi-region |
+
+### **Load Balancing Algorithms**
+
+| Algorithm | Use Case | Performance | Fairness |
+|-----------|----------|-------------|----------|
+| **Round Robin** | Simple distribution | O(1) | Equal |
+| **Least Connections** | Dynamic load | O(n) | Load-based |
+| **Weighted Round Robin** | Different capacities | O(1) | Capacity-based |
+| **IP Hash** | Session affinity | O(1) | Client-based |
+| **Least Response Time** | Performance-based | O(n) | Performance-based |
+
+### **Health Check Types**
+
+| Check Type | Purpose | Frequency | Action |
+|------------|---------|-----------|--------|
+| **Liveness** | Is service alive? | 30-60s | Restart |
+| **Readiness** | Ready for traffic? | 5-10s | Remove from LB |
+| **Startup** | Started successfully? | 5-10s | Restart |
+
+### **CDN Features**
+
+| Feature | Purpose | Implementation | Benefits |
+|---------|---------|----------------|----------|
+| **Edge Caching** | Cache content globally | Distributed cache | Reduced latency |
+| **Geographic Distribution** | Serve from optimal location | Edge servers | Better performance |
+| **Load Balancing** | Distribute traffic | Global load balancer | High availability |
+| **DDoS Protection** | Protect against attacks | Traffic filtering | Security |
+
+### **Performance Optimizations**
+
+| Optimization | Purpose | Implementation | Performance Gain |
+|--------------|---------|----------------|------------------|
+| **Caching** | Reduce origin requests | Edge caching | 80-90% reduction |
+| **Compression** | Reduce bandwidth | Gzip, Brotli | 50-80% reduction |
+| **Image Optimization** | Reduce image size | WebP, AVIF | 30-70% reduction |
+| **HTTP/2** | Multiplexing | Protocol upgrade | 20-50% improvement |
+
+### **CDN Use Cases**
+
+| Use Case | Implementation | Benefits | Considerations |
+|----------|----------------|----------|----------------|
+| **Static Content** | Cache images, CSS, JS | Fast delivery | Cache invalidation |
+| **Video Streaming** | Video caching | Reduced bandwidth | Video optimization |
+| **API Acceleration** | API caching | Reduced latency | Cache consistency |
+| **Security** | DDoS protection | Attack mitigation | Security monitoring |
+
+### **Security Protocols**
+
+| Protocol | Purpose | Implementation | Security Level |
+|----------|---------|----------------|----------------|
+| **SSL/TLS** | Transport encryption | Certificate-based | High |
+| **VPN** | Secure tunneling | IPSec, OpenVPN | High |
+| **Firewall** | Traffic filtering | Rule-based | Medium |
+| **IDS/IPS** | Threat detection | Signature-based | High |
+
+### **Security Layers**
+
+| Layer | Security | Implementation | Monitoring |
+|-------|----------|----------------|------------|
+| **Perimeter** | Network boundary | Firewall, DMZ | Network monitoring |
+| **Transport** | Data in transit | SSL/TLS, VPN | Certificate monitoring |
+| **Application** | Application security | WAF, API security | Application monitoring |
+| **Data** | Data at rest | Encryption, access control | Data monitoring |
+
+### **DDoS Protection Methods**
+
+| Protection Type | Purpose | Implementation | Effectiveness |
+|-----------------|---------|----------------|---------------|
+| **Rate Limiting** | Limit request rate | Request counting | Medium |
+| **Traffic Filtering** | Filter malicious traffic | Signature matching | High |
+| **Geographic Blocking** | Block by location | IP geolocation | Medium |
+| **Behavioral Analysis** | Detect anomalies | ML-based detection | High |
+
+### **API Gateway Features**
+
+| Feature | Purpose | Implementation | Benefits |
+|---------|---------|----------------|----------|
+| **Request Routing** | Route to services | Path-based routing | Service discovery |
+| **Authentication** | Verify identity | JWT, OAuth | Security |
+| **Rate Limiting** | Control request rate | Token bucket | Resource protection |
+| **Load Balancing** | Distribute load | Round robin, least connections | High availability |
+
+### **API Gateway Patterns**
+
+| Pattern | Purpose | Implementation | Use Case |
+|---------|---------|----------------|----------|
+| **Aggregation** | Combine multiple APIs | Response aggregation | Mobile apps |
+| **Transformation** | Transform requests/responses | Data transformation | Legacy integration |
+| **Caching** | Cache API responses | Response caching | Performance |
+| **Circuit Breaker** | Handle failures | Failure detection | Resilience |
+
+### **API Gateway Components**
+
+| Component | Purpose | Technology | Configuration |
+|-----------|---------|------------|---------------|
+| **Router** | Route requests | Path matching | Route configuration |
+| **Authenticator** | Verify requests | JWT validation | Auth configuration |
+| **Rate Limiter** | Limit requests | Token bucket | Rate configuration |
+| **Load Balancer** | Distribute load | Algorithm selection | Load balancer config |
+
+### **Service Mesh Components**
+
+| Component | Purpose | Implementation | Benefits |
+|-----------|---------|----------------|----------|
+| **Data Plane** | Handle traffic | Sidecar proxies | Traffic management |
+| **Control Plane** | Manage configuration | Centralized control | Policy management |
+| **Service Discovery** | Find services | Service registry | Dynamic routing |
+| **Observability** | Monitor traffic | Metrics, logs, traces | Visibility |
+
+### **Service Mesh Features**
+
+| Feature | Purpose | Implementation | Benefits |
+|---------|---------|----------------|----------|
+| **Traffic Management** | Route traffic | Load balancing, routing | Traffic control |
+| **Security** | Secure communication | mTLS, authorization | Security |
+| **Observability** | Monitor services | Metrics, logs, traces | Visibility |
+| **Policy Enforcement** | Enforce policies | Rate limiting, access control | Governance |
+
+### **Service Mesh Patterns**
+
+| Pattern | Purpose | Implementation | Use Case |
+|---------|---------|----------------|----------|
+| **Circuit Breaker** | Handle failures | Failure detection | Resilience |
+| **Retry Logic** | Retry failed requests | Exponential backoff | Reliability |
+| **Timeout Management** | Handle timeouts | Request timeouts | Performance |
+| **Load Balancing** | Distribute load | Algorithm selection | Performance |
+
+### **Edge Computing Benefits**
+
+| Benefit | Description | Implementation | Impact |
+|---------|-------------|----------------|--------|
+| **Low Latency** | Reduce network latency | Local processing | 50-90% reduction |
+| **Bandwidth Optimization** | Reduce bandwidth usage | Local caching | 60-80% reduction |
+| **Offline Capability** | Work without internet | Local storage | High availability |
+| **Privacy** | Keep data local | Local processing | Enhanced privacy |
+
+### **Edge Computing Use Cases**
+
+| Use Case | Implementation | Benefits | Challenges |
+|----------|----------------|----------|------------|
+| **IoT Devices** | Local processing | Real-time response | Device management |
+| **Mobile Apps** | Edge caching | Fast loading | Cache consistency |
+| **Video Processing** | Edge transcoding | Reduced bandwidth | Processing power |
+| **Gaming** | Edge servers | Low latency | Server management |
+
+### **Edge Computing Components**
+
+| Component | Purpose | Implementation | Considerations |
+|-----------|---------|----------------|----------------|
+| **Edge Nodes** | Local processing | Edge servers | Hardware requirements |
+| **Edge Gateway** | Traffic management | Load balancer | Network configuration |
+| **Edge Storage** | Local data | Edge databases | Storage management |
+| **Edge Analytics** | Local analytics | ML models | Model management |
+
+### **Common Pitfalls - Infrastructure**
+
+| Pitfall | Impact | Prevention | Detection |
+|---------|--------|------------|-----------|
+| **Single Point of Failure** | System downtime | Redundancy | Health monitoring |
+| **Poor Load Distribution** | Uneven load | Proper load balancing | Load monitoring |
+| **Security Vulnerabilities** | Data breaches | Security best practices | Security monitoring |
+| **Network Congestion** | Performance degradation | Traffic management | Network monitoring |
+
+### **Common Pitfalls - Communication**
+
+| Pitfall | Impact | Prevention | Detection |
+|---------|--------|------------|-----------|
+| **Protocol Mismatch** | Communication failure | Standard protocols | Protocol monitoring |
+| **Timeout Issues** | Request failures | Proper timeout configuration | Timeout monitoring |
+| **Retry Storms** | System overload | Exponential backoff | Retry monitoring |
+| **Circuit Breaker Issues** | Service isolation | Proper configuration | Circuit breaker monitoring |
+
+### **System Integration Points**
+
+| System | Integration Point | Benefits |
+|--------|-------------------|----------|
+| **Data Storage** | Network protocols for database access | Efficient data access |
+| **Compute & Processing** | Network communication between services | Distributed processing |
+| **Message Queuing & Streaming** | Network transport for messages | Reliable messaging |
+| **Caching & Performance** | Network optimization and CDN | Performance improvement |
+
+### **Performance Challenges & Solutions**
+
+| Aspect | Challenge | Solution | Performance |
+|--------|-----------|----------|-------------|
+| **Network Latency** | High latency | CDN, edge computing | 50-90% reduction |
+| **Bandwidth Usage** | High bandwidth | Compression, caching | 50-80% reduction |
+| **Load Distribution** | Uneven load | Load balancing | Better performance |
+| **Security Overhead** | Security impact | Efficient security | Minimal impact |
+
+### **Component Performance Impact**
+
+| Component | Performance Impact | Optimization | Monitoring |
+|-----------|-------------------|--------------|------------|
+| **Load Balancing** | Minimal overhead | Efficient algorithms | Load balancer metrics |
+| **CDN** | Significant improvement | Edge caching | CDN metrics |
+| **API Gateway** | Low overhead | Efficient routing | Gateway metrics |
+| **Service Mesh** | Moderate overhead | Optimized proxies | Mesh metrics |
+
+### **Protocol Performance Comparison**
+
+| Protocol | Performance | Optimization | Use Case |
+|----------|-------------|--------------|----------|
+| **HTTP/HTTPS** | Medium | HTTP/2, compression | Web applications |
+| **gRPC** | High | Protocol buffers, HTTP/2 | Microservices |
+| **WebSocket** | High | Binary protocols | Real-time applications |
+| **TCP** | High | Connection pooling | Reliable communication |
+| **UDP** | Very High | Minimal overhead | Fast communication |
 ---
 
 ## 🎯 **KEY TAKEAWAYS**

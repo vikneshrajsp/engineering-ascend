@@ -32,9 +32,7 @@ Large Data Volume (> 1TB)? → Batch or Distributed
 ## 📊 **PERFORMANCE COMPARISON**
 
 <div class="table-wrapper">
-<table>
-<thead>
-<tr>
+
 <th>Processing Type</th>
 <th>Latency</th>
 <th>Throughput</th>
@@ -42,56 +40,47 @@ Large Data Volume (> 1TB)? → Batch or Distributed
 <th>Complexity</th>
 <th>Cost</th>
 <th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**CPU**</td>
-<td>1-100μs</td>
-<td>1K-100K ops/sec</td>
-<td>Vertical</td>
-<td>Low</td>
-<td>Medium</td>
-<td>General computing</td>
-</tr>
-<tr>
-<td>**GPU**</td>
-<td>100-1000μs</td>
-<td>10-40 TFLOPS</td>
-<td>Multi-GPU</td>
-<td>High</td>
-<td>High</td>
-<td>Parallel computing</td>
-</tr>
-<tr>
-<td>**Distributed**</td>
-<td>1-1000ms</td>
-<td>10K-1M ops/sec</td>
-<td>Horizontal</td>
-<td>High</td>
-<td>Medium</td>
-<td>Large-scale systems</td>
-</tr>
-<tr>
-<td>**Async**</td>
-<td>1-10ms</td>
-<td>10K-100K ops/sec</td>
-<td>Event loops</td>
-<td>Medium</td>
-<td>Low</td>
-<td>I/O-bound tasks</td>
-</tr>
-<tr>
-<td>**Batch**</td>
-<td>1-1000 min</td>
-<td>1-100 GB/s</td>
-<td>Clusters</td>
-<td>Medium</td>
-<td>Low</td>
-<td>Data processing</td>
-</tr>
-</tbody>
-</table>
+
+**CPU**
+1-100μs
+1K-100K ops/sec
+Vertical
+Low
+Medium
+General computing
+
+**GPU**
+100-1000μs
+10-40 TFLOPS
+Multi-GPU
+High
+High
+Parallel computing
+
+**Distributed**
+1-1000ms
+10K-1M ops/sec
+Horizontal
+High
+Medium
+Large-scale systems
+
+**Async**
+1-10ms
+10K-100K ops/sec
+Event loops
+Medium
+Low
+I/O-bound tasks
+
+**Batch**
+1-1000 min
+1-100 GB/s
+Clusters
+Medium
+Low
+Data processing
+
 </div>
 ---
 

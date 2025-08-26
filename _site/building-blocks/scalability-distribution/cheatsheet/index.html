@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Cheatsheet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Cheatsheet","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Cheatsheet","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/scalability-distribution/cheatsheet/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -293,888 +293,476 @@
 </h3>
     
 <div class="table-wrapper">
-<div class="table-wrapper"><table>
-<thead>
-<tr>
+
 <th>Aspect</th>
 <th>Horizontal Scaling</th>
 <th>Vertical Scaling</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**Approach**</td>
-<td>Add more machines</td>
-<td>Add more resources</td>
-</tr>
-<tr>
-<td>**Complexity**</td>
-<td>High</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**Cost**</td>
-<td>Linear</td>
-<td>Exponential</td>
-</tr>
-<tr>
-<td>**Fault Tolerance**</td>
-<td>High</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**Performance**</td>
-<td>Distributed</td>
-<td>Centralized</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Stateless Scaling**</td>
-<td>Scale services independently</td>
-<td>External state management</td>
-<td>Linear scaling</td>
-</tr>
-<tr>
-<td>**Data Partitioning**</td>
-<td>Distribute data across nodes</td>
-<td>Hash/range partitioning</td>
-<td>Data locality</td>
-</tr>
-<tr>
-<td>**Service Decomposition**</td>
-<td>Break monoliths into services</td>
-<td>Microservices architecture</td>
-<td>Independent scaling</td>
-</tr>
-<tr>
-<td>**Load Distribution**</td>
-<td>Spread load across resources</td>
-<td>Load balancers, CDNs</td>
-<td>Better performance</td>
-</tr>
-<tr>
-<td>Method</td>
-<td>Use Case</td>
-<td>Advantages</td>
-<td>Disadvantages</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>----------</td>
-<td>------------</td>
-<td>---------------</td>
-</tr>
-<tr>
-<td>**Hash-based**</td>
-<td>Even distribution</td>
-<td>Balanced load</td>
-<td>Range queries difficult</td>
-</tr>
-<tr>
-<td>**Range-based**</td>
-<td>Ordered data</td>
-<td>Range queries efficient</td>
-<td>Uneven distribution</td>
-</tr>
-<tr>
-<td>**Directory-based**</td>
-<td>Flexible mapping</td>
-<td>Easy rebalancing</td>
-<td>Centralized directory</td>
-</tr>
-<tr>
-<td>**Composite**</td>
-<td>Complex requirements</td>
-<td>Multiple strategies</td>
-<td>Increased complexity</td>
-</tr>
-<tr>
-<td>Algorithm</td>
-<td>Use Case</td>
-<td>Performance</td>
-<td>Fairness</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>----------</td>
-<td>-------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Round Robin**</td>
-<td>Simple distribution</td>
-<td>O(1)</td>
-<td>Equal</td>
-</tr>
-<tr>
-<td>**Least Connections**</td>
-<td>Dynamic load</td>
-<td>O(n)</td>
-<td>Load-based</td>
-</tr>
-<tr>
-<td>**Weighted Round Robin**</td>
-<td>Different capacities</td>
-<td>O(1)</td>
-<td>Capacity-based</td>
-</tr>
-<tr>
-<td>**IP Hash**</td>
-<td>Session affinity</td>
-<td>O(1)</td>
-<td>Client-based</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>Layer</td>
-<td>Use Case</td>
-<td>Features</td>
-</tr>
-<tr>
-<td>------</td>
-<td>-------</td>
-<td>----------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Application (ALB)**</td>
-<td>Layer 7</td>
-<td>Web applications</td>
-<td>Content-based routing</td>
-</tr>
-<tr>
-<td>**Network (NLB)**</td>
-<td>Layer 4</td>
-<td>High performance</td>
-<td>TCP/UDP support</td>
-</tr>
-<tr>
-<td>**Global (GLB)**</td>
-<td>DNS</td>
-<td>Geographic distribution</td>
-<td>Multi-region</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>Purpose</td>
-<td>Frequency</td>
-<td>Timeout</td>
-<td>Action</td>
-</tr>
-<tr>
-<td>------</td>
-<td>---------</td>
-<td>-----------</td>
-<td>---------</td>
-<td>--------</td>
-</tr>
-<tr>
-<td>**Liveness**</td>
-<td>Is service alive?</td>
-<td>30-60s</td>
-<td>5-10s</td>
-<td>Restart</td>
-</tr>
-<tr>
-<td>**Readiness**</td>
-<td>Ready for traffic?</td>
-<td>5-10s</td>
-<td>1-5s</td>
-<td>Remove from LB</td>
-</tr>
-<tr>
-<td>**Startup**</td>
-<td>Started successfully?</td>
-<td>5-10s</td>
-<td>1-5s</td>
-<td>Restart</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Response Time</td>
-<td>Accuracy</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>---------------</td>
-<td>----------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Reactive**</td>
-<td>1-5 minutes</td>
-<td>High</td>
-<td>Predictable patterns</td>
-</tr>
-<tr>
-<td>**Predictive**</td>
-<td>Pre-emptive</td>
-<td>Variable</td>
-<td>ML-based prediction</td>
-</tr>
-<tr>
-<td>**Scheduled**</td>
-<td>Scheduled</td>
-<td>High</td>
-<td>Known patterns</td>
-</tr>
-<tr>
-<td>Metric</td>
-<td>Threshold (Scale Up)</td>
-<td>Threshold (Scale Down)</td>
-<td>Window</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>---------------------</td>
-<td>----------------------</td>
-<td>--------</td>
-</tr>
-<tr>
-<td>**CPU Usage**</td>
-<td>70-80%</td>
-<td>30-40%</td>
-<td>5-15 minutes</td>
-</tr>
-<tr>
-<td>**Memory Usage**</td>
-<td>80-90%</td>
-<td>50-60%</td>
-<td>5-15 minutes</td>
-</tr>
-<tr>
-<td>**Request Rate**</td>
-<td>Based on capacity</td>
-<td>Based on capacity</td>
-<td>1-5 minutes</td>
-</tr>
-<tr>
-<td>**Response Time**</td>
-<td>Based on SLA</td>
-<td>Based on SLA</td>
-<td>5-15 minutes</td>
-</tr>
-<tr>
-<td>Benefit</td>
-<td>Description</td>
-<td>Implementation</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>-------------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**Cost Optimization**</td>
-<td>Pay only for needed resources</td>
-<td>Dynamic provisioning</td>
-</tr>
-<tr>
-<td>**Performance**</td>
-<td>Maintain performance under load</td>
-<td>Automatic scaling</td>
-</tr>
-<tr>
-<td>**Availability**</td>
-<td>Handle traffic spikes</td>
-<td>Proactive scaling</td>
-</tr>
-<tr>
-<td>**Operational Efficiency**</td>
-<td>Reduce manual intervention</td>
-<td>Automated scaling</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Purpose</td>
-<td>Benefits</td>
-<td>Challenges</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Domain-driven**</td>
-<td>Business alignment</td>
-<td>Clear ownership</td>
-<td>Domain boundaries</td>
-</tr>
-<tr>
-<td>**Bounded Context**</td>
-<td>Domain isolation</td>
-<td>Simplified models</td>
-<td>Context mapping</td>
-</tr>
-<tr>
-<td>**API Gateway**</td>
-<td>Client simplification</td>
-<td>Single entry point</td>
-<td>Gateway bottleneck</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>Protocol</td>
-<td>Use Case</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>------</td>
-<td>----------</td>
-<td>----------</td>
-<td>-------------</td>
-</tr>
-<tr>
-<td>**Synchronous**</td>
-<td>HTTP/REST</td>
-<td>Simple requests</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**High Performance**</td>
-<td>gRPC</td>
-<td>Internal services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Flexible**</td>
-<td>GraphQL</td>
-<td>Complex queries</td>
-<td>Variable</td>
-</tr>
-<tr>
-<td>**Asynchronous**</td>
-<td>Message Queues</td>
-<td>Decoupled services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Implementation</td>
-<td>Benefits</td>
-<td>Challenges</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Client-side**</td>
-<td>Client finds services</td>
-<td>Direct communication</td>
-<td>Client complexity</td>
-</tr>
-<tr>
-<td>**Server-side**</td>
-<td>Load balancer finds services</td>
-<td>Simple clients</td>
-<td>Load balancer dependency</td>
-</tr>
-<tr>
-<td>**Service Registry**</td>
-<td>Centralized directory</td>
-<td>Service management</td>
-<td>Registry availability</td>
-</tr>
-<tr>
-<td>Algorithm</td>
-<td>Complexity</td>
-<td>Performance</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>------------</td>
-<td>-------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Paxos**</td>
-<td>High</td>
-<td>Medium</td>
-<td>Distributed databases</td>
-</tr>
-<tr>
-<td>**Raft**</td>
-<td>Medium</td>
-<td>Medium</td>
-<td>General consensus</td>
-</tr>
-<tr>
-<td>**Byzantine**</td>
-<td>Very High</td>
-<td>Low</td>
-<td>Security-critical systems</td>
-</tr>
-<tr>
-<td>Property</td>
-<td>Definition</td>
-<td>Importance</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Safety**</td>
-<td>No two nodes decide different values</td>
-<td>Consistency</td>
-</tr>
-<tr>
-<td>**Liveness**</td>
-<td>Eventually a value is decided</td>
-<td>Progress</td>
-</tr>
-<tr>
-<td>**Fault Tolerance**</td>
-<td>Works despite node failures</td>
-<td>Reliability</td>
-</tr>
-<tr>
-<td>Application</td>
-<td>Consensus Use</td>
-<td>Benefits</td>
-<td>Trade-offs</td>
-</tr>
-<tr>
-<td>-------------</td>
-<td>---------------</td>
-<td>----------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Distributed Databases**</td>
-<td>Write consensus</td>
-<td>Strong consistency</td>
-<td>Performance</td>
-</tr>
-<tr>
-<td>**Service Coordination**</td>
-<td>Leader election</td>
-<td>Consistent coordination</td>
-<td>Overhead</td>
-</tr>
-<tr>
-<td>**Configuration Management**</td>
-<td>Config consensus</td>
-<td>Consistent config</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>Pattern</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>---------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Shared State**</td>
-<td>Multiple nodes access</td>
-<td>Centralized storage</td>
-<td>Consistency</td>
-</tr>
-<tr>
-<td>**Partitioned State**</td>
-<td>Large state distribution</td>
-<td>Hash/range partitioning</td>
-<td>Scalability</td>
-</tr>
-<tr>
-<td>**Replicated State**</td>
-<td>High availability</td>
-<td>Multiple copies</td>
-<td>Availability</td>
-</tr>
-<tr>
-<td>Model</td>
-<td>Guarantees</td>
-<td>Performance</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>-------</td>
-<td>------------</td>
-<td>-------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Strong Consistency**</td>
-<td>Immediate consistency</td>
-<td>Low</td>
-<td>Critical data</td>
-</tr>
-<tr>
-<td>**Eventual Consistency**</td>
-<td>Eventually consistent</td>
-<td>High</td>
-<td>User data</td>
-</tr>
-<tr>
-<td>**Causal Consistency**</td>
-<td>Causally consistent</td>
-<td>Medium</td>
-<td>Social applications</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Purpose</td>
-<td>Implementation</td>
-<td>Benefits</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>---------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Hash Partitioning**</td>
-<td>Even distribution</td>
-<td>Consistent hashing</td>
-<td>Balanced load</td>
-</tr>
-<tr>
-<td>**Range Partitioning**</td>
-<td>Ordered access</td>
-<td>Key ranges</td>
-<td>Range queries</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>High availability</td>
-<td>Multiple copies</td>
-<td>Fault tolerance</td>
-</tr>
-<tr>
-<td>Scaling Type</td>
-<td>Performance Gain</td>
-<td>Cost</td>
-<td>Complexity</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>------------------</td>
-<td>------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Horizontal**</td>
-<td>Linear scaling</td>
-<td>Linear</td>
-<td>High</td>
-</tr>
-<tr>
-<td>**Vertical**</td>
-<td>Limited by hardware</td>
-<td>Exponential</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>**Auto-scaling**</td>
-<td>Dynamic scaling</td>
-<td>Variable</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>**Load Balancing**</td>
-<td>Better distribution</td>
-<td>Low</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Component</td>
-<td>Performance Impact</td>
-<td>Optimization</td>
-<td>Monitoring</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>-------------------</td>
-<td>--------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**Network Communication**</td>
-<td>Latency overhead</td>
-<td>Service locality</td>
-<td>Network monitoring</td>
-</tr>
-<tr>
-<td>**Consensus Algorithms**</td>
-<td>Coordination overhead</td>
-<td>Efficient algorithms</td>
-<td>Consensus monitoring</td>
-</tr>
-<tr>
-<td>**State Management**</td>
-<td>Consistency overhead</td>
-<td>Appropriate models</td>
-<td>State monitoring</td>
-</tr>
-<tr>
-<td>**Service Discovery**</td>
-<td>Lookup overhead</td>
-<td>Caching</td>
-<td>Discovery monitoring</td>
-</tr>
-<tr>
-<td>Vulnerability</td>
-<td>Impact</td>
-<td>Prevention</td>
-<td>Detection</td>
-</tr>
-<tr>
-<td>---------------</td>
-<td>--------</td>
-<td>------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Premature Optimization**</td>
-<td>Wasted effort</td>
-<td>Measure first</td>
-<td>Performance monitoring</td>
-</tr>
-<tr>
-<td>**Over-engineering**</td>
-<td>Complexity</td>
-<td>Start simple</td>
-<td>Architecture reviews</td>
-</tr>
-<tr>
-<td>**Single Point of Failure**</td>
-<td>System downtime</td>
-<td>Redundancy</td>
-<td>Failure testing</td>
-</tr>
-<tr>
-<td>**Poor Load Distribution**</td>
-<td>Uneven load</td>
-<td>Proper load balancing</td>
-<td>Load monitoring</td>
-</tr>
-<tr>
-<td>Vulnerability</td>
-<td>Impact</td>
-<td>Prevention</td>
-<td>Detection</td>
-</tr>
-<tr>
-<td>---------------</td>
-<td>--------</td>
-<td>------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**Network Partitions**</td>
-<td>Inconsistency</td>
-<td>Partition tolerance</td>
-<td>Network monitoring</td>
-</tr>
-<tr>
-<td>**Consensus Failures**</td>
-<td>No progress</td>
-<td>Proper consensus</td>
-<td>Consensus monitoring</td>
-</tr>
-<tr>
-<td>**State Inconsistency**</td>
-<td>Data corruption</td>
-<td>Consistency models</td>
-<td>Data validation</td>
-</tr>
-<tr>
-<td>**Service Dependencies**</td>
-<td>Cascading failures</td>
-<td>Circuit breakers</td>
-<td>Dependency monitoring</td>
-</tr>
-<tr>
-<td>Use Case</td>
-<td>Primary Scaling</td>
-<td>Secondary Scaling</td>
-<td>Key Decision Factors</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----------------</td>
-<td>------------------</td>
-<td>---------------------</td>
-</tr>
-<tr>
-<td>**Web Application**</td>
-<td>Horizontal scaling</td>
-<td>Load balancing</td>
-<td>Traffic distribution + performance</td>
-</tr>
-<tr>
-<td>**API Service**</td>
-<td>Auto-scaling</td>
-<td>Load balancing</td>
-<td>Variable load + response time</td>
-</tr>
-<tr>
-<td>**Database System**</td>
-<td>Vertical scaling</td>
-<td>Horizontal scaling</td>
-<td>Data consistency + performance</td>
-</tr>
-<tr>
-<td>**Microservices**</td>
-<td>Service scaling</td>
-<td>Load balancing</td>
-<td>Independent scaling + communication</td>
-</tr>
-<tr>
-<td>**Real-time System**</td>
-<td>Horizontal scaling</td>
-<td>Load balancing</td>
-<td>Low latency + high throughput</td>
-</tr>
-<tr>
-<td>**Batch Processing**</td>
-<td>Horizontal scaling</td>
-<td>Auto-scaling</td>
-<td>Resource utilization + cost</td>
-</tr>
-<tr>
-<td>System Type</td>
-<td>Load Balancing</td>
-<td>Consensus</td>
-<td>State Management</td>
-</tr>
-<tr>
-<td>-------------</td>
-<td>----------------</td>
-<td>-----------</td>
-<td>------------------</td>
-</tr>
-<tr>
-<td>**Monolithic**</td>
-<td>Simple load balancing</td>
-<td>Basic consensus</td>
-<td>Centralized state</td>
-</tr>
-<tr>
-<td>**Microservices**</td>
-<td>Service mesh</td>
-<td>Service coordination</td>
-<td>Distributed state</td>
-</tr>
-<tr>
-<td>**Event-driven**</td>
-<td>Message routing</td>
-<td>Event ordering</td>
-<td>Event sourcing</td>
-</tr>
-<tr>
-<td>**Real-time**</td>
-<td>Low-latency LB</td>
-<td>Fast consensus</td>
-<td>In-memory state</td>
-</tr>
-<tr>
-<td>**Batch Processing**</td>
-<td>Job distribution</td>
-<td>Job coordination</td>
-<td>Shared state</td>
-</tr>
-<tr>
-<td>Metric</td>
-<td>Target</td>
-<td>Monitoring</td>
-<td>Optimization</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>--------</td>
-<td>------------</td>
-<td>--------------</td>
-</tr>
-<tr>
-<td>**Throughput**</td>
-<td>1000+ requests/sec</td>
-<td>Request rate monitoring</td>
-<td>Load balancing</td>
-</tr>
-<tr>
-<td>**Latency**</td>
-<td>&lt;100ms response time</td>
-<td>Response time monitoring</td>
-<td>Caching, optimization</td>
-</tr>
-<tr>
-<td>**Availability**</td>
-<td>99.9%+ uptime</td>
-<td>Uptime monitoring</td>
-<td>Redundancy, health checks</td>
-</tr>
-<tr>
-<td>**Scalability**</td>
-<td>Linear scaling</td>
-<td>Scaling metrics</td>
-<td>Proper architecture</td>
-</tr>
-<tr>
-<td>Metric</td>
-<td>Target</td>
-<td>Monitoring</td>
-<td>Optimization</td>
-</tr>
-<tr>
-<td>--------</td>
-<td>--------</td>
-<td>------------</td>
-<td>--------------</td>
-</tr>
-<tr>
-<td>**Network Latency**</td>
-<td>&lt;10ms inter-service</td>
-<td>Network monitoring</td>
-<td>Service locality</td>
-</tr>
-<tr>
-<td>**Consensus Time**</td>
-<td>&lt;100ms agreement</td>
-<td>Consensus monitoring</td>
-<td>Efficient algorithms</td>
-</tr>
-<tr>
-<td>**State Consistency**</td>
-<td>&lt;1s consistency</td>
-<td>State monitoring</td>
-<td>Appropriate models</td>
-</tr>
-<tr>
-<td>**Service Discovery**</td>
-<td>&lt;1s lookup time</td>
-<td>Discovery monitoring</td>
-<td>Caching, optimization</td>
-</tr>
-</tbody>
-</table></div>
+
+**Approach**
+Add more machines
+Add more resources
+
+**Complexity**
+High
+Low
+
+**Cost**
+Linear
+Exponential
+
+**Fault Tolerance**
+High
+Low
+
+**Performance**
+Distributed
+Centralized
+
+Strategy
+Purpose
+Implementation
+Benefits
+
+-------
+
+### **Stateless Scaling**
+
+| Scale services independently | External state management | Linear scaling |
+|---|---|---|
+| **Data Partitioning** | Distribute data across nodes | Hash/range partitioning | Data locality |
+
+### **Service Decomposition**
+
+| Break monoliths into services | Microservices architecture | Independent scaling |
+|---|---|---|
+| **Load Distribution** | Spread load across resources | Load balancers, CDNs | Better performance |
+
+Method
+Use Case
+Advantages
+Disadvantages
+
+-------
+
+### **Hash-based**
+
+| Even distribution | Balanced load | Range queries difficult |
+|---|---|---|
+| **Range-based** | Ordered data | Range queries efficient | Uneven distribution |
+
+### **Directory-based**
+
+| Flexible mapping | Easy rebalancing | Centralized directory |
+|---|---|---|
+| **Composite** | Complex requirements | Multiple strategies | Increased complexity |
+
+Algorithm
+Use Case
+Performance
+Fairness
+
+### **Round Robin**
+
+| Simple distribution | O(1) | Equal |
+|---|---|---|
+| **Least Connections** | Dynamic load | O(n) | Load-based |
+
+### **Weighted Round Robin**
+
+| Different capacities | O(1) | Capacity-based |
+|---|---|---|
+| **IP Hash** | Session affinity | O(1) | Client-based |
+
+Type
+Layer
+Use Case
+Features
+
+------
+-------
+----
+
+### **Application (ALB)**
+
+| Layer 7 | Web applications | Content-based routing |
+|---|---|---|
+| **Network (NLB)** | Layer 4 | High performance | TCP/UDP support |
+
+### **Global (GLB)**
+
+| DNS | Geographic distribution | Multi-region |
+|---|---|---|
+| Type | Purpose | Frequency | Timeout |
+Action
+
+------
+-----
+
+**Liveness**
+Is service alive?
+30-60s
+5-10s
+Restart
+
+**Readiness**
+Ready for traffic?
+5-10s
+1-5s
+Remove from LB
+
+**Startup**
+Started successfully?
+5-10s
+1-5s
+Restart
+
+Strategy
+Response Time
+Accuracy
+Use Case
+
+-------
+
+### **Reactive**
+
+| 1-5 minutes | High | Predictable patterns |
+|---|---|---|
+| **Predictive** | Pre-emptive | Variable | ML-based prediction |
+
+### **Scheduled**
+
+| Scheduled | High | Known patterns |
+|---|---|---|
+| Metric | Threshold (Scale Up) | Threshold (Scale Down) | Window |
+
+---
+### **CPU Usage**
+
+| 70-80% | 30-40% | 5-15 minutes |
+|---|---|---|
+| **Memory Usage** | 80-90% | 50-60% | 5-15 minutes |
+
+### **Request Rate**
+
+| Based on capacity | Based on capacity | 1-5 minutes |
+|---|---|---|
+| **Response Time** | Based on SLA | Based on SLA | 5-15 minutes |
+
+Benefit
+Description
+Implementation
+
+--------
+
+**Cost Optimization**
+Pay only for needed resources
+Dynamic provisioning
+
+**Performance**
+Maintain performance under load
+Automatic scaling
+
+**Availability**
+Handle traffic spikes
+Proactive scaling
+
+**Operational Efficiency**
+Reduce manual intervention
+Automated scaling
+
+Pattern
+Purpose
+Benefits
+Challenges
+
+--------
+
+### **Domain-driven**
+
+| Business alignment | Clear ownership | Domain boundaries |
+|---|---|---|
+| **Bounded Context** | Domain isolation | Simplified models | Context mapping |
+
+### **API Gateway**
+
+| Client simplification | Single entry point | Gateway bottleneck |
+|---|---|---|
+| Type | Protocol | Use Case | Performance |
+
+------
+---------
+
+### **Synchronous**
+
+| HTTP/REST | Simple requests | Medium |
+|---|---|---|
+| **High Performance** | gRPC | Internal services | High |
+
+### **Flexible**
+
+| GraphQL | Complex queries | Variable |
+|---|---|---|
+| **Asynchronous** | Message Queues | Decoupled services | High |
+
+Pattern
+Implementation
+Benefits
+Challenges
+
+---------
+
+### **Client-side**
+
+| Client finds services | Direct communication | Client complexity |
+|---|---|---|
+| **Server-side** | Load balancer finds services | Simple clients | Load balancer dependency |
+
+### **Service Registry**
+
+| Centralized directory | Service management | Registry availability |
+|---|---|---|
+| Algorithm | Complexity | Performance | Use Case |
+
+--
+### **Paxos**
+
+| High | Medium | Distributed databases |
+|---|---|---|
+| **Raft** | Medium | Medium | General consensus |
+
+**Byzantine**
+Very High
+Low
+Security-critical systems
+
+Property
+Definition
+Importance
+
+----------
+
+**Safety**
+No two nodes decide different values
+Consistency
+
+**Liveness**
+Eventually a value is decided
+Progress
+
+**Fault Tolerance**
+Works despite node failures
+Reliability
+
+Application
+Consensus Use
+Benefits
+Trade-offs
+
+### **Distributed Databases**
+
+| Write consensus | Strong consistency | Performance |
+|---|---|---|
+| **Service Coordination** | Leader election | Consistent coordination | Overhead |
+
+### **Configuration Management**
+
+| Config consensus | Consistent config | Complexity |
+|---|---|---|
+| Pattern | Purpose | Implementation | Benefits |
+
+------
+
+### **Shared State**
+
+| Multiple nodes access | Centralized storage | Consistency |
+|---|---|---|
+| **Partitioned State** | Large state distribution | Hash/range partitioning | Scalability |
+
+### **Replicated State**
+
+| High availability | Multiple copies | Availability |
+|---|---|---|
+| Model | Guarantees | Performance | Use Case |
+
+-------
+-----------
+
+### **Strong Consistency**
+
+| Immediate consistency | Low | Critical data |
+|---|---|---|
+| **Eventual Consistency** | Eventually consistent | High | User data |
+
+### **Causal Consistency**
+
+| Causally consistent | Medium | Social applications |
+|---|---|---|
+| Strategy | Purpose | Implementation | Benefits |
+
+-------
+
+### **Hash Partitioning**
+
+| Even distribution | Consistent hashing | Balanced load |
+|---|---|---|
+| **Range Partitioning** | Ordered access | Key ranges | Range queries |
+
+### **Replication**
+
+| High availability | Multiple copies | Fault tolerance |
+|---|---|---|
+| Scaling Type | Performance Gain | Cost | Complexity |
+
+------
+
+### **Horizontal**
+
+| Linear scaling | Linear | High |
+|---|---|---|
+| **Vertical** | Limited by hardware | Exponential | Low |
+
+### **Auto-scaling**
+
+| Dynamic scaling | Variable | Medium |
+|---|---|---|
+| **Load Balancing** | Better distribution | Low | Medium |
+
+Component
+Performance Impact
+Optimization
+Monitoring
+
+### **Network Communication**
+
+| Latency overhead | Service locality | Network monitoring |
+|---|---|---|
+| **Consensus Algorithms** | Coordination overhead | Efficient algorithms | Consensus monitoring |
+
+### **State Management**
+
+| Consistency overhead | Appropriate models | State monitoring |
+|---|---|---|
+| **Service Discovery** | Lookup overhead | Caching | Discovery monitoring |
+
+Vulnerability
+Impact
+Prevention
+Detection
+
+--------
+
+### **Premature Optimization**
+
+| Wasted effort | Measure first | Performance monitoring |
+|---|---|---|
+| **Over-engineering** | Complexity | Start simple | Architecture reviews |
+
+### **Single Point of Failure**
+
+| System downtime | Redundancy | Failure testing |
+|---|---|---|
+| **Poor Load Distribution** | Uneven load | Proper load balancing | Load monitoring |
+
+Vulnerability
+Impact
+Prevention
+Detection
+
+--------
+
+### **Network Partitions**
+
+| Inconsistency | Partition tolerance | Network monitoring |
+|---|---|---|
+| **Consensus Failures** | No progress | Proper consensus | Consensus monitoring |
+
+### **State Inconsistency**
+
+| Data corruption | Consistency models | Data validation |
+|---|---|---|
+| **Service Dependencies** | Cascading failures | Circuit breakers | Dependency monitoring |
+
+Use Case
+Primary Scaling
+Secondary Scaling
+Key Decision Factors
+
+-------
+### **Web Application**
+
+| Horizontal scaling | Load balancing | Traffic distribution + performance |
+|---|---|---|
+| **API Service** | Auto-scaling | Load balancing | Variable load + response time |
+
+### **Database System**
+
+| Vertical scaling | Horizontal scaling | Data consistency + performance |
+|---|---|---|
+| **Microservices** | Service scaling | Load balancing | Independent scaling + communication |
+
+### **Real-time System**
+
+| Horizontal scaling | Load balancing | Low latency + high throughput |
+|---|---|---|
+| **Batch Processing** | Horizontal scaling | Auto-scaling | Resource utilization + cost |
+
+System Type
+Load Balancing
+Consensus
+State Management
+
+--
+### **Monolithic**
+
+| Simple load balancing | Basic consensus | Centralized state |
+|---|---|---|
+| **Microservices** | Service mesh | Service coordination | Distributed state |
+
+### **Event-driven**
+
+| Message routing | Event ordering | Event sourcing |
+|---|---|---|
+| **Real-time** | Low-latency LB | Fast consensus | In-memory state |
+
+### **Batch Processing**
+
+| Job distribution | Job coordination | Shared state |
+|---|---|---|
+| Metric | Target | Monitoring | Optimization |
+
+----
+
+### **Throughput**
+
+| 1000+ requests/sec | Request rate monitoring | Load balancing |
+|---|---|---|
+| **Latency** | &lt;100ms response time | Response time monitoring | Caching, optimization |
+
+### **Availability**
+
+| 99.9%+ uptime | Uptime monitoring | Redundancy, health checks |
+|---|---|---|
+| **Scalability** | Linear scaling | Scaling metrics | Proper architecture |
+
+Metric
+Target
+Monitoring
+Optimization
+
+----
+
+### **Network Latency**
+
+| &lt;10ms inter-service | Network monitoring | Service locality |
+|---|---|---|
+| **Consensus Time** | &lt;100ms agreement | Consensus monitoring | Efficient algorithms |
+
+### **State Consistency**
+
+| &lt;1s consistency | State monitoring | Appropriate models |
+|---|---|---|
+| **Service Discovery** | &lt;1s lookup time | Discovery monitoring | Caching, optimization |
+
 </div><hr />
 <h2 id="-50-scaling-interview-questions">
   
@@ -1194,23 +782,22 @@
     
 <ol>
   <li><strong>How would you design a scalable system?</strong></li>
-  <li><strong>What’s the difference between horizontal and vertical scaling?</strong></li>
-  <li><strong>When would you choose horizontal vs vertical scaling?</strong></li>
-  <li><strong>How do you measure system scalability?</strong></li>
-  <li><strong>What are the limits of scaling?</strong></li>
-</ol>
-<h3 id="load-balancing-questions">
+  <li>
+<h3 id="whats-the-difference-between-horizontal-and-vertical-scaling">
   
   
-    <a href="#load-balancing-questions" class="anchor-heading" aria-labelledby="load-balancing-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Load Balancing Questions</strong>
+    <a href="#whats-the-difference-between-horizontal-and-vertical-scaling" class="anchor-heading" aria-labelledby="whats-the-difference-between-horizontal-and-vertical-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>What’s the difference between horizontal and vertical scaling?</strong>
   
   
 </h3>
     
+  </li>
+</ol>
+
+<p>| 3. <strong>When would you choose horizontal vs vertical scaling?</strong> | 4. <strong>How do you measure system scalability?</strong> | 5. <strong>What are the limits of scaling?</strong> |
+|—|—|—|
+| ### <strong>Load Balancing Questions</strong> | 6. <strong>How do you design a load balancer?</strong> | 7. <strong>What load balancing algorithms do you know?</strong> | 8. <strong>How do you handle session affinity?</strong> |</p>
 <ol>
-  <li><strong>How do you design a load balancer?</strong></li>
-  <li><strong>What load balancing algorithms do you know?</strong></li>
-  <li><strong>How do you handle session affinity?</strong></li>
   <li><strong>How do you implement health checks?</strong></li>
   <li><strong>How do you handle load balancer failures?</strong></li>
 </ol>
@@ -1224,23 +811,22 @@
     
 <ol>
   <li><strong>How do you design an auto-scaling system?</strong></li>
-  <li><strong>What metrics do you use for auto-scaling?</strong></li>
-  <li><strong>How do you prevent scaling thrashing?</strong></li>
-  <li><strong>How do you handle scaling during failures?</strong></li>
-  <li><strong>How do you optimize auto-scaling costs?</strong></li>
-</ol>
-<h3 id="microservices-questions">
+  <li>
+<h3 id="what-metrics-do-you-use-for-auto-scaling">
   
   
-    <a href="#microservices-questions" class="anchor-heading" aria-labelledby="microservices-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Microservices Questions</strong>
+    <a href="#what-metrics-do-you-use-for-auto-scaling" class="anchor-heading" aria-labelledby="what-metrics-do-you-use-for-auto-scaling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>What metrics do you use for auto-scaling?</strong>
   
   
 </h3>
     
+  </li>
+</ol>
+
+<p>| 13. <strong>How do you prevent scaling thrashing?</strong> | 14. <strong>How do you handle scaling during failures?</strong> | 15. <strong>How do you optimize auto-scaling costs?</strong> |
+|—|—|—|
+| ### <strong>Microservices Questions</strong> | 16. <strong>How do you decompose a monolith into microservices?</strong> | 17. <strong>How do services communicate in a microservices architecture?</strong> | 18. <strong>How do you handle service discovery?</strong> |</p>
 <ol>
-  <li><strong>How do you decompose a monolith into microservices?</strong></li>
-  <li><strong>How do services communicate in a microservices architecture?</strong></li>
-  <li><strong>How do you handle service discovery?</strong></li>
   <li><strong>How do you manage distributed transactions?</strong></li>
   <li><strong>How do you handle service failures?</strong></li>
 </ol>
@@ -1254,23 +840,22 @@
     
 <ol>
   <li><strong>How do you implement distributed consensus?</strong></li>
-  <li><strong>What’s the difference between Paxos and Raft?</strong></li>
-  <li><strong>How do you handle Byzantine failures?</strong></li>
-  <li><strong>How do you optimize consensus performance?</strong></li>
-  <li><strong>How do you handle consensus failures?</strong></li>
-</ol>
-<h3 id="state-management-questions">
+  <li>
+<h3 id="whats-the-difference-between-paxos-and-raft">
   
   
-    <a href="#state-management-questions" class="anchor-heading" aria-labelledby="state-management-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>State Management Questions</strong>
+    <a href="#whats-the-difference-between-paxos-and-raft" class="anchor-heading" aria-labelledby="whats-the-difference-between-paxos-and-raft"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>What’s the difference between Paxos and Raft?</strong>
   
   
 </h3>
     
+  </li>
+</ol>
+
+<p>| 23. <strong>How do you handle Byzantine failures?</strong> | 24. <strong>How do you optimize consensus performance?</strong> | 25. <strong>How do you handle consensus failures?</strong> |
+|—|—|—|
+| ### <strong>State Management Questions</strong> | 26. <strong>How do you manage state in distributed systems?</strong> | 27. <strong>What consistency models do you know?</strong> | 28. <strong>How do you handle state partitioning?</strong> |</p>
 <ol>
-  <li><strong>How do you manage state in distributed systems?</strong></li>
-  <li><strong>What consistency models do you know?</strong></li>
-  <li><strong>How do you handle state partitioning?</strong></li>
   <li><strong>How do you handle state replication?</strong></li>
   <li><strong>How do you handle state conflicts?</strong></li>
 </ol>
@@ -1284,23 +869,22 @@
     
 <ol>
   <li><strong>How do you optimize system performance?</strong></li>
-  <li><strong>How do you identify performance bottlenecks?</strong></li>
-  <li><strong>How do you handle high traffic?</strong></li>
-  <li><strong>How do you optimize network communication?</strong></li>
-  <li><strong>How do you handle resource contention?</strong></li>
-</ol>
-<h3 id="fault-tolerance-questions">
+  <li>
+<h3 id="how-do-you-identify-performance-bottlenecks">
   
   
-    <a href="#fault-tolerance-questions" class="anchor-heading" aria-labelledby="fault-tolerance-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Fault Tolerance Questions</strong>
+    <a href="#how-do-you-identify-performance-bottlenecks" class="anchor-heading" aria-labelledby="how-do-you-identify-performance-bottlenecks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>How do you identify performance bottlenecks?</strong>
   
   
 </h3>
     
+  </li>
+</ol>
+
+<p>| 33. <strong>How do you handle high traffic?</strong> | 34. <strong>How do you optimize network communication?</strong> | 35. <strong>How do you handle resource contention?</strong> |
+|—|—|—|
+| ### <strong>Fault Tolerance Questions</strong> | 36. <strong>How do you design for fault tolerance?</strong> | 37. <strong>How do you handle node failures?</strong> | 38. <strong>How do you implement circuit breakers?</strong> |</p>
 <ol>
-  <li><strong>How do you design for fault tolerance?</strong></li>
-  <li><strong>How do you handle node failures?</strong></li>
-  <li><strong>How do you implement circuit breakers?</strong></li>
   <li><strong>How do you handle cascading failures?</strong></li>
   <li><strong>How do you implement retry logic?</strong></li>
 </ol>
@@ -1314,23 +898,22 @@
     
 <ol>
   <li><strong>How do you monitor distributed systems?</strong></li>
-  <li><strong>How do you track system performance?</strong></li>
-  <li><strong>How do you handle monitoring at scale?</strong></li>
-  <li><strong>How do you implement alerting?</strong></li>
-  <li><strong>How do you handle monitoring failures?</strong></li>
-</ol>
-<h3 id="advanced-questions">
+  <li>
+<h3 id="how-do-you-track-system-performance">
   
   
-    <a href="#advanced-questions" class="anchor-heading" aria-labelledby="advanced-questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Advanced Questions</strong>
+    <a href="#how-do-you-track-system-performance" class="anchor-heading" aria-labelledby="how-do-you-track-system-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>How do you track system performance?</strong>
   
   
 </h3>
     
+  </li>
+</ol>
+
+<p>| 43. <strong>How do you handle monitoring at scale?</strong> | 44. <strong>How do you implement alerting?</strong> | 45. <strong>How do you handle monitoring failures?</strong> |
+|—|—|—|
+| ### <strong>Advanced Questions</strong> | 46. <strong>How do you handle global distribution?</strong> | 47. <strong>How do you implement edge computing?</strong> | 48. <strong>How do you handle multi-cloud scaling?</strong> |</p>
 <ol>
-  <li><strong>How do you handle global distribution?</strong></li>
-  <li><strong>How do you implement edge computing?</strong></li>
-  <li><strong>How do you handle multi-cloud scaling?</strong></li>
   <li><strong>How do you implement serverless scaling?</strong></li>
   <li><strong>How do you handle quantum-resistant scaling?</strong></li>
 </ol><hr />

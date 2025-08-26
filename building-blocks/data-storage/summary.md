@@ -13,104 +13,16 @@ grand_parent: Building Blocks
 
 ### **Storage Types Classification with Performance Metrics**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Storage Type</th>
-<th>Primary Use</th>
-<th>Consistency Model</th>
-<th>Scaling Pattern</th>
-<th>Read Throughput</th>
-<th>Write Throughput</th>
-<th>Latency</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RDBMS</strong></td>
-<td>ACID transactions</td>
-<td>Linearizable</td>
-<td>Vertical + Read Replicas</td>
-<td>10K-50K ops/sec</td>
-<td>5K-20K ops/sec</td>
-<td>1-5ms</td>
-<td>MySQL, PostgreSQL</td>
-</tr>
-<tr>
-<td><strong>Key-Value</strong></td>
-<td>Simple lookups</td>
-<td>Eventual/Linearizable</td>
-<td>Horizontal Sharding</td>
-<td>100K-1M ops/sec</td>
-<td>50K-500K ops/sec</td>
-<td>0.1-1ms</td>
-<td>Redis, DynamoDB</td>
-</tr>
-<tr>
-<td><strong>Wide Column</strong></td>
-<td>Analytics</td>
-<td>Eventual</td>
-<td>Hash-based Partitioning</td>
-<td>10K-100K ops/sec</td>
-<td>50K-200K ops/sec</td>
-<td>5-20ms</td>
-<td>Cassandra, HBase</td>
-</tr>
-<tr>
-<td><strong>Document</strong></td>
-<td>Flexible schemas</td>
-<td>Eventual</td>
-<td>Range-based Sharding</td>
-<td>10K-50K ops/sec</td>
-<td>5K-20K ops/sec</td>
-<td>1-10ms</td>
-<td>MongoDB, CouchDB</td>
-</tr>
-<tr>
-<td><strong>Time Series</strong></td>
-<td>Time-ordered data</td>
-<td>Eventual</td>
-<td>Time-based Partitioning</td>
-<td>10K-100K ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>1-10ms</td>
-<td>InfluxDB, TimescaleDB</td>
-</tr>
-<tr>
-<td><strong>Text Search</strong></td>
-<td>Full-text search</td>
-<td>Eventual</td>
-<td>Document-based Sharding</td>
-<td>1K-10K ops/sec</td>
-<td>1K-5K ops/sec</td>
-<td>10-100ms</td>
-<td>Elasticsearch, Solr</td>
-</tr>
-<tr>
-<td><strong>Object Store</strong></td>
-<td>Large files</td>
-<td>Eventual</td>
-<td>Hash-based Distribution</td>
-<td>100-1K ops/sec</td>
-<td>100-1K ops/sec</td>
-<td>100ms-1s</td>
-<td>S3, GCS, Azure Blob</td>
-</tr>
-<tr>
-<td><strong>Geospatial</strong></td>
-<td>Location data</td>
-<td>Eventual</td>
-<td>Geographic Partitioning</td>
-<td>1K-10K ops/sec</td>
-<td>1K-5K ops/sec</td>
-<td>1-10ms</td>
-<td>PostGIS, MongoDB</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Storage Type | Primary Use | Consistency Model | Scaling Pattern | Read Throughput | Write Throughput | Latency | Examples |
+|--------------|-------------|-------------------|-----------------|-----------------|------------------|---------|----------|
+| **RDBMS** | ACID transactions | Linearizable | Vertical + Read Replicas | 10K-50K ops/sec | 5K-20K ops/sec | 1-5ms | MySQL, PostgreSQL |
+| **Key-Value** | Simple lookups | Eventual/Linearizable | Horizontal Sharding | 100K-1M ops/sec | 50K-500K ops/sec | 0.1-1ms | Redis, DynamoDB |
+| **Wide Column** | Analytics | Eventual | Hash-based Partitioning | 10K-100K ops/sec | 50K-200K ops/sec | 5-20ms | Cassandra, HBase |
+| **Document** | Flexible schemas | Eventual | Range-based Sharding | 10K-50K ops/sec | 5K-20K ops/sec | 1-10ms | MongoDB, CouchDB |
+| **Time Series** | Time-ordered data | Eventual | Time-based Partitioning | 10K-100K ops/sec | 100K-1M ops/sec | 1-10ms | InfluxDB, TimescaleDB |
+| **Text Search** | Full-text search | Eventual | Document-based Sharding | 1K-10K ops/sec | 1K-5K ops/sec | 10-100ms | Elasticsearch, Solr |
+| **Object Store** | Large files | Eventual | Hash-based Distribution | 100-1K ops/sec | 100-1K ops/sec | 100ms-1s | S3, GCS, Azure Blob |
+| **Geospatial** | Location data | Eventual | Geographic Partitioning | 1K-10K ops/sec | 1K-5K ops/sec | 1-10ms | PostGIS, MongoDB |
 
 ---
 
@@ -377,15 +289,11 @@ Search Path: Query → Terms → Posting Lists → Results
 - Scoring: TF-IDF, BM25 algorithms
 ```
 
-#### **Search Types**
-- Boolean: `"quick AND brown"`
-- Fuzzy: `"quik" → "quick"`
-- Phrase: `"quick brown fox"`
+#### ### **Search Types**
 
-#### **Use Cases**
-- E-commerce search
-- Content discovery
-- Log analysis
+| - Boolean: `"quick AND brown"` | - Fuzzy: `"quik" → "quick"` | - Phrase: `"quick brown fox"` |
+|---|---|---|
+| #### **Use Cases** | - E-commerce search | - Content discovery | - Log analysis |
 - Knowledge bases
 
 ---
@@ -452,116 +360,27 @@ Operations: BEGIN_TXN, INSERT, UPDATE, DELETE, COMMIT, ROLLBACK
 
 ### **In-Memory Indexes**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Index Type</th>
-<th>Lookup</th>
-<th>Insert/Delete</th>
-<th>Memory</th>
-<th>Ordering</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Hash Tables</strong></td>
-<td>O(1)</td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>B-Trees</strong></td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>O(n)</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>Skip Lists</strong></td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>O(n)</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Index Type | Lookup | Insert/Delete | Memory | Ordering |
+|------------|--------|---------------|--------|----------|
+| **Hash Tables** | O(1) | O(1) | O(n) | No |
+| **B-Trees** | O(log n) | O(log n) | O(n) | Yes |
+| **Skip Lists** | O(log n) | O(log n) | O(n) | Yes |
 
 ### **On-Disk Indexes**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Index Type</th>
-<th>Write Performance</th>
-<th>Read Performance</th>
-<th>Space Efficiency</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>B-Tree</strong></td>
-<td>Good</td>
-<td>Excellent</td>
-<td>Good</td>
-</tr>
-<tr>
-<td><strong>LSM Tree</strong></td>
-<td>Excellent</td>
-<td>Good</td>
-<td>Excellent</td>
-</tr>
-<tr>
-<td><strong>Bitmap</strong></td>
-<td>Poor</td>
-<td>Excellent</td>
-<td>Excellent</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Index Type | Write Performance | Read Performance | Space Efficiency |
+|------------|-------------------|------------------|------------------|
+| **B-Tree** | Good | Excellent | Good |
+| **LSM Tree** | Excellent | Good | Excellent |
+| **Bitmap** | Poor | Excellent | Excellent |
 
 ### **Spatial Indexes**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Index Type</th>
-<th>Point Query</th>
-<th>Range Query</th>
-<th>Nearest Neighbor</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>R-Tree</strong></td>
-<td>O(log n)</td>
-<td>O(log n + k)</td>
-<td>O(log n)</td>
-<td>Geographic data</td>
-</tr>
-<tr>
-<td><strong>Quad-Tree</strong></td>
-<td>O(log n)</td>
-<td>O(log n + k)</td>
-<td>O(log n)</td>
-<td>2D spatial data</td>
-</tr>
-<tr>
-<td><strong>Geohash</strong></td>
-<td>O(1)</td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>Location services</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Index Type | Point Query | Range Query | Nearest Neighbor | Use Case |
+|------------|-------------|-------------|------------------|----------|
+| **R-Tree** | O(log n) | O(log n + k) | O(log n) | Geographic data |
+| **Quad-Tree** | O(log n) | O(log n + k) | O(log n) | 2D spatial data |
+| **Geohash** | O(1) | O(log n) | O(log n) | Location services |
 
 ---
 
@@ -569,511 +388,108 @@ Operations: BEGIN_TXN, INSERT, UPDATE, DELETE, COMMIT, ROLLBACK
 
 ### **Vertical Scaling Strategies**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Scale Factor</th>
-<th>Implementation</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Vertical Scaling</strong></td>
-<td>2-10x</td>
-<td>Hardware upgrade</td>
-<td>Single instance performance</td>
-</tr>
-<tr>
-<td><strong>Read Replicas</strong></td>
-<td>10-50x</td>
-<td>Master-slave replication</td>
-<td>Read-heavy workloads</td>
-</tr>
-<tr>
-<td><strong>Sharding</strong></td>
-<td>100-1000x</td>
-<td>Hash/range partitioning</td>
-<td>Write-heavy workloads</td>
-</tr>
-<tr>
-<td><strong>Partitioning</strong></td>
-<td>10-100x</td>
-<td>Table partitioning</td>
-<td>Large tables</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Vertical Scaling** | 2-10x | Hardware upgrade | Single instance performance |
+| **Read Replicas** | 10-50x | Master-slave replication | Read-heavy workloads |
+| **Sharding** | 100-1000x | Hash/range partitioning | Write-heavy workloads |
+| **Partitioning** | 10-100x | Table partitioning | Large tables |
 
 ### **Horizontal Scaling Strategies**
 
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Strategy</th>
-<th>Scale Factor</th>
-<th>Implementation</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Horizontal Scaling</strong></td>
-<td>100-1000x</td>
-<td>Consistent hashing</td>
-<td>Even distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Master-slave</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**Partitioning**</td>
-<td>100-1000x</td>
-<td>Hash partitioning</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Auto-scaling**</td>
-<td>10-100x</td>
-<td>Dynamic scaling</td>
-<td>Variable workloads</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Sharding</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Replica sets</td>
-<td>High availability</td>
-</tr>
-<tr>
-<td>**Indexing**</td>
-<td>10-100x</td>
-<td>B-tree indexes</td>
-<td>Query performance</td>
-</tr>
-<tr>
-<td>**Caching**</td>
-<td>10-100x</td>
-<td>In-memory cache</td>
-<td>Frequently accessed data</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Consistent hashing</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Replication**</td>
-<td>10-100x</td>
-<td>Multi-DC replication</td>
-<td>Geographic distribution</td>
-</tr>
-<tr>
-<td>**Compression**</td>
-<td>2-10x</td>
-<td>Columnar compression</td>
-<td>Storage optimization</td>
-</tr>
-<tr>
-<td>**Batch Operations**</td>
-<td>10-100x</td>
-<td>Bulk operations</td>
-<td>High throughput</td>
-</tr>
-<tr>
-<td>Strategy</td>
-<td>Scale Factor</td>
-<td>Implementation</td>
-<td>Use Case</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>--------------</td>
-<td>----------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Horizontal Scaling**</td>
-<td>100-1000x</td>
-<td>Time-based sharding</td>
-<td>Data distribution</td>
-</tr>
-<tr>
-<td>**Compression**</td>
-<td>5-20x</td>
-<td>Columnar compression</td>
-<td>Storage optimization</td>
-</tr>
-<tr>
-<td>**Downsampling**</td>
-<td>10-100x</td>
-<td>Time-based aggregation</td>
-<td>Long-term storage</td>
-</tr>
-<tr>
-<td>**Retention Policies**</td>
-<td>10-100x</td>
-<td>TTL-based deletion</td>
-<td>Storage management</td>
-</tr>
-<tr>
-<td>Algorithm</td>
-<td>Use Case</td>
-<td>Complexity</td>
-<td>Examples</td>
-</tr>
-<tr>
-<td>-----------</td>
-<td>----------</td>
-<td>------------</td>
-<td>----------</td>
-</tr>
-<tr>
-<td>**Paxos**</td>
-<td>Distributed consensus</td>
-<td>High</td>
-<td>Google Chubby, ZooKeeper</td>
-</tr>
-<tr>
-<td>**Raft**</td>
-<td>Distributed consensus</td>
-<td>Medium</td>
-<td>etcd, Consul, MongoDB</td>
-</tr>
-<tr>
-<td>**Gossip**</td>
-<td>Eventual consistency</td>
-<td>Low</td>
-<td>Cassandra, DynamoDB</td>
-</tr>
-<tr>
-<td>**Vector Clocks**</td>
-<td>Causal consistency</td>
-<td>Medium</td>
-<td>DynamoDB, Riak</td>
-</tr>
-<tr>
-<td>**CRDTs**</td>
-<td>Conflict resolution</td>
-<td>Low</td>
-<td>Riak, Redis CRDTs</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Native</td>
-<td>Max with Scaling</td>
-<td>Failure Recovery</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>--------</td>
-<td>------------------</td>
-<td>------------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>99.95%</td>
-<td>99.999%</td>
-<td>Sub-second failover</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>99.99%</td>
-<td>99.999%</td>
-<td>Geographic failover</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>99.9%</td>
-<td>99.99%</td>
-<td>Automatic failover</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>99.99%</td>
-<td>99.999%</td>
-<td>Regional failover</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Default</td>
-<td>Configurable</td>
-<td>Trade-offs</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>---------</td>
-<td>--------------</td>
-<td>------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>Linearizable</td>
-<td>Read committed, repeatable read</td>
-<td>Performance vs consistency</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>Eventual</td>
-<td>Strong, causal, session</td>
-<td>Consistency vs availability</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>Eventual</td>
-<td>Read concern levels</td>
-<td>Consistency vs performance</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>Eventual</td>
-<td>Quorum reads/writes</td>
-<td>Consistency vs latency</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>Eventual</td>
-<td>Time-based consistency</td>
-<td>Consistency vs performance</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Method</td>
-<td>Recovery Time</td>
-<td>Frequency</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>--------</td>
-<td>---------------</td>
-<td>-----------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>Full + incremental</td>
-<td>Hours</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>Snapshot + WAL</td>
-<td>Minutes</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>Oplog replay</td>
-<td>Minutes</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>SSTable backup</td>
-<td>Hours</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>Time-based backup</td>
-<td>Minutes</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>Cross-region copy</td>
-<td>Hours</td>
-<td>Daily</td>
-</tr>
-<tr>
-<td>Tier</td>
-<td>Access Pattern</td>
-<td>Latency</td>
-<td>Cost</td>
-<td>Migration Trigger</td>
-</tr>
-<tr>
-<td>------</td>
-<td>----------------</td>
-<td>---------</td>
-<td>------</td>
-<td>-------------------</td>
-</tr>
-<tr>
-<td>**Hot**</td>
-<td>Frequent</td>
-<td>< 10ms</td>
-<td>High</td>
-<td>Active data</td>
-</tr>
-<tr>
-<td>**Warm**</td>
-<td>Occasional</td>
-<td>10-100ms</td>
-<td>Medium</td>
-<td>Recent data</td>
-</tr>
-<tr>
-<td>**Cold**</td>
-<td>Rare</td>
-<td>100ms-1s</td>
-<td>Low</td>
-<td>Historical data</td>
-</tr>
-<tr>
-<td>**Archive**</td>
-<td>Compliance</td>
-<td>1s-1min</td>
-<td>Very Low</td>
-<td>Long-term retention</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Single Instance</td>
-<td>Clustered</td>
-<td>Total Capacity</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>----------------</td>
-<td>-----------</td>
-<td>----------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>100GB-1TB</td>
-<td>10TB-100TB</td>
-<td>100TB+</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>10-100TB</td>
-<td>1PB-10PB</td>
-<td>10PB+</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>1-10TB</td>
-<td>100TB-1PB</td>
-<td>1PB+</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>1-10TB</td>
-<td>1PB-100PB</td>
-<td>100PB+</td>
-</tr>
-<tr>
-<td>Storage Type</td>
-<td>Read Throughput</td>
-<td>Write Throughput</td>
-<td>Concurrent Connections</td>
-</tr>
-<tr>
-<td>--------------</td>
-<td>----------------</td>
-<td>------------------</td>
-<td>----------------------</td>
-</tr>
-<tr>
-<td>**RDBMS**</td>
-<td>10K-100K ops/sec</td>
-<td>1K-10K ops/sec</td>
-<td>10K-100K</td>
-</tr>
-<tr>
-<td>**Key-Value**</td>
-<td>100K-1M ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>100K-1M</td>
-</tr>
-<tr>
-<td>**Document**</td>
-<td>10K-100K ops/sec</td>
-<td>10K-100K ops/sec</td>
-<td>10K-100K</td>
-</tr>
-<tr>
-<td>**Wide Column**</td>
-<td>10K-100K ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>10K-100K</td>
-</tr>
-<tr>
-<td>**Time Series**</td>
-<td>10K-100K ops/sec</td>
-<td>100K-1M ops/sec</td>
-<td>10K-100K</td>
-</tr>
-<tr>
-<td>**Object Store**</td>
-<td>100-1K ops/sec</td>
-<td>100-1K ops/sec</td>
-<td>1K-10K</td>
-</tr>
-</tbody>
-</table>
-</div>
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Sharding** | 100-1000x | Consistent hashing | Data distribution |
+| **Replication** | 10-100x | Master-slave | High availability |
+| **Partitioning** | 100-1000x | Hash partitioning | Data distribution |
+| **Auto-scaling** | 10-100x | Dynamic scaling | Variable workloads |
+| **Indexing** | 10-100x | B-tree indexes | Query performance |
+| **Caching** | 10-100x | In-memory cache | Frequently accessed data |
+
+### **Advanced Scaling Strategies**
+
+| Strategy | Scale Factor | Implementation | Use Case |
+|----------|--------------|----------------|----------|
+| **Consistent Hashing** | 100-1000x | Consistent hashing | Data distribution |
+| **Multi-DC Replication** | 10-100x | Multi-DC replication | Geographic distribution |
+| **Compression** | 2-10x | Columnar compression | Storage optimization |
+| **Batch Operations** | 10-100x | Bulk operations | High throughput |
+| **Time-based Sharding** | 100-1000x | Time-based sharding | Data distribution |
+| **Downsampling** | 10-100x | Time-based aggregation | Long-term storage |
+| **Retention Policies** | 10-100x | TTL-based deletion | Storage management |
+
+### **Consensus Algorithms**
+
+| Algorithm | Use Case | Complexity | Examples |
+|-----------|----------|------------|----------|
+| **Paxos** | Distributed consensus | High | Google Chubby, ZooKeeper |
+| **Raft** | Distributed consensus | Medium | etcd, Consul, MongoDB |
+| **Gossip** | Eventual consistency | Low | Cassandra, DynamoDB |
+| **Vector Clocks** | Causal consistency | Medium | DynamoDB, Riak |
+| **CRDTs** | Conflict resolution | Low | Riak, Redis CRDTs |
+
+### **Availability & Failover Characteristics**
+
+| Storage Type | Native | Max with Scaling | Failure Recovery |
+|--------------|--------|------------------|------------------|
+| **RDBMS** | 99.9% | 99.99% | Automatic failover |
+| **Key-Value** | 99.95% | 99.999% | Sub-second failover |
+| **Document** | 99.9% | 99.99% | Automatic failover |
+| **Wide Column** | 99.99% | 99.999% | Geographic failover |
+| **Time Series** | 99.9% | 99.99% | Automatic failover |
+| **Object Store** | 99.99% | 99.999% | Regional failover |
+
+### **Consistency Models & Trade-offs**
+
+| Storage Type | Default | Configurable | Trade-offs |
+|--------------|---------|--------------|------------|
+| **RDBMS** | Linearizable | Read committed, repeatable read | Performance vs consistency |
+| **Key-Value** | Eventual | Strong, causal, session | Consistency vs availability |
+| **Document** | Eventual | Read concern levels | Consistency vs performance |
+| **Wide Column** | Eventual | Quorum reads/writes | Consistency vs latency |
+| **Time Series** | Eventual | Time-based consistency | Consistency vs performance |
+
+### **Backup & Recovery Methods**
+
+| Storage Type | Method | Recovery Time | Frequency |
+|--------------|--------|---------------|-----------|
+| **RDBMS** | Full + incremental | Hours | Daily |
+| **Key-Value** | Snapshot + WAL | Minutes | Daily |
+| **Document** | Oplog replay | Minutes | Daily |
+| **Wide Column** | SSTable backup | Hours | Daily |
+| **Time Series** | Time-based backup | Minutes | Daily |
+| **Object Store** | Cross-region copy | Hours | Daily |
+
+### **Storage Tiering Strategy**
+
+| Tier | Access Pattern | Latency | Cost | Migration Trigger |
+|------|----------------|---------|------|-------------------|
+| **Hot** | Frequent | < 10ms | High | Active data |
+| **Warm** | Occasional | 10-100ms | Medium | Recent data |
+| **Cold** | Rare | 100ms-1s | Low | Historical data |
+| **Archive** | Compliance | 1s-1min | Very Low | Long-term retention |
+
+### **Storage Capacity Scaling**
+
+| Storage Type | Single Instance | Clustered | Total Capacity |
+|--------------|----------------|-----------|----------------|
+| **RDBMS** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Key-Value** | 100GB-1TB | 10TB-100TB | 100TB+ |
+| **Document** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Wide Column** | 10-100TB | 1PB-10PB | 10PB+ |
+| **Time Series** | 1-10TB | 100TB-1PB | 1PB+ |
+| **Object Store** | 1-10TB | 1PB-100PB | 100PB+ |
+
+### **Performance Characteristics**
+
+| Storage Type | Read Throughput | Write Throughput | Concurrent Connections |
+|--------------|----------------|------------------|----------------------|
+| **RDBMS** | 10K-100K ops/sec | 1K-10K ops/sec | 10K-100K |
+| **Key-Value** | 100K-1M ops/sec | 100K-1M ops/sec | 100K-1M |
+| **Document** | 10K-100K ops/sec | 10K-100K ops/sec | 10K-100K |
+| **Wide Column** | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| **Time Series** | 10K-100K ops/sec | 100K-1M ops/sec | 10K-100K |
+| **Object Store** | 100-1K ops/sec | 100-1K ops/sec | 1K-10K |
 ## ⚠️ **COMMON PITFALLS**
 
 ### **RDBMS Pitfalls**

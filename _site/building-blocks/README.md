@@ -170,15 +170,11 @@ These building blocks integrate with the structured approach:
 
 When choosing building blocks for your system:
 
-### **Scale Considerations**
-- **Small Scale** (< 1M users): Start simple, add complexity as needed
-- **Medium Scale** (1M-10M users): Focus on caching and basic distribution
-- **Large Scale** (> 10M users): Full distributed architecture required
+### ### **Scale Considerations**
 
-### **Performance Requirements**
-- **Low Latency** (< 100ms): Prioritize caching and CDN
-- **High Throughput** (> 10K req/s): Focus on message queuing and horizontal scaling
-- **High Availability** (99.9%+): Implement redundancy and monitoring
+| - **Small Scale** (< 1M users): Start simple, add complexity as needed | - **Medium Scale** (1M-10M users): Focus on caching and basic distribution | - **Large Scale** (> 10M users): Full distributed architecture required |
+|---|---|---|
+| ### **Performance Requirements** | - **Low Latency** (< 100ms): Prioritize caching and CDN | - **High Throughput** (> 10K req/s): Focus on message queuing and horizontal scaling | - **High Availability** (99.9%+): Implement redundancy and monitoring |
 
 ### **Data Requirements**
 - **Structured Data**: Relational databases with caching

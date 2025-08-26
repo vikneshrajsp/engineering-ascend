@@ -96,16 +96,22 @@ Each building block follows a three-tier documentation structure designed for di
 - **Reliability**: Delivery guarantees and fault tolerance
 - **Scalability**: Ability to handle increased message volumes
 
-### **Delivery Patterns**
-- **At-Most-Once**: Fire-and-forget, may lose messages
-- **At-Least-Once**: Guaranteed delivery, may have duplicates
-- **Exactly-Once**: Guaranteed delivery, no duplicates
+### ### **Delivery Patterns**
+
+| Delivery Pattern | Description | Use Case |
+|---|---|---|
+| **At-Most-Once** | Fire-and-forget, may lose messages | Non-critical notifications |
+| **At-Least-Once** | Guaranteed delivery, may have duplicates | Reliable messaging |
+| **Exactly-Once** | Guaranteed delivery, no duplicates | Financial transactions |
 
 ### **Scaling Strategies**
-- **Horizontal Scaling**: Add more partitions and consumers
-- **Vertical Scaling**: Increase resources per node
-- **Geographic Distribution**: Multi-region deployment
-- **Auto-scaling**: Dynamic resource allocation
+
+| Strategy | Description | Implementation |
+|----------|-------------|----------------|
+| **Horizontal Scaling** | Add more partitions and consumers | Partition-based distribution |
+| **Vertical Scaling** | Increase resources per node | Resource enhancement |
+| **Geographic Distribution** | Multi-region deployment | Global availability |
+| **Auto-scaling** | Dynamic resource allocation | Adaptive scaling |
 
 ---
 
@@ -123,15 +129,21 @@ Message Queuing & Streaming Systems work closely with other building blocks:
 
 ## 📖 **Learning Path**
 
-### **Beginner Level**
-1. Understand basic messaging patterns (queues vs pub-sub)
-2. Learn about delivery guarantees and reliability
-3. Grasp fundamental scaling concepts
+### ### **Beginner Level**
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | Understand basic messaging patterns (queues vs pub-sub) | Build foundation |
+| 2. | Learn about delivery guarantees and reliability | Ensure quality |
+| 3. | Grasp fundamental scaling concepts | Plan for growth |
 
 ### **Intermediate Level**
-1. Master event streaming and real-time processing
-2. Understand backpressure and flow control
-3. Learn performance optimization techniques
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1. | Master event streaming and real-time processing | Advanced patterns |
+| 2. | Understand backpressure and flow control | Performance tuning |
+| 3. | Learn performance optimization techniques | System efficiency |
 
 ### **Advanced Level**
 1. Design complex event-driven architectures

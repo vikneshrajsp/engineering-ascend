@@ -39,15 +39,12 @@ Monitoring & Observability systems provide visibility into system behavior, perf
 
 ## 🔍 **Monitoring Fundamentals**
 
-### **Monitoring vs Observability**
-```
-Monitoring: "What is happening?" (Reactive problem detection)
-Observability: "Why is it happening?" (Proactive understanding)
+### ### **Monitoring vs Observability**
 
-Example:
-- Monitoring: CPU usage is 95%
-- Observability: CPU usage is 95% because of inefficient database queries
-```
+| Aspect | Monitoring | Observability |
+|--------|------------|---------------|
+| **Purpose** | "What is happening?" (Reactive problem detection) | "Why is it happening?" (Proactive understanding) |
+| **Example** | CPU usage is 95% | CPU usage is 95% because of inefficient database queries |
 
 ### **Monitoring Principles**
 - **Proactive Detection**: Identify issues before they impact users
@@ -251,25 +248,22 @@ Modern logging optimizes for **structured, searchable, and actionable log data**
 
 ### **Logging Levels**
 
-#### **Log Level Optimization**
-```
-Log Level Hierarchy:
-DEBUG < INFO < WARN < ERROR < FATAL
+#### ### **Log Level Optimization**
 
-Optimization Strategy:
-- DEBUG: Development and troubleshooting
-- INFO: Normal operation events
-- WARN: Potential issues requiring attention
-- ERROR: Errors that don't stop operation
-- FATAL: Critical errors requiring immediate action
+| Log Level | Hierarchy | Description |
+|-----------|-----------|-------------|
+| **DEBUG** | Lowest | Development and troubleshooting |
+| **INFO** | Low | Normal operation events |
+| **WARN** | Medium | Potential issues requiring attention |
+| **ERROR** | High | Errors that don't stop operation |
+| **FATAL** | Highest | Critical errors requiring immediate action |
 
-Storage Impact:
-- DEBUG: 80% of log volume, 20% of value
-- INFO: 15% of log volume, 30% of value
-- WARN: 3% of log volume, 25% of value
-- ERROR: 2% of log volume, 25% of value
-- FATAL: <1% of log volume, high value
-```
+**Storage Impact:**
+- **DEBUG**: 80% of log volume, 20% of value
+- **INFO**: 15% of log volume, 30% of value
+- **WARN**: 3% of log volume, 25% of value
+- **ERROR**: 2% of log volume, 25% of value
+- **FATAL**: <1% of log volume, high value
 
 #### **Structured Logging**
 ```

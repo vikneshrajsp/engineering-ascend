@@ -125,15 +125,11 @@ Compute & Processing Systems work closely with other building blocks:
 
 ## 📖 **Learning Path**
 
-### **Beginner Level**
-1. Understand basic CPU and GPU differences
-2. Learn about sequential vs parallel processing
-3. Grasp fundamental scaling concepts
+### ### **Beginner Level**
 
-### **Intermediate Level**
-1. Master distributed computing patterns
-2. Understand async processing models
-3. Learn performance optimization techniques
+| 1. Understand basic CPU and GPU differences | 2. Learn about sequential vs parallel processing | 3. Grasp fundamental scaling concepts |
+|---|---|---|
+| ### **Intermediate Level** | 1. Master distributed computing patterns | 2. Understand async processing models | 3. Learn performance optimization techniques |
 
 ### **Advanced Level**
 1. Design complex distributed systems
@@ -144,25 +140,17 @@ Compute & Processing Systems work closely with other building blocks:
 
 ## 🎯 **Common Use Cases**
 
-### **Web Applications**
-- **CPU**: General request processing
-- **Async**: Non-blocking I/O operations
-- **Distributed**: Microservices architecture
+### ### **Web Applications**
 
-### **Data Processing**
-- **Batch**: ETL pipelines, analytics
-- **GPU**: Machine learning training
-- **Distributed**: Big data processing
+| - **CPU**: General request processing | - **Async**: Non-blocking I/O operations | - **Distributed**: Microservices architecture |
+|---|---|---|
+| ### **Data Processing** | - **Batch**: ETL pipelines, analytics | - **GPU**: Machine learning training | - **Distributed**: Big data processing |
 
-### **Real-time Systems**
-- **Async**: Event-driven processing
-- **GPU**: Real-time rendering
-- **Distributed**: Global real-time systems
+### ### **Real-time Systems**
 
-### **Scientific Computing**
-- **GPU**: Parallel simulations
-- **Distributed**: Large-scale computations
-- **Batch**: Scheduled analysis jobs
+| - **Async**: Event-driven processing | - **GPU**: Real-time rendering | - **Distributed**: Global real-time systems |
+|---|---|---|
+| ### **Scientific Computing** | - **GPU**: Parallel simulations | - **Distributed**: Large-scale computations | - **Batch**: Scheduled analysis jobs |
 
 ---
 

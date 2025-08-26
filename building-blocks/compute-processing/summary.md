@@ -12,9 +12,7 @@ parent: Compute Processing
 
 ### **Processing Types Classification with Performance Metrics**
 <div class="table-wrapper">
-<table>
-<thead>
-<tr>
+
 <th>Processing Type</th>
 <th>Primary Use</th>
 <th>Performance Model</th>
@@ -22,56 +20,47 @@ parent: Compute Processing
 <th>Throughput</th>
 <th>Latency</th>
 <th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**CPU**</td>
-<td>General computing</td>
-<td>Sequential/Parallel</td>
-<td>Vertical + Multi-core</td>
-<td>1K-100K ops/sec</td>
-<td>1-100μs</td>
-<td>Web servers, databases</td>
-</tr>
-<tr>
-<td>**GPU**</td>
-<td>Parallel computing</td>
-<td>SIMT (Single Instruction, Multiple Threads)</td>
-<td>Multi-GPU + Clusters</td>
-<td>10-40 TFLOPS</td>
-<td>100-1000μs</td>
-<td>ML training, rendering</td>
-</tr>
-<tr>
-<td>**Distributed**</td>
-<td>Large-scale processing</td>
-<td>Multi-machine</td>
-<td>Horizontal + Geographic</td>
-<td>10K-1M ops/sec</td>
-<td>1-1000ms</td>
-<td>Microservices, big data</td>
-</tr>
-<tr>
-<td>**Async**</td>
-<td>I/O-bound tasks</td>
-<td>Event-driven</td>
-<td>Event loops + Thread pools</td>
-<td>10K-100K ops/sec</td>
-<td>1-10ms</td>
-<td>Web apps, real-time systems</td>
-</tr>
-<tr>
-<td>**Batch**</td>
-<td>Data processing</td>
-<td>Bulk processing</td>
-<td>Cluster + Parallel</td>
-<td>1-100 GB/s</td>
-<td>1-1000 min</td>
-<td>ETL, analytics</td>
-</tr>
-</tbody>
-</table>
+
+**CPU**
+General computing
+Sequential/Parallel
+Vertical + Multi-core
+1K-100K ops/sec
+1-100μs
+Web servers, databases
+
+**GPU**
+Parallel computing
+SIMT (Single Instruction, Multiple Threads)
+Multi-GPU + Clusters
+10-40 TFLOPS
+100-1000μs
+ML training, rendering
+
+**Distributed**
+Large-scale processing
+Multi-machine
+Horizontal + Geographic
+10K-1M ops/sec
+1-1000ms
+Microservices, big data
+
+**Async**
+I/O-bound tasks
+Event-driven
+Event loops + Thread pools
+10K-100K ops/sec
+1-10ms
+Web apps, real-time systems
+
+**Batch**
+Data processing
+Bulk processing
+Cluster + Parallel
+1-100 GB/s
+1-1000 min
+ETL, analytics
+
 </div>
 ---
 

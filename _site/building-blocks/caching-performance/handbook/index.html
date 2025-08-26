@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/caching-performance/handbook/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/caching-performance/handbook/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/caching-performance/handbook/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/caching-performance/handbook/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Handbook" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/caching-performance/handbook/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/caching-performance/handbook/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -810,21 +810,21 @@ TTL (Time-To-Live)
   
 </h3>
     
-<h4 id="basic-redis-cache">
+<h4 id="-basic-redis-cache">
   
   
-    <a href="#basic-redis-cache" class="anchor-heading" aria-labelledby="basic-redis-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Basic Redis Cache</strong>
+    <a href="#-basic-redis-cache" class="anchor-heading" aria-labelledby="-basic-redis-cache"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Basic Redis Cache</strong>
   
   
 </h4>
     
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">redis</span>
 <span class="kn">import</span> <span class="n">json</span>
 
 <span class="k">class</span> <span class="nc">RedisCache</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="n">self</span><span class="p">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="nc">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
-    
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">redis</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">loads</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="bp">None</span>
@@ -876,14 +876,15 @@ TTL (Time-To-Live)
             <span class="n">self</span><span class="p">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
             <span class="n">self</span><span class="p">.</span><span class="n">timestamps</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
 </code></pre></div></div>
-<h3 id="distributed-cache-with-consistent-hashing">
+<h3 id="-distributed-cache-with-consistent-hashing">
   
   
-    <a href="#distributed-cache-with-consistent-hashing" class="anchor-heading" aria-labelledby="distributed-cache-with-consistent-hashing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Distributed Cache with Consistent Hashing</strong>
+    <a href="#-distributed-cache-with-consistent-hashing" class="anchor-heading" aria-labelledby="-distributed-cache-with-consistent-hashing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Distributed Cache with Consistent Hashing</strong>
   
   
 </h3>
     
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">hashlib</span>
 <span class="kn">import</span> <span class="n">bisect</span>
 

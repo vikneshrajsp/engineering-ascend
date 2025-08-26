@@ -413,7 +413,8 @@ TTL (Time-To-Live)
 
 ### **Redis Implementation**
 
-#### **Basic Redis Cache**
+#### ### **Basic Redis Cache**
+
 ```python
 import redis
 import json
@@ -421,7 +422,6 @@ import json
 class RedisCache:
     def __init__(self, host='localhost', port=6379, db=0):
         self.redis = redis.Redis(host=host, port=port, db=db)
-    
     def get(self, key):
         value = self.redis.get(key)
         return json.loads(value) if value else None
@@ -469,7 +469,8 @@ class LRUCache:
             self.timestamps[key] = time.time()
 ```
 
-### **Distributed Cache with Consistent Hashing**
+### ### **Distributed Cache with Consistent Hashing**
+
 ```python
 import hashlib
 import bisect

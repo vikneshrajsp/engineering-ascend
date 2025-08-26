@@ -38,15 +38,11 @@
 
 ## 🎯 **HOW TO USE THIS BUILDING BLOCK**
 
-### **For Interview Preparation**
-1. **Start with Cheatsheet**: Get quick answers and decision frameworks
-2. **Review Summary**: Understand key concepts and trade-offs
-3. **Deep Dive with Handbook**: Master technical details and implementation
+### ### **For Interview Preparation**
 
-### **For System Design**
-1. **Use Cheatsheet**: Quick technology selection and decision-making
-2. **Reference Summary**: Understand trade-offs and performance characteristics
-3. **Consult Handbook**: Detailed implementation guidance and optimization
+| 1. **Start with Cheatsheet**: Get quick answers and decision frameworks | 2. **Review Summary**: Understand key concepts and trade-offs | 3. **Deep Dive with Handbook**: Master technical details and implementation |
+|---|---|---|
+| ### **For System Design** | 1. **Use Cheatsheet**: Quick technology selection and decision-making | 2. **Reference Summary**: Understand trade-offs and performance characteristics | 3. **Consult Handbook**: Detailed implementation guidance and optimization |
 
 ### **For Learning**
 1. **Begin with Summary**: Get overview of concepts and relationships

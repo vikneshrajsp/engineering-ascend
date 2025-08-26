@@ -56,14 +56,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The 8 core components that form the foundation of every scalable system design" />
 <meta property="og:description" content="The 8 core components that form the foundation of every scalable system design" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/" />
+<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/building-blocks/" />
+<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/building-blocks/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Building Blocks" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The 8 core components that form the foundation of every scalable system design","headline":"Building Blocks","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The 8 core components that form the foundation of every scalable system design","headline":"Building Blocks","url":"http://0.0.0.0:4019/engineering-ascend/building-blocks/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -554,32 +554,33 @@
     
 
 <p>When choosing building blocks for your system:</p>
-<h3 id="scale-considerations">
+<h3 id="-scale-considerations">
   
   
-    <a href="#scale-considerations" class="anchor-heading" aria-labelledby="scale-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scale Considerations</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li><strong>Small Scale</strong> (&lt; 1M users): Start simple, add complexity as needed</li>
-  <li><strong>Medium Scale</strong> (1M-10M users): Focus on caching and basic distribution</li>
-  <li><strong>Large Scale</strong> (&gt; 10M users): Full distributed architecture required</li>
-</ul>
-<h3 id="performance-requirements">
-  
-  
-    <a href="#performance-requirements" class="anchor-heading" aria-labelledby="performance-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Requirements</strong>
+    <a href="#-scale-considerations" class="anchor-heading" aria-labelledby="-scale-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ### <strong>Scale Considerations</strong>
   
   
 </h3>
     
-<ul>
-  <li><strong>Low Latency</strong> (&lt; 100ms): Prioritize caching and CDN</li>
-  <li><strong>High Throughput</strong> (&gt; 10K req/s): Focus on message queuing and horizontal scaling</li>
-  <li><strong>High Availability</strong> (99.9%+): Implement redundancy and monitoring</li>
-</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>- <strong>Small Scale</strong> (&lt; 1M users): Start simple, add complexity as needed</th>
+      <th>- <strong>Medium Scale</strong> (1M-10M users): Focus on caching and basic distribution</th>
+      <th>- <strong>Large Scale</strong> (&gt; 10M users): Full distributed architecture required</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>### <strong>Performance Requirements</strong></td>
+      <td>- <strong>Low Latency</strong> (&lt; 100ms): Prioritize caching and CDN</td>
+      <td>- <strong>High Throughput</strong> (&gt; 10K req/s): Focus on message queuing and horizontal scaling</td>
+      <td>- <strong>High Availability</strong> (99.9%+): Implement redundancy and monitoring</td>
+    </tr>
+  </tbody>
+</table></div>
 <h3 id="data-requirements">
   
   

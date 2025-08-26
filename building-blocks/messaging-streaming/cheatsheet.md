@@ -31,9 +31,7 @@ Ordering Important? → Global or partition ordering
 ## 📊 **PERFORMANCE COMPARISON**
 
 <div class="table-wrapper">
-<table>
-<thead>
-<tr>
+
 <th>Messaging Type</th>
 <th>Latency</th>
 <th>Throughput</th>
@@ -42,51 +40,43 @@ Ordering Important? → Global or partition ordering
 <th>Complexity</th>
 <th>Cost</th>
 <th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>**Message Queues**</td>
-<td>1-100ms</td>
-<td>10K-1M msg/sec</td>
-<td>High</td>
-<td>Partition</td>
-<td>Low</td>
-<td>Low</td>
-<td>Task processing</td>
-</tr>
-<tr>
-<td>**Pub-Sub**</td>
-<td>1-50ms</td>
-<td>10K-500K msg/sec</td>
-<td>Medium</td>
-<td>None</td>
-<td>Medium</td>
-<td>Low</td>
-<td>Event broadcasting</td>
-</tr>
-<tr>
-<td>**Event Streaming**</td>
-<td>1-10ms</td>
-<td>100K-10M events/sec</td>
-<td>Very High</td>
-<td>Global/Partition</td>
-<td>High</td>
-<td>Medium</td>
-<td>Event sourcing</td>
-</tr>
-<tr>
-<td>**Real-time Processing**</td>
-<td>1-1000ms</td>
-<td>10K-1M events/sec</td>
-<td>High</td>
-<td>Time-based</td>
-<td>High</td>
-<td>High</td>
-<td>Stream analytics</td>
-</tr>
-</tbody>
-</table>
+
+**Message Queues**
+1-100ms
+10K-1M msg/sec
+High
+Partition
+Low
+Low
+Task processing
+
+**Pub-Sub**
+1-50ms
+10K-500K msg/sec
+Medium
+None
+Medium
+Low
+Event broadcasting
+
+**Event Streaming**
+1-10ms
+100K-10M events/sec
+Very High
+Global/Partition
+High
+Medium
+Event sourcing
+
+**Real-time Processing**
+1-1000ms
+10K-1M events/sec
+High
+Time-based
+High
+High
+Stream analytics
+
 </div>
 ---
 
