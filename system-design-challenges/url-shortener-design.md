@@ -388,26 +388,38 @@ Let me break this down into building blocks and explain my choices."
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                  URL Shortener System                  │
-├─────────────────────────────────────────────────────────┤Web       │    │   Mobile    │    │   API       │  │
-│   Client      │    │  Apps       │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ URL         │    │   Redirect        │    │  Analytics│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Click        │                  │
-│         │              │  Processing┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Redis       │    │   PostgreSQL        │    │ ClickHouse│ │
-│  │ (Cache)     │    │   (URLs)            │    │ (Analytics)│
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Object      │                  │
-│         │              │   Storage┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   & Analytics       │    │ (Events)```
+├─────────────────────────────────────────────────────────┤
+│  Web Client    │  Mobile Apps   │  API Gateway         │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ URL         │    │   Redirect            │    │ Analytics│
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Click Processing   │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   PostgreSQL        │    │ ClickHouse│
+│  │ Redis       │       │   (URLs)            │    │ (Analytics)│
+│  │ (Cache)     │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Object Storage    │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   & Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+```
 
 **Data Flow:**
 1. **URL Creation**: User → URL Service → ID Generation → Storage → Response

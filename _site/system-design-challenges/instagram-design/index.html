@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for instagram design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for instagram design system design challenge" />
-<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/instagram-design/" />
-<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/instagram-design/" />
+<link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/instagram-design/" />
+<meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/instagram-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Instagram Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for instagram design system design challenge","headline":"Instagram Design - System Design Challenge","url":"http://0.0.0.0:4019/engineering-ascend/system-design-challenges/instagram-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for instagram design system design challenge","headline":"Instagram Design - System Design Challenge","url":"http://0.0.0.0:4018/engineering-ascend/system-design-challenges/instagram-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -830,29 +830,40 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
 │                    Instagram System                      │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   API      │  │
-│   Apps        │    │  Client     │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ User        │    │   Feed            │    │  Media  │ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Social       │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ PostgreSQL  │    │   Redis             │    │  Object │ │
-│  │ (Users)     │    │   (Social)          │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   CDN         │                  │
-│         │              │   (Media)┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Alerting        │    │ (Events)</code></p>
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  API Gateway          │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ User        │    │   Feed                │    │  Media  │
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Social Service     │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Redis             │    │  Object   │
+│  │ PostgreSQL  │       │   (Social)          │    │ Storage   │
+│  │ (Users)     │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   CDN (Media)       │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   &amp; Alerting        │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

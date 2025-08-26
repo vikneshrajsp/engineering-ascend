@@ -371,26 +371,38 @@ Let me break this down into building blocks and explain my choices."
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    Instagram System                      │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   API      │  │
-│   Apps        │    │  Client     │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ User        │    │   Feed            │    │  Media  │ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Social       │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ PostgreSQL  │    │   Redis             │    │  Object │ │
-│  │ (Users)     │    │   (Social)          │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   CDN         │                  │
-│         │              │   (Media)┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   & Alerting        │    │ (Events)```
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  API Gateway          │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ User        │    │   Feed                │    │  Media  │
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Social Service     │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Redis             │    │  Object   │
+│  │ PostgreSQL  │       │   (Social)          │    │ Storage   │
+│  │ (Users)     │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   CDN (Media)       │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   & Alerting        │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+```
 
 **Data Flow:**
 1. **Photo Upload**: Client → API Gateway → Media Service → Object Storage → Processing Queue

@@ -41,7 +41,7 @@ Quantitative metrics provide measurable, numerical data to evaluate system perfo
 ### **Latency Metrics**
 
 #### **Response Time**
-```
+```text
 Response Time = Processing Time + Network Time + Database Time + Cache Time
 
 Typical Values:
@@ -53,7 +53,7 @@ Typical Values:
 ```
 
 #### **Throughput**
-```
+```text
 Throughput = Requests per Second (RPS) = Total Requests / Time Period
 
 Typical Values:
@@ -65,7 +65,7 @@ Typical Values:
 ```
 
 #### **Concurrency**
-```
+```text
 Concurrent Users = Average Session Time × Requests per Session × Total Users / Time Period
 
 Typical Values:
@@ -77,7 +77,7 @@ Typical Values:
 ### **Efficiency Metrics**
 
 #### **CPU Utilization**
-```
+```text
 CPU Utilization = (CPU Time Used / Total CPU Time) × 100%
 
 Target Values:
@@ -88,7 +88,7 @@ Target Values:
 ```
 
 #### **Memory Utilization**
-```
+```text
 Memory Utilization = (Used Memory / Total Memory) × 100%
 
 Target Values:
@@ -99,7 +99,7 @@ Target Values:
 ```
 
 #### **I/O Utilization**
-```
+```text
 I/O Utilization = (I/O Operations / I/O Capacity) × 100%
 
 Target Values:
@@ -115,7 +115,7 @@ Target Values:
 ### **Storage Capacity**
 
 #### **Data Volume Estimation**
-```
+```text
 Daily Data Volume = Users × Actions per User × Data per Action
 
 Example:
@@ -124,7 +124,7 @@ Example:
 ```
 
 #### **Storage Growth**
-```
+```text
 Annual Storage Growth = Current Storage × (1 + Growth Rate)^Years
 
 Typical Growth Rates:
@@ -135,7 +135,7 @@ Typical Growth Rates:
 ```
 
 #### **Storage Efficiency**
-```
+```text
 Compression Ratio = Original Size / Compressed Size
 
 Typical Ratios:
@@ -148,7 +148,7 @@ Typical Ratios:
 ### **Processing Capacity**
 
 #### **Computational Requirements**
-```
+```text
 CPU Requirements = Operations per Request × Requests per Second × CPU per Operation
 
 Example:

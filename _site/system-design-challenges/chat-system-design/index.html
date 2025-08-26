@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for chat system design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for chat system design system design challenge" />
-<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/chat-system-design/" />
-<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/chat-system-design/" />
+<link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/chat-system-design/" />
+<meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/chat-system-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Chat System Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for chat system design system design challenge","headline":"Chat System Design - System Design Challenge","url":"http://0.0.0.0:4019/engineering-ascend/system-design-challenges/chat-system-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for chat system design system design challenge","headline":"Chat System Design - System Design Challenge","url":"http://0.0.0.0:4018/engineering-ascend/system-design-challenges/chat-system-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -844,29 +844,40 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
 │                   Chat System                          │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   Desktop   │  │
-│   Apps        │    │  Client     │    │  Client┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Chat        │    │   Group           │    │  Media  │ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Presence     │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Redis       │    │   PostgreSQL        │    │  Object │ │
-│  │ (Real-time) │    │   (Persistent)      │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Message     │                  │
-│         │              │   Queue┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Analytics       │    │ (Events)</code></p>
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  Desktop Client      │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ Chat        │    │   Group               │    │  Media  │
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Presence Service    │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   PostgreSQL        │    │  Object   │
+│  │ Redis       │       │   (Persistent)      │    │ Storage   │
+│  │ (Real-time) │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Message Queue     │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   &amp; Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

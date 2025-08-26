@@ -387,26 +387,38 @@ Let me break this down into building blocks and explain my choices."
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                   Chat System                          │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   Desktop   │  │
-│   Apps        │    │  Client     │    │  Client┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Chat        │    │   Group           │    │  Media  │ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Presence     │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Redis       │    │   PostgreSQL        │    │  Object │ │
-│  │ (Real-time) │    │   (Persistent)      │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Message     │                  │
-│         │              │   Queue┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   & Analytics       │    │ (Events)```
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  Desktop Client      │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ Chat        │    │   Group               │    │  Media  │
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Presence Service    │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   PostgreSQL        │    │  Object   │
+│  │ Redis       │       │   (Persistent)      │    │ Storage   │
+│  │ (Real-time) │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Message Queue     │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   & Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+```
 
 **Data Flow:**
 1. **Message Flow**: User → WebSocket → Chat Service → Message Queue → Recipients

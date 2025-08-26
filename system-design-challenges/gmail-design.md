@@ -394,27 +394,38 @@ Let me break this down into building blocks and explain my choices."
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                Gmail System                            │
-├─────────────────────────────────────────────────────────┤Web       │    │   Mobile    │    │   Desktop   │  │
-│   Clients     │    │  Clients    │    │  Clients┼┴─────────┐                 │
-│                    │   Load            │                 │
-│                    │   Balancer        │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Email       │    │   Spam            │    │  Search │ │
-│  │ Service     │    │  Filtering        │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Sync         │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Bigtable    │    │   Spanner           │    │  Object │ │
-│  │ (Emails)    │    │   (User Data)       │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Search      │                  │
-│         │              │   Index┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   & Analytics       │    │ (Events)```
+├─────────────────────────────────────────────────────────┤
+│  Web Client    │  Mobile Apps   │  Desktop Apps        │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ Email       │    │   Spam                │    │  Search │
+│  │ Service     │    │  Filtering            │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Sync Service       │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Spanner           │    │  Object   │
+│  │ Bigtable    │       │   (User Data)       │    │ Storage   │
+│  │ (Emails)    │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Search Index      │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   & Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+```
 
 **Data Flow:**
 1. **Email Flow**: Client → Load Balancer → Email Service → Spam Filtering → Storage → Delivery

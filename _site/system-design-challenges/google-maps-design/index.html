@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for google maps design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for google maps design system design challenge" />
-<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/google-maps-design/" />
-<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/google-maps-design/" />
+<link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/google-maps-design/" />
+<meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/google-maps-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Google Maps Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for google maps design system design challenge","headline":"Google Maps Design - System Design Challenge","url":"http://0.0.0.0:4019/engineering-ascend/system-design-challenges/google-maps-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for google maps design system design challenge","headline":"Google Maps Design - System Design Challenge","url":"http://0.0.0.0:4018/engineering-ascend/system-design-challenges/google-maps-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -854,30 +854,40 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
 │                Google Maps System                      │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   API       │  │
-│   Clients     │    │  Clients    │    │  Clients┼┴─────────┐                 │
-│                    │   Load            │                 │
-│                    │   Balancer        │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Map         │    │   Navigation      │    │  Traffic│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Geocoding    │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Bigtable    │    │   Spanner           │    │  Object │ │
-│  │ (Geospatial)│    │   (User Data)       │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Cache       │                  │
-│         │              │   Layer┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Analytics       │    │ (Events)</code></p>
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  API Clients         │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ Map         │    │   Navigation          │    │  Traffic │
+│  │ Service     │    │  Service              │    │ Service  │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Geocoding Service   │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Spanner           │    │  Object   │
+│  │ Bigtable    │       │   (User Data)       │    │ Storage   │
+│  │ (Geospatial)│       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Cache Layer       │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   &amp; Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

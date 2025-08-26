@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Comprehensive solution for url shortener design system design challenge" />
 <meta property="og:description" content="Comprehensive solution for url shortener design system design challenge" />
-<link rel="canonical" href="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/url-shortener-design/" />
-<meta property="og:url" content="http://0.0.0.0:4019/engineering-ascend/system-design-challenges/url-shortener-design/" />
+<link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/url-shortener-design/" />
+<meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/system-design-challenges/url-shortener-design/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Url Shortener Design - System Design Challenge" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for url shortener design system design challenge","headline":"Url Shortener Design - System Design Challenge","url":"http://0.0.0.0:4019/engineering-ascend/system-design-challenges/url-shortener-design/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive solution for url shortener design system design challenge","headline":"Url Shortener Design - System Design Challenge","url":"http://0.0.0.0:4018/engineering-ascend/system-design-challenges/url-shortener-design/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -845,29 +845,40 @@
 
 <p><strong>My Response</strong>: “Let me show you the complete system architecture:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-┌─────────────────────────────────────────────────────────┐
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
 │                  URL Shortener System                  │
-├─────────────────────────────────────────────────────────┤Web       │    │   Mobile    │    │   API       │  │
-│   Client      │    │  Apps       │    │  Gateway┼┴─────────┐                 │
-│                    │   Load Balancer   │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ URL         │    │   Redirect        │    │  Analytics│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Click        │                  │
-│         │              │  Processing┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Redis       │    │   PostgreSQL        │    │ ClickHouse│ │
-│  │ (Cache)     │    │   (URLs)            │    │ (Analytics)│
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Object      │                  │
-│         │              │   Storage┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   &amp; Analytics       │    │ (Events)</code></p>
+├─────────────────────────────────────────────────────────┤
+│  Web Client    │  Mobile Apps   │  API Gateway         │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ URL         │    │   Redirect            │    │ Analytics│
+│  │ Service     │    │  Service              │    │ Service │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Click Processing   │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   PostgreSQL        │    │ ClickHouse│
+│  │ Redis       │       │   (URLs)            │    │ (Analytics)│
+│  │ (Cache)     │       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Object Storage    │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   &amp; Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+</code></pre></div></div>
 
 <p><strong>Data Flow:</strong></p>
 <ol>

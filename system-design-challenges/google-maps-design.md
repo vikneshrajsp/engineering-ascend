@@ -395,27 +395,38 @@ Let me break this down into building blocks and explain my choices."
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                Google Maps System                      │
-├─────────────────────────────────────────────────────────┤Mobile    │    │   Web       │    │   API       │  │
-│   Clients     │    │  Clients    │    │  Clients┼┴─────────┐                 │
-│                    │   Load            │                 │
-│                    │   Balancer        │                 │
-│                    └─────────┬┴─────────┐    ┌─────────┐ │
-│  │ Map         │    │   Navigation      │    │  Traffic│ │
-│  │ Service     │    │  Service          │    │ Service │ │
-│  └─────────────┘    └─────────┬┴───────┐                  │
-│         │              │  Geocoding    │                  │
-│         │              │  Service┼┴───────────┐                │
-│                    │    Data Layer         │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Bigtable    │    │   Spanner           │    │  Object │ │
-│  │ (Geospatial)│    │   (User Data)       │    │ Storage │ │
-│  └─────────────┘    └──────────┬┴───────┐                  │
-│         │              │   Cache       │                  │
-│         │              │   Layer┼┴───────────┐                │
-│                    │   Infrastructure      │                │
-│                    └───────────┬┴──────────┐    ┌─────────┐ │
-│  │ Multi-      │    │   Monitoring        │    │  Kafka  │ │
-│  │ Region      │    │   & Analytics       │    │ (Events)```
+├─────────────────────────────────────────────────────────┤
+│  Mobile Apps   │  Web Client    │  API Clients         │
+│                │                │                       │
+│                └─────────┬──────┴─────────┐             │
+│                          │  Load Balancer │             │
+│                          └─────────┬──────┴─────────┐   │
+│                                    │                │   │
+│  ┌─────────────┐    ┌─────────────┴─────────┐    ┌──┴───┴──┐
+│  │ Map         │    │   Navigation          │    │  Traffic │
+│  │ Service     │    │  Service              │    │ Service  │
+│  └─────────────┘    └─────────────┬─────────┴────┴─────────┘
+│         │                         │
+│         │              ┌──────────┴──────────┐
+│         │              │  Geocoding Service   │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │    Data Layer       │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Spanner           │    │  Object   │
+│  │ Bigtable    │       │   (User Data)       │    │ Storage   │
+│  │ (Geospatial)│       └──────────┬──────────┴────┴───────────┘
+│  └─────────────┘                  │
+│         │              ┌──────────┴──────────┐
+│         │              │   Cache Layer       │
+│         │              └──────────┬──────────┴──────────┐
+│         │                         │   Infrastructure    │
+│         │              ┌──────────┴──────────┐    ┌─────┴─────┐
+│  ┌──────┴──────┐       │   Monitoring        │    │  Kafka    │
+│  │ Multi-      │       │   & Analytics       │    │ (Events)  │
+│  │ Region      │       └─────────────────────┘    └───────────┘
+│  │ CDN         │
+│  └─────────────┘
+```
 
 **Data Flow:**
 1. **Map Flow**: Client → Load Balancer → Map Service → Tile Cache → Response

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="custom-footer">
         <div class="footer-content">
           <div class="sponsorship-section">
-            <h3 class="sponsorship-title">Support Engineering Ascend</h3>
+            <h3 class="sponsorship-title">Support us</h3>
             <p class="sponsorship-description">
               If you find this documentation helpful for your system design interviews and learning, 
               consider supporting the project to keep it free and updated.
