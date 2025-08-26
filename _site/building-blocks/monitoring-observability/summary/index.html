@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/summary/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/summary/" />
+<link rel="canonical" href="http://0.0.0.0:4000/engineering-ascend/building-blocks/monitoring-observability/summary/" />
+<meta property="og:url" content="http://0.0.0.0:4000/engineering-ascend/building-blocks/monitoring-observability/summary/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Summary" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Summary","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/monitoring-observability/summary/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Summary","url":"http://0.0.0.0:4000/engineering-ascend/building-blocks/monitoring-observability/summary/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -211,609 +211,857 @@
   
 </h3>
     
-<p>| Aspect | Monitoring | Observability |
-|——–|————|—————|
-| <strong>Purpose</strong> | Detect known issues | Understand unknown issues |
-| <strong>Approach</strong> | Reactive | Proactive |
-| <strong>Focus</strong> | What is happening | Why is it happening |
-| <strong>Data</strong> | Predefined metrics | Exploratory analysis |</p>
-<h3 id="monitoring-principles">
-  
-  
-    <a href="#monitoring-principles" class="anchor-heading" aria-labelledby="monitoring-principles"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring Principles</strong>
-  
-  
-</h3>
-    
-<p>| Principle | Definition | Implementation |
-|———–|————|—————-|
-| <strong>Proactive Detection</strong> | Identify issues before impact | Early warning systems |
-| <strong>Comprehensive Coverage</strong> | Monitor all components | Full-stack monitoring |
-| <strong>Real-Time Visibility</strong> | Immediate system state | Live dashboards |
-| <strong>Actionable Insights</strong> | Data drives decisions | Alert correlation |</p><hr />
-<h2 id="-observability-pillars">
-  
-  
-    <a href="#-observability-pillars" class="anchor-heading" aria-labelledby="-observability-pillars"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>OBSERVABILITY PILLARS</strong>
-  
-  
-</h2>
-    
-<h3 id="three-pillars-comparison">
-  
-  
-    <a href="#three-pillars-comparison" class="anchor-heading" aria-labelledby="three-pillars-comparison"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Three Pillars Comparison</strong>
-  
-  
-</h3>
-    
-<p>| Pillar | Purpose | Data Type | Use Case | Performance Impact |
-|——–|———|———–|———-|——————-|
-| <strong>Logs</strong> | Event recording | Structured events | Debugging, audit | Low |
-| <strong>Metrics</strong> | Performance measurement | Time-series data | Monitoring, alerting | Very Low |
-| <strong>Traces</strong> | Request tracking | Distributed spans | Performance debugging | Medium |</p>
-<h3 id="logging-levels">
-  
-  
-    <a href="#logging-levels" class="anchor-heading" aria-labelledby="logging-levels"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Logging Levels</strong>
-  
-  
-</h3>
-    
-<p>| Level | Volume | Value | Use Case | Storage Impact |
-|——-|——–|——-|———-|—————-|
-| <strong>DEBUG</strong> | 80% | 20% | Development | High |
-| <strong>INFO</strong> | 15% | 30% | Normal operations | Medium |
-| <strong>WARN</strong> | 3% | 25% | Potential issues | Low |
-| <strong>ERROR</strong> | 2% | 25% | Actual errors | Low |
-| <strong>FATAL</strong> | &lt;1% | High | Critical failures | Minimal |</p>
-<h3 id="structured-logging-format">
-  
-  
-    <a href="#structured-logging-format" class="anchor-heading" aria-labelledby="structured-logging-format"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Structured Logging Format</strong>
-  
-  
-</h3>
-    
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-15T10:30:00Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INFO"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-service"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"trace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123def456"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user-123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"login"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User login successful"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div><hr />
-<h2 id="-metrics-collection">
-  
-  
-    <a href="#-metrics-collection" class="anchor-heading" aria-labelledby="-metrics-collection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>METRICS COLLECTION</strong>
-  
-  
-</h2>
-    
-<h3 id="metrics-types">
-  
-  
-    <a href="#metrics-types" class="anchor-heading" aria-labelledby="metrics-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Metrics Types</strong>
-  
-  
-</h3>
-    
-<p>| Type | Purpose | Example | Storage | Analysis |
-|——|———|———|———|———-|
-| <strong>Counter</strong> | Cumulative values | Request count | Minimal | Rate calculation |
-| <strong>Gauge</strong> | Current values | CPU usage | Medium | Current state |
-| <strong>Histogram</strong> | Distribution | Response time | High | Percentiles |
-| <strong>Summary</strong> | Statistical summary | Request duration | Medium | Averages |</p>
-<h3 id="pull-vs-push-models">
-  
-  
-    <a href="#pull-vs-push-models" class="anchor-heading" aria-labelledby="pull-vs-push-models"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Pull vs Push Models</strong>
-  
-  
-</h3>
-    
-<p>| Model | Advantages | Disadvantages | Use Case | Example |
-|——-|————|—————|———-|———|
-| <strong>Pull</strong> | Simple, reliable | Requires availability | Infrastructure | Prometheus |
-| <strong>Push</strong> | Flexible, fire-forget | Potential data loss | Applications | StatsD |</p>
-<h3 id="time-series-database-features">
-  
-  
-    <a href="#time-series-database-features" class="anchor-heading" aria-labelledby="time-series-database-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Time-Series Database Features</strong>
-  
-  
-</h3>
-    
-<p>| Feature | Benefit | Implementation | Performance |
-|———|———|—————-|————-|
-| <strong>Columnar Storage</strong> | Efficient queries | Time-based columns | Fast reads |
-| <strong>Compression</strong> | Reduced storage | Delta encoding | 10-100x compression |
-| <strong>Indexing</strong> | Fast lookups | Time-based indexes | Sub-second queries |
-| <strong>Retention</strong> | Data lifecycle | Automatic cleanup | Configurable |</p><hr />
-<h2 id="-logging-systems">
-  
-  
-    <a href="#-logging-systems" class="anchor-heading" aria-labelledby="-logging-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📝 <strong>LOGGING SYSTEMS</strong>
-  
-  
-</h2>
-    
-<h3 id="log-aggregation-pipeline">
-  
-  
-    <a href="#log-aggregation-pipeline" class="anchor-heading" aria-labelledby="log-aggregation-pipeline"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Log Aggregation Pipeline</strong>
-  
-  
-</h3>
-    
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Log Generation → 2. Log Collection → 3. Log Processing → 4. Log Storage → 5. Log Analysis
-</code></pre></div></div>
-<h3 id="log-retention-strategy">
-  
-  
-    <a href="#log-retention-strategy" class="anchor-heading" aria-labelledby="log-retention-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Log Retention Strategy</strong>
-  
-  
-</h3>
-    
-<p>| Tier | Duration | Access Speed | Cost | Use Case |
-|——|———-|————–|——|———-|
-| <strong>Hot</strong> | 0-7 days | Fast | High | Real-time analysis |
-| <strong>Warm</strong> | 7-30 days | Medium | Medium | Trend analysis |
-| <strong>Cold</strong> | 30-365 days | Slow | Low | Compliance |
-| <strong>Archive</strong> | 1+ years | Very slow | Minimal | Legal requirements |</p>
-<h3 id="log-analysis-capabilities">
-  
-  
-    <a href="#log-analysis-capabilities" class="anchor-heading" aria-labelledby="log-analysis-capabilities"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Log Analysis Capabilities</strong>
-  
-  
-</h3>
-    
-<p>| Capability | Purpose | Implementation | Performance |
-|————|———|—————-|————-|
-| <strong>Full-text Search</strong> | Find specific events | Elasticsearch | Sub-second |
-| <strong>Pattern Matching</strong> | Identify trends | Regex, ML | Real-time |
-| <strong>Correlation</strong> | Link related events | Trace IDs | Fast |
-| <strong>Alerting</strong> | Trigger notifications | Rules engine | Immediate |</p><hr />
-<h2 id="-distributed-tracing">
-  
-  
-    <a href="#-distributed-tracing" class="anchor-heading" aria-labelledby="-distributed-tracing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔍 <strong>DISTRIBUTED TRACING</strong>
-  
-  
-</h2>
-    
-<h3 id="trace-structure">
-  
-  
-    <a href="#trace-structure" class="anchor-heading" aria-labelledby="trace-structure"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Trace Structure</strong>
-  
-  
-</h3>
-    
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Trace ID: abc123def456
-├── Span 1: HTTP Request (100ms)
-│   ├── Span 1.1: Database Query (50ms)
-│   └── Span 1.2: Cache Lookup (10ms)
-├── Span 2: External API Call (200ms)
-└── Span 3: Response Generation (20ms)
-</code></pre></div></div>
-<h3 id="sampling-strategies">
-  
-  
-    <a href="#sampling-strategies" class="anchor-heading" aria-labelledby="sampling-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Sampling Strategies</strong>
-  
-  
-</h3>
-    
-<p>| Strategy | Advantages | Disadvantages | Use Case | Performance Impact |
-|———-|————|—————|———-|——————-|
-| <strong>Head-based</strong> | Complete traces | May miss important | Performance monitoring | 5-10% overhead |
-| <strong>Tail-based</strong> | Captures errors | Incomplete traces | Error analysis | 10-20% overhead |
-| <strong>Adaptive</strong> | Balances visibility | Complex | Production systems | 1-5% overhead |</p>
-<h3 id="trace-propagation">
-  
-  
-    <a href="#trace-propagation" class="anchor-heading" aria-labelledby="trace-propagation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Trace Propagation</strong>
-  
-  
-</h3>
-    
-<p>| Method | Protocol | Use Case | Implementation |
-|——–|———-|———-|—————-|
-| <strong>HTTP Headers</strong> | HTTP/HTTPS | Web services | X-Trace-ID header |
-| <strong>gRPC Metadata</strong> | gRPC | Microservices | Metadata context |
-| <strong>Message Headers</strong> | Message queues | Event processing | Message properties |
-| <strong>Database Context</strong> | SQL/NoSQL | Database queries | Connection context |</p><hr />
-<h2 id="-health-checks">
-  
-  
-    <a href="#-health-checks" class="anchor-heading" aria-labelledby="-health-checks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏥 <strong>HEALTH CHECKS</strong>
-  
-  
-</h2>
-    
-<h3 id="health-check-types">
-  
-  
-    <a href="#health-check-types" class="anchor-heading" aria-labelledby="health-check-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Health Check Types</strong>
-  
-  
-</h3>
-    
-<p>| Type | Purpose | Frequency | Timeout | Action |
-|——|———|———–|———|——–|
-| <strong>Liveness</strong> | Is service alive? | 30-60s | 5-10s | Restart |
-| <strong>Readiness</strong> | Ready for traffic? | 5-10s | 1-5s | Remove from LB |
-| <strong>Startup</strong> | Started successfully? | 5-10s | 1-5s | Restart |</p>
-<h3 id="health-check-implementation">
-  
-  
-    <a href="#health-check-implementation" class="anchor-heading" aria-labelledby="health-check-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Health Check Implementation</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GET</span> <span class="o">/</span><span class="n">health</span><span class="o">/</span><span class="n">live</span>
-<span class="n">Response</span><span class="p">:</span> <span class="mi">200</span> <span class="nc">OK </span><span class="p">(</span><span class="n">alive</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">503</span> <span class="n">Service</span> <span class="nc">Unavailable </span><span class="p">(</span><span class="n">dead</span><span class="p">)</span>
-
-<span class="n">GET</span> <span class="o">/</span><span class="n">health</span><span class="o">/</span><span class="n">ready</span>
-<span class="n">Response</span><span class="p">:</span> <span class="mi">200</span> <span class="nc">OK </span><span class="p">(</span><span class="n">ready</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">503</span> <span class="n">Service</span> <span class="nc">Unavailable </span><span class="p">(</span><span class="ow">not</span> <span class="n">ready</span><span class="p">)</span>
-</code></pre></div></div>
-<h3 id="health-check-hierarchy">
-  
-  
-    <a href="#health-check-hierarchy" class="anchor-heading" aria-labelledby="health-check-hierarchy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Health Check Hierarchy</strong>
-  
-  
-</h3>
-    
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Service Health
-├── Application Health
-│   ├── Database Connectivity
-│   ├── Cache Connectivity
-│   └── External API Connectivity
-├── System Health
-│   ├── CPU Usage
-│   ├── Memory Usage
-│   └── Disk Usage
-└── Business Health
-    ├── Key Metrics
-    ├── SLA Compliance
-    └── Error Rates
-</code></pre></div></div><hr />
-<h2 id="-alerting-systems">
-  
-  
-    <a href="#-alerting-systems" class="anchor-heading" aria-labelledby="-alerting-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚨 <strong>ALERTING SYSTEMS</strong>
-  
-  
-</h2>
-    
-<h3 id="alerting-strategies">
-  
-  
-    <a href="#alerting-strategies" class="anchor-heading" aria-labelledby="alerting-strategies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alerting Strategies</strong>
-  
-  
-</h3>
-    
-<p>| Strategy | Purpose | Implementation | Use Case |
-|———-|———|—————-|———-|
-| <strong>Threshold-based</strong> | Static limits | Fixed values | Basic monitoring |
-| <strong>Dynamic</strong> | Adaptive limits | Historical data | Variable systems |
-| <strong>Anomaly Detection</strong> | Unusual patterns | ML algorithms | Complex systems |
-| <strong>Correlation</strong> | Related alerts | Pattern matching | Incident response |</p>
-<h3 id="alert-severity-levels">
-  
-  
-    <a href="#alert-severity-levels" class="anchor-heading" aria-labelledby="alert-severity-levels"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alert Severity Levels</strong>
-  
-  
-</h3>
-    
-<p>| Level | Response Time | Notification | Escalation |
-|——-|—————|————–|————|
-| <strong>Info</strong> | 24 hours | Email | None |
-| <strong>Warning</strong> | 4 hours | Email, Slack | Team lead |
-| <strong>Critical</strong> | 15 minutes | Phone, SMS | On-call engineer |
-| <strong>Fatal</strong> | 5 minutes | Phone, SMS, Pager | Manager |</p>
-<h3 id="alert-management">
-  
-  
-    <a href="#alert-management" class="anchor-heading" aria-labelledby="alert-management"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alert Management</strong>
-  
-  
-</h3>
-    
-<p>| Process | Purpose | Implementation | Benefits |
-|———|———|—————-|———-|
-| <strong>Correlation</strong> | Group related alerts | Time-based grouping | Reduce noise |
-| <strong>Suppression</strong> | Prevent alert storms | Rule-based suppression | Reduce fatigue |
-| <strong>Escalation</strong> | Ensure response | Time-based escalation | Timely response |
-| <strong>Documentation</strong> | Guide response | Runbooks | Consistent response |</p><hr />
-<h2 id="-dashboards--visualization">
-  
-  
-    <a href="#-dashboards--visualization" class="anchor-heading" aria-labelledby="-dashboards--visualization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 <strong>DASHBOARDS &amp; VISUALIZATION</strong>
-  
-  
-</h2>
-    
-<h3 id="dashboard-types">
-  
-  
-    <a href="#dashboard-types" class="anchor-heading" aria-labelledby="dashboard-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Dashboard Types</strong>
-  
-  
-</h3>
-    
-<p>| Type | Audience | Focus | Metrics |
-|——|———-|——-|———|
-| <strong>Operational</strong> | Engineers | System health | Performance, errors |
-| <strong>Business</strong> | Executives | Business metrics | Revenue, users |
-| <strong>Technical</strong> | Developers | Code performance | Latency, throughput |</p>
-<h3 id="visualization-techniques">
-  
-  
-    <a href="#visualization-techniques" class="anchor-heading" aria-labelledby="visualization-techniques"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Visualization Techniques</strong>
-  
-  
-</h3>
-    
-<p>| Technique | Use Case | Implementation | Benefits |
-|———–|———-|—————-|———-|
-| <strong>Time Series</strong> | Trends over time | Line charts | Pattern identification |
-| <strong>Heatmaps</strong> | Multi-dimensional | Color-coded grids | Correlation analysis |
-| <strong>Gauges</strong> | Current values | Circular indicators | Quick status |
-| <strong>Tables</strong> | Detailed data | Sortable tables | Deep analysis |</p>
-<h3 id="real-time-features">
-  
-  
-    <a href="#real-time-features" class="anchor-heading" aria-labelledby="real-time-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Real-time Features</strong>
-  
-  
-</h3>
-    
-<p>| Feature | Purpose | Implementation | Performance |
-|———|———|—————-|————-|
-| <strong>Live Updates</strong> | Current state | WebSocket, SSE | Sub-second |
-| <strong>Interactive Controls</strong> | User control | JavaScript | Immediate |
-| <strong>Drill-down</strong> | Detailed analysis | Click handlers | Fast navigation |
-| <strong>Alert Integration</strong> | Visual alerts | Color coding | Immediate |</p><hr />
-<h2 id="-implementation-patterns">
-  
-  
-    <a href="#-implementation-patterns" class="anchor-heading" aria-labelledby="-implementation-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>IMPLEMENTATION PATTERNS</strong>
-  
-  
-</h2>
-    
-<h3 id="monitoring-agent">
-  
-  
-    <a href="#monitoring-agent" class="anchor-heading" aria-labelledby="monitoring-agent"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring Agent</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MonitoringAgent</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">collect_metrics</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sh">'</span><span class="s">cpu_usage</span><span class="sh">'</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_cpu_usage</span><span class="p">(),</span>
-            <span class="sh">'</span><span class="s">memory_usage</span><span class="sh">'</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_memory_usage</span><span class="p">(),</span>
-            <span class="sh">'</span><span class="s">disk_usage</span><span class="sh">'</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_disk_usage</span><span class="p">()</span>
-        <span class="p">}</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">metrics_collector</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">collect_logs</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sh">'</span><span class="s">timestamp</span><span class="sh">'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">utcnow</span><span class="p">().</span><span class="nf">isoformat</span><span class="p">(),</span>
-            <span class="sh">'</span><span class="s">level</span><span class="sh">'</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
-            <span class="sh">'</span><span class="s">message</span><span class="sh">'</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">kwargs</span>
-        <span class="p">}</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">log_collector</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
-</code></pre></div></div>
-<h3 id="health-checker">
-  
-  
-    <a href="#health-checker" class="anchor-heading" aria-labelledby="health-checker"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Health Checker</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">HealthChecker</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">check_health</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="n">health_status</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="sh">'</span><span class="s">status</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">healthy</span><span class="sh">'</span><span class="p">,</span>
-            <span class="sh">'</span><span class="s">checks</span><span class="sh">'</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="sh">'</span><span class="s">timestamp</span><span class="sh">'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">utcnow</span><span class="p">().</span><span class="nf">isoformat</span><span class="p">()</span>
-        <span class="p">}</span>
-        
-        <span class="k">for</span> <span class="n">check_name</span><span class="p">,</span> <span class="n">check_func</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">checks</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="nf">check_func</span><span class="p">()</span>
-            <span class="n">health_status</span><span class="p">[</span><span class="sh">'</span><span class="s">checks</span><span class="sh">'</span><span class="p">][</span><span class="n">check_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="sh">'</span><span class="s">status</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">healthy</span><span class="sh">'</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="sh">'</span><span class="s">unhealthy</span><span class="sh">'</span>
-            <span class="p">}</span>
-        
-        <span class="k">return</span> <span class="n">health_status</span>
-</code></pre></div></div><hr />
-<h2 id="️-common-pitfalls">
-  
-  
-    <a href="#️-common-pitfalls" class="anchor-heading" aria-labelledby="️-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>COMMON PITFALLS</strong>
-  
-  
-</h2>
-    
-<h3 id="monitoring-pitfalls">
-  
-  
-    <a href="#monitoring-pitfalls" class="anchor-heading" aria-labelledby="monitoring-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring Pitfalls</strong>
-  
-  
-</h3>
-    
-<p>| Pitfall | Impact | Prevention | Detection |
-|———|——–|————|———–|
-| <strong>Alert Fatigue</strong> | Missed alerts | Reduce noise | Alert metrics |
-| <strong>False Positives</strong> | Wasted time | Tune thresholds | Alert analysis |
-| <strong>Incomplete Coverage</strong> | Blind spots | Comprehensive monitoring | Gap analysis |
-| <strong>Performance Impact</strong> | System degradation | Efficient collection | Performance monitoring |</p>
-<h3 id="observability-pitfalls">
-  
-  
-    <a href="#observability-pitfalls" class="anchor-heading" aria-labelledby="observability-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Observability Pitfalls</strong>
-  
-  
-</h3>
-    
-<p>| Pitfall | Impact | Prevention | Detection |
-|———|——–|————|———–|
-| <strong>High Cardinality</strong> | Storage explosion | Limit dimensions | Cardinality monitoring |
-| <strong>Sampling Issues</strong> | Lost data | Appropriate sampling | Sampling validation |
-| <strong>Correlation Failures</strong> | Debugging difficulty | Consistent IDs | Trace validation |
-| <strong>Data Retention</strong> | Compliance issues | Proper retention | Retention monitoring |</p><hr />
-<h2 id="-best-practices">
-  
-  
-    <a href="#-best-practices" class="anchor-heading" aria-labelledby="-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>BEST PRACTICES</strong>
-  
-  
-</h2>
-    
-<h3 id="monitoring-best-practices">
-  
-  
-    <a href="#monitoring-best-practices" class="anchor-heading" aria-labelledby="monitoring-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Comprehensive Coverage</strong>: Monitor all system components</li>
-  <li>✅ <strong>Real-time Visibility</strong>: Provide immediate system state</li>
-  <li>✅ <strong>Actionable Alerts</strong>: Ensure alerts drive action</li>
-  <li>✅ <strong>Performance Optimization</strong>: Minimize monitoring overhead</li>
-  <li>✅ <strong>Data Retention</strong>: Implement appropriate retention policies</li>
-  <li>❌ <strong>Alert Storms</strong>: Avoid overwhelming notifications</li>
-  <li>❌ <strong>False Positives</strong>: Minimize incorrect alerts</li>
-  <li>❌ <strong>Incomplete Monitoring</strong>: Don’t leave blind spots</li>
-</ul>
-<h3 id="observability-best-practices">
-  
-  
-    <a href="#observability-best-practices" class="anchor-heading" aria-labelledby="observability-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Observability Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Structured Logging</strong>: Use consistent log formats</li>
-  <li>✅ <strong>Correlation IDs</strong>: Enable request tracing across services</li>
-  <li>✅ <strong>Sampling Strategies</strong>: Balance visibility with performance</li>
-  <li>✅ <strong>Metric Naming</strong>: Use consistent naming conventions</li>
-  <li>✅ <strong>Dashboard Design</strong>: Create actionable visualizations</li>
-  <li>❌ <strong>High Cardinality</strong>: Avoid excessive metric dimensions</li>
-  <li>❌ <strong>Poor Sampling</strong>: Don’t lose important data</li>
-  <li>❌ <strong>Inconsistent Formats</strong>: Don’t mix log formats</li>
-</ul>
-<h3 id="alerting-best-practices">
-  
-  
-    <a href="#alerting-best-practices" class="anchor-heading" aria-labelledby="alerting-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Alerting Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Reduce Noise</strong>: Minimize false positives</li>
-  <li>✅ <strong>Escalation Paths</strong>: Define clear escalation procedures</li>
-  <li>✅ <strong>Alert Correlation</strong>: Group related alerts</li>
-  <li>✅ <strong>Automated Response</strong>: Implement automated remediation</li>
-  <li>✅ <strong>Alert Documentation</strong>: Document alert meaning and response</li>
-  <li>❌ <strong>Alert Storms</strong>: Avoid overwhelming notifications</li>
-  <li>❌ <strong>Poor Thresholds</strong>: Don’t set inappropriate limits</li>
-  <li>❌ <strong>Missing Context</strong>: Don’t send alerts without context</li>
-</ul><hr />
-<h2 id="-related-concepts">
-  
-  
-    <a href="#-related-concepts" class="anchor-heading" aria-labelledby="-related-concepts"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔗 <strong>RELATED CONCEPTS</strong>
-  
-  
-</h2>
-    
-<h3 id="integration-with-other-systems">
-  
-  
-    <a href="#integration-with-other-systems" class="anchor-heading" aria-labelledby="integration-with-other-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Integration with Other Systems</strong>
-  
-  
-</h3>
-    
-<p>| System | Integration Point | Benefits |
-|——–|——————-|———-|
-| <strong>Data Storage</strong> | Metrics and log storage | Persistent data |
-| <strong>Networking</strong> | Data transmission | Reliable collection |
-| <strong>Caching</strong> | Performance monitoring | Cache optimization |
-| <strong>Security</strong> | Security monitoring | Threat detection |</p>
-<h3 id="compliance-requirements">
-  
-  
-    <a href="#compliance-requirements" class="anchor-heading" aria-labelledby="compliance-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Compliance Requirements</strong>
-  
-  
-</h3>
-    
-<p>| Standard | Requirements | Implementation |
-|———-|————-|—————-|
-| <strong>SOX</strong> | Audit trails | Comprehensive logging |
-| <strong>HIPAA</strong> | Access monitoring | User activity tracking |
-| <strong>PCI DSS</strong> | Security monitoring | Security event logging |
-| <strong>GDPR</strong> | Data processing | Privacy monitoring |</p><hr />
-<h2 id="-performance-considerations">
-  
-  
-    <a href="#-performance-considerations" class="anchor-heading" aria-labelledby="-performance-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>PERFORMANCE CONSIDERATIONS</strong>
-  
-  
-</h2>
-    
-<h3 id="monitoring-performance-impact">
-  
-  
-    <a href="#monitoring-performance-impact" class="anchor-heading" aria-labelledby="monitoring-performance-impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Monitoring Performance Impact</strong>
-  
-  
-</h3>
-    
-<p>| Component | Performance Impact | Optimization | Monitoring |
-|———–|——————-|————–|————|
-| <strong>Metrics Collection</strong> | 1-5% CPU | Sampling | Collection rate |
-| <strong>Log Processing</strong> | 5-15% CPU | Async processing | Processing latency |
-| <strong>Tracing</strong> | 5-10% latency | Sampling | Trace overhead |
-| <strong>Health Checks</strong> | &lt;1% overhead | Efficient checks | Check duration |</p>
-<h3 id="scalability-considerations">
-  
-  
-    <a href="#scalability-considerations" class="anchor-heading" aria-labelledby="scalability-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Scalability Considerations</strong>
-  
-  
-</h3>
-    
-<p>| Aspect | Challenge | Solution | Performance |
-|——–|———–|———-|————-|
-| <strong>Data Volume</strong> | High volume | Sampling, aggregation | 1M+ events/sec |
-| <strong>Storage</strong> | Large datasets | Compression, retention | 10-100x compression |
-| <strong>Queries</strong> | Slow queries | Indexing, caching | Sub-second response |
-| <strong>Real-time</strong> | High latency | Streaming, caching | &lt;1 second latency |</p><hr />
+<div class="table-wrapper">
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Monitoring</th>
+<th>Observability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Purpose**</td>
+<td>Detect known issues</td>
+<td>Understand unknown issues</td>
+</tr>
+<tr>
+<td>**Approach**</td>
+<td>Reactive</td>
+<td>Proactive</td>
+</tr>
+<tr>
+<td>**Focus**</td>
+<td>What is happening</td>
+<td>Why is it happening</td>
+</tr>
+<tr>
+<td>**Data**</td>
+<td>Predefined metrics</td>
+<td>Exploratory analysis</td>
+</tr>
+<tr>
+<td>Principle</td>
+<td>Definition</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**Proactive Detection**</td>
+<td>Identify issues before impact</td>
+<td>Early warning systems</td>
+</tr>
+<tr>
+<td>**Comprehensive Coverage**</td>
+<td>Monitor all components</td>
+<td>Full-stack monitoring</td>
+</tr>
+<tr>
+<td>**Real-Time Visibility**</td>
+<td>Immediate system state</td>
+<td>Live dashboards</td>
+</tr>
+<tr>
+<td>**Actionable Insights**</td>
+<td>Data drives decisions</td>
+<td>Alert correlation</td>
+</tr>
+<tr>
+<td>Pillar</td>
+<td>Purpose</td>
+<td>Data Type</td>
+<td>Use Case</td>
+<td>Performance Impact</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------------</td>
+</tr>
+<tr>
+<td>**Logs**</td>
+<td>Event recording</td>
+<td>Structured events</td>
+<td>Debugging, audit</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Metrics**</td>
+<td>Performance measurement</td>
+<td>Time-series data</td>
+<td>Monitoring, alerting</td>
+<td>Very Low</td>
+</tr>
+<tr>
+<td>**Traces**</td>
+<td>Request tracking</td>
+<td>Distributed spans</td>
+<td>Performance debugging</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Volume</td>
+<td>Value</td>
+<td>Use Case</td>
+<td>Storage Impact</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>--------</td>
+<td>-------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**DEBUG**</td>
+<td>80%</td>
+<td>20%</td>
+<td>Development</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**INFO**</td>
+<td>15%</td>
+<td>30%</td>
+<td>Normal operations</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**WARN**</td>
+<td>3%</td>
+<td>25%</td>
+<td>Potential issues</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**ERROR**</td>
+<td>2%</td>
+<td>25%</td>
+<td>Actual errors</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**FATAL**</td>
+<td>&lt;1%</td>
+<td>High</td>
+<td>Critical failures</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Purpose</td>
+<td>Example</td>
+<td>Storage</td>
+<td>Analysis</td>
+</tr>
+<tr>
+<td>------</td>
+<td>---------</td>
+<td>---------</td>
+<td>---------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Counter**</td>
+<td>Cumulative values</td>
+<td>Request count</td>
+<td>Minimal</td>
+<td>Rate calculation</td>
+</tr>
+<tr>
+<td>**Gauge**</td>
+<td>Current values</td>
+<td>CPU usage</td>
+<td>Medium</td>
+<td>Current state</td>
+</tr>
+<tr>
+<td>**Histogram**</td>
+<td>Distribution</td>
+<td>Response time</td>
+<td>High</td>
+<td>Percentiles</td>
+</tr>
+<tr>
+<td>**Summary**</td>
+<td>Statistical summary</td>
+<td>Request duration</td>
+<td>Medium</td>
+<td>Averages</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+<td>Use Case</td>
+<td>Example</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>------------</td>
+<td>---------------</td>
+<td>----------</td>
+<td>---------</td>
+</tr>
+<tr>
+<td>**Pull**</td>
+<td>Simple, reliable</td>
+<td>Requires availability</td>
+<td>Infrastructure</td>
+<td>Prometheus</td>
+</tr>
+<tr>
+<td>**Push**</td>
+<td>Flexible, fire-forget</td>
+<td>Potential data loss</td>
+<td>Applications</td>
+<td>StatsD</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Benefit</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Columnar Storage**</td>
+<td>Efficient queries</td>
+<td>Time-based columns</td>
+<td>Fast reads</td>
+</tr>
+<tr>
+<td>**Compression**</td>
+<td>Reduced storage</td>
+<td>Delta encoding</td>
+<td>10-100x compression</td>
+</tr>
+<tr>
+<td>**Indexing**</td>
+<td>Fast lookups</td>
+<td>Time-based indexes</td>
+<td>Sub-second queries</td>
+</tr>
+<tr>
+<td>**Retention**</td>
+<td>Data lifecycle</td>
+<td>Automatic cleanup</td>
+<td>Configurable</td>
+</tr>
+<tr>
+<td>Tier</td>
+<td>Duration</td>
+<td>Access Speed</td>
+<td>Cost</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>------</td>
+<td>----------</td>
+<td>--------------</td>
+<td>------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Hot**</td>
+<td>0-7 days</td>
+<td>Fast</td>
+<td>High</td>
+<td>Real-time analysis</td>
+</tr>
+<tr>
+<td>**Warm**</td>
+<td>7-30 days</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Trend analysis</td>
+</tr>
+<tr>
+<td>**Cold**</td>
+<td>30-365 days</td>
+<td>Slow</td>
+<td>Low</td>
+<td>Compliance</td>
+</tr>
+<tr>
+<td>**Archive**</td>
+<td>1+ years</td>
+<td>Very slow</td>
+<td>Minimal</td>
+<td>Legal requirements</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Full-text Search**</td>
+<td>Find specific events</td>
+<td>Elasticsearch</td>
+<td>Sub-second</td>
+</tr>
+<tr>
+<td>**Pattern Matching**</td>
+<td>Identify trends</td>
+<td>Regex, ML</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Link related events</td>
+<td>Trace IDs</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>**Alerting**</td>
+<td>Trigger notifications</td>
+<td>Rules engine</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+<td>Use Case</td>
+<td>Performance Impact</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>------------</td>
+<td>---------------</td>
+<td>----------</td>
+<td>-------------------</td>
+</tr>
+<tr>
+<td>**Head-based**</td>
+<td>Complete traces</td>
+<td>May miss important</td>
+<td>Performance monitoring</td>
+<td>5-10% overhead</td>
+</tr>
+<tr>
+<td>**Tail-based**</td>
+<td>Captures errors</td>
+<td>Incomplete traces</td>
+<td>Error analysis</td>
+<td>10-20% overhead</td>
+</tr>
+<tr>
+<td>**Adaptive**</td>
+<td>Balances visibility</td>
+<td>Complex</td>
+<td>Production systems</td>
+<td>1-5% overhead</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Protocol</td>
+<td>Use Case</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>----------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**HTTP Headers**</td>
+<td>HTTP/HTTPS</td>
+<td>Web services</td>
+<td>X-Trace-ID header</td>
+</tr>
+<tr>
+<td>**gRPC Metadata**</td>
+<td>gRPC</td>
+<td>Microservices</td>
+<td>Metadata context</td>
+</tr>
+<tr>
+<td>**Message Headers**</td>
+<td>Message queues</td>
+<td>Event processing</td>
+<td>Message properties</td>
+</tr>
+<tr>
+<td>**Database Context**</td>
+<td>SQL/NoSQL</td>
+<td>Database queries</td>
+<td>Connection context</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Purpose</td>
+<td>Frequency</td>
+<td>Timeout</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>---------</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>**Liveness**</td>
+<td>Is service alive?</td>
+<td>30-60s</td>
+<td>5-10s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>**Readiness**</td>
+<td>Ready for traffic?</td>
+<td>5-10s</td>
+<td>1-5s</td>
+<td>Remove from LB</td>
+</tr>
+<tr>
+<td>**Startup**</td>
+<td>Started successfully?</td>
+<td>5-10s</td>
+<td>1-5s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Threshold-based**</td>
+<td>Static limits</td>
+<td>Fixed values</td>
+<td>Basic monitoring</td>
+</tr>
+<tr>
+<td>**Dynamic**</td>
+<td>Adaptive limits</td>
+<td>Historical data</td>
+<td>Variable systems</td>
+</tr>
+<tr>
+<td>**Anomaly Detection**</td>
+<td>Unusual patterns</td>
+<td>ML algorithms</td>
+<td>Complex systems</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Related alerts</td>
+<td>Pattern matching</td>
+<td>Incident response</td>
+</tr>
+<tr>
+<td>Level</td>
+<td>Response Time</td>
+<td>Notification</td>
+<td>Escalation</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>---------------</td>
+<td>--------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Info**</td>
+<td>24 hours</td>
+<td>Email</td>
+<td>None</td>
+</tr>
+<tr>
+<td>**Warning**</td>
+<td>4 hours</td>
+<td>Email, Slack</td>
+<td>Team lead</td>
+</tr>
+<tr>
+<td>**Critical**</td>
+<td>15 minutes</td>
+<td>Phone, SMS</td>
+<td>On-call engineer</td>
+</tr>
+<tr>
+<td>**Fatal**</td>
+<td>5 minutes</td>
+<td>Phone, SMS, Pager</td>
+<td>Manager</td>
+</tr>
+<tr>
+<td>Process</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Correlation**</td>
+<td>Group related alerts</td>
+<td>Time-based grouping</td>
+<td>Reduce noise</td>
+</tr>
+<tr>
+<td>**Suppression**</td>
+<td>Prevent alert storms</td>
+<td>Rule-based suppression</td>
+<td>Reduce fatigue</td>
+</tr>
+<tr>
+<td>**Escalation**</td>
+<td>Ensure response</td>
+<td>Time-based escalation</td>
+<td>Timely response</td>
+</tr>
+<tr>
+<td>**Documentation**</td>
+<td>Guide response</td>
+<td>Runbooks</td>
+<td>Consistent response</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Audience</td>
+<td>Focus</td>
+<td>Metrics</td>
+</tr>
+<tr>
+<td>------</td>
+<td>----------</td>
+<td>-------</td>
+<td>---------</td>
+</tr>
+<tr>
+<td>**Operational**</td>
+<td>Engineers</td>
+<td>System health</td>
+<td>Performance, errors</td>
+</tr>
+<tr>
+<td>**Business**</td>
+<td>Executives</td>
+<td>Business metrics</td>
+<td>Revenue, users</td>
+</tr>
+<tr>
+<td>**Technical**</td>
+<td>Developers</td>
+<td>Code performance</td>
+<td>Latency, throughput</td>
+</tr>
+<tr>
+<td>Technique</td>
+<td>Use Case</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Time Series**</td>
+<td>Trends over time</td>
+<td>Line charts</td>
+<td>Pattern identification</td>
+</tr>
+<tr>
+<td>**Heatmaps**</td>
+<td>Multi-dimensional</td>
+<td>Color-coded grids</td>
+<td>Correlation analysis</td>
+</tr>
+<tr>
+<td>**Gauges**</td>
+<td>Current values</td>
+<td>Circular indicators</td>
+<td>Quick status</td>
+</tr>
+<tr>
+<td>**Tables**</td>
+<td>Detailed data</td>
+<td>Sortable tables</td>
+<td>Deep analysis</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Live Updates**</td>
+<td>Current state</td>
+<td>WebSocket, SSE</td>
+<td>Sub-second</td>
+</tr>
+<tr>
+<td>**Interactive Controls**</td>
+<td>User control</td>
+<td>JavaScript</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>**Drill-down**</td>
+<td>Detailed analysis</td>
+<td>Click handlers</td>
+<td>Fast navigation</td>
+</tr>
+<tr>
+<td>**Alert Integration**</td>
+<td>Visual alerts</td>
+<td>Color coding</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**Alert Fatigue**</td>
+<td>Missed alerts</td>
+<td>Reduce noise</td>
+<td>Alert metrics</td>
+</tr>
+<tr>
+<td>**False Positives**</td>
+<td>Wasted time</td>
+<td>Tune thresholds</td>
+<td>Alert analysis</td>
+</tr>
+<tr>
+<td>**Incomplete Coverage**</td>
+<td>Blind spots</td>
+<td>Comprehensive monitoring</td>
+<td>Gap analysis</td>
+</tr>
+<tr>
+<td>**Performance Impact**</td>
+<td>System degradation</td>
+<td>Efficient collection</td>
+<td>Performance monitoring</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**High Cardinality**</td>
+<td>Storage explosion</td>
+<td>Limit dimensions</td>
+<td>Cardinality monitoring</td>
+</tr>
+<tr>
+<td>**Sampling Issues**</td>
+<td>Lost data</td>
+<td>Appropriate sampling</td>
+<td>Sampling validation</td>
+</tr>
+<tr>
+<td>**Correlation Failures**</td>
+<td>Debugging difficulty</td>
+<td>Consistent IDs</td>
+<td>Trace validation</td>
+</tr>
+<tr>
+<td>**Data Retention**</td>
+<td>Compliance issues</td>
+<td>Proper retention</td>
+<td>Retention monitoring</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Integration Point</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-------------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Data Storage**</td>
+<td>Metrics and log storage</td>
+<td>Persistent data</td>
+</tr>
+<tr>
+<td>**Networking**</td>
+<td>Data transmission</td>
+<td>Reliable collection</td>
+</tr>
+<tr>
+<td>**Caching**</td>
+<td>Performance monitoring</td>
+<td>Cache optimization</td>
+</tr>
+<tr>
+<td>**Security**</td>
+<td>Security monitoring</td>
+<td>Threat detection</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>Requirements</td>
+<td>Implementation</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>-------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**SOX**</td>
+<td>Audit trails</td>
+<td>Comprehensive logging</td>
+</tr>
+<tr>
+<td>**HIPAA**</td>
+<td>Access monitoring</td>
+<td>User activity tracking</td>
+</tr>
+<tr>
+<td>**PCI DSS**</td>
+<td>Security monitoring</td>
+<td>Security event logging</td>
+</tr>
+<tr>
+<td>**GDPR**</td>
+<td>Data processing</td>
+<td>Privacy monitoring</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Performance Impact</td>
+<td>Optimization</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>-------------------</td>
+<td>--------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Metrics Collection**</td>
+<td>1-5% CPU</td>
+<td>Sampling</td>
+<td>Collection rate</td>
+</tr>
+<tr>
+<td>**Log Processing**</td>
+<td>5-15% CPU</td>
+<td>Async processing</td>
+<td>Processing latency</td>
+</tr>
+<tr>
+<td>**Tracing**</td>
+<td>5-10% latency</td>
+<td>Sampling</td>
+<td>Trace overhead</td>
+</tr>
+<tr>
+<td>**Health Checks**</td>
+<td>&lt;1% overhead</td>
+<td>Efficient checks</td>
+<td>Check duration</td>
+</tr>
+<tr>
+<td>Aspect</td>
+<td>Challenge</td>
+<td>Solution</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Data Volume**</td>
+<td>High volume</td>
+<td>Sampling, aggregation</td>
+<td>1M+ events/sec</td>
+</tr>
+<tr>
+<td>**Storage**</td>
+<td>Large datasets</td>
+<td>Compression, retention</td>
+<td>10-100x compression</td>
+</tr>
+<tr>
+<td>**Queries**</td>
+<td>Slow queries</td>
+<td>Indexing, caching</td>
+<td>Sub-second response</td>
+</tr>
+<tr>
+<td>**Real-time**</td>
+<td>High latency</td>
+<td>Streaming, caching</td>
+<td>&lt;1 second latency</td>
+</tr>
+</tbody>
+</table></div>
+</div><hr />
 <h2 id="-key-takeaways">
   
   

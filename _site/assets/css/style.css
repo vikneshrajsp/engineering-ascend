@@ -184,6 +184,34 @@ table tr:nth-child(even) {
   background-color: #f8f9fa;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.table-wrapper table {
+  margin: 0;
+  min-width: 600px;
+}
+.table-wrapper table th, .table-wrapper table td {
+  white-space: nowrap;
+}
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
 blockquote {
   border-left: 4px solid var(--accent-color);
   margin: 1rem 0;

@@ -40,14 +40,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
 <meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<link rel="canonical" href="http://0.0.0.0:4006/engineering-ascend/building-blocks/networking-communication/summary/" />
-<meta property="og:url" content="http://0.0.0.0:4006/engineering-ascend/building-blocks/networking-communication/summary/" />
+<link rel="canonical" href="http://0.0.0.0:4000/engineering-ascend/building-blocks/networking-communication/summary/" />
+<meta property="og:url" content="http://0.0.0.0:4000/engineering-ascend/building-blocks/networking-communication/summary/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Summary" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Summary","url":"http://0.0.0.0:4006/engineering-ascend/building-blocks/networking-communication/summary/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Summary","url":"http://0.0.0.0:4000/engineering-ascend/building-blocks/networking-communication/summary/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -211,650 +211,1100 @@
   
 </h3>
     
-<p>| Protocol | Use Case | Performance | Security | Complexity |
-|———-|———-|————-|———-|————|
-| <strong>HTTP/HTTPS</strong> | Web applications | Medium | High (HTTPS) | Low |
-| <strong>gRPC</strong> | Microservices | High | High | Medium |
-| <strong>WebSocket</strong> | Real-time apps | High | Medium | Medium |
-| <strong>TCP</strong> | Reliable communication | High | Low | Low |
-| <strong>UDP</strong> | Fast communication | Very High | Low | Low |</p>
-<h3 id="network-topologies">
-  
-  
-    <a href="#network-topologies" class="anchor-heading" aria-labelledby="network-topologies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Network Topologies</strong>
-  
-  
-</h3>
-    
-<p>| Topology | Use Case | Advantages | Disadvantages |
-|———-|———-|————|—————|
-| <strong>Star</strong> | Centralized systems | Simple, centralized control | Single point of failure |
-| <strong>Ring</strong> | Token-based systems | Equal access, fault tolerance | Complex routing |
-| <strong>Mesh</strong> | Distributed systems | High reliability, multiple paths | High complexity |
-| <strong>Tree</strong> | Hierarchical systems | Scalable, organized | Root dependency |
-| <strong>Hybrid</strong> | Complex systems | Flexibility, optimization | Complex management |</p>
-<h3 id="network-security-layers">
-  
-  
-    <a href="#network-security-layers" class="anchor-heading" aria-labelledby="network-security-layers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Network Security Layers</strong>
-  
-  
-</h3>
-    
-<p>| Layer | Security | Implementation | Use Case |
-|——-|———-|—————-|———-|
-| <strong>Transport</strong> | SSL/TLS | Encryption | Secure communication |
-| <strong>Network</strong> | VPN | Tunneling | Remote access |
-| <strong>Application</strong> | Firewall | Access control | Traffic filtering |
-| <strong>Monitoring</strong> | IDS/IPS | Threat detection | Security monitoring |</p><hr />
-<h2 id="-communication-patterns">
-  
-  
-    <a href="#-communication-patterns" class="anchor-heading" aria-labelledby="-communication-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔄 <strong>COMMUNICATION PATTERNS</strong>
-  
-  
-</h2>
-    
-<h3 id="synchronous-communication">
-  
-  
-    <a href="#synchronous-communication" class="anchor-heading" aria-labelledby="synchronous-communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Synchronous Communication</strong>
-  
-  
-</h3>
-    
-<p>| Pattern | Protocol | Use Case | Performance |
-|———|———-|———-|————-|
-| <strong>Request/Response</strong> | HTTP/REST | Web APIs | Medium |
-| <strong>RPC</strong> | gRPC | Service calls | High |
-| <strong>GraphQL</strong> | HTTP | Flexible queries | Variable |
-| <strong>SOAP</strong> | HTTP/XML | Enterprise APIs | Low |</p>
-<h3 id="asynchronous-communication">
-  
-  
-    <a href="#asynchronous-communication" class="anchor-heading" aria-labelledby="asynchronous-communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Asynchronous Communication</strong>
-  
-  
-</h3>
-    
-<p>| Pattern | Technology | Use Case | Performance |
-|———|————|———-|————-|
-| <strong>Message Queues</strong> | RabbitMQ, Kafka | Decoupled services | High |
-| <strong>Event Streaming</strong> | Kafka, Pulsar | Event processing | Very High |
-| <strong>Publish/Subscribe</strong> | Redis, MQTT | Broadcasting | High |
-| <strong>Event Sourcing</strong> | Event stores | Audit trails | Medium |</p>
-<h3 id="real-time-communication">
-  
-  
-    <a href="#real-time-communication" class="anchor-heading" aria-labelledby="real-time-communication"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Real-time Communication</strong>
-  
-  
-</h3>
-    
-<p>| Technology | Use Case | Performance | Complexity |
-|————|———-|————-|————|
-| <strong>WebSocket</strong> | Bidirectional real-time | High | Medium |
-| <strong>Server-Sent Events</strong> | Server push | Medium | Low |
-| <strong>Long Polling</strong> | Simple real-time | Low | Low |
-| <strong>WebRTC</strong> | Peer-to-peer | Very High | High |</p><hr />
-<h2 id="️-load-balancing">
-  
-  
-    <a href="#️-load-balancing" class="anchor-heading" aria-labelledby="️-load-balancing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>LOAD BALANCING</strong>
-  
-  
-</h2>
-    
-<h3 id="load-balancer-types">
-  
-  
-    <a href="#load-balancer-types" class="anchor-heading" aria-labelledby="load-balancer-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Load Balancer Types</strong>
-  
-  
-</h3>
-    
-<p>| Type | Layer | Use Case | Features |
-|——|——-|———-|———-|
-| <strong>Application (ALB)</strong> | Layer 7 | Web applications | Content-based routing |
-| <strong>Network (NLB)</strong> | Layer 4 | High performance | TCP/UDP support |
-| <strong>Global (GLB)</strong> | DNS | Geographic distribution | Multi-region |</p>
-<h3 id="load-balancing-algorithms">
-  
-  
-    <a href="#load-balancing-algorithms" class="anchor-heading" aria-labelledby="load-balancing-algorithms"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Load Balancing Algorithms</strong>
-  
-  
-</h3>
-    
-<p>| Algorithm | Use Case | Performance | Fairness |
-|———–|———-|————-|———-|
-| <strong>Round Robin</strong> | Simple distribution | O(1) | Equal |
-| <strong>Least Connections</strong> | Dynamic load | O(n) | Load-based |
-| <strong>Weighted Round Robin</strong> | Different capacities | O(1) | Capacity-based |
-| <strong>IP Hash</strong> | Session affinity | O(1) | Client-based |
-| <strong>Least Response Time</strong> | Performance-based | O(n) | Performance-based |</p>
-<h3 id="health-check-implementation">
-  
-  
-    <a href="#health-check-implementation" class="anchor-heading" aria-labelledby="health-check-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Health Check Implementation</strong>
-  
-  
-</h3>
-    
-<p>| Check Type | Purpose | Frequency | Action |
-|————|———|———–|——–|
-| <strong>Liveness</strong> | Is service alive? | 30-60s | Restart |
-| <strong>Readiness</strong> | Ready for traffic? | 5-10s | Remove from LB |
-| <strong>Startup</strong> | Started successfully? | 5-10s | Restart |</p><hr />
-<h2 id="-content-delivery-networks-cdn">
-  
-  
-    <a href="#-content-delivery-networks-cdn" class="anchor-heading" aria-labelledby="-content-delivery-networks-cdn"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🌍 <strong>CONTENT DELIVERY NETWORKS (CDN)</strong>
-  
-  
-</h2>
-    
-<h3 id="cdn-features">
-  
-  
-    <a href="#cdn-features" class="anchor-heading" aria-labelledby="cdn-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CDN Features</strong>
-  
-  
-</h3>
-    
-<p>| Feature | Purpose | Implementation | Benefits |
-|———|———|—————-|———-|
-| <strong>Edge Caching</strong> | Cache content globally | Distributed cache | Reduced latency |
-| <strong>Geographic Distribution</strong> | Serve from optimal location | Edge servers | Better performance |
-| <strong>Load Balancing</strong> | Distribute traffic | Global load balancer | High availability |
-| <strong>DDoS Protection</strong> | Protect against attacks | Traffic filtering | Security |</p>
-<h3 id="cdn-optimization">
-  
-  
-    <a href="#cdn-optimization" class="anchor-heading" aria-labelledby="cdn-optimization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CDN Optimization</strong>
-  
-  
-</h3>
-    
-<p>| Optimization | Purpose | Implementation | Performance Gain |
-|————–|———|—————-|——————|
-| <strong>Caching</strong> | Reduce origin requests | Edge caching | 80-90% reduction |
-| <strong>Compression</strong> | Reduce bandwidth | Gzip, Brotli | 50-80% reduction |
-| <strong>Image Optimization</strong> | Reduce image size | WebP, AVIF | 30-70% reduction |
-| <strong>HTTP/2</strong> | Multiplexing | Protocol upgrade | 20-50% improvement |</p>
-<h3 id="cdn-use-cases">
-  
-  
-    <a href="#cdn-use-cases" class="anchor-heading" aria-labelledby="cdn-use-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>CDN Use Cases</strong>
-  
-  
-</h3>
-    
-<p>| Use Case | Implementation | Benefits | Considerations |
-|———-|—————-|———-|—————-|
-| <strong>Static Content</strong> | Cache images, CSS, JS | Fast delivery | Cache invalidation |
-| <strong>Video Streaming</strong> | Video caching | Reduced bandwidth | Video optimization |
-| <strong>API Acceleration</strong> | API caching | Reduced latency | Cache consistency |
-| <strong>Security</strong> | DDoS protection | Attack mitigation | Security monitoring |</p><hr />
-<h2 id="-network-security">
-  
-  
-    <a href="#-network-security" class="anchor-heading" aria-labelledby="-network-security"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔐 <strong>NETWORK SECURITY</strong>
-  
-  
-</h2>
-    
-<h3 id="security-protocols">
-  
-  
-    <a href="#security-protocols" class="anchor-heading" aria-labelledby="security-protocols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Protocols</strong>
-  
-  
-</h3>
-    
-<p>| Protocol | Purpose | Implementation | Security Level |
-|———-|———|—————-|—————-|
-| <strong>SSL/TLS</strong> | Transport encryption | Certificate-based | High |
-| <strong>VPN</strong> | Secure tunneling | IPSec, OpenVPN | High |
-| <strong>Firewall</strong> | Traffic filtering | Rule-based | Medium |
-| <strong>IDS/IPS</strong> | Threat detection | Signature-based | High |</p>
-<h3 id="security-layers">
-  
-  
-    <a href="#security-layers" class="anchor-heading" aria-labelledby="security-layers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Security Layers</strong>
-  
-  
-</h3>
-    
-<p>| Layer | Security | Implementation | Monitoring |
-|——-|———-|—————-|————|
-| <strong>Perimeter</strong> | Network boundary | Firewall, DMZ | Network monitoring |
-| <strong>Transport</strong> | Data in transit | SSL/TLS, VPN | Certificate monitoring |
-| <strong>Application</strong> | Application security | WAF, API security | Application monitoring |
-| <strong>Data</strong> | Data at rest | Encryption, access control | Data monitoring |</p>
-<h3 id="ddos-protection">
-  
-  
-    <a href="#ddos-protection" class="anchor-heading" aria-labelledby="ddos-protection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>DDoS Protection</strong>
-  
-  
-</h3>
-    
-<p>| Protection Type | Purpose | Implementation | Effectiveness |
-|—————–|———|—————-|—————|
-| <strong>Rate Limiting</strong> | Limit request rate | Request counting | Medium |
-| <strong>Traffic Filtering</strong> | Filter malicious traffic | Signature matching | High |
-| <strong>Geographic Blocking</strong> | Block by location | IP geolocation | Medium |
-| <strong>Behavioral Analysis</strong> | Detect anomalies | ML-based detection | High |</p><hr />
-<h2 id="️-api-gateways">
-  
-  
-    <a href="#️-api-gateways" class="anchor-heading" aria-labelledby="️-api-gateways"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>API GATEWAYS</strong>
-  
-  
-</h2>
-    
-<h3 id="api-gateway-features">
-  
-  
-    <a href="#api-gateway-features" class="anchor-heading" aria-labelledby="api-gateway-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Gateway Features</strong>
-  
-  
-</h3>
-    
-<p>| Feature | Purpose | Implementation | Benefits |
-|———|———|—————-|———-|
-| <strong>Request Routing</strong> | Route to services | Path-based routing | Service discovery |
-| <strong>Authentication</strong> | Verify identity | JWT, OAuth | Security |
-| <strong>Rate Limiting</strong> | Control request rate | Token bucket | Resource protection |
-| <strong>Load Balancing</strong> | Distribute load | Round robin, least connections | High availability |</p>
-<h3 id="api-gateway-patterns">
-  
-  
-    <a href="#api-gateway-patterns" class="anchor-heading" aria-labelledby="api-gateway-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Gateway Patterns</strong>
-  
-  
-</h3>
-    
-<p>| Pattern | Purpose | Implementation | Use Case |
-|———|———|—————-|———-|
-| <strong>Aggregation</strong> | Combine multiple APIs | Response aggregation | Mobile apps |
-| <strong>Transformation</strong> | Transform requests/responses | Data transformation | Legacy integration |
-| <strong>Caching</strong> | Cache API responses | Response caching | Performance |
-| <strong>Circuit Breaker</strong> | Handle failures | Failure detection | Resilience |</p>
-<h3 id="api-gateway-implementation">
-  
-  
-    <a href="#api-gateway-implementation" class="anchor-heading" aria-labelledby="api-gateway-implementation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Gateway Implementation</strong>
-  
-  
-</h3>
-    
-<p>| Component | Purpose | Technology | Configuration |
-|———–|———|————|—————|
-| <strong>Router</strong> | Route requests | Path matching | Route configuration |
-| <strong>Authenticator</strong> | Verify requests | JWT validation | Auth configuration |
-| <strong>Rate Limiter</strong> | Limit requests | Token bucket | Rate configuration |
-| <strong>Load Balancer</strong> | Distribute load | Algorithm selection | Load balancer config |</p><hr />
-<h2 id="-service-mesh">
-  
-  
-    <a href="#-service-mesh" class="anchor-heading" aria-labelledby="-service-mesh"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔗 <strong>SERVICE MESH</strong>
-  
-  
-</h2>
-    
-<h3 id="service-mesh-components">
-  
-  
-    <a href="#service-mesh-components" class="anchor-heading" aria-labelledby="service-mesh-components"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Service Mesh Components</strong>
-  
-  
-</h3>
-    
-<p>| Component | Purpose | Implementation | Benefits |
-|———–|———|—————-|———-|
-| <strong>Data Plane</strong> | Handle traffic | Sidecar proxies | Traffic management |
-| <strong>Control Plane</strong> | Manage configuration | Centralized control | Policy management |
-| <strong>Service Discovery</strong> | Find services | Service registry | Dynamic routing |
-| <strong>Observability</strong> | Monitor traffic | Metrics, logs, traces | Visibility |</p>
-<h3 id="service-mesh-features">
-  
-  
-    <a href="#service-mesh-features" class="anchor-heading" aria-labelledby="service-mesh-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Service Mesh Features</strong>
-  
-  
-</h3>
-    
-<p>| Feature | Purpose | Implementation | Benefits |
-|———|———|—————-|———-|
-| <strong>Traffic Management</strong> | Route traffic | Load balancing, routing | Traffic control |
-| <strong>Security</strong> | Secure communication | mTLS, authorization | Security |
-| <strong>Observability</strong> | Monitor services | Metrics, logs, traces | Visibility |
-| <strong>Policy Enforcement</strong> | Enforce policies | Rate limiting, access control | Governance |</p>
-<h3 id="service-mesh-patterns">
-  
-  
-    <a href="#service-mesh-patterns" class="anchor-heading" aria-labelledby="service-mesh-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Service Mesh Patterns</strong>
-  
-  
-</h3>
-    
-<p>| Pattern | Purpose | Implementation | Use Case |
-|———|———|—————-|———-|
-| <strong>Circuit Breaker</strong> | Handle failures | Failure detection | Resilience |
-| <strong>Retry Logic</strong> | Retry failed requests | Exponential backoff | Reliability |
-| <strong>Timeout Management</strong> | Handle timeouts | Request timeouts | Performance |
-| <strong>Load Balancing</strong> | Distribute load | Algorithm selection | Performance |</p><hr />
-<h2 id="-edge-computing">
-  
-  
-    <a href="#-edge-computing" class="anchor-heading" aria-labelledby="-edge-computing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🌐 <strong>EDGE COMPUTING</strong>
-  
-  
-</h2>
-    
-<h3 id="edge-computing-benefits">
-  
-  
-    <a href="#edge-computing-benefits" class="anchor-heading" aria-labelledby="edge-computing-benefits"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Edge Computing Benefits</strong>
-  
-  
-</h3>
-    
-<p>| Benefit | Description | Implementation | Impact |
-|———|————-|—————-|——–|
-| <strong>Low Latency</strong> | Reduce network latency | Local processing | 50-90% reduction |
-| <strong>Bandwidth Optimization</strong> | Reduce bandwidth usage | Local caching | 60-80% reduction |
-| <strong>Offline Capability</strong> | Work without internet | Local storage | High availability |
-| <strong>Privacy</strong> | Keep data local | Local processing | Enhanced privacy |</p>
-<h3 id="edge-computing-use-cases">
-  
-  
-    <a href="#edge-computing-use-cases" class="anchor-heading" aria-labelledby="edge-computing-use-cases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Edge Computing Use Cases</strong>
-  
-  
-</h3>
-    
-<p>| Use Case | Implementation | Benefits | Challenges |
-|———-|—————-|———-|————|
-| <strong>IoT Devices</strong> | Local processing | Real-time response | Device management |
-| <strong>Mobile Apps</strong> | Edge caching | Fast loading | Cache consistency |
-| <strong>Video Processing</strong> | Edge transcoding | Reduced bandwidth | Processing power |
-| <strong>Gaming</strong> | Edge servers | Low latency | Server management |</p>
-<h3 id="edge-computing-architecture">
-  
-  
-    <a href="#edge-computing-architecture" class="anchor-heading" aria-labelledby="edge-computing-architecture"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Edge Computing Architecture</strong>
-  
-  
-</h3>
-    
-<p>| Component | Purpose | Implementation | Considerations |
-|———–|———|—————-|—————-|
-| <strong>Edge Nodes</strong> | Local processing | Edge servers | Hardware requirements |
-| <strong>Edge Gateway</strong> | Traffic management | Load balancer | Network configuration |
-| <strong>Edge Storage</strong> | Local data | Edge databases | Storage management |
-| <strong>Edge Analytics</strong> | Local analytics | ML models | Model management |</p><hr />
-<h2 id="-implementation-patterns">
-  
-  
-    <a href="#-implementation-patterns" class="anchor-heading" aria-labelledby="-implementation-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 <strong>IMPLEMENTATION PATTERNS</strong>
-  
-  
-</h2>
-    
-<h3 id="load-balancer-pattern">
-  
-  
-    <a href="#load-balancer-pattern" class="anchor-heading" aria-labelledby="load-balancer-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Load Balancer Pattern</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LoadBalancer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">servers</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="sh">'</span><span class="s">round_robin</span><span class="sh">'</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">servers</span> <span class="o">=</span> <span class="n">servers</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">algorithm</span> <span class="o">=</span> <span class="n">algorithm</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span>
-    
-    <span class="k">def</span> <span class="nf">get_server</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">algorithm</span> <span class="o">==</span> <span class="sh">'</span><span class="s">round_robin</span><span class="sh">'</span><span class="p">:</span>
-            <span class="n">server</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">servers</span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">current_index</span><span class="p">]</span>
-            <span class="n">self</span><span class="p">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">servers</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">server</span>
-        <span class="k">elif</span> <span class="n">self</span><span class="p">.</span><span class="n">algorithm</span> <span class="o">==</span> <span class="sh">'</span><span class="s">least_connections</span><span class="sh">'</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nf">min</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">servers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">.</span><span class="n">active_connections</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">self</span><span class="p">.</span><span class="n">algorithm</span> <span class="o">==</span> <span class="sh">'</span><span class="s">ip_hash</span><span class="sh">'</span><span class="p">:</span>
-            <span class="n">hash_value</span> <span class="o">=</span> <span class="nf">hash</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">client_ip</span><span class="p">)</span> <span class="o">%</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">servers</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">servers</span><span class="p">[</span><span class="n">hash_value</span><span class="p">]</span>
-</code></pre></div></div>
-<h3 id="api-gateway-pattern">
-  
-  
-    <a href="#api-gateway-pattern" class="anchor-heading" aria-labelledby="api-gateway-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>API Gateway Pattern</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">APIGateway</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">routes</span><span class="p">,</span> <span class="n">authenticator</span><span class="p">,</span> <span class="n">rate_limiter</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">routes</span> <span class="o">=</span> <span class="n">routes</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">authenticator</span> <span class="o">=</span> <span class="n">authenticator</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">rate_limiter</span> <span class="o">=</span> <span class="n">rate_limiter</span>
-    
-    <span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="c1"># Authenticate request
-</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">authenticator</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nc">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">401</span><span class="p">)</span>
-        
-        <span class="c1"># Rate limiting
-</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">rate_limiter</span><span class="p">.</span><span class="nf">allow_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nc">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">429</span><span class="p">)</span>
-        
-        <span class="c1"># Route request
-</span>        <span class="n">route</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">routes</span><span class="p">.</span><span class="nf">get_route</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">route</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">route</span><span class="p">.</span><span class="nf">handle</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nc">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
-</code></pre></div></div>
-<h3 id="service-discovery-pattern">
-  
-  
-    <a href="#service-discovery-pattern" class="anchor-heading" aria-labelledby="service-discovery-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Service Discovery Pattern</strong>
-  
-  
-</h3>
-    
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ServiceRegistry</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">services</span> <span class="o">=</span> <span class="p">{}</span>
-    
-    <span class="k">def</span> <span class="nf">register_service</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">service_instance</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">service_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">:</span>
-            <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">[</span><span class="n">service_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">[</span><span class="n">service_name</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">service_instance</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">get_service_instances</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="p">[])</span>
-    
-    <span class="k">def</span> <span class="nf">health_check</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">instances</span> <span class="ow">in</span> <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
-            <span class="n">healthy_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">instance</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span> <span class="k">if</span> <span class="n">instance</span><span class="p">.</span><span class="nf">is_healthy</span><span class="p">()]</span>
-            <span class="n">self</span><span class="p">.</span><span class="n">services</span><span class="p">[</span><span class="n">service_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">healthy_instances</span>
-</code></pre></div></div><hr />
-<h2 id="️-common-pitfalls">
-  
-  
-    <a href="#️-common-pitfalls" class="anchor-heading" aria-labelledby="️-common-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚠️ <strong>COMMON PITFALLS</strong>
-  
-  
-</h2>
-    
-<h3 id="networking-pitfalls">
-  
-  
-    <a href="#networking-pitfalls" class="anchor-heading" aria-labelledby="networking-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Networking Pitfalls</strong>
-  
-  
-</h3>
-    
-<p>| Pitfall | Impact | Prevention | Detection |
-|———|——–|————|———–|
-| <strong>Single Point of Failure</strong> | System downtime | Redundancy | Health monitoring |
-| <strong>Poor Load Distribution</strong> | Uneven load | Proper load balancing | Load monitoring |
-| <strong>Security Vulnerabilities</strong> | Data breaches | Security best practices | Security monitoring |
-| <strong>Network Congestion</strong> | Performance degradation | Traffic management | Network monitoring |</p>
-<h3 id="communication-pitfalls">
-  
-  
-    <a href="#communication-pitfalls" class="anchor-heading" aria-labelledby="communication-pitfalls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Communication Pitfalls</strong>
-  
-  
-</h3>
-    
-<p>| Pitfall | Impact | Prevention | Detection |
-|———|——–|————|———–|
-| <strong>Protocol Mismatch</strong> | Communication failure | Standard protocols | Protocol monitoring |
-| <strong>Timeout Issues</strong> | Request failures | Proper timeout configuration | Timeout monitoring |
-| <strong>Retry Storms</strong> | System overload | Exponential backoff | Retry monitoring |
-| <strong>Circuit Breaker Issues</strong> | Service isolation | Proper configuration | Circuit breaker monitoring |</p><hr />
-<h2 id="-best-practices">
-  
-  
-    <a href="#-best-practices" class="anchor-heading" aria-labelledby="-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>BEST PRACTICES</strong>
-  
-  
-</h2>
-    
-<h3 id="networking-best-practices">
-  
-  
-    <a href="#networking-best-practices" class="anchor-heading" aria-labelledby="networking-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Networking Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Design for Failure</strong>: Assume network components will fail</li>
-  <li>✅ <strong>Use Redundancy</strong>: Implement redundant network paths</li>
-  <li>✅ <strong>Monitor Network</strong>: Implement comprehensive monitoring</li>
-  <li>✅ <strong>Secure Communication</strong>: Use encryption and authentication</li>
-  <li>✅ <strong>Optimize Performance</strong>: Use CDN and load balancing</li>
-  <li>❌ <strong>Single Points of Failure</strong>: Don’t create network bottlenecks</li>
-  <li>❌ <strong>Poor Security</strong>: Don’t ignore network security</li>
-  <li>❌ <strong>No Monitoring</strong>: Don’t deploy without monitoring</li>
-</ul>
-<h3 id="communication-best-practices">
-  
-  
-    <a href="#communication-best-practices" class="anchor-heading" aria-labelledby="communication-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Communication Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Choose Right Protocol</strong>: Select appropriate communication protocol</li>
-  <li>✅ <strong>Handle Failures</strong>: Implement proper error handling</li>
-  <li>✅ <strong>Optimize Performance</strong>: Use efficient communication patterns</li>
-  <li>✅ <strong>Monitor Communication</strong>: Track communication metrics</li>
-  <li>✅ <strong>Secure Communication</strong>: Encrypt sensitive data</li>
-  <li>❌ <strong>Protocol Mismatch</strong>: Don’t mix incompatible protocols</li>
-  <li>❌ <strong>No Error Handling</strong>: Don’t ignore communication failures</li>
-  <li>❌ <strong>Poor Performance</strong>: Don’t use inefficient patterns</li>
-</ul>
-<h3 id="load-balancing-best-practices">
-  
-  
-    <a href="#load-balancing-best-practices" class="anchor-heading" aria-labelledby="load-balancing-best-practices"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Load Balancing Best Practices</strong>
-  
-  
-</h3>
-    
-<ul>
-  <li>✅ <strong>Health Checks</strong>: Implement comprehensive health checks</li>
-  <li>✅ <strong>Load Distribution</strong>: Use appropriate load balancing algorithms</li>
-  <li>✅ <strong>Monitor Performance</strong>: Track load balancer performance</li>
-  <li>✅ <strong>Handle Failures</strong>: Implement proper failure handling</li>
-  <li>✅ <strong>Scale Load Balancers</strong>: Scale load balancers as needed</li>
-  <li>❌ <strong>No Health Checks</strong>: Don’t route to unhealthy servers</li>
-  <li>❌ <strong>Poor Algorithms</strong>: Don’t use inappropriate algorithms</li>
-  <li>❌ <strong>No Monitoring</strong>: Don’t deploy without monitoring</li>
-</ul><hr />
-<h2 id="-related-concepts">
-  
-  
-    <a href="#-related-concepts" class="anchor-heading" aria-labelledby="-related-concepts"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔗 <strong>RELATED CONCEPTS</strong>
-  
-  
-</h2>
-    
-<h3 id="integration-with-other-systems">
-  
-  
-    <a href="#integration-with-other-systems" class="anchor-heading" aria-labelledby="integration-with-other-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Integration with Other Systems</strong>
-  
-  
-</h3>
-    
-<p>| System | Integration Point | Benefits |
-|——–|——————-|———-|
-| <strong>Data Storage</strong> | Network protocols for database access | Efficient data access |
-| <strong>Compute &amp; Processing</strong> | Network communication between services | Distributed processing |
-| <strong>Message Queuing &amp; Streaming</strong> | Network transport for messages | Reliable messaging |
-| <strong>Caching &amp; Performance</strong> | Network optimization and CDN | Performance improvement |</p>
-<h3 id="performance-considerations">
-  
-  
-    <a href="#performance-considerations" class="anchor-heading" aria-labelledby="performance-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Performance Considerations</strong>
-  
-  
-</h3>
-    
-<p>| Aspect | Challenge | Solution | Performance |
-|——–|———–|———-|————-|
-| <strong>Network Latency</strong> | High latency | CDN, edge computing | 50-90% reduction |
-| <strong>Bandwidth Usage</strong> | High bandwidth | Compression, caching | 50-80% reduction |
-| <strong>Load Distribution</strong> | Uneven load | Load balancing | Better performance |
-| <strong>Security Overhead</strong> | Security impact | Efficient security | Minimal impact |</p><hr />
-<h2 id="-performance-considerations">
-  
-  
-    <a href="#-performance-considerations" class="anchor-heading" aria-labelledby="-performance-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📈 <strong>PERFORMANCE CONSIDERATIONS</strong>
-  
-  
-</h2>
-    
-<h3 id="network-performance-impact">
-  
-  
-    <a href="#network-performance-impact" class="anchor-heading" aria-labelledby="network-performance-impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Network Performance Impact</strong>
-  
-  
-</h3>
-    
-<p>| Component | Performance Impact | Optimization | Monitoring |
-|———–|——————-|————–|————|
-| <strong>Load Balancing</strong> | Minimal overhead | Efficient algorithms | Load balancer metrics |
-| <strong>CDN</strong> | Significant improvement | Edge caching | CDN metrics |
-| <strong>API Gateway</strong> | Low overhead | Efficient routing | Gateway metrics |
-| <strong>Service Mesh</strong> | Moderate overhead | Optimized proxies | Mesh metrics |</p>
-<h3 id="communication-performance">
-  
-  
-    <a href="#communication-performance" class="anchor-heading" aria-labelledby="communication-performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Communication Performance</strong>
-  
-  
-</h3>
-    
-<p>| Protocol | Performance | Optimization | Use Case |
-|———-|————-|————–|———-|
-| <strong>HTTP/HTTPS</strong> | Medium | HTTP/2, compression | Web applications |
-| <strong>gRPC</strong> | High | Protocol buffers, HTTP/2 | Microservices |
-| <strong>WebSocket</strong> | High | Binary protocols | Real-time applications |
-| <strong>TCP</strong> | High | Connection pooling | Reliable communication |
-| <strong>UDP</strong> | Very High | Minimal overhead | Fast communication |</p><hr />
+<div class="table-wrapper">
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Use Case</th>
+<th>Performance</th>
+<th>Security</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**HTTP/HTTPS**</td>
+<td>Web applications</td>
+<td>Medium</td>
+<td>High (HTTPS)</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**gRPC**</td>
+<td>Microservices</td>
+<td>High</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**WebSocket**</td>
+<td>Real-time apps</td>
+<td>High</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**TCP**</td>
+<td>Reliable communication</td>
+<td>High</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**UDP**</td>
+<td>Fast communication</td>
+<td>Very High</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Topology</td>
+<td>Use Case</td>
+<td>Advantages</td>
+<td>Disadvantages</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>----------</td>
+<td>------------</td>
+<td>---------------</td>
+</tr>
+<tr>
+<td>**Star**</td>
+<td>Centralized systems</td>
+<td>Simple, centralized control</td>
+<td>Single point of failure</td>
+</tr>
+<tr>
+<td>**Ring**</td>
+<td>Token-based systems</td>
+<td>Equal access, fault tolerance</td>
+<td>Complex routing</td>
+</tr>
+<tr>
+<td>**Mesh**</td>
+<td>Distributed systems</td>
+<td>High reliability, multiple paths</td>
+<td>High complexity</td>
+</tr>
+<tr>
+<td>**Tree**</td>
+<td>Hierarchical systems</td>
+<td>Scalable, organized</td>
+<td>Root dependency</td>
+</tr>
+<tr>
+<td>**Hybrid**</td>
+<td>Complex systems</td>
+<td>Flexibility, optimization</td>
+<td>Complex management</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Security</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Transport**</td>
+<td>SSL/TLS</td>
+<td>Encryption</td>
+<td>Secure communication</td>
+</tr>
+<tr>
+<td>**Network**</td>
+<td>VPN</td>
+<td>Tunneling</td>
+<td>Remote access</td>
+</tr>
+<tr>
+<td>**Application**</td>
+<td>Firewall</td>
+<td>Access control</td>
+<td>Traffic filtering</td>
+</tr>
+<tr>
+<td>**Monitoring**</td>
+<td>IDS/IPS</td>
+<td>Threat detection</td>
+<td>Security monitoring</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>Protocol</td>
+<td>Use Case</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Request/Response**</td>
+<td>HTTP/REST</td>
+<td>Web APIs</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**RPC**</td>
+<td>gRPC</td>
+<td>Service calls</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**GraphQL**</td>
+<td>HTTP</td>
+<td>Flexible queries</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>**SOAP**</td>
+<td>HTTP/XML</td>
+<td>Enterprise APIs</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>Technology</td>
+<td>Use Case</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>------------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Message Queues**</td>
+<td>RabbitMQ, Kafka</td>
+<td>Decoupled services</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Event Streaming**</td>
+<td>Kafka, Pulsar</td>
+<td>Event processing</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>**Publish/Subscribe**</td>
+<td>Redis, MQTT</td>
+<td>Broadcasting</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Event Sourcing**</td>
+<td>Event stores</td>
+<td>Audit trails</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Technology</td>
+<td>Use Case</td>
+<td>Performance</td>
+<td>Complexity</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>----------</td>
+<td>-------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**WebSocket**</td>
+<td>Bidirectional real-time</td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Server-Sent Events**</td>
+<td>Server push</td>
+<td>Medium</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**Long Polling**</td>
+<td>Simple real-time</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>**WebRTC**</td>
+<td>Peer-to-peer</td>
+<td>Very High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Layer</td>
+<td>Use Case</td>
+<td>Features</td>
+</tr>
+<tr>
+<td>------</td>
+<td>-------</td>
+<td>----------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Application (ALB)**</td>
+<td>Layer 7</td>
+<td>Web applications</td>
+<td>Content-based routing</td>
+</tr>
+<tr>
+<td>**Network (NLB)**</td>
+<td>Layer 4</td>
+<td>High performance</td>
+<td>TCP/UDP support</td>
+</tr>
+<tr>
+<td>**Global (GLB)**</td>
+<td>DNS</td>
+<td>Geographic distribution</td>
+<td>Multi-region</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td>Use Case</td>
+<td>Performance</td>
+<td>Fairness</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Round Robin**</td>
+<td>Simple distribution</td>
+<td>O(1)</td>
+<td>Equal</td>
+</tr>
+<tr>
+<td>**Least Connections**</td>
+<td>Dynamic load</td>
+<td>O(n)</td>
+<td>Load-based</td>
+</tr>
+<tr>
+<td>**Weighted Round Robin**</td>
+<td>Different capacities</td>
+<td>O(1)</td>
+<td>Capacity-based</td>
+</tr>
+<tr>
+<td>**IP Hash**</td>
+<td>Session affinity</td>
+<td>O(1)</td>
+<td>Client-based</td>
+</tr>
+<tr>
+<td>**Least Response Time**</td>
+<td>Performance-based</td>
+<td>O(n)</td>
+<td>Performance-based</td>
+</tr>
+<tr>
+<td>Check Type</td>
+<td>Purpose</td>
+<td>Frequency</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>------------</td>
+<td>---------</td>
+<td>-----------</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>**Liveness**</td>
+<td>Is service alive?</td>
+<td>30-60s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>**Readiness**</td>
+<td>Ready for traffic?</td>
+<td>5-10s</td>
+<td>Remove from LB</td>
+</tr>
+<tr>
+<td>**Startup**</td>
+<td>Started successfully?</td>
+<td>5-10s</td>
+<td>Restart</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Edge Caching**</td>
+<td>Cache content globally</td>
+<td>Distributed cache</td>
+<td>Reduced latency</td>
+</tr>
+<tr>
+<td>**Geographic Distribution**</td>
+<td>Serve from optimal location</td>
+<td>Edge servers</td>
+<td>Better performance</td>
+</tr>
+<tr>
+<td>**Load Balancing**</td>
+<td>Distribute traffic</td>
+<td>Global load balancer</td>
+<td>High availability</td>
+</tr>
+<tr>
+<td>**DDoS Protection**</td>
+<td>Protect against attacks</td>
+<td>Traffic filtering</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Performance Gain</td>
+</tr>
+<tr>
+<td>--------------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>------------------</td>
+</tr>
+<tr>
+<td>**Caching**</td>
+<td>Reduce origin requests</td>
+<td>Edge caching</td>
+<td>80-90% reduction</td>
+</tr>
+<tr>
+<td>**Compression**</td>
+<td>Reduce bandwidth</td>
+<td>Gzip, Brotli</td>
+<td>50-80% reduction</td>
+</tr>
+<tr>
+<td>**Image Optimization**</td>
+<td>Reduce image size</td>
+<td>WebP, AVIF</td>
+<td>30-70% reduction</td>
+</tr>
+<tr>
+<td>**HTTP/2**</td>
+<td>Multiplexing</td>
+<td>Protocol upgrade</td>
+<td>20-50% improvement</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Implementation</td>
+<td>Benefits</td>
+<td>Considerations</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**Static Content**</td>
+<td>Cache images, CSS, JS</td>
+<td>Fast delivery</td>
+<td>Cache invalidation</td>
+</tr>
+<tr>
+<td>**Video Streaming**</td>
+<td>Video caching</td>
+<td>Reduced bandwidth</td>
+<td>Video optimization</td>
+</tr>
+<tr>
+<td>**API Acceleration**</td>
+<td>API caching</td>
+<td>Reduced latency</td>
+<td>Cache consistency</td>
+</tr>
+<tr>
+<td>**Security**</td>
+<td>DDoS protection</td>
+<td>Attack mitigation</td>
+<td>Security monitoring</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Security Level</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**SSL/TLS**</td>
+<td>Transport encryption</td>
+<td>Certificate-based</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**VPN**</td>
+<td>Secure tunneling</td>
+<td>IPSec, OpenVPN</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Firewall**</td>
+<td>Traffic filtering</td>
+<td>Rule-based</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**IDS/IPS**</td>
+<td>Threat detection</td>
+<td>Signature-based</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Layer</td>
+<td>Security</td>
+<td>Implementation</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>-------</td>
+<td>----------</td>
+<td>----------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Perimeter**</td>
+<td>Network boundary</td>
+<td>Firewall, DMZ</td>
+<td>Network monitoring</td>
+</tr>
+<tr>
+<td>**Transport**</td>
+<td>Data in transit</td>
+<td>SSL/TLS, VPN</td>
+<td>Certificate monitoring</td>
+</tr>
+<tr>
+<td>**Application**</td>
+<td>Application security</td>
+<td>WAF, API security</td>
+<td>Application monitoring</td>
+</tr>
+<tr>
+<td>**Data**</td>
+<td>Data at rest</td>
+<td>Encryption, access control</td>
+<td>Data monitoring</td>
+</tr>
+<tr>
+<td>Protection Type</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Effectiveness</td>
+</tr>
+<tr>
+<td>-----------------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>---------------</td>
+</tr>
+<tr>
+<td>**Rate Limiting**</td>
+<td>Limit request rate</td>
+<td>Request counting</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Traffic Filtering**</td>
+<td>Filter malicious traffic</td>
+<td>Signature matching</td>
+<td>High</td>
+</tr>
+<tr>
+<td>**Geographic Blocking**</td>
+<td>Block by location</td>
+<td>IP geolocation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>**Behavioral Analysis**</td>
+<td>Detect anomalies</td>
+<td>ML-based detection</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Request Routing**</td>
+<td>Route to services</td>
+<td>Path-based routing</td>
+<td>Service discovery</td>
+</tr>
+<tr>
+<td>**Authentication**</td>
+<td>Verify identity</td>
+<td>JWT, OAuth</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>**Rate Limiting**</td>
+<td>Control request rate</td>
+<td>Token bucket</td>
+<td>Resource protection</td>
+</tr>
+<tr>
+<td>**Load Balancing**</td>
+<td>Distribute load</td>
+<td>Round robin, least connections</td>
+<td>High availability</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Aggregation**</td>
+<td>Combine multiple APIs</td>
+<td>Response aggregation</td>
+<td>Mobile apps</td>
+</tr>
+<tr>
+<td>**Transformation**</td>
+<td>Transform requests/responses</td>
+<td>Data transformation</td>
+<td>Legacy integration</td>
+</tr>
+<tr>
+<td>**Caching**</td>
+<td>Cache API responses</td>
+<td>Response caching</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>**Circuit Breaker**</td>
+<td>Handle failures</td>
+<td>Failure detection</td>
+<td>Resilience</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Purpose</td>
+<td>Technology</td>
+<td>Configuration</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>---------</td>
+<td>------------</td>
+<td>---------------</td>
+</tr>
+<tr>
+<td>**Router**</td>
+<td>Route requests</td>
+<td>Path matching</td>
+<td>Route configuration</td>
+</tr>
+<tr>
+<td>**Authenticator**</td>
+<td>Verify requests</td>
+<td>JWT validation</td>
+<td>Auth configuration</td>
+</tr>
+<tr>
+<td>**Rate Limiter**</td>
+<td>Limit requests</td>
+<td>Token bucket</td>
+<td>Rate configuration</td>
+</tr>
+<tr>
+<td>**Load Balancer**</td>
+<td>Distribute load</td>
+<td>Algorithm selection</td>
+<td>Load balancer config</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Data Plane**</td>
+<td>Handle traffic</td>
+<td>Sidecar proxies</td>
+<td>Traffic management</td>
+</tr>
+<tr>
+<td>**Control Plane**</td>
+<td>Manage configuration</td>
+<td>Centralized control</td>
+<td>Policy management</td>
+</tr>
+<tr>
+<td>**Service Discovery**</td>
+<td>Find services</td>
+<td>Service registry</td>
+<td>Dynamic routing</td>
+</tr>
+<tr>
+<td>**Observability**</td>
+<td>Monitor traffic</td>
+<td>Metrics, logs, traces</td>
+<td>Visibility</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Traffic Management**</td>
+<td>Route traffic</td>
+<td>Load balancing, routing</td>
+<td>Traffic control</td>
+</tr>
+<tr>
+<td>**Security**</td>
+<td>Secure communication</td>
+<td>mTLS, authorization</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>**Observability**</td>
+<td>Monitor services</td>
+<td>Metrics, logs, traces</td>
+<td>Visibility</td>
+</tr>
+<tr>
+<td>**Policy Enforcement**</td>
+<td>Enforce policies</td>
+<td>Rate limiting, access control</td>
+<td>Governance</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Circuit Breaker**</td>
+<td>Handle failures</td>
+<td>Failure detection</td>
+<td>Resilience</td>
+</tr>
+<tr>
+<td>**Retry Logic**</td>
+<td>Retry failed requests</td>
+<td>Exponential backoff</td>
+<td>Reliability</td>
+</tr>
+<tr>
+<td>**Timeout Management**</td>
+<td>Handle timeouts</td>
+<td>Request timeouts</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>**Load Balancing**</td>
+<td>Distribute load</td>
+<td>Algorithm selection</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>Benefit</td>
+<td>Description</td>
+<td>Implementation</td>
+<td>Impact</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>-------------</td>
+<td>----------------</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>**Low Latency**</td>
+<td>Reduce network latency</td>
+<td>Local processing</td>
+<td>50-90% reduction</td>
+</tr>
+<tr>
+<td>**Bandwidth Optimization**</td>
+<td>Reduce bandwidth usage</td>
+<td>Local caching</td>
+<td>60-80% reduction</td>
+</tr>
+<tr>
+<td>**Offline Capability**</td>
+<td>Work without internet</td>
+<td>Local storage</td>
+<td>High availability</td>
+</tr>
+<tr>
+<td>**Privacy**</td>
+<td>Keep data local</td>
+<td>Local processing</td>
+<td>Enhanced privacy</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Implementation</td>
+<td>Benefits</td>
+<td>Challenges</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>----------------</td>
+<td>----------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**IoT Devices**</td>
+<td>Local processing</td>
+<td>Real-time response</td>
+<td>Device management</td>
+</tr>
+<tr>
+<td>**Mobile Apps**</td>
+<td>Edge caching</td>
+<td>Fast loading</td>
+<td>Cache consistency</td>
+</tr>
+<tr>
+<td>**Video Processing**</td>
+<td>Edge transcoding</td>
+<td>Reduced bandwidth</td>
+<td>Processing power</td>
+</tr>
+<tr>
+<td>**Gaming**</td>
+<td>Edge servers</td>
+<td>Low latency</td>
+<td>Server management</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Purpose</td>
+<td>Implementation</td>
+<td>Considerations</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>---------</td>
+<td>----------------</td>
+<td>----------------</td>
+</tr>
+<tr>
+<td>**Edge Nodes**</td>
+<td>Local processing</td>
+<td>Edge servers</td>
+<td>Hardware requirements</td>
+</tr>
+<tr>
+<td>**Edge Gateway**</td>
+<td>Traffic management</td>
+<td>Load balancer</td>
+<td>Network configuration</td>
+</tr>
+<tr>
+<td>**Edge Storage**</td>
+<td>Local data</td>
+<td>Edge databases</td>
+<td>Storage management</td>
+</tr>
+<tr>
+<td>**Edge Analytics**</td>
+<td>Local analytics</td>
+<td>ML models</td>
+<td>Model management</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**Single Point of Failure**</td>
+<td>System downtime</td>
+<td>Redundancy</td>
+<td>Health monitoring</td>
+</tr>
+<tr>
+<td>**Poor Load Distribution**</td>
+<td>Uneven load</td>
+<td>Proper load balancing</td>
+<td>Load monitoring</td>
+</tr>
+<tr>
+<td>**Security Vulnerabilities**</td>
+<td>Data breaches</td>
+<td>Security best practices</td>
+<td>Security monitoring</td>
+</tr>
+<tr>
+<td>**Network Congestion**</td>
+<td>Performance degradation</td>
+<td>Traffic management</td>
+<td>Network monitoring</td>
+</tr>
+<tr>
+<td>Pitfall</td>
+<td>Impact</td>
+<td>Prevention</td>
+<td>Detection</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>--------</td>
+<td>------------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>**Protocol Mismatch**</td>
+<td>Communication failure</td>
+<td>Standard protocols</td>
+<td>Protocol monitoring</td>
+</tr>
+<tr>
+<td>**Timeout Issues**</td>
+<td>Request failures</td>
+<td>Proper timeout configuration</td>
+<td>Timeout monitoring</td>
+</tr>
+<tr>
+<td>**Retry Storms**</td>
+<td>System overload</td>
+<td>Exponential backoff</td>
+<td>Retry monitoring</td>
+</tr>
+<tr>
+<td>**Circuit Breaker Issues**</td>
+<td>Service isolation</td>
+<td>Proper configuration</td>
+<td>Circuit breaker monitoring</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Integration Point</td>
+<td>Benefits</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-------------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**Data Storage**</td>
+<td>Network protocols for database access</td>
+<td>Efficient data access</td>
+</tr>
+<tr>
+<td>**Compute &amp; Processing**</td>
+<td>Network communication between services</td>
+<td>Distributed processing</td>
+</tr>
+<tr>
+<td>**Message Queuing &amp; Streaming**</td>
+<td>Network transport for messages</td>
+<td>Reliable messaging</td>
+</tr>
+<tr>
+<td>**Caching &amp; Performance**</td>
+<td>Network optimization and CDN</td>
+<td>Performance improvement</td>
+</tr>
+<tr>
+<td>Aspect</td>
+<td>Challenge</td>
+<td>Solution</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+<td>----------</td>
+<td>-------------</td>
+</tr>
+<tr>
+<td>**Network Latency**</td>
+<td>High latency</td>
+<td>CDN, edge computing</td>
+<td>50-90% reduction</td>
+</tr>
+<tr>
+<td>**Bandwidth Usage**</td>
+<td>High bandwidth</td>
+<td>Compression, caching</td>
+<td>50-80% reduction</td>
+</tr>
+<tr>
+<td>**Load Distribution**</td>
+<td>Uneven load</td>
+<td>Load balancing</td>
+<td>Better performance</td>
+</tr>
+<tr>
+<td>**Security Overhead**</td>
+<td>Security impact</td>
+<td>Efficient security</td>
+<td>Minimal impact</td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Performance Impact</td>
+<td>Optimization</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>-----------</td>
+<td>-------------------</td>
+<td>--------------</td>
+<td>------------</td>
+</tr>
+<tr>
+<td>**Load Balancing**</td>
+<td>Minimal overhead</td>
+<td>Efficient algorithms</td>
+<td>Load balancer metrics</td>
+</tr>
+<tr>
+<td>**CDN**</td>
+<td>Significant improvement</td>
+<td>Edge caching</td>
+<td>CDN metrics</td>
+</tr>
+<tr>
+<td>**API Gateway**</td>
+<td>Low overhead</td>
+<td>Efficient routing</td>
+<td>Gateway metrics</td>
+</tr>
+<tr>
+<td>**Service Mesh**</td>
+<td>Moderate overhead</td>
+<td>Optimized proxies</td>
+<td>Mesh metrics</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>Performance</td>
+<td>Optimization</td>
+<td>Use Case</td>
+</tr>
+<tr>
+<td>----------</td>
+<td>-------------</td>
+<td>--------------</td>
+<td>----------</td>
+</tr>
+<tr>
+<td>**HTTP/HTTPS**</td>
+<td>Medium</td>
+<td>HTTP/2, compression</td>
+<td>Web applications</td>
+</tr>
+<tr>
+<td>**gRPC**</td>
+<td>High</td>
+<td>Protocol buffers, HTTP/2</td>
+<td>Microservices</td>
+</tr>
+<tr>
+<td>**WebSocket**</td>
+<td>High</td>
+<td>Binary protocols</td>
+<td>Real-time applications</td>
+</tr>
+<tr>
+<td>**TCP**</td>
+<td>High</td>
+<td>Connection pooling</td>
+<td>Reliable communication</td>
+</tr>
+<tr>
+<td>**UDP**</td>
+<td>Very High</td>
+<td>Minimal overhead</td>
+<td>Fast communication</td>
+</tr>
+</tbody>
+</table></div>
+</div><hr />
 <h2 id="-key-takeaways">
   
   
