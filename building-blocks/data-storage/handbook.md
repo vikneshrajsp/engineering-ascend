@@ -10,8 +10,11 @@ grand_parent: Building Blocks
 ## Comprehensive Technical Deep-Dive for System Design
 
 ## 📋 Table of Contents
-1. [Overview](#overview)
-2. [Storage System Classifications](#storage-system-classifications)
+1. [Overview](#-overview)
+   - [What is a Distributed System?](#what-is-a-distributed-system)
+   - [Why Storage Systems Matter](#why-storage-systems-matter)
+   - [Storage System Design Principles](#storage-system-design-principles)
+2. [Storage System Classifications](#️-storage-system-classifications)
    - [Relational Database Management Systems (RDBMS)](#1-relational-database-management-systems-rdbms)
    - [Key-Value Stores](#2-key-value-stores)
    - [Wide Column Stores](#3-wide-column-stores)
@@ -29,7 +32,11 @@ grand_parent: Building Blocks
 8. [Performance Characteristics](#performance-characteristics)
 9. [Optimization Techniques](#optimization-techniques)
 10. [Operational Nuances](#operational-nuances)
-11. [Key Takeaways](#key-takeaways)
+11. [Key Takeaways](#-key-takeaways)
+12. [Further Reading](#-further-reading)
+    - [Books](#books)
+    - [Research Papers](#research-papers)
+    - [Online Resources](#online-resources)
 
 ---
 

@@ -1464,7 +1464,7 @@
   },"209": {
     "doc": "Data Storage Systems - Detailed Handbook",
     "title": "📋 Table of Contents",
-    "content": ". | Overview | Storage System Classifications . | Relational Database Management Systems (RDBMS) | Key-Value Stores | Wide Column Stores | Document Stores | Time Series Databases | Text Search Engines | Write-Ahead Logs (WAL) | Object Stores | Geospatial Databases | . | Indexing Strategies | Decision Matrix | Scaling Strategies | Market Implementations | Consistency Models | Performance Characteristics | Optimization Techniques | Operational Nuances | Key Takeaways | . ",
+    "content": ". | Overview . | What is a Distributed System? | Why Storage Systems Matter | Storage System Design Principles | . | Storage System Classifications . | Relational Database Management Systems (RDBMS) | Key-Value Stores | Wide Column Stores | Document Stores | Time Series Databases | Text Search Engines | Write-Ahead Logs (WAL) | Object Stores | Geospatial Databases | . | Indexing Strategies | Decision Matrix | Scaling Strategies | Market Implementations | Consistency Models | Performance Characteristics | Optimization Techniques | Operational Nuances | Key Takeaways | Further Reading . | Books | Research Papers | Online Resources | . | . ",
     "url": "/engineering-ascend/building-blocks/data-storage/handbook/#-table-of-contents",
     
     "relUrl": "/building-blocks/data-storage/handbook/#-table-of-contents"
@@ -2276,7 +2276,7 @@
   },"325": {
     "doc": "Engineering Ascend",
     "title": "📚 Additional Resources",
-    "content": ". | System Design Cheatsheet - Essential concepts and patterns | Context &amp; Background - Understanding the bigger picture | Decision Framework - Making architectural decisions | . Ready to ascend your engineering career? Start with the Building Blocks or dive into System Design Challenges. 🌟 Support Engineering Ascend If this resource helps you, consider supporting the project: ☕ Buy me a coffee ⭐ Star on GitHub This site uses Just the Docs, a documentation theme for Jekyll. ",
+    "content": ". | System Design Cheatsheet - Essential concepts and patterns | Context &amp; Background - Understanding the bigger picture | Decision Framework - Making architectural decisions | . Ready to ascend your engineering career? Start with the Building Blocks or dive into System Design Challenges. ",
     "url": "/engineering-ascend/#-additional-resources",
     
     "relUrl": "/#-additional-resources"
