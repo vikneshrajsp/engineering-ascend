@@ -1,0 +1,208 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Geometric background pattern -->
+  <g opacity="0.1">
+    <!-- Grid pattern -->
+    <g stroke="#ffffff" stroke-width="1" fill="none">
+      <line x1="0" y1="0" x2="1200" y2="0"/>
+      <line x1="0" y1="126" x2="1200" y2="126"/>
+      <line x1="0" y1="252" x2="1200" y2="252"/>
+      <line x1="0" y1="378" x2="1200" y2="378"/>
+      <line x1="0" y1="504" x2="1200" y2="504"/>
+      <line x1="0" y1="630" x2="1200" y2="630"/>
+      
+      <line x1="0" y1="0" x2="0" y2="630"/>
+      <line x1="200" y1="0" x2="200" y2="630"/>
+      <line x1="400" y1="0" x2="400" y2="630"/>
+      <line x1="600" y1="0" x2="600" y2="630"/>
+      <line x1="800" y1="0" x2="800" y2="630"/>
+      <line x1="1000" y1="0" x2="1000" y2="630"/>
+      <line x1="1200" y1="0" x2="1200" y2="630"/>
+    </g>
+  </g>
+  
+  <!-- Main logo element (scaled up) -->
+  <g transform="translate(100, 165)">
+    <!-- Background circle -->
+    <circle cx="200" cy="200" r="180" fill="url(#primaryGradient)" stroke="#1e40af" stroke-width="6"/>
+    
+    <!-- Inner circle for depth -->
+    <circle cx="200" cy="200" r="150" fill="url(#accentGradient)" opacity="0.9"/>
+    
+    <!-- Ascending staircase/levels -->
+    <g transform="translate(125, 125)">
+      <!-- Level 1 - Foundation -->
+      <rect x="0" y="120" width="150" height="30" fill="url(#highlightGradient)" rx="6"/>
+      <rect x="15" y="127" width="120" height="16" fill="#ffffff" opacity="0.3" rx="3"/>
+      
+      <!-- Level 2 - Building -->
+      <rect x="30" y="90" width="120" height="30" fill="url(#highlightGradient)" rx="6"/>
+      <rect x="45" y="97" width="90" height="16" fill="#ffffff" opacity="0.3" rx="3"/>
+      
+      <!-- Level 3 - Scaling -->
+      <rect x="60" y="60" width="90" height="30" fill="url(#highlightGradient)" rx="6"/>
+      <rect x="75" y="67" width="60" height="16" fill="#ffffff" opacity="0.3" rx="3"/>
+      
+      <!-- Level 4 - Optimization -->
+      <rect x="90" y="30" width="60" height="30" fill="url(#highlightGradient)" rx="6"/>
+      <rect x="105" y="37" width="30" height="16" fill="#ffffff" opacity="0.3" rx="3"/>
+      
+      <!-- Level 5 - Mastery -->
+      <rect x="120" y="0" width="30" height="30" fill="url(#highlightGradient)" rx="6"/>
+      <rect x="127" y="7" width="16" height="16" fill="#ffffff" opacity="0.3" rx="3"/>
+    </g>
+    
+    <!-- Circuit connections -->
+    <g stroke="#ffffff" stroke-width="3" opacity="0.7" fill="none">
+      <line x1="200" y1="350" x2="200" y2="320"/>
+      <line x1="200" y1="290" x2="200" y2="260"/>
+      <line x1="200" y1="230" x2="200" y2="200"/>
+      <line x1="200" y1="170" x2="200" y2="140"/>
+      
+      <line x1="350" y1="200" x2="320" y2="200"/>
+      <line x1="290" y1="200" x2="260" y2="200"/>
+      <line x1="230" y1="200" x2="200" y2="200"/>
+      <line x1="170" y1="200" x2="140" y2="200"/>
+    </g>
+    
+    <!-- Central node -->
+    <circle cx="200" cy="200" r="12" fill="#ffffff"/>
+    <circle cx="200" cy="200" r="6" fill="url(#primaryGradient)"/>
+    
+    <!-- Ascending arrow -->
+    <g transform="translate(200, 480)">
+      <path d="M-20,0 L0,-30 L20,0 M-12,-18 L0,-30 L12,-18" 
+            stroke="#ffffff" stroke-width="4" fill="none" opacity="0.9"/>
+    </g>
+  </g>
+  
+  <!-- Title text -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="72" font-weight="bold" 
+        text-anchor="middle" fill="#ffffff" filter="url(#glow)">
+    Engineering Ascend
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="32" 
+        text-anchor="middle" fill="#cbd5e1" opacity="0.9">
+    Master System Design & Engineering
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="24" 
+        text-anchor="middle" fill="#94a3b8" opacity="0.8">
+    From Foundation to Mastery
+  </text>
+  
+  <!-- Feature highlights -->
+  <g transform="translate(600, 400)">
+    <!-- System Design -->
+    <g transform="translate(-200, 0)">
+      <circle cx="0" cy="0" r="8" fill="url(#highlightGradient)"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" font-size="18" fill="#ffffff">
+        System Design
+      </text>
+    </g>
+    
+    <!-- Architecture -->
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="0" r="8" fill="url(#highlightGradient)"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" font-size="18" fill="#ffffff">
+        Architecture
+      </text>
+    </g>
+    
+    <!-- Scalability -->
+    <g transform="translate(200, 0)">
+      <circle cx="0" cy="0" r="8" fill="url(#highlightGradient)"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" font-size="18" fill="#ffffff">
+        Scalability
+      </text>
+    </g>
+  </g>
+  
+  <!-- Additional features -->
+  <g transform="translate(600, 450)">
+    <!-- Performance -->
+    <g transform="translate(-150, 0)">
+      <circle cx="0" cy="0" r="6" fill="url(#accentGradient)"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="16" fill="#cbd5e1">
+        Performance
+      </text>
+    </g>
+    
+    <!-- Reliability -->
+    <g transform="translate(-50, 0)">
+      <circle cx="0" cy="0" r="6" fill="url(#accentGradient)"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="16" fill="#cbd5e1">
+        Reliability
+      </text>
+    </g>
+    
+    <!-- Security -->
+    <g transform="translate(50, 0)">
+      <circle cx="0" cy="0" r="6" fill="url(#accentGradient)"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="16" fill="#cbd5e1">
+        Security
+      </text>
+    </g>
+    
+    <!-- Innovation -->
+    <g transform="translate(150, 0)">
+      <circle cx="0" cy="0" r="6" fill="url(#accentGradient)"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="16" fill="#cbd5e1">
+        Innovation
+      </text>
+    </g>
+  </g>
+  
+  <!-- Call to action -->
+  <text x="600" y="550" font-family="Arial, sans-serif" font-size="28" font-weight="bold"
+        text-anchor="middle" fill="#60a5fa">
+    Support Engineering Education
+  </text>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <!-- Floating geometric shapes -->
+    <circle cx="50" cy="100" r="15" fill="url(#highlightGradient)"/>
+    <circle cx="1150" cy="150" r="12" fill="url(#accentGradient)"/>
+    <circle cx="80" cy="500" r="10" fill="url(#primaryGradient)"/>
+    <circle cx="1100" cy="480" r="18" fill="url(#highlightGradient)"/>
+    
+    <!-- Small connecting lines -->
+    <line x1="100" y1="100" x2="150" y2="120" stroke="#60a5fa" stroke-width="2"/>
+    <line x1="1100" y1="150" x2="1050" y2="180" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="100" y1="500" x2="150" y2="480" stroke="#2563eb" stroke-width="2"/>
+    <line x1="1100" y1="480" x2="1050" y2="450" stroke="#60a5fa" stroke-width="2"/>
+  </g>
+</svg>

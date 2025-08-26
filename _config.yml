@@ -4,6 +4,9 @@ description: Master system design with comprehensive building blocks, challenges
 url: https://vikneshrajsp.github.io
 baseurl: /engineering-ascend
 
+# Favicon settings
+favicon: /engineering-ascend/assets/images/favicon.svg
+
 # Theme settings
 theme: just-the-docs
 

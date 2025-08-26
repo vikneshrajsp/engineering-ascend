@@ -67,11 +67,120 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <!-- Back to Top Button Script -->
-<script src="/engineering-ascend/assets/js/back-to-top.js"></script>
+  <!-- Custom favicon -->
+<link rel="icon" type="image/svg+xml" href="/engineering-ascend/assets/images/favicon.svg">
+<link rel="icon" type="image/png" href="/engineering-ascend/assets/images/favicon.svg">
+<link rel="shortcut icon" href="/engineering-ascend/assets/images/favicon.svg">
 
-<!-- Footer Replacer Script -->
+<!-- Custom CSS for logo in header -->
+<style>
+  .site-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  
+  .site-logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  
+  .site-logo svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure the title text is properly aligned */
+  .site-title a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .site-logo {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .site-title {
+      gap: 8px !important;
+    }
+  }
+</style>
+
+<!-- Custom scripts -->
+<script src="/engineering-ascend/assets/js/back-to-top.js"></script>
 <script src="/engineering-ascend/assets/js/footer-replacer.js"></script>
+
+<!-- Logo injection script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find the site title element
+  const siteTitle = document.querySelector('.site-title');
+  
+  if (siteTitle) {
+    // Create logo element
+    const logo = document.createElement('div');
+    logo.className = 'site-logo';
+    logo.innerHTML = `
+      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="headerPrimaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="headerAccentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        
+        <!-- Background circle -->
+        <circle cx="16" cy="16" r="15" fill="url(#headerPrimaryGradient)" stroke="#1e40af" stroke-width="1"/>
+        
+        <!-- Inner circle for depth -->
+        <circle cx="16" cy="16" r="12" fill="url(#headerAccentGradient)" opacity="0.9"/>
+        
+        <!-- Simplified ascending levels -->
+        <g transform="translate(8, 8)">
+          <!-- Level 1 - Foundation -->
+          <rect x="0" y="12" width="16" height="3" fill="#60a5fa" rx="1"/>
+          
+          <!-- Level 2 - Building -->
+          <rect x="2" y="9" width="12" height="3" fill="#60a5fa" rx="1"/>
+          
+          <!-- Level 3 - Scaling -->
+          <rect x="4" y="6" width="8" height="3" fill="#60a5fa" rx="1"/>
+          
+          <!-- Level 4 - Optimization -->
+          <rect x="6" y="3" width="4" height="3" fill="#60a5fa" rx="1"/>
+        </g>
+        
+        <!-- Central node -->
+        <circle cx="16" cy="16" r="2" fill="#ffffff"/>
+        <circle cx="16" cy="16" r="1" fill="url(#headerPrimaryGradient)"/>
+        
+        <!-- Ascending arrow indicator -->
+        <g transform="translate(16, 26)">
+          <path d="M-3,0 L0,-4 L3,0 M-2,-2 L0,-4 L2,-2" 
+                stroke="#ffffff" stroke-width="1" fill="none" opacity="0.9"/>
+        </g>
+      </svg>
+    `;
+    
+    // Insert logo before the title text
+    const titleLink = siteTitle.querySelector('a');
+    if (titleLink) {
+      titleLink.insertBefore(logo, titleLink.firstChild);
+    } else {
+      siteTitle.insertBefore(logo, siteTitle.firstChild);
+    }
+  }
+});
+</script>
 
 
 </head>
