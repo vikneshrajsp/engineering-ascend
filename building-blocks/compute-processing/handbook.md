@@ -1,20 +1,189 @@
 ---
-title: Handbook
+title: Compute & Processing Systems - Reference & Interview Preparation
+description: Comprehensive technical deep-dive for system design engineers and advanced interviews
 layout: default
-grand_parent: Building Blocks
 parent: Compute Processing
+grand_parent: Building Blocks
 ---
 
-# Compute & Processing Systems - Detailed Handbook
-## Comprehensive Technical Deep-Dive for System Design
+# Compute & Processing Systems - Reference & Interview Preparation
+## Comprehensive Technical Deep-Dive for System Design Engineers
+
+> **Target Audience**: System design engineers and advanced interview preparation
+> **Focus**: Building blocks, trade-offs, decision frameworks, and deep technical understanding
 
 ## 📋 Table of Contents
-1. [Overview](#overview)
-2. [Processing System Classifications](#processing-system-classifications)
-3. [Performance Characteristics](#performance-characteristics)
-4. [Scaling Strategies](#scaling-strategies)
-5. [Decision Matrix](#decision-matrix)
-6. [Key Takeaways](#key-takeaways)
+
+### **1. Foundation & Philosophy**
+- [System Design Interview Context](#system-design-interview-context)
+- [Compute System Design Principles](#compute-system-design-principles)
+- [Decision Framework](#decision-framework)
+- [Trade-off Analysis Methodology](#trade-off-analysis-methodology)
+
+### **2. Compute System Classifications**
+- [Central Processing Units (CPUs)](#1-central-processing-units-cpus)
+- [Graphics Processing Units (GPUs)](#2-graphics-processing-units-gpus)
+- [Field Programmable Gate Arrays (FPGAs)](#3-field-programmable-gate-arrays-fpgas)
+- [Application-Specific Integrated Circuits (ASICs)](#4-application-specific-integrated-circuits-asics)
+- [Tensor Processing Units (TPUs)](#5-tensor-processing-units-tpus)
+- [Quantum Computing](#6-quantum-computing)
+
+### **3. Deep Technical Analysis**
+- [Processing Architectures](#processing-architectures)
+- [Parallel Processing Models](#parallel-processing-models)
+- [Memory Hierarchy](#memory-hierarchy)
+- [Performance Optimization](#performance-optimization)
+
+### **4. Scaling & Performance**
+- [Scaling Strategies](#scaling-strategies)
+- [Performance Characteristics](#performance-characteristics)
+- [Optimization Techniques](#optimization-techniques)
+- [Capacity Planning](#capacity-planning)
+
+### **5. Operational Excellence**
+- [Availability & Reliability](#availability--reliability)
+- [Security Considerations](#security-considerations)
+- [Monitoring & Observability](#monitoring--observability)
+- [Operational Nuances](#operational-nuances)
+
+### **6. Market Implementations**
+- [Commercial Solutions](#commercial-solutions)
+- [Open Source Alternatives](#open-source-alternatives)
+- [Cloud-Native Services](#cloud-native-services)
+
+### **7. Interview Preparation**
+- [Decision Matrices](#decision-matrices)
+- [Common Pitfalls](#common-pitfalls)
+- [Interview Scenarios](#interview-scenarios)
+- [Key Takeaways](#key-takeaways)
+- [Further Reading](#further-reading)
+
+---
+
+## 🎯 **System Design Interview Context**
+
+### **Advanced System Design Interview Expectations**
+At the advanced level, interviews expect you to:
+- **Lead architectural decisions** across multiple teams and systems
+- **Understand deep trade-offs** between different compute architectures
+- **Communicate complex technical concepts** clearly to stakeholders
+- **Make data-driven decisions** with incomplete information
+- **Consider long-term implications** of compute architectural choices
+
+### **Interview Structure & Approach**
+1. **Clarification Phase**: Understand computational requirements, workload patterns, and constraints
+2. **High-Level Design**: Start with compute building blocks and system boundaries
+3. **Deep Dive**: Explore specific processing architectures with technical depth
+4. **Trade-off Analysis**: Discuss pros/cons of different compute approaches
+5. **Decision Justification**: Explain your reasoning and alternatives considered
+
+### **Key Success Factors**
+- **Start with compute building blocks**: Don't jump into implementation details immediately
+- **Ask clarifying questions**: Understand workload patterns, performance requirements, and constraints
+- **Show your thought process**: Explain why you're making certain compute choices
+- **Consider multiple dimensions**: Performance, scalability, cost, operational complexity
+- **Acknowledge trade-offs**: No perfect compute solution exists - show you understand the compromises
+
+---
+
+## 🏗️ **Compute System Design Principles**
+
+### **Core Design Philosophy**
+Compute systems are **execution engine building blocks** that transform input data into output results. Every compute decision affects:
+- **System performance** and user experience
+- **Resource utilization** and cost structure
+- **Scalability** and growth potential
+- **Operational complexity** and reliability
+
+### **Fundamental Principles**
+
+#### **1. Amdahl's Law vs Gustafson's Law**
+```
+Amdahl's Law: Speedup = 1 / ((1 - p) + p/s)
+- p = parallelizable fraction
+- s = speedup factor for parallel portion
+- Limits: Diminishing returns with more processors
+
+Gustafson's Law: Speedup = s + p(1 - s)
+- s = serial fraction
+- p = number of processors
+- Reality: Larger problems scale efficiently
+```
+
+**Key Insights:**
+- **Amdahl's Law**: Applies to fixed problem sizes
+- **Gustafson's Law**: Applies to scalable problem sizes
+- **Practical Reality**: Most real-world problems scale with data size
+
+#### **2. Compute Performance Trade-offs**
+- **Latency vs Throughput**: Optimize for primary requirement
+- **Serial vs Parallel**: Sequential efficiency vs parallel scalability
+- **General vs Specialized**: Flexibility vs performance
+- **Cost vs Performance**: Resource cost vs computational capability
+
+#### **3. Workload Characteristics**
+Compute systems should be optimized for your **primary workload patterns**:
+- **CPU-bound vs I/O-bound workloads**
+- **Sequential vs Parallel processing**
+- **Batch vs Real-time processing**
+- **General-purpose vs Specialized workloads**
+
+---
+
+## 🎯 **Decision Framework**
+
+### **Multi-Dimensional Decision Matrix**
+When evaluating compute solutions, consider these dimensions:
+
+| Dimension | Weight | Description | Evaluation Criteria |
+|-----------|--------|-------------|-------------------|
+| **Performance Requirements** | 25% | Does it meet latency/throughput needs? | Workload patterns, processing requirements |
+| **Scalability** | 20% | How does it scale with load/data? | Horizontal vs vertical scaling, efficiency |
+| **Cost Efficiency** | 20% | What's the cost per operation? | Resource utilization, operational costs |
+| **Operational Complexity** | 15% | How hard is it to operate? | Monitoring, maintenance, troubleshooting |
+| **Flexibility** | 10% | How adaptable is it to changes? | General-purpose vs specialized |
+| **Team Expertise** | 10% | Does the team have the skills? | Learning curve, existing knowledge |
+
+### **Decision Process**
+1. **Requirements Analysis**: Understand computational and performance requirements
+2. **Candidate Selection**: Identify 2-3 viable compute approaches
+3. **Trade-off Analysis**: Evaluate each option against decision criteria
+4. **Risk Assessment**: Consider failure modes and mitigation strategies
+5. **Decision Documentation**: Record reasoning and alternatives considered
+
+---
+
+## ⚖️ **Trade-off Analysis Methodology**
+
+### **Common Trade-offs in Compute Systems**
+
+#### **1. General-Purpose vs Specialized**
+- **General-Purpose**: Flexible, handles diverse workloads
+- **Specialized**: Higher performance for specific workloads
+- **Hybrid Approaches**: Best of both worlds with complexity
+
+#### **2. Centralized vs Distributed**
+- **Centralized**: Simple, single point of failure
+- **Distributed**: Scalable, coordination complexity
+- **Hierarchical**: Multiple levels with different characteristics
+
+#### **3. Batch vs Real-time**
+- **Batch Processing**: High throughput, higher latency
+- **Real-time Processing**: Low latency, lower throughput
+- **Stream Processing**: Continuous processing with bounded latency
+
+#### **4. CPU vs GPU vs Specialized**
+- **CPU**: General-purpose, good for diverse workloads
+- **GPU**: Parallel processing, good for SIMD workloads
+- **Specialized**: Highest performance for specific workloads
+
+### **Interview Communication Strategy**
+When discussing compute trade-offs:
+1. **Acknowledge the trade-off** explicitly
+2. **Explain the reasoning** behind your choice
+3. **Discuss alternatives** you considered
+4. **Show understanding** of the implications
+5. **Propose mitigation strategies** for the downsides
 
 ---
 
@@ -276,57 +445,13 @@ Scalability:
 
 ## 📊 Decision Matrix
 
-<div class="table-wrapper">
-
-<th>Processing Type</th>
-<th>Latency</th>
-<th>Throughput</th>
-<th>Scalability</th>
-<th>Complexity</th>
-<th>Cost</th>
-<th>Use Case Fit</th>
-
-**CPU**
-⚠️ 5
-⚠️ 6
-❌ 3
-✅ 8
-⚠️ 6
-General Computing
-
-**GPU**
-❌ 3
-✅ 9
-⚠️ 6
-❌ 4
-❌ 4
-Parallel Computing
-
-**Distributed**
-❌ 3
-✅ 9
-✅ 9
-❌ 4
-⚠️ 6
-Large-scale Processing
-
-**Async**
-✅ 8
-✅ 8
-⚠️ 6
-⚠️ 5
-✅ 8
-I/O-bound Tasks
-
-**Batch**
-❌ 2
-✅ 9
-✅ 9
-⚠️ 5
-✅ 7
-Data Processing
-
-</div>
+| Processing Type | Latency | Throughput | Scalability | Complexity | Cost | Use Case Fit |
+|----------------|---------|------------|-------------|------------|------|--------------|
+| **CPU** | ⚠️ 5 | ⚠️ 6 | ❌ 3 | ✅ 8 | ⚠️ 6 | General Computing |
+| **GPU** | ❌ 3 | ✅ 9 | ⚠️ 6 | ❌ 4 | ❌ 4 | Parallel Computing |
+| **Distributed** | ❌ 3 | ✅ 9 | ✅ 9 | ❌ 4 | ⚠️ 6 | Large-scale Processing |
+| **Async** | ✅ 8 | ✅ 8 | ⚠️ 6 | ⚠️ 5 | ✅ 8 | I/O-bound Tasks |
+| **Batch** | ❌ 2 | ✅ 9 | ✅ 9 | ⚠️ 5 | ✅ 7 | Data Processing |
 ### **Scoring Legend**
 - **✅ 9-10**: Excellent fit
 - **⚠️ 5-8**: Good fit with trade-offs

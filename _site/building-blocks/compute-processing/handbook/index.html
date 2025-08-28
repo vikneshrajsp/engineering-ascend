@@ -34,20 +34,20 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Handbook | Engineering Ascend</title>
+<title>Compute &amp; Processing Systems - Reference &amp; Interview Preparation | Engineering Ascend</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Handbook" />
+<meta property="og:title" content="Compute &amp; Processing Systems - Reference &amp; Interview Preparation" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta name="description" content="Comprehensive technical deep-dive for system design engineers and advanced interviews" />
+<meta property="og:description" content="Comprehensive technical deep-dive for system design engineers and advanced interviews" />
 <link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/building-blocks/compute-processing/handbook/" />
 <meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/building-blocks/compute-processing/handbook/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Handbook" />
+<meta property="twitter:title" content="Compute &amp; Processing Systems - Reference &amp; Interview Preparation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4018/engineering-ascend/building-blocks/compute-processing/handbook/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive technical deep-dive for system design engineers and advanced interviews","headline":"Compute &amp; Processing Systems - Reference &amp; Interview Preparation","url":"http://0.0.0.0:4018/engineering-ascend/building-blocks/compute-processing/handbook/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -310,28 +310,33 @@ document.addEventListener('DOMContentLoaded', function() {
   
     <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
     <li class="breadcrumb-nav-list-item"><a href="">Compute Processing</a></li>
-  <li class="breadcrumb-nav-list-item"><span>Handbook</span></li>
+  <li class="breadcrumb-nav-list-item"><span>Compute & Processing Systems - Reference & Interview Preparation</span></li>
   </ol>
 </nav>
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="compute--processing-systems---detailed-handbook">
+            <h1 id="compute--processing-systems---reference--interview-preparation">
   
   
-    <a href="#compute--processing-systems---detailed-handbook" class="anchor-heading" aria-labelledby="compute--processing-systems---detailed-handbook"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Compute &amp; Processing Systems - Detailed Handbook
+    <a href="#compute--processing-systems---reference--interview-preparation" class="anchor-heading" aria-labelledby="compute--processing-systems---reference--interview-preparation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Compute &amp; Processing Systems - Reference &amp; Interview Preparation
   
   
 </h1>
     
-<h2 id="comprehensive-technical-deep-dive-for-system-design">
+<h2 id="comprehensive-technical-deep-dive-for-system-design-engineers">
   
   
-    <a href="#comprehensive-technical-deep-dive-for-system-design" class="anchor-heading" aria-labelledby="comprehensive-technical-deep-dive-for-system-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Technical Deep-Dive for System Design
+    <a href="#comprehensive-technical-deep-dive-for-system-design-engineers" class="anchor-heading" aria-labelledby="comprehensive-technical-deep-dive-for-system-design-engineers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Technical Deep-Dive for System Design Engineers
   
   
 </h2>
     
+
+<blockquote>
+  <p><strong>Target Audience</strong>: System design engineers and advanced interview preparation
+<strong>Focus</strong>: Building blocks, trade-offs, decision frameworks, and deep technical understanding</p>
+</blockquote>
 <h2 id="-table-of-contents">
   
   
@@ -340,13 +345,409 @@ document.addEventListener('DOMContentLoaded', function() {
   
 </h2>
     
-<ol>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#processing-system-classifications">Processing System Classifications</a></li>
-  <li><a href="#performance-characteristics">Performance Characteristics</a></li>
+<h3 id="1-foundation--philosophy">
+  
+  
+    <a href="#1-foundation--philosophy" class="anchor-heading" aria-labelledby="1-foundation--philosophy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Foundation &amp; Philosophy</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#system-design-interview-context">System Design Interview Context</a></li>
+  <li><a href="#compute-system-design-principles">Compute System Design Principles</a></li>
+  <li><a href="#decision-framework">Decision Framework</a></li>
+  <li><a href="#trade-off-analysis-methodology">Trade-off Analysis Methodology</a></li>
+</ul>
+<h3 id="2-compute-system-classifications">
+  
+  
+    <a href="#2-compute-system-classifications" class="anchor-heading" aria-labelledby="2-compute-system-classifications"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Compute System Classifications</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#1-central-processing-units-cpus">Central Processing Units (CPUs)</a></li>
+  <li><a href="#2-graphics-processing-units-gpus">Graphics Processing Units (GPUs)</a></li>
+  <li><a href="#3-field-programmable-gate-arrays-fpgas">Field Programmable Gate Arrays (FPGAs)</a></li>
+  <li><a href="#4-application-specific-integrated-circuits-asics">Application-Specific Integrated Circuits (ASICs)</a></li>
+  <li><a href="#5-tensor-processing-units-tpus">Tensor Processing Units (TPUs)</a></li>
+  <li><a href="#6-quantum-computing">Quantum Computing</a></li>
+</ul>
+<h3 id="3-deep-technical-analysis">
+  
+  
+    <a href="#3-deep-technical-analysis" class="anchor-heading" aria-labelledby="3-deep-technical-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Deep Technical Analysis</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#processing-architectures">Processing Architectures</a></li>
+  <li><a href="#parallel-processing-models">Parallel Processing Models</a></li>
+  <li><a href="#memory-hierarchy">Memory Hierarchy</a></li>
+  <li><a href="#performance-optimization">Performance Optimization</a></li>
+</ul>
+<h3 id="4-scaling--performance">
+  
+  
+    <a href="#4-scaling--performance" class="anchor-heading" aria-labelledby="4-scaling--performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Scaling &amp; Performance</strong>
+  
+  
+</h3>
+    
+<ul>
   <li><a href="#scaling-strategies">Scaling Strategies</a></li>
-  <li><a href="#decision-matrix">Decision Matrix</a></li>
+  <li><a href="#performance-characteristics">Performance Characteristics</a></li>
+  <li><a href="#optimization-techniques">Optimization Techniques</a></li>
+  <li><a href="#capacity-planning">Capacity Planning</a></li>
+</ul>
+<h3 id="5-operational-excellence">
+  
+  
+    <a href="#5-operational-excellence" class="anchor-heading" aria-labelledby="5-operational-excellence"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Operational Excellence</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#availability--reliability">Availability &amp; Reliability</a></li>
+  <li><a href="#security-considerations">Security Considerations</a></li>
+  <li><a href="#monitoring--observability">Monitoring &amp; Observability</a></li>
+  <li><a href="#operational-nuances">Operational Nuances</a></li>
+</ul>
+<h3 id="6-market-implementations">
+  
+  
+    <a href="#6-market-implementations" class="anchor-heading" aria-labelledby="6-market-implementations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>6. Market Implementations</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#commercial-solutions">Commercial Solutions</a></li>
+  <li><a href="#open-source-alternatives">Open Source Alternatives</a></li>
+  <li><a href="#cloud-native-services">Cloud-Native Services</a></li>
+</ul>
+<h3 id="7-interview-preparation">
+  
+  
+    <a href="#7-interview-preparation" class="anchor-heading" aria-labelledby="7-interview-preparation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>7. Interview Preparation</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#decision-matrices">Decision Matrices</a></li>
+  <li><a href="#common-pitfalls">Common Pitfalls</a></li>
+  <li><a href="#interview-scenarios">Interview Scenarios</a></li>
   <li><a href="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#further-reading">Further Reading</a></li>
+</ul><hr />
+<h2 id="-system-design-interview-context">
+  
+  
+    <a href="#-system-design-interview-context" class="anchor-heading" aria-labelledby="-system-design-interview-context"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>System Design Interview Context</strong>
+  
+  
+</h2>
+    
+<h3 id="advanced-system-design-interview-expectations">
+  
+  
+    <a href="#advanced-system-design-interview-expectations" class="anchor-heading" aria-labelledby="advanced-system-design-interview-expectations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Advanced System Design Interview Expectations</strong>
+  
+  
+</h3>
+    
+<p>At the advanced level, interviews expect you to:</p>
+<ul>
+  <li><strong>Lead architectural decisions</strong> across multiple teams and systems</li>
+  <li><strong>Understand deep trade-offs</strong> between different compute architectures</li>
+  <li><strong>Communicate complex technical concepts</strong> clearly to stakeholders</li>
+  <li><strong>Make data-driven decisions</strong> with incomplete information</li>
+  <li><strong>Consider long-term implications</strong> of compute architectural choices</li>
+</ul>
+<h3 id="interview-structure--approach">
+  
+  
+    <a href="#interview-structure--approach" class="anchor-heading" aria-labelledby="interview-structure--approach"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Interview Structure &amp; Approach</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Clarification Phase</strong>: Understand computational requirements, workload patterns, and constraints</li>
+  <li><strong>High-Level Design</strong>: Start with compute building blocks and system boundaries</li>
+  <li><strong>Deep Dive</strong>: Explore specific processing architectures with technical depth</li>
+  <li><strong>Trade-off Analysis</strong>: Discuss pros/cons of different compute approaches</li>
+  <li><strong>Decision Justification</strong>: Explain your reasoning and alternatives considered</li>
+</ol>
+<h3 id="key-success-factors">
+  
+  
+    <a href="#key-success-factors" class="anchor-heading" aria-labelledby="key-success-factors"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Key Success Factors</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><strong>Start with compute building blocks</strong>: Don’t jump into implementation details immediately</li>
+  <li><strong>Ask clarifying questions</strong>: Understand workload patterns, performance requirements, and constraints</li>
+  <li><strong>Show your thought process</strong>: Explain why you’re making certain compute choices</li>
+  <li><strong>Consider multiple dimensions</strong>: Performance, scalability, cost, operational complexity</li>
+  <li><strong>Acknowledge trade-offs</strong>: No perfect compute solution exists - show you understand the compromises</li>
+</ul><hr />
+<h2 id="️-compute-system-design-principles">
+  
+  
+    <a href="#️-compute-system-design-principles" class="anchor-heading" aria-labelledby="️-compute-system-design-principles"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🏗️ <strong>Compute System Design Principles</strong>
+  
+  
+</h2>
+    
+<h3 id="core-design-philosophy">
+  
+  
+    <a href="#core-design-philosophy" class="anchor-heading" aria-labelledby="core-design-philosophy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Core Design Philosophy</strong>
+  
+  
+</h3>
+    
+<p>Compute systems are <strong>execution engine building blocks</strong> that transform input data into output results. Every compute decision affects:</p>
+<ul>
+  <li><strong>System performance</strong> and user experience</li>
+  <li><strong>Resource utilization</strong> and cost structure</li>
+  <li><strong>Scalability</strong> and growth potential</li>
+  <li><strong>Operational complexity</strong> and reliability</li>
+</ul>
+<h3 id="fundamental-principles">
+  
+  
+    <a href="#fundamental-principles" class="anchor-heading" aria-labelledby="fundamental-principles"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Fundamental Principles</strong>
+  
+  
+</h3>
+    
+<h4 id="1-amdahls-law-vs-gustafsons-law">
+  
+  
+    <a href="#1-amdahls-law-vs-gustafsons-law" class="anchor-heading" aria-labelledby="1-amdahls-law-vs-gustafsons-law"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Amdahl’s Law vs Gustafson’s Law</strong>
+  
+  
+</h4>
+    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Amdahl's Law: Speedup = 1 / ((1 - p) + p/s)
+- p = parallelizable fraction
+- s = speedup factor for parallel portion
+- Limits: Diminishing returns with more processors
+
+Gustafson's Law: Speedup = s + p(1 - s)
+- s = serial fraction
+- p = number of processors
+- Reality: Larger problems scale efficiently
+</code></pre></div></div>
+
+<p><strong>Key Insights:</strong></p>
+<ul>
+  <li><strong>Amdahl’s Law</strong>: Applies to fixed problem sizes</li>
+  <li><strong>Gustafson’s Law</strong>: Applies to scalable problem sizes</li>
+  <li><strong>Practical Reality</strong>: Most real-world problems scale with data size</li>
+</ul>
+<h4 id="2-compute-performance-trade-offs">
+  
+  
+    <a href="#2-compute-performance-trade-offs" class="anchor-heading" aria-labelledby="2-compute-performance-trade-offs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Compute Performance Trade-offs</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Latency vs Throughput</strong>: Optimize for primary requirement</li>
+  <li><strong>Serial vs Parallel</strong>: Sequential efficiency vs parallel scalability</li>
+  <li><strong>General vs Specialized</strong>: Flexibility vs performance</li>
+  <li><strong>Cost vs Performance</strong>: Resource cost vs computational capability</li>
+</ul>
+<h4 id="3-workload-characteristics">
+  
+  
+    <a href="#3-workload-characteristics" class="anchor-heading" aria-labelledby="3-workload-characteristics"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Workload Characteristics</strong>
+  
+  
+</h4>
+    
+<p>Compute systems should be optimized for your <strong>primary workload patterns</strong>:</p>
+<ul>
+  <li><strong>CPU-bound vs I/O-bound workloads</strong></li>
+  <li><strong>Sequential vs Parallel processing</strong></li>
+  <li><strong>Batch vs Real-time processing</strong></li>
+  <li><strong>General-purpose vs Specialized workloads</strong></li>
+</ul><hr />
+<h2 id="-decision-framework">
+  
+  
+    <a href="#-decision-framework" class="anchor-heading" aria-labelledby="-decision-framework"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🎯 <strong>Decision Framework</strong>
+  
+  
+</h2>
+    
+<h3 id="multi-dimensional-decision-matrix">
+  
+  
+    <a href="#multi-dimensional-decision-matrix" class="anchor-heading" aria-labelledby="multi-dimensional-decision-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Multi-Dimensional Decision Matrix</strong>
+  
+  
+</h3>
+    
+<p>When evaluating compute solutions, consider these dimensions:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Weight</th>
+      <th>Description</th>
+      <th>Evaluation Criteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Performance Requirements</strong></td>
+      <td>25%</td>
+      <td>Does it meet latency/throughput needs?</td>
+      <td>Workload patterns, processing requirements</td>
+    </tr>
+    <tr>
+      <td><strong>Scalability</strong></td>
+      <td>20%</td>
+      <td>How does it scale with load/data?</td>
+      <td>Horizontal vs vertical scaling, efficiency</td>
+    </tr>
+    <tr>
+      <td><strong>Cost Efficiency</strong></td>
+      <td>20%</td>
+      <td>What’s the cost per operation?</td>
+      <td>Resource utilization, operational costs</td>
+    </tr>
+    <tr>
+      <td><strong>Operational Complexity</strong></td>
+      <td>15%</td>
+      <td>How hard is it to operate?</td>
+      <td>Monitoring, maintenance, troubleshooting</td>
+    </tr>
+    <tr>
+      <td><strong>Flexibility</strong></td>
+      <td>10%</td>
+      <td>How adaptable is it to changes?</td>
+      <td>General-purpose vs specialized</td>
+    </tr>
+    <tr>
+      <td><strong>Team Expertise</strong></td>
+      <td>10%</td>
+      <td>Does the team have the skills?</td>
+      <td>Learning curve, existing knowledge</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="decision-process">
+  
+  
+    <a href="#decision-process" class="anchor-heading" aria-labelledby="decision-process"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Decision Process</strong>
+  
+  
+</h3>
+    
+<ol>
+  <li><strong>Requirements Analysis</strong>: Understand computational and performance requirements</li>
+  <li><strong>Candidate Selection</strong>: Identify 2-3 viable compute approaches</li>
+  <li><strong>Trade-off Analysis</strong>: Evaluate each option against decision criteria</li>
+  <li><strong>Risk Assessment</strong>: Consider failure modes and mitigation strategies</li>
+  <li><strong>Decision Documentation</strong>: Record reasoning and alternatives considered</li>
+</ol><hr />
+<h2 id="️-trade-off-analysis-methodology">
+  
+  
+    <a href="#️-trade-off-analysis-methodology" class="anchor-heading" aria-labelledby="️-trade-off-analysis-methodology"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ⚖️ <strong>Trade-off Analysis Methodology</strong>
+  
+  
+</h2>
+    
+<h3 id="common-trade-offs-in-compute-systems">
+  
+  
+    <a href="#common-trade-offs-in-compute-systems" class="anchor-heading" aria-labelledby="common-trade-offs-in-compute-systems"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Common Trade-offs in Compute Systems</strong>
+  
+  
+</h3>
+    
+<h4 id="1-general-purpose-vs-specialized">
+  
+  
+    <a href="#1-general-purpose-vs-specialized" class="anchor-heading" aria-labelledby="1-general-purpose-vs-specialized"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. General-Purpose vs Specialized</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>General-Purpose</strong>: Flexible, handles diverse workloads</li>
+  <li><strong>Specialized</strong>: Higher performance for specific workloads</li>
+  <li><strong>Hybrid Approaches</strong>: Best of both worlds with complexity</li>
+</ul>
+<h4 id="2-centralized-vs-distributed">
+  
+  
+    <a href="#2-centralized-vs-distributed" class="anchor-heading" aria-labelledby="2-centralized-vs-distributed"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Centralized vs Distributed</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Centralized</strong>: Simple, single point of failure</li>
+  <li><strong>Distributed</strong>: Scalable, coordination complexity</li>
+  <li><strong>Hierarchical</strong>: Multiple levels with different characteristics</li>
+</ul>
+<h4 id="3-batch-vs-real-time">
+  
+  
+    <a href="#3-batch-vs-real-time" class="anchor-heading" aria-labelledby="3-batch-vs-real-time"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Batch vs Real-time</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>Batch Processing</strong>: High throughput, higher latency</li>
+  <li><strong>Real-time Processing</strong>: Low latency, lower throughput</li>
+  <li><strong>Stream Processing</strong>: Continuous processing with bounded latency</li>
+</ul>
+<h4 id="4-cpu-vs-gpu-vs-specialized">
+  
+  
+    <a href="#4-cpu-vs-gpu-vs-specialized" class="anchor-heading" aria-labelledby="4-cpu-vs-gpu-vs-specialized"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. CPU vs GPU vs Specialized</strong>
+  
+  
+</h4>
+    
+<ul>
+  <li><strong>CPU</strong>: General-purpose, good for diverse workloads</li>
+  <li><strong>GPU</strong>: Parallel processing, good for SIMD workloads</li>
+  <li><strong>Specialized</strong>: Highest performance for specific workloads</li>
+</ul>
+<h3 id="interview-communication-strategy">
+  
+  
+    <a href="#interview-communication-strategy" class="anchor-heading" aria-labelledby="interview-communication-strategy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>Interview Communication Strategy</strong>
+  
+  
+</h3>
+    
+<p>When discussing compute trade-offs:</p>
+<ol>
+  <li><strong>Acknowledge the trade-off</strong> explicitly</li>
+  <li><strong>Explain the reasoning</strong> behind your choice</li>
+  <li><strong>Discuss alternatives</strong> you considered</li>
+  <li><strong>Show understanding</strong> of the implications</li>
+  <li><strong>Propose mitigation strategies</strong> for the downsides</li>
 </ol><hr />
 <h2 id="-overview">
   
@@ -833,57 +1234,13 @@ Scalability:
 </h2>
     
 
-<div class="table-wrapper">
-
-<th>Processing Type</th>
-<th>Latency</th>
-<th>Throughput</th>
-<th>Scalability</th>
-<th>Complexity</th>
-<th>Cost</th>
-<th>Use Case Fit</th>
-
-**CPU**
-⚠️ 5
-⚠️ 6
-❌ 3
-✅ 8
-⚠️ 6
-General Computing
-
-**GPU**
-❌ 3
-✅ 9
-⚠️ 6
-❌ 4
-❌ 4
-Parallel Computing
-
-**Distributed**
-❌ 3
-✅ 9
-✅ 9
-❌ 4
-⚠️ 6
-Large-scale Processing
-
-**Async**
-✅ 8
-✅ 8
-⚠️ 6
-⚠️ 5
-✅ 8
-I/O-bound Tasks
-
-**Batch**
-❌ 2
-✅ 9
-✅ 9
-⚠️ 5
-✅ 7
-Data Processing
-
-</div>
+<p>| Processing Type | Latency | Throughput | Scalability | Complexity | Cost | Use Case Fit |
+|—————-|———|————|————-|————|——|————–|
+| <strong>CPU</strong> | ⚠️ 5 | ⚠️ 6 | ❌ 3 | ✅ 8 | ⚠️ 6 | General Computing |
+| <strong>GPU</strong> | ❌ 3 | ✅ 9 | ⚠️ 6 | ❌ 4 | ❌ 4 | Parallel Computing |
+| <strong>Distributed</strong> | ❌ 3 | ✅ 9 | ✅ 9 | ❌ 4 | ⚠️ 6 | Large-scale Processing |
+| <strong>Async</strong> | ✅ 8 | ✅ 8 | ⚠️ 6 | ⚠️ 5 | ✅ 8 | I/O-bound Tasks |
+| <strong>Batch</strong> | ❌ 2 | ✅ 9 | ✅ 9 | ⚠️ 5 | ✅ 7 | Data Processing |</p>
 <h3 id="scoring-legend">
   
   

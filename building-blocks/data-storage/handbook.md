@@ -1,15 +1,15 @@
 ---
-title: Data Storage Systems - Senior Staff Engineer Handbook
-description: Comprehensive technical deep-dive for Google Senior Staff System Design interviews
+title: Data Storage Systems - Reference & Interview Preparation
+description: Comprehensive technical deep-dive for system design engineers and advanced interviews
 layout: default
 parent: Data Storage
 grand_parent: Building Blocks
 ---
 
-# Data Storage Systems - Senior Staff Engineer Handbook
-## Comprehensive Technical Deep-Dive for System Design Interviews
+# Data Storage Systems - Reference & Interview Preparation
+## Comprehensive Technical Deep-Dive for System Design Engineers
 
-> **Target Audience**: Senior Staff Software Engineers preparing for Google system design interviews
+> **Target Audience**: System design engineers and advanced interview preparation
 > **Focus**: Building blocks, trade-offs, decision frameworks, and deep technical understanding
 
 ## 📋 Table of Contents
@@ -70,8 +70,8 @@ grand_parent: Building Blocks
 
 ## 🎯 **System Design Interview Context**
 
-### **Google Senior Staff Interview Expectations**
-At the Senior Staff level, Google expects you to:
+### **Advanced System Design Interview Expectations**
+At the advanced level, interviews expect you to:
 - **Lead architectural decisions** across multiple teams and systems
 - **Understand deep trade-offs** between different approaches
 - **Communicate complex technical concepts** clearly to stakeholders

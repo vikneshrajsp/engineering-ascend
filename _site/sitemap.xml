@@ -175,13 +175,16 @@
 <loc>http://0.0.0.0:4018/engineering-ascend/system-design-challenges/recommendation-system-design/</loc>
 </url>
 <url>
+<loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/data-storage/scalefactor/</loc>
+</url>
+<url>
 <loc>http://0.0.0.0:4018/engineering-ascend/system-design-challenges/search-autocomplete-design/</loc>
 </url>
 <url>
 <loc>http://0.0.0.0:4018/engineering-ascend/system-design-challenges/spotify-design/</loc>
 </url>
 <url>
-<loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/caching-performance/summary/</loc>
+<loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/monitoring-observability/summary/</loc>
 </url>
 <url>
 <loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/compute-processing/summary/</loc>
@@ -193,7 +196,7 @@
 <loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/networking-communication/summary/</loc>
 </url>
 <url>
-<loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/monitoring-observability/summary/</loc>
+<loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/caching-performance/summary/</loc>
 </url>
 <url>
 <loc>http://0.0.0.0:4018/engineering-ascend/building-blocks/messaging-streaming/summary/</loc>

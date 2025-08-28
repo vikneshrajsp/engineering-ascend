@@ -1,20 +1,62 @@
 ---
-title: Handbook
+title: Message Queuing & Streaming Systems - Reference & Interview Preparation
+description: Comprehensive technical deep-dive for system design engineers and advanced interviews
 layout: default
-grand_parent: Building Blocks
 parent: Messaging Streaming
+grand_parent: Building Blocks
 ---
 
-# Message Queuing & Streaming Systems - Detailed Handbook
-## Comprehensive Technical Deep-Dive for System Design
+# Message Queuing & Streaming Systems - Reference & Interview Preparation
+## Comprehensive Technical Deep-Dive for System Design Engineers
+
+> **Target Audience**: System design engineers and advanced interview preparation
+> **Focus**: Building blocks, trade-offs, decision frameworks, and deep technical understanding
 
 ## 📋 Table of Contents
-1. [Overview](#overview)
-2. [Messaging System Classifications](#messaging-system-classifications)
-3. [Performance Characteristics](#performance-characteristics)
-4. [Scaling Strategies](#scaling-strategies)
-5. [Decision Matrix](#decision-matrix)
-6. [Key Takeaways](#key-takeaways)
+
+### **1. Foundation & Philosophy**
+- [System Design Interview Context](#system-design-interview-context)
+- [Messaging System Design Principles](#messaging-system-design-principles)
+- [Decision Framework](#decision-framework)
+- [Trade-off Analysis Methodology](#trade-off-analysis-methodology)
+
+### **2. Messaging System Classifications**
+- [Message Queues](#1-message-queues)
+- [Event Streaming](#2-event-streaming)
+- [Message Brokers](#3-message-brokers)
+- [Event Sourcing](#4-event-sourcing)
+- [Command Query Responsibility Segregation (CQRS)](#5-command-query-responsibility-segregation-cqrs)
+- [Event-Driven Architecture](#6-event-driven-architecture)
+
+### **3. Deep Technical Analysis**
+- [Message Processing Models](#message-processing-models)
+- [Delivery Guarantees](#delivery-guarantees)
+- [Ordering Strategies](#ordering-strategies)
+- [Backpressure Handling](#backpressure-handling)
+
+### **4. Scaling & Performance**
+- [Scaling Strategies](#scaling-strategies)
+- [Performance Characteristics](#performance-characteristics)
+- [Optimization Techniques](#optimization-techniques)
+- [Capacity Planning](#capacity-planning)
+
+### **5. Operational Excellence**
+- [Availability & Reliability](#availability--reliability)
+- [Security Considerations](#security-considerations)
+- [Monitoring & Observability](#monitoring--observability)
+- [Operational Nuances](#operational-nuances)
+
+### **6. Market Implementations**
+- [Commercial Solutions](#commercial-solutions)
+- [Open Source Alternatives](#open-source-alternatives)
+- [Cloud-Native Services](#cloud-native-services)
+
+### **7. Interview Preparation**
+- [Decision Matrices](#decision-matrices)
+- [Common Pitfalls](#common-pitfalls)
+- [Interview Scenarios](#interview-scenarios)
+- [Key Takeaways](#key-takeaways)
+- [Further Reading](#further-reading)
 
 ---
 

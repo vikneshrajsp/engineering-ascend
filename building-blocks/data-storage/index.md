@@ -13,6 +13,7 @@ Master the fundamentals of data storage and management in distributed systems.
 - **[Handbook](./handbook)** - Comprehensive technical deep-dive
 - **[Summary](./summary)** - Key concepts and decision frameworks  
 - **[Cheatsheet](./cheatsheet)** - Quick reference for interviews
+- **[Scale Factor](./scalefactor)** - Understanding scaling multipliers and implications
 
 ## 🎯 Key Concepts
 
@@ -21,6 +22,7 @@ Master the fundamentals of data storage and management in distributed systems.
 - **Consistency Models: ACID, BASE, Eventual Consistency**
 - **Data Access Patterns: Read/Write patterns, Caching strategies**
 - **Scalability: Horizontal vs Vertical scaling**
+- **Scale Factors: Quantitative scaling multipliers and efficiency analysis**
 
 ## 🛠️ Technologies
 

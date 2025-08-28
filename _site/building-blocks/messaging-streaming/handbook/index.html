@@ -34,20 +34,20 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Handbook | Engineering Ascend</title>
+<title>Message Queuing &amp; Streaming Systems - Reference &amp; Interview Preparation | Engineering Ascend</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Handbook" />
+<meta property="og:title" content="Message Queuing &amp; Streaming Systems - Reference &amp; Interview Preparation" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
-<meta property="og:description" content="Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture" />
+<meta name="description" content="Comprehensive technical deep-dive for system design engineers and advanced interviews" />
+<meta property="og:description" content="Comprehensive technical deep-dive for system design engineers and advanced interviews" />
 <link rel="canonical" href="http://0.0.0.0:4018/engineering-ascend/building-blocks/messaging-streaming/handbook/" />
 <meta property="og:url" content="http://0.0.0.0:4018/engineering-ascend/building-blocks/messaging-streaming/handbook/" />
 <meta property="og:site_name" content="Engineering Ascend" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Handbook" />
+<meta property="twitter:title" content="Message Queuing &amp; Streaming Systems - Reference &amp; Interview Preparation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Master system design with comprehensive building blocks, challenges, and frameworks for technical interviews and scalable architecture","headline":"Handbook","url":"http://0.0.0.0:4018/engineering-ascend/building-blocks/messaging-streaming/handbook/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Comprehensive technical deep-dive for system design engineers and advanced interviews","headline":"Message Queuing &amp; Streaming Systems - Reference &amp; Interview Preparation","url":"http://0.0.0.0:4018/engineering-ascend/building-blocks/messaging-streaming/handbook/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -310,28 +310,33 @@ document.addEventListener('DOMContentLoaded', function() {
   
     <li class="breadcrumb-nav-list-item"><a href="">Building Blocks</a></li>
     <li class="breadcrumb-nav-list-item"><a href="">Messaging Streaming</a></li>
-  <li class="breadcrumb-nav-list-item"><span>Handbook</span></li>
+  <li class="breadcrumb-nav-list-item"><span>Message Queuing & Streaming Systems - Reference & Interview Preparation</span></li>
   </ol>
 </nav>
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="message-queuing--streaming-systems---detailed-handbook">
+            <h1 id="message-queuing--streaming-systems---reference--interview-preparation">
   
   
-    <a href="#message-queuing--streaming-systems---detailed-handbook" class="anchor-heading" aria-labelledby="message-queuing--streaming-systems---detailed-handbook"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Message Queuing &amp; Streaming Systems - Detailed Handbook
+    <a href="#message-queuing--streaming-systems---reference--interview-preparation" class="anchor-heading" aria-labelledby="message-queuing--streaming-systems---reference--interview-preparation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Message Queuing &amp; Streaming Systems - Reference &amp; Interview Preparation
   
   
 </h1>
     
-<h2 id="comprehensive-technical-deep-dive-for-system-design">
+<h2 id="comprehensive-technical-deep-dive-for-system-design-engineers">
   
   
-    <a href="#comprehensive-technical-deep-dive-for-system-design" class="anchor-heading" aria-labelledby="comprehensive-technical-deep-dive-for-system-design"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Technical Deep-Dive for System Design
+    <a href="#comprehensive-technical-deep-dive-for-system-design-engineers" class="anchor-heading" aria-labelledby="comprehensive-technical-deep-dive-for-system-design-engineers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comprehensive Technical Deep-Dive for System Design Engineers
   
   
 </h2>
     
+
+<blockquote>
+  <p><strong>Target Audience</strong>: System design engineers and advanced interview preparation
+<strong>Focus</strong>: Building blocks, trade-offs, decision frameworks, and deep technical understanding</p>
+</blockquote>
 <h2 id="-table-of-contents">
   
   
@@ -340,14 +345,106 @@ document.addEventListener('DOMContentLoaded', function() {
   
 </h2>
     
-<ol>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#messaging-system-classifications">Messaging System Classifications</a></li>
-  <li><a href="#performance-characteristics">Performance Characteristics</a></li>
+<h3 id="1-foundation--philosophy">
+  
+  
+    <a href="#1-foundation--philosophy" class="anchor-heading" aria-labelledby="1-foundation--philosophy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>1. Foundation &amp; Philosophy</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#system-design-interview-context">System Design Interview Context</a></li>
+  <li><a href="#messaging-system-design-principles">Messaging System Design Principles</a></li>
+  <li><a href="#decision-framework">Decision Framework</a></li>
+  <li><a href="#trade-off-analysis-methodology">Trade-off Analysis Methodology</a></li>
+</ul>
+<h3 id="2-messaging-system-classifications">
+  
+  
+    <a href="#2-messaging-system-classifications" class="anchor-heading" aria-labelledby="2-messaging-system-classifications"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>2. Messaging System Classifications</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#1-message-queues">Message Queues</a></li>
+  <li><a href="#2-event-streaming">Event Streaming</a></li>
+  <li><a href="#3-message-brokers">Message Brokers</a></li>
+  <li><a href="#4-event-sourcing">Event Sourcing</a></li>
+  <li><a href="#5-command-query-responsibility-segregation-cqrs">Command Query Responsibility Segregation (CQRS)</a></li>
+  <li><a href="#6-event-driven-architecture">Event-Driven Architecture</a></li>
+</ul>
+<h3 id="3-deep-technical-analysis">
+  
+  
+    <a href="#3-deep-technical-analysis" class="anchor-heading" aria-labelledby="3-deep-technical-analysis"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>3. Deep Technical Analysis</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#message-processing-models">Message Processing Models</a></li>
+  <li><a href="#delivery-guarantees">Delivery Guarantees</a></li>
+  <li><a href="#ordering-strategies">Ordering Strategies</a></li>
+  <li><a href="#backpressure-handling">Backpressure Handling</a></li>
+</ul>
+<h3 id="4-scaling--performance">
+  
+  
+    <a href="#4-scaling--performance" class="anchor-heading" aria-labelledby="4-scaling--performance"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>4. Scaling &amp; Performance</strong>
+  
+  
+</h3>
+    
+<ul>
   <li><a href="#scaling-strategies">Scaling Strategies</a></li>
-  <li><a href="#decision-matrix">Decision Matrix</a></li>
+  <li><a href="#performance-characteristics">Performance Characteristics</a></li>
+  <li><a href="#optimization-techniques">Optimization Techniques</a></li>
+  <li><a href="#capacity-planning">Capacity Planning</a></li>
+</ul>
+<h3 id="5-operational-excellence">
+  
+  
+    <a href="#5-operational-excellence" class="anchor-heading" aria-labelledby="5-operational-excellence"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>5. Operational Excellence</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#availability--reliability">Availability &amp; Reliability</a></li>
+  <li><a href="#security-considerations">Security Considerations</a></li>
+  <li><a href="#monitoring--observability">Monitoring &amp; Observability</a></li>
+  <li><a href="#operational-nuances">Operational Nuances</a></li>
+</ul>
+<h3 id="6-market-implementations">
+  
+  
+    <a href="#6-market-implementations" class="anchor-heading" aria-labelledby="6-market-implementations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>6. Market Implementations</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#commercial-solutions">Commercial Solutions</a></li>
+  <li><a href="#open-source-alternatives">Open Source Alternatives</a></li>
+  <li><a href="#cloud-native-services">Cloud-Native Services</a></li>
+</ul>
+<h3 id="7-interview-preparation">
+  
+  
+    <a href="#7-interview-preparation" class="anchor-heading" aria-labelledby="7-interview-preparation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <strong>7. Interview Preparation</strong>
+  
+  
+</h3>
+    
+<ul>
+  <li><a href="#decision-matrices">Decision Matrices</a></li>
+  <li><a href="#common-pitfalls">Common Pitfalls</a></li>
+  <li><a href="#interview-scenarios">Interview Scenarios</a></li>
   <li><a href="#key-takeaways">Key Takeaways</a></li>
-</ol><hr />
+  <li><a href="#further-reading">Further Reading</a></li>
+</ul><hr />
 <h2 id="-overview">
   
   

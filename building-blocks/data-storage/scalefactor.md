@@ -99,6 +99,7 @@ Performance
 - **Late scaling**: Low efficiency, complexity dominates
 
 ### **Efficiency Factors by Scale**
+
 | Scale Range | Efficiency | Primary Limiting Factor |
 |-------------|------------|-------------------------|
 | **1x - 10x** | 80-95% | Hardware limits |
